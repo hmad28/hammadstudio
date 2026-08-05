@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { HomePage, ServicesPage, WorkPage } from "@/components/marketing-pages";
+import { ServicesPage, WorkPage } from "@/components/marketing-pages";
 import { InsightsPage, PricingPage, StudioPage, ToolPage, UtilityPage, articleData } from "@/components/secondary-pages";
 import { SiteShell } from "@/components/site-shell";
+import { ReferenceHome, ReferenceServices } from "@/components/reference-pages";
 import { seoPages, services, site } from "@/lib/site-data";
 import type { Locale } from "@/lib/types";
 
@@ -34,10 +35,10 @@ export async function generateStaticParams() {
 export default async function MarketingPage({ params }: Props) {
   const { locale, routeParts, path } = resolve((await params).slug);
   let page: React.ReactNode;
-  if(path==="/") page=<HomePage locale={locale}/>;
+  if(path==="/") page=<ReferenceHome locale={locale}/>;
   else if(path==="/work") page=<WorkPage locale={locale}/>;
   else if(routeParts[0]==="work"&&routeParts[1]) page=<WorkPage locale={locale} project={routeParts[1]}/>;
-  else if(path==="/services") page=<ServicesPage locale={locale}/>;
+  else if(path==="/services") page=<ReferenceServices locale={locale}/>;
   else if(routeParts[0]==="services"&&services.some(s=>s.slug===routeParts[1])) page=<ServicesPage locale={locale} slug={routeParts[1]}/>;
   else if(path==="/pricing") page=<PricingPage locale={locale}/>;
   else if(path==="/studio") page=<StudioPage locale={locale}/>;
