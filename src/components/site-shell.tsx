@@ -8,8 +8,8 @@ import { localHref } from "@/lib/locale";
 export function SiteHeader({ locale, path }: { locale: Locale; path: string }) {
   const [open, setOpen] = useState(false);
   const labels = locale === "id"
-    ? { work: "Work", services: "Services", pricing: "Pricing", start: "Mulai Project" }
-    : { work: "Work", services: "Services", pricing: "Pricing", start: "Start a Project" };
+    ? { work: "Work", services: "Services", pricing: "Pricing", start: "Let's Talk" }
+    : { work: "Work", services: "Services", pricing: "Pricing", start: "Let's Talk" };
   const otherLocale = locale === "id" ? "en" : "id";
   const otherPath = otherLocale === "en" ? `/en${path === "/" ? "" : path}` : path.replace(/^\/en/, "") || "/";
   return (
