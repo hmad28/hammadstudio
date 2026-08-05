@@ -14,16 +14,16 @@ export function SiteHeader({ locale, path }: { locale: Locale; path: string }) {
   const otherPath = otherLocale === "en" ? `/en${path === "/" ? "" : path}` : path.replace(/^\/en/, "") || "/";
   return (
     <header className="site-header">
-      <Link href={localHref(locale)} className="wordmark" aria-label="Hammad Studio home">HAMMAD STUDIO<sup>®</sup></Link>
+      <Link data-transition href={localHref(locale)} className="wordmark" aria-label="Hammad Studio home">HAMMAD STUDIO<sup>®</sup></Link>
       <button className="menu-button" onClick={() => setOpen((value) => !value)} aria-expanded={open} aria-controls="main-nav">{open ? "CLOSE" : "MENU"}</button>
       <nav id="main-nav" className={open ? "nav open" : "nav"} aria-label="Primary navigation">
-        <Link href={localHref(locale, "/work")}>{labels.work}</Link>
-        <Link href={localHref(locale, "/services")}>{labels.services}</Link>
-        <Link href={localHref(locale, "/pricing")}>{labels.pricing}</Link>
-        <Link href={localHref(locale, "/studio")}>{labels.studio}</Link>
-        <Link href={localHref(locale, "/insights")}>{labels.insights}</Link>
-        <Link className="locale-link" href={otherPath}>{otherLocale.toUpperCase()}</Link>
-        <Link className="nav-cta" href={localHref(locale, "/start-project")}>{labels.start}<span>↗</span></Link>
+        <Link data-transition href={localHref(locale, "/work")}>{labels.work}</Link>
+        <Link data-transition href={localHref(locale, "/services")}>{labels.services}</Link>
+        <Link data-transition href={localHref(locale, "/pricing")}>{labels.pricing}</Link>
+        <Link data-transition href={localHref(locale, "/studio")}>{labels.studio}</Link>
+        <Link data-transition href={localHref(locale, "/insights")}>{labels.insights}</Link>
+        <Link data-transition className="locale-link" href={otherPath}>{otherLocale.toUpperCase()}</Link>
+        <Link data-transition className="nav-cta magnetic" href={localHref(locale, "/start-project")}>{labels.start}<span>↗</span></Link>
       </nav>
     </header>
   );

@@ -7,7 +7,7 @@ import { localHref } from "@/lib/locale";
 export function Kicker({ children }: { children: React.ReactNode }) { return <p className="kicker">{children}</p>; }
 
 export function ArrowLink({ href, children, muted = false }: { href: string; children: React.ReactNode; muted?: boolean }) {
-  return <Link className={muted ? "arrow-link muted" : "arrow-link"} href={href}><span>{children}</span><b aria-hidden>↗</b></Link>;
+  return <Link data-transition className={muted ? "arrow-link muted magnetic" : "arrow-link magnetic"} href={href}><span>{children}</span><b aria-hidden>↗</b></Link>;
 }
 
 export function PageHero({ eyebrow, title, body, aside }: { eyebrow: string; title: React.ReactNode; body: string; aside?: React.ReactNode }) {

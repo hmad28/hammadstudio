@@ -3,6 +3,8 @@ import Script from "next/script";
 import "@fontsource-variable/archivo/wdth.css";
 import "@fontsource/ibm-plex-mono/400.css";
 import "./globals.css";
+import "./motion.css";
+import { MotionSystem } from "@/components/motion-system";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://hammad.studio";
 
@@ -20,6 +22,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="id">
       <body>
         <a className="skip-link" href="#main">Skip to content</a>
+        <MotionSystem />
         {children}
         {gaId ? (
           <>
