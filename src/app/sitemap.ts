@@ -1,0 +1,4 @@
+import type { MetadataRoute } from "next";
+import { articleData } from "@/components/secondary-pages";
+import { seoPages,services } from "@/lib/site-data";
+export default function sitemap():MetadataRoute.Sitemap{const base=process.env.NEXT_PUBLIC_SITE_URL??"https://hammad.studio";const core=["","work","services","pricing","studio","insights","start-project","contact","care","estimate","project-fit","legal/privacy","legal/terms",...services.map(s=>`services/${s.slug}`),...articleData.map(a=>`insights/${a.slug}`),...seoPages];return core.flatMap(path=>[{url:`${base}/${path}`,lastModified:new Date(),changeFrequency:path.startsWith("insights")?"monthly":"weekly" as const,priority:path===""?1:.7},{url:`${base}/en${path?`/${path}`:""}`,lastModified:new Date(),changeFrequency:"monthly" as const,priority:path===""?.9:.6}])}
