@@ -1,39 +1,53 @@
 import type { Metadata } from "next";
-import Script from "next/script";
-import "@fontsource/instrument-serif/400.css";
-import "@fontsource-variable/geist/wght.css";
-import "@fontsource-variable/geist-mono/wght.css";
 import "./globals.css";
-import "./motion.css";
-import "./focused-home.css";
-import "./dytama-home.css";
-import "./dytama-shell.css";
-import { MotionSystem } from "@/components/motion-system";
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://hammad.studio";
+import { Navbar } from "@/components/navbar";
+import { CTAFooter } from "@/components/cta-footer";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
-  title: { default: "Hammad Studio — Digital Product & Software Studio Indonesia", template: "%s — Hammad Studio" },
-  description: "Hammad Studio designs and builds premium websites, commerce experiences, business systems, automation, and custom software with clear scope and transparent pricing.",
-  openGraph: { title: "HAMMAD STUDIO®", description: "Digital products, engineered properly.", type: "website", url: siteUrl, siteName: "Hammad Studio" },
-  twitter: { card: "summary_large_image", title: "HAMMAD STUDIO®", description: "Digital products, engineered properly." },
+  title: "Jasa Pembuatan Website & UI/UX Design Profesional – Dytama",
+  description:
+    "Dytama menyediakan jasa pembuatan website profesional, desain UI/UX modern, dan pengembangan web untuk bisnis, startup, dan personal brand di Indonesia.",
+  keywords: [
+    "jasa pembuatan website indonesia",
+    "jasa pembuatan website profesional",
+    "jasa web developer indonesia",
+    "jasa desain ui ux",
+    "Dytama",
+    "digital product studio",
+  ],
+  icons: {
+    icon: "/assets/img/brand/dytama-icon.svg",
+  },
+  openGraph: {
+    title: "Jasa Pembuatan Website & UI/UX Design Profesional – Dytama",
+    description:
+      "Dytama menyediakan jasa pembuatan website profesional, desain UI/UX modern, dan pengembangan web untuk bisnis, startup, dan personal brand di Indonesia.",
+    url: "https://dytama.com",
+    siteName: "Dytama Studio",
+    images: [
+      {
+        url: "/assets/img/brand/opengraphdytama.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Dytama Studio Preview",
+      },
+    ],
+    locale: "id_ID",
+    type: "website",
+  },
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  const gaId = process.env.NEXT_PUBLIC_GA_ID;
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html lang="id">
-      <body>
-        <a className="skip-link" href="#main">Skip to content</a>
-        <MotionSystem />
-        {children}
-        {gaId ? (
-          <>
-            <Script src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} strategy="afterInteractive" />
-            <Script id="ga" strategy="afterInteractive">{`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${gaId}',{anonymize_ip:true});`}</Script>
-          </>
-        ) : null}
+    <html lang="id" className="scroll-smooth">
+      <body className="bg-[#0D1526] text-white antialiased min-h-screen flex flex-col">
+        <Navbar />
+        <main className="flex-1">{children}</main>
+        <CTAFooter />
       </body>
     </html>
   );
