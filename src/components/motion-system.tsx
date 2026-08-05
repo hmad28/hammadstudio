@@ -19,7 +19,7 @@ export function MotionSystem() {
     const revealObserver = new IntersectionObserver((entries) => entries.forEach((entry) => {
       if (entry.isIntersecting) { entry.target.classList.add("is-visible"); revealObserver.unobserve(entry.target); }
     }), { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
-    const revealTargets = document.querySelectorAll<HTMLElement>("[data-reveal], .ref-hero-copy h1, .ref-intro h2, .ref-section-head h2, .ref-fit h2, .ref-final h2, .ref-work-card, .ref-service-stack a, .ref-process article");
+    const revealTargets = document.querySelectorAll<HTMLElement>("[data-reveal], .ref-hero-copy h1, .ref-intro h2, .ref-section-head h2, .ref-fit h2, .ref-final h2, .ref-work-card, .ref-service-stack a, .ref-process article, .focus-section-head h2, .focus-project, .focus-capability, .focus-price-row, .focus-process-list article, .focus-final h2");
     revealTargets.forEach((element) => { if (!element.dataset.reveal) element.dataset.reveal = element.matches(".ref-hero-copy h1") ? "mask" : "up"; revealObserver.observe(element); });
 
     if (reduced || !finePointer) return () => { revealObserver.disconnect(); if (lenisFrame) cancelAnimationFrame(lenisFrame); lenis?.destroy(); };
@@ -55,14 +55,14 @@ export function MotionSystem() {
         const rect = magnetic.getBoundingClientRect(); const distanceX = event.clientX - (rect.left + rect.width / 2); const distanceY = event.clientY - (rect.top + rect.height / 2);
         if (Math.abs(distanceX) < 100 && Math.abs(distanceY) < 80) { activeMagnetic = magnetic; magnetic.style.setProperty("--mag-x", `${distanceX * 0.08}px`); magnetic.style.setProperty("--mag-y", `${distanceY * 0.12}px`); }
       } else if (activeMagnetic) { activeMagnetic.style.setProperty("--mag-x", "0px"); activeMagnetic.style.setProperty("--mag-y", "0px"); activeMagnetic = null; }
-      const hero = (event.target as Element | null)?.closest<HTMLElement>(".ref-hero, .home-hero");
+    const hero = (event.target as Element | null)?.closest<HTMLElement>(".ref-hero, .home-hero, .focus-hero");
       if (hero) { const rect = hero.getBoundingClientRect(); hero.style.setProperty("--mouse-x", `${((event.clientX - rect.left) / rect.width - .5) * 18}px`); hero.style.setProperty("--mouse-y", `${((event.clientY - rect.top) / rect.height - .5) * 18}px`); }
     };
     const leave = () => { cursor.classList.remove("is-active"); preview.classList.remove("is-active"); if (activeMagnetic) { activeMagnetic.style.setProperty("--mag-x", "0px"); activeMagnetic.style.setProperty("--mag-y", "0px"); activeMagnetic = null; } };
     const click = (event: MouseEvent) => { const anchor = (event.target as Element | null)?.closest<HTMLAnchorElement>("a[data-transition]"); if (!anchor || anchor.target === "_blank" || anchor.origin !== window.location.origin) return; transitionRef.current?.classList.add("is-active"); window.setTimeout(() => transitionRef.current?.classList.remove("is-active"), 780); };
     document.addEventListener("pointermove", pointerMove, { passive: true }); document.addEventListener("pointerleave", leave); document.addEventListener("click", click);
     frame = requestAnimationFrame(paint);
-    const progress = () => document.querySelectorAll<HTMLElement>(".ref-process").forEach((element) => { const rect = element.getBoundingClientRect(); const value = Math.min(1, Math.max(0, (window.innerHeight * .78 - rect.top) / Math.max(1, rect.height))); element.style.setProperty("--process-progress", String(value)); });
+    const progress = () => document.querySelectorAll<HTMLElement>(".ref-process, .focus-process-list").forEach((element) => { const rect = element.getBoundingClientRect(); const value = Math.min(1, Math.max(0, (window.innerHeight * .78 - rect.top) / Math.max(1, rect.height))); element.style.setProperty("--process-progress", String(value)); });
     window.addEventListener("scroll", progress, { passive: true }); progress();
     return () => { revealObserver.disconnect(); cancelAnimationFrame(frame); if (lenisFrame) cancelAnimationFrame(lenisFrame); lenis?.destroy(); document.removeEventListener("pointermove", pointerMove); document.removeEventListener("pointerleave", leave); document.removeEventListener("click", click); window.removeEventListener("scroll", progress); };
   }, []);

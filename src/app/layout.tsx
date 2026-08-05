@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import "@fontsource-variable/archivo/wdth.css";
-import "@fontsource/ibm-plex-mono/400.css";
+import "@fontsource/instrument-serif/400.css";
+import "@fontsource-variable/geist/wght.css";
+import "@fontsource-variable/geist-mono/wght.css";
 import "./globals.css";
 import "./motion.css";
+import "./focused-home.css";
 import { MotionSystem } from "@/components/motion-system";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://hammad.studio";

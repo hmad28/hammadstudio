@@ -3,7 +3,8 @@ import { notFound } from "next/navigation";
 import { ServicesPage, WorkPage } from "@/components/marketing-pages";
 import { InsightsPage, PricingPage, StudioPage, ToolPage, UtilityPage, articleData } from "@/components/secondary-pages";
 import { SiteShell } from "@/components/site-shell";
-import { ReferenceHome, ReferenceServices } from "@/components/reference-pages";
+import { ReferenceServices } from "@/components/reference-pages";
+import { FocusedHome } from "@/components/focused-home";
 import { seoPages, services, site } from "@/lib/site-data";
 import type { Locale } from "@/lib/types";
 
@@ -35,7 +36,7 @@ export async function generateStaticParams() {
 export default async function MarketingPage({ params }: Props) {
   const { locale, routeParts, path } = resolve((await params).slug);
   let page: React.ReactNode;
-  if(path==="/") page=<ReferenceHome locale={locale}/>;
+  if(path==="/") page=<FocusedHome locale={locale}/>;
   else if(path==="/work") page=<WorkPage locale={locale}/>;
   else if(routeParts[0]==="work"&&routeParts[1]) page=<WorkPage locale={locale} project={routeParts[1]}/>;
   else if(path==="/services") page=<ReferenceServices locale={locale}/>;

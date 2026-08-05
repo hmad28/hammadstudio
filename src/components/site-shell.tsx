@@ -8,8 +8,8 @@ import { localHref } from "@/lib/locale";
 export function SiteHeader({ locale, path }: { locale: Locale; path: string }) {
   const [open, setOpen] = useState(false);
   const labels = locale === "id"
-    ? { work: "Work", services: "Services", pricing: "Pricing", studio: "Studio", insights: "Insights", start: "Mulai Project" }
-    : { work: "Work", services: "Services", pricing: "Pricing", studio: "Studio", insights: "Insights", start: "Start a Project" };
+    ? { work: "Work", services: "Services", pricing: "Pricing", start: "Mulai Project" }
+    : { work: "Work", services: "Services", pricing: "Pricing", start: "Start a Project" };
   const otherLocale = locale === "id" ? "en" : "id";
   const otherPath = otherLocale === "en" ? `/en${path === "/" ? "" : path}` : path.replace(/^\/en/, "") || "/";
   return (
@@ -20,8 +20,6 @@ export function SiteHeader({ locale, path }: { locale: Locale; path: string }) {
         <Link data-transition href={localHref(locale, "/work")}>{labels.work}</Link>
         <Link data-transition href={localHref(locale, "/services")}>{labels.services}</Link>
         <Link data-transition href={localHref(locale, "/pricing")}>{labels.pricing}</Link>
-        <Link data-transition href={localHref(locale, "/studio")}>{labels.studio}</Link>
-        <Link data-transition href={localHref(locale, "/insights")}>{labels.insights}</Link>
         <Link data-transition className="locale-link" href={otherPath}>{otherLocale.toUpperCase()}</Link>
         <Link data-transition className="nav-cta magnetic" href={localHref(locale, "/start-project")}>{labels.start}<span>↗</span></Link>
       </nav>
