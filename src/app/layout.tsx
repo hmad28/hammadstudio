@@ -6,6 +6,8 @@ import "@fontsource-variable/geist-mono/wght.css";
 import "./globals.css";
 import "./motion.css";
 import "./focused-home.css";
+import "./dytama-home.css";
+import "./dytama-shell.css";
 import { MotionSystem } from "@/components/motion-system";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://hammad.studio";
