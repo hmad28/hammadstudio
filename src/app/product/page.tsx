@@ -19,7 +19,7 @@ const products = [
     title: "SaaS Starter Kit Next.js 16",
     category: "Code Template",
     description: "Boilerplate SaaS lengkap dengan Auth, Payment Integration, and Responsive Dashboard UI.",
-    image: "/assets/img/illustration/background-web-dytama.webp",
+    image: "/images/work/saudi-education-expo.webp",
   },
 ];
 

@@ -2,8 +2,8 @@ import React from "react";
 
 export function HammadStudioLogo({ className = "h-auto" }: { className?: string }) {
   return (
-    <span className={`font-black text-sm sm:text-base tracking-[0.18em] text-white uppercase select-none ${className}`}>
-      HAMMAD<span className="text-zinc-500 font-normal">.STUDIO</span>
+    <span className={`text-[0.72rem] font-semibold tracking-[0.22em] text-white uppercase select-none sm:text-xs ${className}`}>
+      HAMMAD<span className="text-[#8e8e8a] font-medium">.STUDIO</span>
     </span>
   );
 }

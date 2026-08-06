@@ -1,106 +1,46 @@
-"use client";
-
-import React from "react";
 import Link from "next/link";
-import { HammadStudioLogo, ArrowUpRightIcon } from "./icons";
+import { ArrowUpRightIcon, HammadStudioLogo } from "./icons";
 
-const WHATSAPP_URL = "https://wa.me/+6287888362186?text=Halo%20HAMMAD.STUDIO%2C%20saya%20tertarik%20untuk%20memulai%20proyek";
+const projectUrl = "https://wa.me/6287888362186?text=Halo%20HAMMAD.STUDIO%2C%20saya%20ingin%20memulai%20project";
 
 export function CTAFooter() {
   return (
-    <footer className="relative w-full bg-[#050505] text-white">
-      {/* SECTION 06 — FINAL CTA (IVORY VISUAL INVERSION BREAK) */}
-      <section className="relative w-full py-24 lg:py-32 bg-[#F4F2EC] text-[#080808]">
-        <div className="container max-w-[1200px] mx-auto px-4 text-center flex flex-col items-center space-y-6">
-          <span className="text-xs font-mono font-semibold tracking-widest text-zinc-500 uppercase">
-            START A PROJECT
-          </span>
-
-          <h2 className="text-4xl sm:text-6xl lg:text-7xl font-medium tracking-tight text-[#080808] leading-[0.98]">
-            Got a project in mind?
-          </h2>
-
-          <p className="text-base sm:text-lg text-zinc-700 max-w-xl leading-relaxed">
-            Tell us what you&apos;re building. We&apos;ll help figure out the best way to make it happen.
-          </p>
-
-          <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 px-8 py-4 bg-[#080808] hover:bg-zinc-800 text-white font-semibold text-sm rounded-xl transition-all duration-200 cursor-pointer shadow-xl"
-            >
-              Start a Project
-              <ArrowUpRightIcon className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+    <footer className="bg-[#050505] text-white">
+      <section className="bg-[#f4f2ec] px-5 pb-0 pt-2 text-[#080808] sm:px-8">
+        <div className="reveal mx-auto max-w-[1280px] rounded-t-[18px] border border-black/[.07] bg-[radial-gradient(70%_90%_at_50%_0%,#fff_0%,#f5f4f0_52%,#e7e5df_100%)] px-5 py-16 text-center shadow-[inset_0_1px_0_white] sm:py-20 lg:py-24">
+          <h2 className="text-[clamp(2.55rem,5vw,4.5rem)] font-[500] leading-[.98] tracking-[-.05em]">Got a project<br className="sm:hidden" /> in mind?</h2>
+          <p className="mx-auto mt-5 max-w-[560px] text-sm leading-[1.6] text-[#5e5e5a] sm:text-base">Tell us what you&apos;re building. We&apos;ll help figure out the best way to make it happen.</p>
+          <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <a href={projectUrl} target="_blank" rel="noreferrer" className="group inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#080808] px-7 py-3.5 text-sm font-semibold text-white shadow-xl transition-transform duration-200 hover:-translate-y-0.5 sm:w-auto">
+              Start a Project <ArrowUpRightIcon className="button-arrow h-4 w-4" />
             </a>
-            <a
-              href="mailto:hello@hammad.studio"
-              className="inline-flex items-center gap-2 px-8 py-4 border border-black/15 hover:border-black/40 text-[#080808] font-medium text-sm rounded-xl transition-all duration-200"
-            >
-              hello@hammad.studio
-            </a>
+            <a href="mailto:hello@hammad.studio" className="inline-flex w-full items-center justify-center rounded-xl border border-black/15 px-7 py-3.5 text-sm font-medium transition-colors hover:bg-black/[.04] sm:w-auto">hello@hammad.studio</a>
           </div>
         </div>
       </section>
 
-      {/* SECTION 07 — FOOTER */}
-      <section className="relative w-full py-16 bg-[#050505] border-t border-white/10 overflow-hidden">
-        {/* Massive Subtle Typography Background */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden z-0">
-          <span className="text-[14vw] font-black tracking-tighter text-white/[0.03] whitespace-nowrap">
-            HAMMAD.STUDIO
-          </span>
-        </div>
-
-        <div className="container max-w-[1200px] mx-auto px-4 relative z-10 space-y-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {/* Brand Column */}
-            <div className="space-y-3">
-              <Link href="/">
-                <HammadStudioLogo />
-              </Link>
-              <p className="text-xs text-zinc-400 font-normal leading-relaxed">
-                Digital Product & Software Studio.
-              </p>
+      <section className="relative overflow-hidden border-t border-white/[.08] py-12 sm:py-14">
+        <div className="pointer-events-none absolute inset-x-0 bottom-[-3vw] text-center text-[12vw] font-semibold leading-none tracking-[-.07em] text-white/[.028]" aria-hidden="true">HAMMAD.STUDIO</div>
+        <div className="site-container relative z-10">
+          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-12 lg:gap-6">
+            <div className="lg:col-span-5">
+              <Link href="/"><HammadStudioLogo /></Link>
+              <p className="mt-3 text-xs leading-[1.55] text-[#8e8e8a]">Digital Product &amp; Software Studio.</p>
             </div>
-
-            {/* Navigation Column */}
-            <div className="space-y-2">
-              <h4 className="text-xs font-mono font-semibold text-zinc-400 uppercase tracking-wider">Navigation</h4>
-              <ul className="space-y-1.5 text-xs text-zinc-400 font-medium">
-                <li><Link href="/#services" className="hover:text-white transition-colors">Services</Link></li>
-                <li><Link href="/#work" className="hover:text-white transition-colors">Work</Link></li>
-                <li><Link href="/#pricing" className="hover:text-white transition-colors">Pricing</Link></li>
-                <li><Link href="/about" className="hover:text-white transition-colors">Studio</Link></li>
-              </ul>
-            </div>
-
-            {/* Social Column */}
-            <div className="space-y-2">
-              <h4 className="text-xs font-mono font-semibold text-zinc-400 uppercase tracking-wider">Social</h4>
-              <ul className="space-y-1.5 text-xs text-zinc-400 font-medium">
-                <li><a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">Instagram ↗</a></li>
-                <li><a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">LinkedIn ↗</a></li>
-                <li><a href="https://github.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">GitHub ↗</a></li>
-              </ul>
-            </div>
-
-            {/* Contact Column */}
-            <div className="space-y-2">
-              <h4 className="text-xs font-mono font-semibold text-zinc-400 uppercase tracking-wider">Contact</h4>
-              <p className="text-xs text-zinc-400 font-medium">
-                hello@hammad.studio
-              </p>
-              <p className="text-xs text-zinc-400">
-                Depok & Jakarta, Indonesia
-              </p>
+            <nav className="grid grid-cols-2 gap-x-8 gap-y-2 text-xs text-[#a8a8a4] sm:col-span-1 lg:col-span-3" aria-label="Footer navigation">
+              <Link href="/#services" className="hover:text-white">Services</Link>
+              <Link href="/#work" className="hover:text-white">Work</Link>
+              <Link href="/#pricing" className="hover:text-white">Pricing</Link>
+              <Link href="/about" className="hover:text-white">Studio</Link>
+            </nav>
+            <div className="lg:col-span-4 lg:text-right">
+              <a href="mailto:hello@hammad.studio" className="text-xs text-[#ddddda] transition-colors hover:text-white">hello@hammad.studio</a>
+              <p className="mt-2 text-[0.68rem] text-[#747471]">Depok &amp; Jakarta, Indonesia</p>
             </div>
           </div>
-
-          <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-400 gap-4">
-            <p>© {new Date().getFullYear()} HAMMAD.STUDIO. All rights reserved.</p>
-            <p>Quiet confidence. Clean execution.</p>
+          <div className="mt-12 flex flex-col gap-2 border-t border-white/[.08] pt-5 text-[0.65rem] text-[#686865] sm:flex-row sm:items-center sm:justify-between">
+            <p>© {new Date().getFullYear()} HAMMAD.STUDIO</p>
+            <p>Digital Product &amp; Software Studio</p>
           </div>
         </div>
       </section>

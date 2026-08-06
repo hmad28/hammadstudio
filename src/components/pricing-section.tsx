@@ -1,92 +1,38 @@
-"use client";
-
-import React from "react";
+import Link from "next/link";
 import { ArrowUpRightIcon } from "./icons";
 
-const WHATSAPP_BASE = "https://wa.me/+6287888362186?text=";
-
-interface PricingRow {
-  num: string;
-  title: string;
-  price: string;
-  description: string;
-  whatsappMsg: string;
-}
-
-const pricingRows: PricingRow[] = [
-  {
-    num: "01",
-    title: "Website",
-    price: "From Rp3.5M",
-    description: "Landing pages and focused marketing websites.",
-    whatsappMsg: encodeURIComponent("Halo HAMMAD.STUDIO, saya tertarik dengan paket Website (Mulai Rp3.5M)."),
-  },
-  {
-    num: "02",
-    title: "Business Website",
-    price: "From Rp6.5M",
-    description: "Complete websites for growing businesses with custom CMS.",
-    whatsappMsg: encodeURIComponent("Halo HAMMAD.STUDIO, saya tertarik dengan paket Business Website (Mulai Rp6.5M)."),
-  },
-  {
-    num: "03",
-    title: "Custom Software",
-    price: "From Rp12.5M",
-    description: "Dashboards, business systems, and custom SaaS web applications.",
-    whatsappMsg: encodeURIComponent("Halo HAMMAD.STUDIO, saya berminat konsultasi paket Custom Software (Mulai Rp12.5M)."),
-  },
+const pricing = [
+  { title: "Website", price: "Rp3.5M", description: "Landing pages and focused websites." },
+  { title: "Business Website", price: "Rp6.5M", description: "Complete websites for growing businesses." },
+  { title: "Custom Software", price: "Rp12.5M", description: "Dashboards, systems and custom applications." },
 ];
 
 export function PricingSection() {
   return (
-    <section id="pricing" className="relative w-full py-24 lg:py-32 bg-[#101010] text-[#FAFAF8] border-t border-white/10">
-      <div className="container max-w-[1200px] mx-auto px-4">
-        {/* Header */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start mb-16">
+    <section id="pricing" className="scroll-mt-20 border-t border-black/10 bg-[#f4f2ec] py-20 text-[#080808] sm:py-24">
+      <div className="site-container reveal">
+        <div className="grid gap-10 lg:grid-cols-12 lg:gap-6">
           <div className="lg:col-span-3">
-            <span className="text-xs font-mono font-semibold tracking-widest text-zinc-500 uppercase">
-              PRICING / 04
-            </span>
+            <span className="label-mono text-[#747471]">Pricing / 04</span>
+            <h2 className="mt-4 max-w-[250px] text-[2rem] font-[500] leading-[1.05] tracking-[-.04em] sm:text-[2.4rem]">Clear pricing.<br />No surprises.</h2>
+            <Link href="/services" className="group mt-6 inline-flex items-center gap-2 text-xs font-semibold">View full pricing <ArrowUpRightIcon className="button-arrow h-3.5 w-3.5" /></Link>
           </div>
-          <div className="lg:col-span-9">
-            <h2 className="text-3xl sm:text-5xl font-medium tracking-tight text-white">
-              Clear pricing. No surprises.
-            </h2>
+
+          <div className="border-t border-black/15 lg:col-span-9 lg:grid lg:grid-cols-3 lg:border-t-0">
+            {pricing.map((item, index) => (
+              <Link key={item.title} href="/services" className={`group relative block border-b border-black/15 py-6 transition-colors hover:bg-black/[.025] lg:border-b-0 lg:border-l lg:px-8 lg:py-3 ${index === 0 ? "lg:border-black/15" : "lg:border-black/15"}`}>
+                <div className="flex items-start justify-between gap-4 lg:block">
+                  <div>
+                    <h3 className="text-sm font-semibold">{item.title}</h3>
+                    <p className="mt-4 text-[0.66rem] text-[#747471]">From</p>
+                    <p className="text-[2rem] font-[500] leading-none tracking-[-.04em] transition-transform duration-300 group-hover:translate-x-0.5">{item.price}</p>
+                    <p className="mt-5 max-w-[220px] text-xs leading-[1.5] text-[#666662]">{item.description}</p>
+                  </div>
+                  <ArrowUpRightIcon className="button-arrow h-4 w-4 lg:absolute lg:right-6 lg:top-3" />
+                </div>
+              </Link>
+            ))}
           </div>
-        </div>
-
-        {/* Clean Rows */}
-        <div className="border-t border-white/10">
-          {pricingRows.map((row) => (
-            <a
-              key={row.num}
-              href={`${WHATSAPP_BASE}${row.whatsappMsg}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group block border-b border-white/10 py-8 transition-colors duration-300 hover:bg-white/[0.03] cursor-pointer"
-            >
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">
-                <div className="lg:col-span-2 text-xs font-mono text-zinc-500 group-hover:text-white transition-colors">
-                  ({row.num})
-                </div>
-
-                <div className="lg:col-span-4 text-2xl sm:text-3xl font-semibold tracking-tight transition-transform duration-300 group-hover:translate-x-2 text-white">
-                  {row.title}
-                </div>
-
-                <div className="lg:col-span-3 text-lg font-mono font-medium text-zinc-300">
-                  {row.price}
-                </div>
-
-                <div className="lg:col-span-3 text-xs sm:text-sm text-zinc-400 font-normal flex items-center justify-between gap-4">
-                  <span>{row.description}</span>
-                  <span className="inline-flex items-center justify-center w-8 h-8 rounded-full border border-white/15 text-white group-hover:bg-white group-hover:text-black transition-all shrink-0">
-                    <ArrowUpRightIcon className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </span>
-                </div>
-              </div>
-            </a>
-          ))}
         </div>
       </div>
     </section>
