@@ -1,19 +1,19 @@
 import React from "react";
 
-export function DytamaLogo({ className = "w-24 h-auto" }: { className?: string }) {
+export function HammadStudioLogo({ className = "h-auto" }: { className?: string }) {
   return (
-    <div className={`flex items-center gap-2 ${className}`}>
-      <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-tr from-[#5946F8] to-[#D9FF43] font-bold text-black text-lg">
-        D
+    <div className={`flex items-center gap-2.5 ${className}`}>
+      <div className="flex items-center justify-center w-7 h-7 rounded-md bg-gradient-to-br from-white to-zinc-400 font-bold text-black text-xs tracking-tighter shadow-sm">
+        HS
       </div>
-      <span className="font-bold text-xl tracking-tight text-white">
-        dytama<span className="text-[#D9FF43]">.</span>
+      <span className="font-extrabold text-base tracking-widest text-white uppercase">
+        HAMMAD<span className="text-zinc-400">.STUDIO</span>
       </span>
     </div>
   );
 }
 
-export function StarIcon({ className = "w-4 h-4 text-[#ffc83d]" }: { className?: string }) {
+export function StarIcon({ className = "w-4 h-4 text-zinc-300" }: { className?: string }) {
   return (
     <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 576 512" className={className} xmlns="http://www.w3.org/2000/svg">
       <path d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
@@ -57,7 +57,7 @@ export function WhatsAppIcon({ className = "w-5 h-5" }: { className?: string }) 
   );
 }
 
-export function CheckIcon({ className = "w-4 h-4 text-[#D9FF43]" }: { className?: string }) {
+export function CheckIcon({ className = "w-4 h-4 text-white" }: { className?: string }) {
   return (
     <svg stroke="currentColor" fill="none" strokeWidth="2.5" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" className={className} xmlns="http://www.w3.org/2000/svg">
       <polyline points="20 6 9 17 4 12"></polyline>

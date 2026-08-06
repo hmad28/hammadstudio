@@ -4,34 +4,30 @@ import { Navbar } from "@/components/navbar";
 import { CTAFooter } from "@/components/cta-footer";
 
 export const metadata: Metadata = {
-  title: "Jasa Pembuatan Website & UI/UX Design Profesional – Dytama",
+  metadataBase: new URL("https://hammad.studio"),
+  title: {
+    default: "Hammad Studio — Premium Digital Product Studio Indonesia",
+    template: "%s — Hammad Studio",
+  },
   description:
-    "Dytama menyediakan jasa pembuatan website profesional, desain UI/UX modern, dan pengembangan web untuk bisnis, startup, dan personal brand di Indonesia.",
+    "Hammad Studio designs and builds premium websites, digital products, business systems, automation, and custom software.",
   keywords: [
-    "jasa pembuatan website indonesia",
+    "Hammad Studio",
     "jasa pembuatan website profesional",
-    "jasa web developer indonesia",
-    "jasa desain ui ux",
-    "Dytama",
-    "digital product studio",
+    "digital product studio indonesia",
+    "ui ux design studio",
+    "web development indonesia",
+    "next.js developer",
   ],
   icons: {
     icon: "/assets/img/brand/dytama-icon.svg",
   },
   openGraph: {
-    title: "Jasa Pembuatan Website & UI/UX Design Profesional – Dytama",
+    title: "HAMMAD.STUDIO® — Premium Digital Product Studio",
     description:
-      "Dytama menyediakan jasa pembuatan website profesional, desain UI/UX modern, dan pengembangan web untuk bisnis, startup, dan personal brand di Indonesia.",
-    url: "https://dytama.com",
-    siteName: "Dytama Studio",
-    images: [
-      {
-        url: "/assets/img/brand/opengraphdytama.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Dytama Studio Preview",
-      },
-    ],
+      "Hammad Studio designs and builds premium websites, digital products, business systems, automation, and custom software.",
+    url: "https://hammad.studio",
+    siteName: "Hammad Studio",
     locale: "id_ID",
     type: "website",
   },
@@ -44,7 +40,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id" className="scroll-smooth">
-      <body className="bg-[#0D1526] text-white antialiased min-h-screen flex flex-col">
+      <body className="bg-[#050505] text-[#f7f7f5] antialiased min-h-screen flex flex-col">
         <Navbar />
         <main className="flex-1">{children}</main>
         <CTAFooter />

@@ -1,45 +1,44 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@layer base {
-  :root {
-    --background: #0D1526;
-    --foreground: #F8FAFC;
-    --card: #131C31;
-    --card-foreground: #F8FAFC;
-    --primary: #5946F8;
-    --primary-foreground: #FFFFFF;
-    --secondary: #D9FF43;
-    --secondary-foreground: #000000;
-    --muted: #1E293B;
-    --muted-foreground: #94A3B8;
-    --accent: #200D5B;
-    --accent-foreground: #FFFFFF;
-    --border: rgba(255, 255, 255, 0.1);
-    --radius: 1rem;
-  }
-}
+:root {
+  --black-950: #050505;
+  --black-900: #090909;
+  --black-850: #0d0d0d;
+  --black-800: #141414;
+  --black-700: #1c1c1c;
 
-@theme {
-  --color-background: #0D1526;
-  --color-card-dark: #131C31;
-  --color-secondary: #D9FF43;
-  --color-secondary-hover: #cfe83f;
-  --color-primary-indigo: #5946F8;
-  --color-accent-purple: #200D5B;
-  --font-pockota: 'Outfit', 'Inter', sans-serif;
+  --silver-100: #f7f7f5;
+  --silver-200: #e8e8e5;
+  --silver-300: #d1d1ce;
+  --silver-400: #ababaa;
+  --silver-500: #858583;
+
+  --border-dark: rgba(255, 255, 255, 0.10);
+  --border-dark-hover: rgba(255, 255, 255, 0.26);
+  --border-light: rgba(0, 0, 0, 0.12);
+
+  --text-primary: #f7f7f5;
+  --text-secondary: #c3c3c0;
+  --text-muted: #858583;
+
+  --bg-hero: radial-gradient(circle at 50% 0%, #252525 0%, #151515 30%, #0b0b0b 65%, #050505 100%);
+  --bg-dark-section: linear-gradient(135deg, #050505 0%, #111111 45%, #1a1a1a 70%, #080808 100%);
+  --bg-graphite: linear-gradient(135deg, #1c1c1c 0%, #111111 100%);
+  --bg-silver-surface: linear-gradient(135deg, #ffffff 0%, #ececea 45%, #cfcfcd 100%);
+  --bg-silver-subtle: linear-gradient(145deg, #f7f7f5, #dededb);
 }
 
 html {
   scroll-behavior: smooth;
-  background-color: #0D1526;
-  color: #F8FAFC;
-  font-family: var(--font-sans, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif);
+  background-color: var(--black-950);
+  color: var(--text-primary);
+  font-family: var(--font-sans, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
 }
 
 body {
-  background-color: #0D1526;
-  color: #F8FAFC;
+  background-color: var(--black-950);
+  color: var(--text-primary);
   overflow-x: hidden;
 }
 
@@ -48,66 +47,68 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #0D1526;
+  background: var(--black-950);
 }
 ::-webkit-scrollbar-thumb {
-  background: #273552;
+  background: var(--black-700);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3B4D72;
+  background: var(--silver-500);
 }
 
-/* Glow effects & animations */
-@keyframes floatSlow {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.animate-float-slow {
-  animation: floatSlow 6s ease-in-out infinite;
-}
-
-@keyframes pulseGlow {
-  0%, 100% {
-    opacity: 0.4;
-  }
-  50% {
-    opacity: 0.8;
-  }
-}
-
-.animate-pulse-glow {
-  animation: pulseGlow 4s ease-in-out infinite;
-}
-
-/* Gradient Utility Classes */
-.text-gradient-purple {
-  background: linear-gradient(180deg, #DCC5FF 0%, #B294FF 50%, #5946F8 100%);
+/* Typography Gradients */
+.text-gradient-silver {
+  background: linear-gradient(110deg, #ffffff 0%, #d6d6d6 35%, #ffffff 55%, #a8a8a8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.text-gradient-indigo {
-  background: linear-gradient(180deg, #4338CA 0%, #211C64 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* Glassmorphism Navbar */
+.glass-nav-monochrome {
+  background: rgba(10, 10, 10, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.10);
 }
 
-/* Glassmorphism */
-.glass-nav {
-  background: rgba(13, 21, 38, 0.65);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+/* Primary Button Styling */
+.btn-primary-silver {
+  background: linear-gradient(120deg, #ffffff, #d9d9d6);
+  color: #080808;
+  box-shadow: 0 10px 40px rgba(255, 255, 255, 0.08);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.glass-card {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+.btn-primary-silver:hover {
+  background: linear-gradient(120deg, #ffffff, #e8e8e5);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 45px rgba(255, 255, 255, 0.14);
+}
+
+.btn-primary-silver:hover .btn-arrow {
+  transform: translate(3px, -3px);
+}
+
+/* Secondary Button Styling */
+.btn-secondary-monochrome {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  color: #f7f7f5;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary-monochrome:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.40);
+  transform: translateY(-1px);
+}
+
+/* Subtle Silver Radial Glow */
+.glow-silver-subtle {
+  box-shadow: 0 0 80px rgba(255, 255, 255, 0.06);
+}
+
+.bg-radial-silver {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08), transparent 65%);
 }

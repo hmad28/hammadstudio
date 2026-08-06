@@ -43,92 +43,92 @@ const articlesData: Article[] = [
 
 export function TestimonialsAndNews() {
   return (
-    <section className="relative w-full py-20 lg:py-28 bg-white text-black">
+    <section className="relative w-full py-20 lg:py-28 bg-[#f7f7f5] text-[#090909]">
       <div className="container max-w-7xl mx-auto px-4 space-y-20">
         {/* Testimonials Block */}
         <div className="space-y-10">
           <div className="flex flex-col items-center text-center space-y-3">
-            <span className="text-sm font-semibold tracking-wider text-indigo-700 uppercase">Testimonials</span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900">
+            <span className="text-xs font-semibold tracking-widest text-[#858583] uppercase">Testimonials</span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#090909]">
               Apa Kata Klien Kami
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col justify-between space-y-4">
+            <div className="p-6 rounded-2xl bg-white border border-black/10 flex flex-col justify-between space-y-4 shadow-sm">
               <div className="space-y-3">
                 <div className="flex items-center gap-1">
                   {[...Array(5)].map((_, i) => (
-                    <StarIcon key={i} className="w-4 h-4 text-[#ffc83d]" />
+                    <StarIcon key={i} className="w-4 h-4 text-zinc-500" />
                   ))}
                 </div>
-                <p className="text-sm text-slate-700 italic leading-relaxed">
-                  &ldquo;Dytama mengubah total wajah digital perusahaan kami. Tampilan website sangat modern, cepat, dan calon klien langsung terkesan.&rdquo;
+                <p className="text-sm text-zinc-700 italic leading-relaxed">
+                  &ldquo;Hammad Studio mengubah total wajah digital perusahaan kami. Tampilan website sangat modern, cepat, dan calon klien langsung terkesan.&rdquo;
                 </p>
               </div>
-              <div className="flex items-center gap-3 pt-4 border-t border-slate-200">
+              <div className="flex items-center gap-3 pt-4 border-t border-black/10">
                 <Image
                   src="/assets/img/user/user-01.png"
                   alt="Client"
                   width={40}
                   height={40}
-                  className="rounded-full object-cover"
+                  className="rounded-full object-cover grayscale"
                 />
                 <div>
-                  <h4 className="text-sm font-bold text-slate-900">Aditya Pratama</h4>
-                  <span className="text-xs text-slate-500">CEO, TechAsia Group</span>
+                  <h4 className="text-sm font-bold text-[#090909]">Aditya Pratama</h4>
+                  <span className="text-xs text-zinc-500">CEO, TechAsia Group</span>
                 </div>
               </div>
             </div>
 
-            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col justify-between space-y-4">
+            <div className="p-6 rounded-2xl bg-white border border-black/10 flex flex-col justify-between space-y-4 shadow-sm">
               <div className="space-y-3">
                 <div className="flex items-center gap-1">
                   {[...Array(5)].map((_, i) => (
-                    <StarIcon key={i} className="w-4 h-4 text-[#ffc83d]" />
+                    <StarIcon key={i} className="w-4 h-4 text-zinc-500" />
                   ))}
                 </div>
-                <p className="text-sm text-slate-700 italic leading-relaxed">
-                  &ldquo;Proses pengerjaan cepat dan komunikatif. Tim Dytama benar-benar mengerti kebutuhan UI/UX SaaS kami.&rdquo;
+                <p className="text-sm text-zinc-700 italic leading-relaxed">
+                  &ldquo;Proses pengerjaan cepat dan komunikatif. Tim Hammad Studio benar-benar mengerti kebutuhan UI/UX SaaS kami.&rdquo;
                 </p>
               </div>
-              <div className="flex items-center gap-3 pt-4 border-t border-slate-200">
+              <div className="flex items-center gap-3 pt-4 border-t border-black/10">
                 <Image
                   src="/assets/img/user/user-02.png"
                   alt="Client"
                   width={40}
                   height={40}
-                  className="rounded-full object-cover"
+                  className="rounded-full object-cover grayscale"
                 />
                 <div>
-                  <h4 className="text-sm font-bold text-slate-900">Rina Salsabila</h4>
-                  <span className="text-xs text-slate-500">Product Manager, Lumina</span>
+                  <h4 className="text-sm font-bold text-[#090909]">Rina Salsabila</h4>
+                  <span className="text-xs text-zinc-500">Product Manager, Lumina</span>
                 </div>
               </div>
             </div>
 
-            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col justify-between space-y-4">
+            <div className="p-6 rounded-2xl bg-white border border-black/10 flex flex-col justify-between space-y-4 shadow-sm">
               <div className="space-y-3">
                 <div className="flex items-center gap-1">
                   {[...Array(5)].map((_, i) => (
-                    <StarIcon key={i} className="w-4 h-4 text-[#ffc83d]" />
+                    <StarIcon key={i} className="w-4 h-4 text-zinc-500" />
                   ))}
                 </div>
-                <p className="text-sm text-slate-700 italic leading-relaxed">
+                <p className="text-sm text-zinc-700 italic leading-relaxed">
                   &ldquo;Hasil web development luar biasa responsif di mobile dan traffic naik signifikan setelah redesign.&rdquo;
                 </p>
               </div>
-              <div className="flex items-center gap-3 pt-4 border-t border-slate-200">
+              <div className="flex items-center gap-3 pt-4 border-t border-black/10">
                 <Image
                   src="/assets/img/user/user-03.png"
                   alt="Client"
                   width={40}
                   height={40}
-                  className="rounded-full object-cover"
+                  className="rounded-full object-cover grayscale"
                 />
                 <div>
-                  <h4 className="text-sm font-bold text-slate-900">Budi Santoso</h4>
-                  <span className="text-xs text-slate-500">Founder, Karsa Workspace</span>
+                  <h4 className="text-sm font-bold text-[#090909]">Budi Santoso</h4>
+                  <span className="text-xs text-zinc-500">Founder, Karsa Workspace</span>
                 </div>
               </div>
             </div>
@@ -136,17 +136,17 @@ export function TestimonialsAndNews() {
         </div>
 
         {/* News & Insights Section */}
-        <div id="news" className="space-y-10 pt-10 border-t border-slate-200">
+        <div id="news" className="space-y-10 pt-10 border-t border-black/10">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div className="space-y-2">
-              <span className="text-sm font-semibold tracking-wider text-indigo-700 uppercase">News & Insights</span>
-              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
+              <span className="text-xs font-semibold tracking-widest text-[#858583] uppercase">News & Insights</span>
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#090909]">
                 Artikel & Insight Terbaru
               </h2>
             </div>
             <Link
               href="/insight"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-indigo-700 hover:text-indigo-900"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-black hover:text-zinc-600 transition-colors"
             >
               Lihat Semua Artikel
               <ArrowUpRightIcon className="w-4 h-4" />
@@ -157,19 +157,19 @@ export function TestimonialsAndNews() {
             {articlesData.map((art) => (
               <div
                 key={art.id}
-                className="p-6 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col justify-between space-y-4 hover:border-indigo-500 transition-colors group"
+                className="p-6 rounded-2xl bg-white border border-black/10 flex flex-col justify-between space-y-4 hover:border-black transition-colors group shadow-sm"
               >
                 <div className="space-y-3">
-                  <div className="flex items-center justify-between text-xs text-slate-500 font-medium">
-                    <span className="px-2.5 py-1 bg-indigo-50 text-indigo-700 rounded-md font-semibold">{art.category}</span>
+                  <div className="flex items-center justify-between text-xs text-zinc-500 font-medium">
+                    <span className="px-2.5 py-1 bg-zinc-100 text-zinc-800 rounded-md font-semibold">{art.category}</span>
                     <span>{art.readTime}</span>
                   </div>
-                  <h3 className="text-lg font-bold text-slate-900 group-hover:text-indigo-700 transition-colors leading-snug">
+                  <h3 className="text-lg font-bold text-[#090909] group-hover:text-zinc-700 transition-colors leading-snug">
                     {art.title}
                   </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">{art.summary}</p>
+                  <p className="text-xs text-zinc-600 leading-relaxed">{art.summary}</p>
                 </div>
-                <div className="pt-3 text-xs text-slate-400 font-medium">{art.date}</div>
+                <div className="pt-3 text-xs text-zinc-400 font-medium">{art.date}</div>
               </div>
             ))}
           </div>

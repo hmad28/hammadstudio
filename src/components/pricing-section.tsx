@@ -21,7 +21,7 @@ export function PricingSection() {
         "Waktu Pengerjaan 1-2 Minggu",
         "Free Hosting & Domain 1 Tahun",
       ],
-      whatsappMsg: encodeURIComponent("Halo Dytama, saya tertarik dengan Paket Starter / Landing Page."),
+      whatsappMsg: encodeURIComponent("Halo Hammad Studio, saya tertarik dengan Paket Starter / Landing Page."),
     },
     {
       name: "Company Profile & Business",
@@ -39,7 +39,7 @@ export function PricingSection() {
         "Waktu Pengerjaan 2-3 Minggu",
         "Dukungan Maintenance 3 Bulan",
       ],
-      whatsappMsg: encodeURIComponent("Halo Dytama, saya tertarik dengan Paket Company Profile & Business."),
+      whatsappMsg: encodeURIComponent("Halo Hammad Studio, saya tertarik dengan Paket Company Profile & Business."),
     },
     {
       name: "Custom Web App / SaaS",
@@ -55,20 +55,24 @@ export function PricingSection() {
         "SLA & Enterprise Support",
         "Full Source Code & Ownership",
       ],
-      whatsappMsg: encodeURIComponent("Halo Dytama, saya ingin berkonsultasi untuk Custom Web Application / SaaS."),
+      whatsappMsg: encodeURIComponent("Halo Hammad Studio, saya ingin berkonsultasi untuk Custom Web Application / SaaS."),
     },
   ];
 
   return (
-    <section id="PricingList" className="relative w-full py-20 lg:py-28 bg-[#0D1526] text-white">
+    <section
+      id="PricingList"
+      className="relative w-full py-20 lg:py-28 text-white border-t border-white/10"
+      style={{ background: "linear-gradient(135deg, #141414 0%, #0b0b0b 100%)" }}
+    >
       <div className="container max-w-7xl mx-auto px-4">
         {/* Section Title */}
         <div className="flex flex-col items-center text-center space-y-3 mb-16">
-          <span className="text-sm font-semibold tracking-widest text-[#D9FF43] uppercase">Pricing</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
+          <span className="text-xs font-semibold tracking-widest text-[#858583] uppercase">Pricing</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#f7f7f5]">
             Transparan & Sesuai Kebutuhan
           </h2>
-          <p className="max-w-xl text-sm sm:text-base text-zinc-300">
+          <p className="max-w-xl text-sm sm:text-base text-[#c3c3c0]">
             Pilih paket pengembangan produk digital yang sesuai dengan skala bisnis dan target pertumbuhan Anda.
           </p>
         </div>
@@ -80,34 +84,44 @@ export function PricingSection() {
               key={index}
               className={`relative rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 ${
                 pkg.popular
-                  ? "bg-gradient-to-b from-[#1C1444] to-[#121A2D] border-2 border-[#D9FF43] shadow-2xl shadow-[#5946F8]/20 -translate-y-2"
-                  : "bg-white/[0.03] border border-white/10 hover:border-white/20"
+                  ? "bg-gradient-to-b from-white via-[#ececea] to-[#d6d6d6] text-[#090909] border-2 border-white shadow-2xl -translate-y-2"
+                  : "bg-[#111111] text-white border border-white/10 hover:border-white/20"
               }`}
             >
               {pkg.popular && (
-                <span className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-[#D9FF43] text-black font-bold text-xs rounded-full uppercase tracking-wider shadow-md">
+                <span className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-[#090909] text-white font-bold text-xs rounded-full uppercase tracking-wider shadow-md">
                   Paling Populer
                 </span>
               )}
 
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-xl font-bold text-white mb-2">{pkg.name}</h3>
-                  <p className="text-xs text-zinc-400 min-h-[36px]">{pkg.description}</p>
+                  <h3 className={`text-xl font-bold mb-2 ${pkg.popular ? "text-[#090909]" : "text-white"}`}>
+                    {pkg.name}
+                  </h3>
+                  <p className={`text-xs min-h-[36px] ${pkg.popular ? "text-zinc-700" : "text-[#858583]"}`}>
+                    {pkg.description}
+                  </p>
                 </div>
 
-                <div className="pb-6 border-b border-white/10">
-                  <div className="text-3xl sm:text-4xl font-extrabold text-white">{pkg.price}</div>
-                  <span className="text-xs text-zinc-400 font-medium">/ {pkg.period}</span>
+                <div className={`pb-6 border-b ${pkg.popular ? "border-black/10" : "border-white/10"}`}>
+                  <div className={`text-3xl sm:text-4xl font-extrabold ${pkg.popular ? "text-[#090909]" : "text-white"}`}>
+                    {pkg.price}
+                  </div>
+                  <span className={`text-xs font-medium ${pkg.popular ? "text-zinc-600" : "text-[#858583]"}`}>
+                    / {pkg.period}
+                  </span>
                 </div>
 
                 {/* Features list */}
                 <div className="space-y-3">
-                  <span className="text-xs font-semibold text-zinc-300 uppercase tracking-wider">Fitur Termasuk:</span>
+                  <span className={`text-xs font-semibold uppercase tracking-wider ${pkg.popular ? "text-zinc-800" : "text-zinc-400"}`}>
+                    Fitur Termasuk:
+                  </span>
                   <ul className="space-y-2.5">
                     {pkg.features.map((feat, i) => (
-                      <li key={i} className="flex items-start gap-3 text-xs sm:text-sm text-zinc-200">
-                        <CheckIcon className="w-4 h-4 text-[#D9FF43] shrink-0 mt-0.5" />
+                      <li key={i} className={`flex items-start gap-3 text-xs sm:text-sm ${pkg.popular ? "text-zinc-800" : "text-zinc-200"}`}>
+                        <CheckIcon className={`w-4 h-4 shrink-0 mt-0.5 ${pkg.popular ? "text-black" : "text-white"}`} />
                         <span>{feat}</span>
                       </li>
                     ))}
@@ -115,15 +129,15 @@ export function PricingSection() {
                 </div>
               </div>
 
-              <div className="pt-8 mt-6 border-t border-white/10">
+              <div className={`pt-8 mt-6 border-t ${pkg.popular ? "border-black/10" : "border-white/10"}`}>
                 <a
                   href={`${WHATSAPP_BASE}${pkg.whatsappMsg}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`w-full py-3.5 px-6 rounded-full font-bold text-sm flex items-center justify-center gap-2 transition-all duration-200 ${
+                  className={`w-full py-3.5 px-6 rounded-full font-bold text-sm flex items-center justify-center gap-2 transition-all duration-200 cursor-pointer ${
                     pkg.popular
-                      ? "bg-[#D9FF43] hover:bg-[#cfe83f] text-black shadow-lg shadow-[#D9FF43]/20"
-                      : "bg-white/10 hover:bg-white/20 text-white"
+                      ? "bg-[#090909] text-white hover:bg-zinc-800 shadow-xl"
+                      : "btn-secondary-monochrome"
                   }`}
                 >
                   Pilih Paket
