@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { ArrowUpRightIcon } from "./icons";
 
 const WHATSAPP_BASE = "https://wa.me/+6287888362186?text=";
@@ -38,8 +38,6 @@ const pricingRows: PricingRow[] = [
 ];
 
 export function PricingSection() {
-  const [, setHoveredIndex] = useState<number | null>(null);
-
   return (
     <section id="pricing" className="relative w-full py-24 lg:py-32 bg-[#101010] text-[#FAFAF8] border-t border-white/10">
       <div className="container max-w-[1200px] mx-auto px-4">
@@ -59,14 +57,12 @@ export function PricingSection() {
 
         {/* Clean Rows */}
         <div className="border-t border-white/10">
-          {pricingRows.map((row, index) => (
+          {pricingRows.map((row) => (
             <a
               key={row.num}
               href={`${WHATSAPP_BASE}${row.whatsappMsg}`}
               target="_blank"
               rel="noopener noreferrer"
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
               className="group block border-b border-white/10 py-8 transition-colors duration-300 hover:bg-white/[0.03] cursor-pointer"
             >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">

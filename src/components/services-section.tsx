@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { ArrowUpRightIcon } from "./icons";
 
 interface ServiceRow {
@@ -33,8 +33,6 @@ const servicesList: ServiceRow[] = [
 ];
 
 export function ServicesSection() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
   return (
     <section id="services" className="relative w-full py-24 lg:py-32 bg-[#F4F2EC] text-[#080808] border-t border-black/10">
       <div className="container max-w-[1200px] mx-auto px-4">
@@ -54,11 +52,9 @@ export function ServicesSection() {
 
         {/* Clean Large Rows */}
         <div className="border-t border-black/15">
-          {servicesList.map((service, index) => (
+          {servicesList.map((service) => (
             <div
               key={service.num}
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
               className="group border-b border-black/15 py-8 transition-colors duration-300 hover:bg-black/[0.03] cursor-pointer"
             >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">
