@@ -2,14 +2,9 @@ import React from "react";
 
 export function HammadStudioLogo({ className = "h-auto" }: { className?: string }) {
   return (
-    <div className={`flex items-center gap-2.5 ${className}`}>
-      <div className="flex items-center justify-center w-7 h-7 rounded-md bg-gradient-to-br from-white to-zinc-400 font-bold text-black text-xs tracking-tighter shadow-sm">
-        HS
-      </div>
-      <span className="font-extrabold text-base tracking-widest text-white uppercase">
-        HAMMAD<span className="text-zinc-400">.STUDIO</span>
-      </span>
-    </div>
+    <span className={`font-black text-sm sm:text-base tracking-[0.18em] text-white uppercase select-none ${className}`}>
+      HAMMAD<span className="text-zinc-500 font-normal">.STUDIO</span>
+    </span>
   );
 }
 

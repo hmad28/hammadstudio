@@ -4,17 +4,26 @@ import { AboutSection } from "@/components/about-section";
 import { ServicesSection } from "@/components/services-section";
 import { PortfolioSection } from "@/components/portfolio-section";
 import { PricingSection } from "@/components/pricing-section";
-import { TestimonialsAndNews } from "@/components/testimonials-news";
 
 export default function HomePage() {
   return (
     <div className="w-full overflow-hidden">
+      {/* 01 HERO */}
       <HeroSection />
+
+      {/* 02 SHORT INTRO */}
       <AboutSection />
+
+      {/* 03 SERVICES */}
       <ServicesSection />
+
+      {/* 04 SELECTED WORK */}
       <PortfolioSection />
+
+      {/* 05 PRICING */}
       <PricingSection />
-      <TestimonialsAndNews />
+
+      {/* 06 FINAL CTA & 07 FOOTER are rendered seamlessly via RootLayout CTAFooter */}
     </div>
   );
 }

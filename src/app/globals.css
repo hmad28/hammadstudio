@@ -1,114 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
 :root {
   --black-950: #050505;
   --black-900: #090909;
-  --black-850: #0d0d0d;
-  --black-800: #141414;
-  --black-700: #1c1c1c;
+  --black-850: #0D0D0D;
+  --black-800: #151515;
+  --black-700: #202020;
 
-  --silver-100: #f7f7f5;
-  --silver-200: #e8e8e5;
-  --silver-300: #d1d1ce;
-  --silver-400: #ababaa;
-  --silver-500: #858583;
+  --white: #FAFAF8;
+  --silver-100: #F1F1EE;
+  --silver-200: #DDDDDA;
+  --silver-300: #C5C5C1;
+  --silver-400: #9A9A96;
+  --silver-500: #747471;
+
+  --ivory: #F4F2EC;
 
   --border-dark: rgba(255, 255, 255, 0.10);
-  --border-dark-hover: rgba(255, 255, 255, 0.26);
+  --border-dark-hover: rgba(255, 255, 255, 0.25);
   --border-light: rgba(0, 0, 0, 0.12);
 
-  --text-primary: #f7f7f5;
-  --text-secondary: #c3c3c0;
-  --text-muted: #858583;
-
-  --bg-hero: radial-gradient(circle at 50% 0%, #252525 0%, #151515 30%, #0b0b0b 65%, #050505 100%);
-  --bg-dark-section: linear-gradient(135deg, #050505 0%, #111111 45%, #1a1a1a 70%, #080808 100%);
-  --bg-graphite: linear-gradient(135deg, #1c1c1c 0%, #111111 100%);
-  --bg-silver-surface: linear-gradient(135deg, #ffffff 0%, #ececea 45%, #cfcfcd 100%);
-  --bg-silver-subtle: linear-gradient(145deg, #f7f7f5, #dededb);
+  --font-serif: "Instrument Serif", Georgia, serif;
 }
 
 html {
   scroll-behavior: smooth;
   background-color: var(--black-950);
-  color: var(--text-primary);
-  font-family: var(--font-sans, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  color: var(--white);
+  font-family: var(--font-sans, system-ui, -apple-system, BlinkMacSystemFont, 'Geist', 'Inter', sans-serif);
 }
 
 body {
   background-color: var(--black-950);
-  color: var(--text-primary);
+  color: var(--white);
   overflow-x: hidden;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
   background: var(--black-950);
 }
 ::-webkit-scrollbar-thumb {
   background: var(--black-700);
-  border-radius: 4px;
+  border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--silver-500);
 }
 
-/* Typography Gradients */
+/* Typography Accent Gradients */
 .text-gradient-silver {
-  background: linear-gradient(110deg, #ffffff 0%, #d6d6d6 35%, #ffffff 55%, #a8a8a8 100%);
+  background: linear-gradient(120deg, #FFFFFF 0%, #D7D7D4 40%, #F7F7F5 60%, #ADADAA 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* Glassmorphism Navbar */
-.glass-nav-monochrome {
-  background: rgba(10, 10, 10, 0.72);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.10);
+/* Hero Background Radial Lighting & Grid */
+.bg-hero-radial {
+  background: 
+    radial-gradient(70% 55% at 50% 0%, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.025) 38%, transparent 70%),
+    linear-gradient(180deg, #151515 0%, #090909 55%, #050505 100%);
 }
 
-/* Primary Button Styling */
-.btn-primary-silver {
-  background: linear-gradient(120deg, #ffffff, #d9d9d6);
+.bg-subtle-grid {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Buttons */
+.btn-primary-platinum {
+  background: linear-gradient(135deg, #FAFAF8, #D8D8D5);
   color: #080808;
-  box-shadow: 0 10px 40px rgba(255, 255, 255, 0.08);
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.06);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.btn-primary-silver:hover {
-  background: linear-gradient(120deg, #ffffff, #e8e8e5);
+.btn-primary-platinum:hover {
+  background: linear-gradient(135deg, #FFFFFF, #E5E5E2);
   transform: translateY(-2px);
-  box-shadow: 0 14px 45px rgba(255, 255, 255, 0.14);
+  box-shadow: 0 8px 30px rgba(255, 255, 255, 0.12);
 }
 
-.btn-primary-silver:hover .btn-arrow {
+.btn-primary-platinum:hover .btn-arrow {
   transform: translate(3px, -3px);
 }
 
-/* Secondary Button Styling */
-.btn-secondary-monochrome {
+.btn-secondary-transparent {
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.20);
-  color: #f7f7f5;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: var(--white);
   transition: all 0.2s ease;
 }
 
-.btn-secondary-monochrome:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.40);
+.btn-secondary-transparent:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.35);
   transform: translateY(-1px);
-}
-
-/* Subtle Silver Radial Glow */
-.glow-silver-subtle {
-  box-shadow: 0 0 80px rgba(255, 255, 255, 0.06);
-}
-
-.bg-radial-silver {
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.08), transparent 65%);
 }

@@ -1,9 +1,9 @@
 import type { MetadataRoute } from "next";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://dytama.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://hammad.studio";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ["", "/services", "/product", "/portofolio", "/about", "/insight"];
+  const routes = ["", "/#services", "/#work", "/#pricing", "/about"];
 
   return routes.map((route) => ({
     url: `${siteUrl}${route}`,

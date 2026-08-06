@@ -6,28 +6,27 @@ import { CTAFooter } from "@/components/cta-footer";
 export const metadata: Metadata = {
   metadataBase: new URL("https://hammad.studio"),
   title: {
-    default: "Hammad Studio — Premium Digital Product Studio Indonesia",
-    template: "%s — Hammad Studio",
+    default: "HAMMAD.STUDIO — Premium Digital Product & Software Studio",
+    template: "%s — HAMMAD.STUDIO",
   },
   description:
-    "Hammad Studio designs and builds premium websites, digital products, business systems, automation, and custom software.",
+    "We design and build digital products — websites, e-commerce, business systems, and custom software for growing businesses.",
   keywords: [
-    "Hammad Studio",
-    "jasa pembuatan website profesional",
-    "digital product studio indonesia",
-    "ui ux design studio",
-    "web development indonesia",
-    "next.js developer",
+    "HAMMAD.STUDIO",
+    "Digital Product Studio",
+    "Software Studio",
+    "Web Systems",
+    "Custom Software Indonesia",
   ],
   icons: {
     icon: "/assets/img/brand/dytama-icon.svg",
   },
   openGraph: {
-    title: "HAMMAD.STUDIO® — Premium Digital Product Studio",
+    title: "HAMMAD.STUDIO — Premium Digital Product & Software Studio",
     description:
-      "Hammad Studio designs and builds premium websites, digital products, business systems, automation, and custom software.",
+      "We design and build digital products — websites, e-commerce, business systems, and custom software.",
     url: "https://hammad.studio",
-    siteName: "Hammad Studio",
+    siteName: "HAMMAD.STUDIO",
     locale: "id_ID",
     type: "website",
   },
@@ -39,8 +38,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" className="scroll-smooth">
-      <body className="bg-[#050505] text-[#f7f7f5] antialiased min-h-screen flex flex-col">
+    <html lang="en" className="scroll-smooth">
+      <body className="bg-[#050505] text-[#FAFAF8] antialiased min-h-screen flex flex-col">
         <Navbar />
         <main className="flex-1">{children}</main>
         <CTAFooter />

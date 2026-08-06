@@ -2,9 +2,9 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { HammadStudioLogo, InstagramIcon, ArrowRightIcon, MenuIcon, CloseIcon } from "./icons";
+import { HammadStudioLogo, ArrowUpRightIcon, MenuIcon, CloseIcon } from "./icons";
 
-const WHATSAPP_URL = "https://wa.me/+6287888362186?text=Halo%20Hammad%20Studio%2C%20saya%20tertarik%20dengan%20layanan%20Anda";
+const WHATSAPP_URL = "https://wa.me/+6287888362186?text=Halo%20HAMMAD.STUDIO%2C%20saya%20tertarik%20untuk%20memulai%20proyek";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -20,13 +20,13 @@ export function Navbar() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 w-full pt-4 px-4 pointer-events-none">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-[1200px]">
         {/* Desktop Navbar */}
         <div
-          className={`pointer-events-auto hidden lg:flex items-center justify-between mx-auto rounded-full px-6 py-2.5 transition-all duration-300 ${
+          className={`pointer-events-auto hidden lg:flex items-center justify-between mx-auto rounded-2xl px-6 py-3 transition-all duration-300 ${
             scrolled
-              ? "bg-[#090909]/85 backdrop-blur-xl border border-white/15 shadow-2xl"
-              : "bg-[#0a0a0a]/72 backdrop-blur-md border border-white/10"
+              ? "bg-[#080808]/85 backdrop-blur-xl border border-white/12 shadow-2xl"
+              : "bg-[#080808]/45 backdrop-blur-md border border-white/8"
           }`}
         >
           {/* Brand Logo */}
@@ -34,59 +34,35 @@ export function Navbar() {
             <HammadStudioLogo />
           </Link>
 
-          {/* Navigation Links */}
-          <nav className="flex items-center gap-1 text-sm font-medium text-[#c3c3c0]">
-            <Link href="/" className="px-3.5 py-1.5 hover:text-white transition-colors">
-              Home
-            </Link>
-            <Link href="/services" className="px-3.5 py-1.5 hover:text-white transition-colors">
+          {/* Clean Navigation Links */}
+          <nav className="flex items-center gap-8 text-xs font-medium tracking-wide text-zinc-300">
+            <Link href="/#services" className="hover:text-white transition-colors">
               Services
             </Link>
-            <Link href="/product" className="px-3.5 py-1.5 hover:text-white transition-colors">
-              Product
+            <Link href="/#work" className="hover:text-white transition-colors">
+              Work
             </Link>
-            <Link href="/portofolio" className="px-3.5 py-1.5 hover:text-white transition-colors">
-              Portofolio
-            </Link>
-            <Link href="/#PricingList" className="px-3.5 py-1.5 hover:text-white transition-colors">
+            <Link href="/#pricing" className="hover:text-white transition-colors">
               Pricing
-            </Link>
-            <Link href="/insight" className="px-3.5 py-1.5 hover:text-white transition-colors">
-              News
-            </Link>
-            <Link href="/about" className="px-3.5 py-1.5 hover:text-white transition-colors">
-              About
             </Link>
           </nav>
 
-          {/* Action Buttons */}
-          <div className="flex items-center gap-4">
-            <a
-              href="https://www.instagram.com/hammadstudio/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="pr-3 border-r border-white/15 text-[#c3c3c0] hover:text-white transition-colors"
-              aria-label="Instagram Hammad Studio"
-            >
-              <InstagramIcon className="w-5 h-5" />
-            </a>
-
+          {/* Action CTA */}
+          <div className="flex items-center">
             <a
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="group pl-4 pr-1.5 py-1.5 btn-primary-silver text-xs sm:text-sm font-semibold rounded-full flex items-center gap-2.5 cursor-pointer"
+              className="group inline-flex items-center gap-2 px-4 py-2 btn-primary-platinum text-xs font-semibold rounded-xl cursor-pointer"
             >
-              Contact Us
-              <span className="rounded-full bg-[#080808] text-white h-7 w-7 flex items-center justify-center transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                <ArrowRightIcon className="w-3.5 h-3.5" />
-              </span>
+              Start a Project
+              <ArrowUpRightIcon className="w-3.5 h-3.5 btn-arrow transition-transform duration-200" />
             </a>
           </div>
         </div>
 
         {/* Mobile Navbar Bar */}
-        <div className="pointer-events-auto flex lg:hidden items-center justify-between bg-[#0a0a0a]/80 backdrop-blur-md rounded-2xl px-4 py-3 border border-white/10 shadow-lg">
+        <div className="pointer-events-auto flex lg:hidden items-center justify-between bg-[#080808]/85 backdrop-blur-md rounded-2xl px-5 py-3 border border-white/10 shadow-lg">
           <Link href="/">
             <HammadStudioLogo />
           </Link>
@@ -101,28 +77,16 @@ export function Navbar() {
 
         {/* Mobile Menu Dropdown Overlay */}
         {mobileMenuOpen && (
-          <div className="pointer-events-auto lg:hidden mt-2 bg-[#111111] border border-white/10 rounded-2xl p-5 space-y-4 shadow-2xl animate-in fade-in slide-in-from-top-2 duration-200">
-            <nav className="flex flex-col space-y-3 font-medium text-[#c3c3c0]">
-              <Link href="/" onClick={() => setMobileMenuOpen(false)} className="hover:text-white">
-                Home
-              </Link>
-              <Link href="/services" onClick={() => setMobileMenuOpen(false)} className="hover:text-white">
+          <div className="pointer-events-auto lg:hidden mt-2 bg-[#0d0d0d] border border-white/10 rounded-2xl p-5 space-y-4 shadow-2xl animate-in fade-in slide-in-from-top-2 duration-200">
+            <nav className="flex flex-col space-y-3 font-medium text-sm text-zinc-300">
+              <Link href="/#services" onClick={() => setMobileMenuOpen(false)} className="hover:text-white">
                 Services
               </Link>
-              <Link href="/product" onClick={() => setMobileMenuOpen(false)} className="hover:text-white">
-                Product
+              <Link href="/#work" onClick={() => setMobileMenuOpen(false)} className="hover:text-white">
+                Work
               </Link>
-              <Link href="/portofolio" onClick={() => setMobileMenuOpen(false)} className="hover:text-white">
-                Portofolio
-              </Link>
-              <Link href="/#PricingList" onClick={() => setMobileMenuOpen(false)} className="hover:text-white">
+              <Link href="/#pricing" onClick={() => setMobileMenuOpen(false)} className="hover:text-white">
                 Pricing
-              </Link>
-              <Link href="/insight" onClick={() => setMobileMenuOpen(false)} className="hover:text-white">
-                News
-              </Link>
-              <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="hover:text-white">
-                About
               </Link>
             </nav>
 
@@ -131,10 +95,10 @@ export function Navbar() {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-3 btn-primary-silver font-bold rounded-full text-center flex items-center justify-center gap-2"
+                className="w-full py-3 btn-primary-platinum font-bold rounded-xl text-center flex items-center justify-center gap-2"
               >
-                Contact Us
-                <ArrowRightIcon className="w-4 h-4" />
+                Start a Project
+                <ArrowUpRightIcon className="w-4 h-4" />
               </a>
             </div>
           </div>
