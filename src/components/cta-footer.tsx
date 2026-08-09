@@ -34,7 +34,7 @@ export function CTAFooter() {
               <div className="mt-5 flex items-center gap-2 text-xs text-white/45"><span className="availability-dot" /> {copy.available[locale]}</div>
             </div>
             <nav className="grid grid-cols-2 gap-x-8 gap-y-3 text-sm text-white/55 lg:col-span-3" aria-label="Footer navigation">
-              <Link href="/#services" className="hover:text-white">{nav.services[locale]}</Link><Link href="/#work" className="hover:text-white">{nav.work[locale]}</Link><Link href="/#pricing" className="hover:text-white">{nav.pricing[locale]}</Link><Link href="/about" className="hover:text-white">{nav.studio[locale]}</Link>
+              <Link href="/#services" className="hover:text-white">{nav.services[locale]}</Link><Link href="/#work" className="hover:text-white">{nav.work[locale]}</Link><Link href="/pricing" className="hover:text-white">{nav.pricing[locale]}</Link><Link href="/about" className="hover:text-white">{nav.studio[locale]}</Link>
             </nav>
             <div className="lg:col-span-4 lg:text-right">
               <p className="label-mono text-white/30">{copy.newBusiness[locale]}</p>

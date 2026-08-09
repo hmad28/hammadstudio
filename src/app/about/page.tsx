@@ -1,7 +1,6 @@
 import { AboutSection } from "@/components/about-section";
 import { LocalizedPageIntro } from "@/components/localized-page-intro";
 import { PrinciplesSection } from "@/components/principles-section";
-import { SecuritySection } from "@/components/security-section";
 
 export const metadata = {
   title: "Tentang Hammad Studio – Digital Product Studio",
@@ -19,7 +18,6 @@ export default function AboutPage() {
       />
 
       <AboutSection />
-      <SecuritySection />
       <PrinciplesSection />
     </div>
   );

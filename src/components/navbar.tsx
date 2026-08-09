@@ -18,7 +18,7 @@ export function Navbar() {
   const navItems = [
     { href: "/#services", label: copy.services[locale] },
     { href: "/#work", label: copy.work[locale] },
-    { href: "/#pricing", label: copy.pricing[locale] },
+    { href: "/pricing", label: copy.pricing[locale] },
     { href: "/about", label: copy.studio[locale] },
   ];
 

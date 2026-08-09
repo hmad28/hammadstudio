@@ -1,6 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { homeContent } from "@/lib/home-content";
+import { ArrowUpRightIcon } from "./icons";
 import { useLocale } from "./locale-provider";
 import { MotionReveal } from "./motion-reveal";
 
@@ -19,14 +21,11 @@ export function SecuritySection() {
             <h2 className="max-w-[950px] text-[clamp(3.2rem,7vw,7rem)] font-[510] leading-[0.88] tracking-[-0.065em]">
               {copy.headline[locale]} <span className="font-[family-name:var(--font-instrument-serif)] font-normal italic text-[#cfef57]">{copy.accent[locale]}</span>
             </h2>
-            <div className="mt-10 grid gap-8 border-t border-white/12 pt-7 sm:grid-cols-2 lg:mt-14">
-              <p className="max-w-[570px] text-base leading-[1.7] text-white/62 sm:text-lg">{copy.description[locale]}</p>
-              <blockquote className="border-l border-[#cfef57]/55 pl-5 font-[family-name:var(--font-instrument-serif)] text-xl italic leading-[1.45] text-white/78 sm:text-2xl">{copy.note[locale]}</blockquote>
-            </div>
+            <p className="mt-10 max-w-[720px] border-t border-white/12 pt-7 text-base leading-[1.7] text-white/62 sm:text-lg lg:mt-14">{copy.description[locale]}</p>
           </div>
         </MotionReveal>
 
-        <MotionReveal className="mt-16 grid border-l border-t border-white/12 sm:grid-cols-2 lg:ml-[25%] lg:grid-cols-4" delay={0.08}>
+        <MotionReveal className="mt-14 grid border-l border-t border-white/12 sm:grid-cols-2 lg:ml-[25%] lg:grid-cols-4" delay={0.08}>
           {copy.practices[locale].map((practice, index) => (
             <div key={practice} className="min-h-28 border-b border-r border-white/12 p-5 sm:min-h-32">
               <span className="font-[family-name:var(--font-geist-mono)] text-[0.6rem] text-[#cfef57]/60">0{index + 1}</span>
@@ -34,6 +33,9 @@ export function SecuritySection() {
             </div>
           ))}
         </MotionReveal>
+        <div className="mt-8 flex justify-end">
+          <Link href="/security" className="group inline-flex items-center gap-2 text-sm font-semibold text-white/65 transition-colors hover:text-white">{copy.link[locale]} <ArrowUpRightIcon className="button-arrow h-4 w-4" /></Link>
+        </div>
       </div>
     </section>
   );

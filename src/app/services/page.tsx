@@ -1,6 +1,5 @@
 import { LocalizedPageIntro } from "@/components/localized-page-intro";
-import { ServicesSection } from "@/components/services-section";
-import { PricingSection } from "@/components/pricing-section";
+import { ServicesCatalog } from "@/components/services-catalog";
 
 export const metadata = {
   title: "Website, Aplikasi, Sistem & Automation – Hammad Studio",
@@ -16,8 +15,7 @@ export default function ServicesPage() {
         description={{ id: "Kami membangun website, e-commerce, aplikasi web, sistem bisnis, automation, dan software custom berdasarkan kebutuhan nyata, bukan sekadar menambahkan fitur.", en: "We build websites, e-commerce, web applications, business systems, automation, and custom software around real needs, not feature lists." }}
       />
 
-      <ServicesSection />
-      <PricingSection />
+      <ServicesCatalog />
     </div>
   );
 }
