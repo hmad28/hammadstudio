@@ -1,5 +1,7 @@
-import React from "react";
 import { AboutSection } from "@/components/about-section";
+import { LocalizedPageIntro } from "@/components/localized-page-intro";
+import { PrinciplesSection } from "@/components/principles-section";
+import { SecuritySection } from "@/components/security-section";
 
 export const metadata = {
   title: "Tentang Hammad Studio – Digital Product Studio",
@@ -9,15 +11,16 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <div className="pt-24 min-h-screen bg-[#0b0b0b] text-white">
-      <div className="container max-w-7xl mx-auto px-4 py-16 text-center space-y-4">
-        <span className="text-xs font-semibold tracking-widest text-[#858583] uppercase">About Us</span>
-        <h1 className="text-4xl sm:text-6xl font-bold text-white">Mengenal Hammad Studio</h1>
-        <p className="text-base text-[#c3c3c0] max-w-2xl mx-auto">
-          Hammad Studio didirikan untuk membantu pelaku usaha, startup, dan korporasi menghadirkan produk digital tingkat dunia yang efisien dan memukau secara visual.
-        </p>
-      </div>
+      <LocalizedPageIntro
+        eyebrow={{ id: "Tentang Hammad Studio", en: "About Hammad Studio" }}
+        title={{ id: "Produk digital, dibangun dengan benar.", en: "Digital products, built properly." }}
+        description={{ id: "Digital development studio dengan fokus pada quality, performance, scalability, dan security. Kami memilih solusi yang paling masuk akal untuk kebutuhan hari ini tanpa membatasi pertumbuhan besok.", en: "A digital development studio focused on quality, performance, scalability, and security. We choose sensible solutions for today's needs without limiting tomorrow's growth." }}
+        theme="dark"
+      />
 
       <AboutSection />
+      <SecuritySection />
+      <PrinciplesSection />
     </div>
   );
 }

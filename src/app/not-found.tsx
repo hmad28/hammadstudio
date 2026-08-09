@@ -1,19 +1,23 @@
+"use client";
+
 import Link from "next/link";
+import { useLocale } from "@/components/locale-provider";
+
+const content = {
+  title: { id: "Halaman tidak ditemukan", en: "Page not found" },
+  description: { id: "Halaman yang Anda cari mungkin sudah dipindahkan atau belum tersedia.", en: "The page you are looking for may have moved or is not available yet." },
+  action: { id: "Kembali ke beranda", en: "Back to home" },
+} as const;
 
 export default function NotFound() {
+  const { locale } = useLocale();
+
   return (
-    <div className="min-h-screen bg-[#0D1526] text-white flex flex-col items-center justify-center p-4 text-center">
-      <h1 className="text-8xl font-black text-[#D9FF43] mb-4">404</h1>
-      <h2 className="text-2xl sm:text-3xl font-bold mb-2">Halaman Tidak Ditemukan</h2>
-      <p className="text-zinc-400 max-w-md mb-8 text-sm">
-        Halaman yang Anda cari mungkin telah dipindahkan atau belum tersedia.
-      </p>
-      <Link
-        href="/"
-        className="px-6 py-3 bg-[#D9FF43] text-black font-bold rounded-full hover:bg-[#cfe83f] transition-all"
-      >
-        Kembali ke Beranda
-      </Link>
+    <div className="flex min-h-screen flex-col items-center justify-center bg-[#0a0a09] p-5 text-center text-white">
+      <span className="font-[family-name:var(--font-geist-mono)] text-[clamp(7rem,20vw,15rem)] font-semibold leading-none tracking-[-0.08em] text-[#cfef57]">404</span>
+      <h1 className="mt-2 text-2xl font-[520] tracking-[-0.04em] sm:text-4xl">{content.title[locale]}</h1>
+      <p className="mt-4 max-w-md text-sm leading-[1.65] text-white/45">{content.description[locale]}</p>
+      <Link href="/" className="acid-button mt-8 rounded-full px-6 py-3 text-sm font-semibold">{content.action[locale]}</Link>
     </div>
   );
 }
