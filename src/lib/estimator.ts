@@ -40,7 +40,10 @@ export function calculateEstimate(input: EstimatorSelection): EstimateResult {
   return { minimum, maximum, assumptions };
 }
 
-export const formatIDR = (amount: number) => new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR", maximumFractionDigits: 0 }).format(amount);
+export const formatIDR = (amount: number) => {
+  const millions = new Intl.NumberFormat("id-ID", { maximumFractionDigits: 1 }).format(amount / 1_000_000);
+  return `Rp ${millions} juta`;
+};
 
 export function fitResult(score: number) {
   if (score >= 8) return "Strong fit";

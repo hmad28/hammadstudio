@@ -1,6 +1,7 @@
 import React from "react";
 import { HeroSection } from "@/components/hero-section";
 import { AboutSection } from "@/components/about-section";
+import { WhyItMattersSection } from "@/components/why-it-matters-section";
 import { ServicesSection } from "@/components/services-section";
 import { SecuritySection } from "@/components/security-section";
 import { PortfolioSection } from "@/components/portfolio-section";
@@ -15,7 +16,10 @@ export default function HomePage() {
       {/* 02 SHORT INTRO */}
       <AboutSection />
 
-      {/* 03 SERVICES */}
+      {/* 03 WHY IT MATTERS */}
+      <WhyItMattersSection />
+
+      {/* 04 SERVICES */}
       <ServicesSection />
 
       {/* 04 SECURITY */}

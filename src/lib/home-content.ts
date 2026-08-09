@@ -37,8 +37,23 @@ export const homeContent = {
       en: ["Websites", "E-Commerce", "Web Applications", "Business Systems", "Automation & AI", "Custom Development"],
     },
   },
+  whyItMatters: {
+    label: { id: "Kenapa ini penting / 02", en: "Why it matters / 02" },
+    headline: { id: "Website yang baik bukan sekadar", en: "A good website does more than" },
+    accent: { id: "terlihat bagus.", en: "look good." },
+    description: {
+      id: "Ia membangun kepercayaan, menjelaskan value bisnis, dan membantu customer mengambil keputusan.",
+      en: "It builds trust, explains business value, and helps customers make decisions.",
+    },
+    items: [
+      { title: "Trust", description: { id: "Membuat bisnis terlihat kredibel sejak interaksi pertama.", en: "Makes the business feel credible from the first interaction." } },
+      { title: "Clarity", description: { id: "Membantu customer memahami apa yang Anda tawarkan.", en: "Helps customers understand what you offer." } },
+      { title: "Conversion", description: { id: "Mengubah perhatian menjadi inquiry, booking, atau transaksi.", en: "Turns attention into inquiries, bookings, or transactions." } },
+      { title: "Foundation", description: { id: "Menjadi fondasi untuk SEO, campaign, commerce, dan sistem digital berikutnya.", en: "Becomes the foundation for SEO, campaigns, commerce, and future digital systems." } },
+    ],
+  },
   services: {
-    label: { id: "Yang kami bangun / 02", en: "What we build / 02" },
+    label: { id: "Yang kami bangun / 03", en: "What we build / 03" },
     headline: { id: "Satu studio. Berbagai tingkat", en: "One studio. Different levels of" },
     accent: { id: "kompleksitas.", en: "complexity." },
     items: [
@@ -114,7 +129,7 @@ export const homeContent = {
     ],
   },
   work: {
-    label: { id: "Karya pilihan / 04", en: "Selected work / 04" },
+    label: { id: "Karya pilihan / 05", en: "Selected work / 05" },
     headline: { id: "Produk yang bekerja", en: "Work that" },
     accent: { id: "di dunia nyata.", en: "works hard." },
     all: { id: "Semua project", en: "All projects" },
@@ -125,18 +140,20 @@ export const homeContent = {
     },
   },
   pricing: {
-    label: { id: "Titik awal harga / 05", en: "Starting prices / 05" },
-    headline: { id: "Titik awal yang", en: "Clear starting" },
-    accent: { id: "jelas.", en: "points." },
-    description: { id: "Setiap project berbeda. Harga di bawah adalah titik awal berdasarkan scope standar.", en: "Every project is different. The prices below are starting points based on a standard scope." },
+    label: { id: "Titik awal harga / 06", en: "Starting prices / 06" },
+    headline: { id: "Mulai dari kebutuhan yang", en: "Start with the right" },
+    accent: { id: "tepat.", en: "scope." },
+    description: { id: "Setiap project memiliki kebutuhan berbeda. Harga final ditentukan berdasarkan scope dan kompleksitas.", en: "Every project has different requirements. Final pricing is determined by scope and complexity." },
     package: { id: "Paket", en: "Package" },
     starting: { id: "Mulai dari", en: "Starting from" },
     detail: { id: "Lihat paket lengkap", en: "View complete packages" },
     items: [
-      { title: "Website", price: { id: "Rp3,5jt+", en: "IDR 3.5M+" }, description: { id: "Landing page, company profile, portfolio, dan corporate website.", en: "Landing pages, company profiles, portfolios, and corporate websites." } },
-      { title: "Commerce", price: { id: "Rp9,5jt+", en: "IDR 9.5M+" }, description: { id: "Online store dengan CMS, checkout, payment, dan order management.", en: "Online stores with CMS, checkout, payments, and order management." } },
-      { title: "Web Application", price: { id: "Rp12,5jt+", en: "IDR 12.5M+" }, description: { id: "Dashboard, portal, booking, membership, registrasi, dan workflow aplikasi.", en: "Dashboards, portals, booking, memberships, registration, and application workflows." } },
-      { title: "Custom Development", price: { id: "Rp15–20jt+", en: "IDR 15–20M+" }, description: { id: "Custom system, automation, SaaS, platform, dan kebutuhan khusus.", en: "Custom systems, automation, SaaS, platforms, and specialized requirements." } },
+      { title: { id: "Website", en: "Website" }, price: "Rp 2,5 juta" },
+      { title: { id: "E-Commerce", en: "E-Commerce" }, price: "Rp 5 juta" },
+      { title: { id: "Web Application", en: "Web Application" }, price: "Rp 10 juta" },
+      { title: { id: "Automation & AI", en: "Automation & AI" }, price: "Rp 5 juta" },
+      { title: { id: "Business System", en: "Business System" }, price: "Rp 15 juta" },
+      { title: { id: "Custom Development", en: "Custom Development" }, price: "Rp 15 juta" },
     ],
   },
   footer: {

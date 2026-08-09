@@ -15,7 +15,7 @@ export function SecuritySection() {
       <div className="site-container">
         <MotionReveal className="grid gap-12 lg:grid-cols-12 lg:gap-6">
           <div className="lg:col-span-3">
-            <span className="label-mono text-[#cfef57]">{copy.label[locale]} / 03</span>
+            <span className="label-mono text-[#cfef57]">{copy.label[locale]} / 04</span>
           </div>
           <div className="lg:col-span-9">
             <h2 className="max-w-[950px] text-[clamp(3.2rem,7vw,7rem)] font-[510] leading-[0.88] tracking-[-0.065em]">
