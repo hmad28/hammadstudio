@@ -1,51 +1,48 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRightIcon } from "./icons";
+import { MotionReveal } from "./motion-reveal";
 
 const projects = [
-  { title: "Saudi Education Expo", category: "Event Platform", year: "2026", image: "/images/work/saudi-education-expo.webp", featured: true },
-  { title: "Umrah Operations Platform", category: "Operations System", year: "2026", image: "/images/work/operations-dashboard.webp" },
-  { title: "Ajwa Date Store", category: "E-commerce", year: "2026", image: "/images/work/ajwa-date-store.webp" },
+  { title: "Saudi Education Expo", category: "Event platform", year: "2026", image: "/images/work/saudi-education-expo.webp", className: "lg:col-span-12", ratio: "aspect-[4/3] sm:aspect-[16/9] lg:aspect-[2/1]" },
+  { title: "Umrah Operations Platform", category: "Operations system", year: "2026", image: "/images/work/operations-dashboard.webp", className: "lg:col-span-7", ratio: "aspect-[4/3]" },
+  { title: "Ajwa Date Store", category: "E-commerce", year: "2026", image: "/images/work/ajwa-date-store.webp", className: "lg:col-span-5 lg:mt-28", ratio: "aspect-[4/3] lg:aspect-[5/6]" },
 ];
 
-function ProjectCard({ project, supporting = false }: { project: (typeof projects)[number]; supporting?: boolean }) {
+function ProjectCard({ project, index }: { project: (typeof projects)[number]; index: number }) {
   return (
-    <article className="group">
-      <div className={`relative overflow-hidden rounded-[15px] bg-[#111] ${supporting ? "aspect-[16/9] lg:aspect-[16/7]" : "aspect-[16/10]"}`}>
-        <Image src={project.image} alt={`${project.title} project preview`} fill sizes={supporting ? "(max-width: 1023px) 100vw, 470px" : "(max-width: 1023px) 100vw, 680px"} className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.025]" />
-        <div className="pointer-events-none absolute inset-0 bg-black/0 transition-colors duration-700 group-hover:bg-black/[.035]" />
-      </div>
-      <div className="flex items-start justify-between gap-5 pt-4">
-        <div>
-          <h3 className={`${project.featured ? "text-2xl sm:text-[1.75rem]" : "text-xl sm:text-[1.35rem]"} font-[520] leading-tight tracking-[-.035em] text-[#0a0a0a]`}>{project.title}</h3>
-          <p className="mt-1.5 font-[family-name:var(--font-geist-mono)] text-[0.64rem] uppercase tracking-[.06em] text-[#747471]">{project.category} / {project.year}</p>
+    <MotionReveal className={project.className} delay={index === 0 ? 0 : 0.08}>
+      <Link href="/portofolio" className="group block">
+        <div className={`project-frame relative overflow-hidden rounded-[8px] bg-[#151514] ${project.ratio}`}>
+          <Image src={project.image} alt={`${project.title} project preview`} fill sizes={index === 0 ? "(max-width: 1200px) 100vw, 1180px" : "(max-width: 1023px) 100vw, 680px"} className="object-cover object-top transition-transform duration-[1200ms] ease-out group-hover:scale-[1.025]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent opacity-60 transition-opacity duration-700 group-hover:opacity-90" />
+          <span className="absolute right-4 top-4 flex h-11 w-11 translate-y-2 items-center justify-center rounded-full bg-[#cfef57] text-black opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 sm:right-6 sm:top-6"><ArrowUpRightIcon className="h-4 w-4" /></span>
         </div>
-        <ArrowUpRightIcon className="button-arrow mt-1 h-5 w-5 shrink-0 text-[#0a0a0a]" />
-      </div>
-    </article>
+        <div className="grid grid-cols-[1fr_auto] gap-5 border-b border-white/12 py-5 sm:py-6">
+          <div>
+            <p className="label-mono text-white/35">0{index + 1} / {project.category}</p>
+            <h3 className="mt-2 text-[clamp(1.7rem,3vw,3.3rem)] font-[500] leading-none tracking-[-0.05em] text-[#f2f0e9]">{project.title}</h3>
+          </div>
+          <span className="self-end pb-1 text-xs text-white/40">{project.year}</span>
+        </div>
+      </Link>
+    </MotionReveal>
   );
 }
 
 export function PortfolioSection() {
   return (
-    <section id="work" className="scroll-mt-20 border-t border-black/10 bg-[#efeee9] py-20 text-[#080808] sm:py-24">
-      <div className="site-container reveal">
-        <div className="grid gap-5 pb-10 lg:grid-cols-12 lg:gap-6 lg:pb-12">
-          <div className="lg:col-span-3"><span className="label-mono text-[#747471]">Selected Work / 03</span></div>
-          <div className="flex items-end justify-between gap-6 lg:col-span-9">
-            <h2 className="max-w-[640px] text-[clamp(2.5rem,5.2vw,4.7rem)] font-[500] leading-[.98] tracking-[-.05em]">A few things<br />we&apos;ve built.</h2>
-            <Link href="/portofolio" className="group hidden items-center gap-2 pb-1 text-xs font-semibold sm:inline-flex">View all work <ArrowUpRightIcon className="button-arrow h-4 w-4" /></Link>
-          </div>
-        </div>
+    <section id="work" className="scroll-mt-20 bg-[#0a0a09] py-24 text-white sm:py-32 lg:py-40">
+      <div className="site-container">
+        <MotionReveal className="grid gap-10 pb-14 lg:grid-cols-12 lg:items-end lg:gap-6 lg:pb-20">
+          <div className="lg:col-span-3"><span className="label-mono text-white/38">Selected work / 03</span></div>
+          <div className="lg:col-span-7"><h2 className="text-[clamp(3.4rem,7vw,7.4rem)] font-[510] leading-[0.86] tracking-[-0.065em]">Work that<br /><span className="font-[family-name:var(--font-instrument-serif)] font-normal italic text-[#cfef57]">works hard.</span></h2></div>
+          <div className="lg:col-span-2 lg:text-right"><Link href="/portofolio" className="group inline-flex items-center gap-2 text-xs font-semibold text-white/70 hover:text-white">All projects <ArrowUpRightIcon className="button-arrow h-4 w-4" /></Link></div>
+        </MotionReveal>
 
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-6">
-          <div className="lg:col-span-7"><ProjectCard project={projects[0]} /></div>
-          <div className="grid gap-12 lg:col-span-5 lg:gap-8">
-            <ProjectCard project={projects[1]} supporting />
-            <ProjectCard project={projects[2]} supporting />
-          </div>
+        <div className="grid gap-x-6 gap-y-16 lg:grid-cols-12 lg:gap-y-24">
+          {projects.map((project, index) => <ProjectCard key={project.title} project={project} index={index} />)}
         </div>
-        <Link href="/portofolio" className="group mt-10 inline-flex items-center gap-2 text-sm font-semibold sm:hidden">View all work <ArrowUpRightIcon className="button-arrow h-4 w-4" /></Link>
       </div>
     </section>
   );

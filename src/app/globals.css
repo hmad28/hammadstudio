@@ -2,69 +2,141 @@
 @import "tw-animate-css";
 
 :root {
-  --black-950: #050505;
-  --black-900: #090909;
-  --black-850: #0d0d0d;
-  --black-800: #151515;
-  --black-700: #202020;
-  --white: #fafaf8;
-  --silver-100: #f1f1ee;
-  --silver-200: #ddddda;
-  --silver-300: #c5c5c1;
-  --silver-400: #9a9a96;
-  --silver-500: #747471;
-  --ivory: #f4f2ec;
-  --line-dark: rgb(255 255 255 / 9%);
-  --line-light: rgb(8 8 8 / 12%);
+  --ink: #0a0a09;
+  --paper: #f0eee7;
+  --paper-deep: #e8e5dc;
+  --acid: #cfef57;
+  --white: #f6f4ee;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; background: var(--black-950); }
-body { margin: 0; background: var(--black-950); color: var(--white); overflow-x: hidden; }
-::selection { background: var(--silver-200); color: var(--black-950); }
+html { scroll-behavior: smooth; background: var(--ink); }
+body { margin: 0; background: var(--ink); color: var(--white); overflow-x: hidden; }
+::selection { background: var(--acid); color: var(--ink); }
 a, button { -webkit-tap-highlight-color: transparent; outline-offset: 4px; }
 
-.site-container { width: min(100% - 40px, 1180px); margin-inline: auto; }
+.site-container { width: min(100% - 40px, 1240px); margin-inline: auto; }
 .label-mono {
   font-family: var(--font-geist-mono), monospace;
-  font-size: 0.6875rem;
-  font-weight: 550;
+  font-size: 0.65rem;
+  font-weight: 560;
   letter-spacing: 0.12em;
   line-height: 1.2;
   text-transform: uppercase;
 }
+
 .hero-surface {
-  background: radial-gradient(70% 55% at 50% 0%, rgb(255 255 255 / 9%), rgb(255 255 255 / 2.5%) 38%, transparent 70%), linear-gradient(180deg, #151515 0%, #090909 56%, #050505 100%);
+  background:
+    radial-gradient(80% 45% at 50% -5%, rgb(255 255 255 / 8%), transparent 68%),
+    radial-gradient(45% 40% at 50% 75%, rgb(207 239 87 / 7%), transparent 70%),
+    #0a0a09;
 }
-.hero-grid {
-  background-image: linear-gradient(to right, rgb(255 255 255 / 2.4%) 1px, transparent 1px), linear-gradient(to bottom, rgb(255 255 255 / 2.4%) 1px, transparent 1px);
-  background-size: 56px 56px;
-  mask-image: linear-gradient(to bottom, black, transparent 78%);
+.hero-noise {
+  opacity: 0.23;
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 2.2%) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 2.2%) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(to bottom, black, transparent 92%);
+}
+.hero-stage { perspective: 1100px; }
+.hero-line { display: block; overflow: hidden; }
+.hero-line > * { display: block; }
+
+.acid-button {
+  background: var(--acid);
+  color: var(--ink);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 35%);
+  transition: transform 300ms var(--ease-out), background-color 220ms ease, box-shadow 300ms ease;
+}
+.acid-button:hover {
+  background: #dcfb6d;
+  box-shadow: 0 10px 30px rgb(207 239 87 / 16%);
+  transform: translateY(-2px);
 }
 .silver-button {
   background: linear-gradient(135deg, #fafaf8 0%, #d8d8d5 100%);
-  box-shadow: inset 0 1px 0 rgb(255 255 255 / 75%), 0 8px 24px rgb(0 0 0 / 16%);
   color: #080808;
-  transition: transform 240ms var(--ease-out), filter 240ms ease, box-shadow 240ms ease;
+  transition: transform 240ms var(--ease-out), filter 240ms ease;
 }
-.silver-button:hover { filter: brightness(1.05); transform: translateY(-2px); box-shadow: inset 0 1px 0 white, 0 12px 30px rgb(0 0 0 / 22%); }
-.button-arrow { transition: transform 240ms var(--ease-out); }
-.group:hover .button-arrow, .silver-button:hover .button-arrow { transform: translate(3px, -3px); }
-.hero-line { display: block; overflow: hidden; }
-.hero-line > span { display: block; animation: hero-line-in 850ms var(--ease-out) both; }
-.hero-line:nth-child(2) > span { animation-delay: 80ms; }
-.hero-support { animation: hero-fade-in 700ms 340ms var(--ease-out) both; }
-.hero-showcase { animation: hero-clip-in 900ms 520ms var(--ease-out) both; }
-.reveal { animation: section-in 700ms var(--ease-out) both; animation-timeline: view(); animation-range: entry 5% cover 25%; }
-@keyframes hero-line-in { from { transform: translateY(110%); } to { transform: translateY(0); } }
-@keyframes hero-fade-in { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes hero-clip-in { from { opacity: 0; clip-path: inset(15% 8% 0 8% round 20px); transform: translateY(24px); } to { opacity: 1; clip-path: inset(0 0 0 0 round 20px); transform: translateY(0); } }
-@keyframes section-in { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+.silver-button:hover { filter: brightness(1.05); transform: translateY(-2px); }
+.button-arrow { transition: transform 280ms var(--ease-out); }
+.group:hover .button-arrow, .acid-button:hover .button-arrow, .silver-button:hover .button-arrow { transform: translate(3px, -3px); }
+
+.availability-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--acid);
+  box-shadow: 0 0 0 4px rgb(207 239 87 / 10%);
+  animation: pulse-dot 2.2s ease-in-out infinite;
+}
+.nav-link { position: relative; }
+.nav-link::after {
+  position: absolute;
+  right: 0;
+  bottom: -6px;
+  left: 0;
+  height: 1px;
+  content: "";
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 300ms var(--ease-out);
+}
+.nav-link:hover::after { transform: scaleX(1); transform-origin: left; }
+
+.ticker { overflow: hidden; }
+.ticker-track {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  gap: 28px;
+  animation: ticker 28s linear infinite;
+}
+.ticker:hover .ticker-track { animation-play-state: paused; }
+.project-frame::after {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgb(255 255 255 / 10%);
+  border-radius: inherit;
+  content: "";
+  pointer-events: none;
+}
+.pricing-card { box-shadow: inset 0 1px 0 rgb(255 255 255 / 35%); }
+.reveal {
+  animation: section-in 700ms var(--ease-out) both;
+  animation-timeline: view();
+  animation-range: entry 5% cover 25%;
+}
+
+@keyframes ticker { to { transform: translateX(calc(-50% - 14px)); } }
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 4px rgb(207 239 87 / 10%); }
+  50% { box-shadow: 0 0 0 8px rgb(207 239 87 / 0%); }
+}
+@keyframes section-in {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 ::-webkit-scrollbar { width: 7px; }
-::-webkit-scrollbar-track { background: var(--black-950); }
-::-webkit-scrollbar-thumb { background: #303030; border-radius: 999px; }
+::-webkit-scrollbar-track { background: var(--ink); }
+::-webkit-scrollbar-thumb { background: #353531; border-radius: 999px; }
+
+@media (max-width: 639px) {
+  .site-container { width: min(100% - 32px, 1240px); }
+  .hero-noise { background-size: 42px 42px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }
