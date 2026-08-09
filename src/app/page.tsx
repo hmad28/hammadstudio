@@ -3,9 +3,9 @@ import { HeroSection } from "@/components/hero-section";
 import { AboutSection } from "@/components/about-section";
 import { WhyItMattersSection } from "@/components/why-it-matters-section";
 import { ServicesSection } from "@/components/services-section";
-import { SecuritySection } from "@/components/security-section";
 import { PortfolioSection } from "@/components/portfolio-section";
 import { PricingSection } from "@/components/pricing-section";
+import { ProcessPreviewSection } from "@/components/process-preview-section";
 
 export default function HomePage() {
   return (
@@ -16,14 +16,11 @@ export default function HomePage() {
       {/* 02 SHORT INTRO */}
       <AboutSection />
 
-      {/* 03 WHY IT MATTERS */}
-      <WhyItMattersSection />
-
-      {/* 04 SERVICES */}
+      {/* 02 SERVICES */}
       <ServicesSection />
 
-      {/* 04 SECURITY */}
-      <SecuritySection />
+      {/* 03 WHY IT MATTERS */}
+      <WhyItMattersSection />
 
       {/* 05 SELECTED WORK */}
       <PortfolioSection />
@@ -31,7 +28,8 @@ export default function HomePage() {
       {/* 06 PRICING */}
       <PricingSection />
 
-      {/* 06 FINAL CTA & 07 FOOTER are rendered seamlessly via RootLayout CTAFooter */}
+      {/* 06 PROCESS */}
+      <ProcessPreviewSection />
     </div>
   );
 }

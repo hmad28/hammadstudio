@@ -25,7 +25,7 @@ export function AboutSection() {
             </h2>
             <div className="mt-10 flex flex-col gap-6 border-t border-black/15 pt-6 sm:flex-row sm:items-start sm:justify-between">
               <p className="max-w-[640px] text-base leading-[1.65] text-black/58 sm:text-lg">{copy.description[locale]}</p>
-              <Link href="/about" className="group inline-flex shrink-0 items-center gap-2 text-sm font-semibold">{copy.link[locale]} <ArrowUpRightIcon className="button-arrow h-4 w-4" /></Link>
+              <Link href="/studio" className="group inline-flex shrink-0 items-center gap-2 text-sm font-semibold">{copy.link[locale]} <ArrowUpRightIcon className="button-arrow h-4 w-4" /></Link>
             </div>
           </div>
         </MotionReveal>

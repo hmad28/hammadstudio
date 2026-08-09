@@ -15,6 +15,7 @@ export function ServicesSection() {
   const copy = homeContent.services;
   const services = copy.items;
   const service = services[active];
+  const slugs = ["website", "e-commerce", "web-application", "business-system", "automation-ai", "custom-development"] as const;
 
   return (
     <section id="services" className="scroll-mt-24 bg-[#f0eee7] pb-24 text-[#0a0a09] sm:pb-32 lg:pb-40">
@@ -39,7 +40,7 @@ export function ServicesSection() {
           {services.map((item, index) => {
             const isActive = active === index;
             return (
-              <Link key={item.number} href="/services" onMouseEnter={() => setActive(index)} onFocus={() => setActive(index)} className="group block border-b border-black/20 py-6 sm:py-8">
+              <Link key={item.number} href={`/services/${slugs[index]}`} onMouseEnter={() => setActive(index)} onFocus={() => setActive(index)} className="group block border-b border-black/20 py-6 sm:py-8">
                 <div className="grid grid-cols-[36px_1fr_auto] items-start gap-3 sm:grid-cols-[54px_1fr_auto]">
                   <span className="pt-1 font-[family-name:var(--font-geist-mono)] text-[0.65rem] text-black/40">{item.number}</span>
                   <div>

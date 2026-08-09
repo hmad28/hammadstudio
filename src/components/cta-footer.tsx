@@ -6,8 +6,6 @@ import { ArrowUpRightIcon, HammadStudioLogo } from "./icons";
 import { useLocale } from "./locale-provider";
 import { MotionReveal } from "./motion-reveal";
 
-const projectUrl = "https://wa.me/6287888362186?text=Halo%20HAMMAD.STUDIO%2C%20saya%20ingin%20memulai%20project";
-
 export function CTAFooter() {
   const { locale } = useLocale();
   const copy = homeContent.footer;
@@ -18,10 +16,10 @@ export function CTAFooter() {
       <section className="overflow-hidden bg-[#cfef57] px-5 py-24 text-[#0a0a09] sm:px-8 sm:py-32 lg:py-40">
         <MotionReveal className="mx-auto max-w-[1240px]">
           <div className="flex items-center justify-between border-b border-black/20 pb-5"><span className="label-mono text-black/50">{copy.prompt[locale]}</span><span className="label-mono hidden text-black/50 sm:block">{copy.makeReal[locale]}</span></div>
-          <a href={projectUrl} target="_blank" rel="noreferrer" className="group mt-9 flex items-end justify-between gap-5">
+          <Link href="/contact" className="group mt-9 flex items-end justify-between gap-5">
             <h2 className="text-[clamp(4rem,11vw,11rem)] font-[530] leading-[0.75] tracking-[-0.075em]">{copy.lets[locale]}<br /><span className="font-[family-name:var(--font-instrument-serif)] font-normal italic">{copy.talk[locale]}</span></h2>
             <span className="mb-2 flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-black text-white transition-transform duration-500 group-hover:rotate-45 group-hover:scale-110 sm:mb-4 sm:h-20 sm:w-20"><ArrowUpRightIcon className="h-5 w-5 sm:h-7 sm:w-7" /></span>
-          </a>
+          </Link>
         </MotionReveal>
       </section>
 
@@ -34,7 +32,7 @@ export function CTAFooter() {
               <div className="mt-5 flex items-center gap-2 text-xs text-white/45"><span className="availability-dot" /> {copy.available[locale]}</div>
             </div>
             <nav className="grid grid-cols-2 gap-x-8 gap-y-3 text-sm text-white/55 lg:col-span-3" aria-label="Footer navigation">
-              <Link href="/#services" className="hover:text-white">{nav.services[locale]}</Link><Link href="/#work" className="hover:text-white">{nav.work[locale]}</Link><Link href="/pricing" className="hover:text-white">{nav.pricing[locale]}</Link><Link href="/about" className="hover:text-white">{nav.studio[locale]}</Link>
+              <Link href="/services" className="hover:text-white">{nav.services[locale]}</Link><Link href="/work" className="hover:text-white">{nav.work[locale]}</Link><Link href="/pricing" className="hover:text-white">{nav.pricing[locale]}</Link><Link href="/studio" className="hover:text-white">{nav.studio[locale]}</Link>
             </nav>
             <div className="lg:col-span-4 lg:text-right">
               <p className="label-mono text-white/30">{copy.newBusiness[locale]}</p>

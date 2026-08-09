@@ -15,8 +15,8 @@ export const homeContent = {
     accent: { id: "dibangun", en: "built" },
     lineTwo: { id: "dengan benar.", en: "properly." },
     description: {
-      id: "Website, commerce, aplikasi, dan custom software dengan engineering dan security yang serius.",
-      en: "Websites, commerce, applications, and custom software with serious engineering and security.",
+      id: "Website, e-commerce, aplikasi, dan software custom untuk bisnis yang ingin tampil dan bekerja lebih baik.",
+      en: "Websites, e-commerce, applications, and custom software for businesses that want to look and work better.",
     },
     primary: { id: "Mulai project", en: "Start a project" },
     secondary: { id: "Lihat karya", en: "Explore work" },
@@ -28,8 +28,8 @@ export const homeContent = {
     headlineBefore: { id: "Dari website sederhana hingga", en: "From simple websites to" },
     headlineAccent: { id: "platform digital custom.", en: "custom digital platforms." },
     description: {
-      id: "Untuk bisnis, organisasi, dan ide yang membutuhkan produk digital berkualitas.",
-      en: "For businesses, organizations, and ideas that need quality digital products.",
+      id: "Kami membantu bisnis dan organisasi membangun produk digital yang profesional dan benar-benar siap digunakan.",
+      en: "We help businesses and organizations build professional digital products that are ready for real use.",
     },
     link: { id: "Tentang Hammad Studio", en: "About Hammad Studio" },
     capabilities: {
@@ -38,24 +38,24 @@ export const homeContent = {
     },
   },
   whyItMatters: {
-    label: { id: "Kenapa ini penting / 02", en: "Why it matters / 02" },
-    headline: { id: "Website yang baik bukan sekadar", en: "A good website does more than" },
-    accent: { id: "terlihat bagus.", en: "look good." },
+    label: { id: "Kenapa ini penting / 03", en: "Why it matters / 03" },
+    headline: { id: "Website Anda ikut menentukan", en: "Your website shapes how" },
+    accent: { id: "bagaimana bisnis Anda dinilai.", en: "your business is judged." },
     description: {
-      id: "Ia membangun kepercayaan, menjelaskan value bisnis, dan membantu customer mengambil keputusan.",
-      en: "It builds trust, explains business value, and helps customers make decisions.",
+      id: "Website yang baik bukan cuma terlihat menarik. Ia membantu customer percaya, memahami bisnis Anda, dan mengambil tindakan.",
+      en: "A good website does more than look attractive. It helps customers trust you, understand the business, and take action.",
     },
     items: [
       { title: "Trust", description: { id: "Membuat bisnis terlihat kredibel sejak interaksi pertama.", en: "Makes the business feel credible from the first interaction." } },
       { title: "Clarity", description: { id: "Membantu customer memahami apa yang Anda tawarkan.", en: "Helps customers understand what you offer." } },
       { title: "Conversion", description: { id: "Mengubah perhatian menjadi inquiry, booking, atau transaksi.", en: "Turns attention into inquiries, bookings, or transactions." } },
-      { title: "Foundation", description: { id: "Menjadi fondasi untuk SEO, campaign, commerce, dan sistem digital berikutnya.", en: "Becomes the foundation for SEO, campaigns, commerce, and future digital systems." } },
+      { title: "Growth", description: { id: "Menjadi fondasi untuk SEO, campaign, commerce, dan sistem digital berikutnya.", en: "Becomes the foundation for SEO, campaigns, commerce, and future digital systems." } },
     ],
   },
   services: {
-    label: { id: "Yang kami bangun / 03", en: "What we build / 03" },
-    headline: { id: "Satu studio. Berbagai tingkat", en: "One studio. Different levels of" },
-    accent: { id: "kompleksitas.", en: "complexity." },
+    label: { id: "Yang kami bangun / 02", en: "What we build / 02" },
+    headline: { id: "Apa yang bisa", en: "What can we" },
+    accent: { id: "kami bangun?", en: "build?" },
     items: [
       {
         number: "01",
@@ -129,9 +129,9 @@ export const homeContent = {
     ],
   },
   work: {
-    label: { id: "Karya pilihan / 05", en: "Selected work / 05" },
-    headline: { id: "Produk yang bekerja", en: "Work that" },
-    accent: { id: "di dunia nyata.", en: "works hard." },
+    label: { id: "Karya pilihan / 04", en: "Selected work / 04" },
+    headline: { id: "Beberapa hal yang", en: "A few things" },
+    accent: { id: "sudah kami bangun.", en: "we have built." },
     all: { id: "Semua project", en: "All projects" },
     categories: {
       event: { id: "Platform event", en: "Event platform" },
@@ -140,9 +140,9 @@ export const homeContent = {
     },
   },
   pricing: {
-    label: { id: "Titik awal harga / 06", en: "Starting prices / 06" },
-    headline: { id: "Mulai dari kebutuhan yang", en: "Start with the right" },
-    accent: { id: "tepat.", en: "scope." },
+    label: { id: "Titik awal harga / 05", en: "Starting prices / 05" },
+    headline: { id: "Punya gambaran biaya", en: "Know the starting cost" },
+    accent: { id: "sejak awal.", en: "from the start." },
     description: { id: "Setiap project memiliki kebutuhan berbeda. Harga final ditentukan berdasarkan scope dan kompleksitas.", en: "Every project has different requirements. Final pricing is determined by scope and complexity." },
     package: { id: "Paket", en: "Package" },
     starting: { id: "Mulai dari", en: "Starting from" },
@@ -157,11 +157,11 @@ export const homeContent = {
     ],
   },
   footer: {
-    prompt: { id: "Punya project?", en: "Have a project?" },
-    makeReal: { id: "Mari wujudkan", en: "Let's make it real" },
+    prompt: { id: "Ada yang ingin dibangun?", en: "Have something to build?" },
+    makeReal: { id: "Ceritakan kebutuhannya", en: "Tell us what you need" },
     lets: { id: "Mari", en: "Let's" },
     talk: { id: "bicara.", en: "talk." },
-    description: { id: "Website, commerce, aplikasi, sistem, dan automation dengan quality engineering dan security dalam setiap prosesnya.", en: "Websites, commerce, applications, systems, and automation with quality engineering and security in every process." },
+    description: { id: "Ceritakan kebutuhannya. Kami bantu menentukan pendekatan yang masuk akal.", en: "Tell us what you need. We will help define an approach that makes sense." },
     available: { id: "Tersedia untuk project pilihan", en: "Available for select projects" },
     newBusiness: { id: "Project baru", en: "New business" },
     closing: { id: "Teknologi harus menyelesaikan masalah, bukan menciptakan complexity baru.", en: "Technology should solve problems, not create new complexity." },

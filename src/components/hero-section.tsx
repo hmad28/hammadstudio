@@ -8,8 +8,6 @@ import { homeContent } from "@/lib/home-content";
 import { ArrowUpRightIcon } from "./icons";
 import { useLocale } from "./locale-provider";
 
-const projectUrl = "https://wa.me/6287888362186?text=Halo%20HAMMAD.STUDIO%2C%20saya%20ingin%20memulai%20project";
-
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const reduceMotion = useReducedMotion();
@@ -37,7 +35,7 @@ export function HeroSection() {
           <motion.div className="lg:col-span-3 lg:pb-2" initial={reduceMotion ? false : { opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.75, delay: 0.32, ease: [0.16, 1, 0.3, 1] }}>
             <p className="max-w-[340px] text-sm leading-[1.6] text-white/58 sm:text-base lg:ml-auto">{copy.description[locale]}</p>
             <div className="mt-6 flex flex-wrap gap-3 lg:justify-end">
-              <a href={projectUrl} target="_blank" rel="noreferrer" className="acid-button group inline-flex items-center gap-2 rounded-full px-5 py-3 text-xs font-semibold">{copy.primary[locale]} <ArrowUpRightIcon className="button-arrow h-3.5 w-3.5" /></a>
+              <Link href="/contact" className="acid-button group inline-flex items-center gap-2 rounded-full px-5 py-3 text-xs font-semibold">{copy.primary[locale]} <ArrowUpRightIcon className="button-arrow h-3.5 w-3.5" /></Link>
               <Link href="#work" className="inline-flex items-center rounded-full border border-white/16 px-5 py-3 text-xs font-medium text-white/80 transition-colors hover:bg-white hover:text-black">{copy.secondary[locale]}</Link>
             </div>
           </motion.div>

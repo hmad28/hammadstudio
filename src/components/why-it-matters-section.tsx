@@ -21,10 +21,9 @@ export function WhyItMattersSection() {
 
         <div className="mt-14 grid border-l border-t border-black/15 sm:grid-cols-2 lg:ml-[25%] lg:grid-cols-4">
           {copy.items.map((item, index) => (
-            <MotionReveal key={item.title} delay={index * 0.05} className="min-h-[190px] border-b border-r border-black/15 p-6">
+            <MotionReveal key={item.title} delay={index * 0.05} className="min-h-[150px] border-b border-r border-black/15 p-6">
               <span className="font-[family-name:var(--font-geist-mono)] text-[0.6rem] text-black/32">0{index + 1}</span>
-              <h3 className="mt-10 text-2xl font-[520] tracking-[-0.04em]">{item.title}</h3>
-              <p className="mt-3 text-sm leading-[1.6] text-black/52">{item.description[locale]}</p>
+              <h3 className="mt-10 text-[clamp(1.8rem,3vw,3rem)] font-[520] tracking-[-0.05em]">{item.title}</h3>
             </MotionReveal>
           ))}
         </div>

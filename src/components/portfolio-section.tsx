@@ -8,15 +8,15 @@ import { useLocale } from "./locale-provider";
 import { MotionReveal } from "./motion-reveal";
 
 const projects = [
-  { title: "Saudi Education Expo", category: "event", year: "2026", image: "/images/work/saudi-education-expo.webp", className: "lg:col-span-12", ratio: "aspect-[4/3] sm:aspect-[16/9] lg:aspect-[2/1]" },
-  { title: "Umrah Operations Platform", category: "operations", year: "2026", image: "/images/work/operations-dashboard.webp", className: "lg:col-span-7", ratio: "aspect-[4/3]" },
-  { title: "Ajwa Date Store", category: "commerce", year: "2026", image: "/images/work/ajwa-date-store.webp", className: "lg:col-span-5 lg:mt-28", ratio: "aspect-[4/3] lg:aspect-[5/6]" },
+  { slug: "saudi-education-expo", title: "Saudi Education Expo", category: "event", year: "2026", image: "/images/work/saudi-education-expo.webp", className: "lg:col-span-12", ratio: "aspect-[4/3] sm:aspect-[16/9] lg:aspect-[2/1]" },
+  { slug: "umrah-operations-platform", title: "Umrah Operations Platform", category: "operations", year: "2026", image: "/images/work/operations-dashboard.webp", className: "lg:col-span-7", ratio: "aspect-[4/3]" },
+  { slug: "ajwa-date-store", title: "Ajwa Date Store", category: "commerce", year: "2026", image: "/images/work/ajwa-date-store.webp", className: "lg:col-span-5 lg:mt-28", ratio: "aspect-[4/3] lg:aspect-[5/6]" },
 ] as const;
 
 function ProjectCard({ project, index, category }: { project: (typeof projects)[number]; index: number; category: string }) {
   return (
     <MotionReveal className={project.className} delay={index === 0 ? 0 : 0.08}>
-      <Link href="/portofolio" className="group block">
+      <Link href={`/work/${project.slug}`} className="group block">
         <div className={`project-frame relative overflow-hidden rounded-[8px] bg-[#151514] ${project.ratio}`}>
           <Image src={project.image} alt={`${project.title} project preview`} fill sizes={index === 0 ? "(max-width: 1200px) 100vw, 1180px" : "(max-width: 1023px) 100vw, 680px"} className="object-cover object-top transition-transform duration-[1200ms] ease-out group-hover:scale-[1.025]" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent opacity-60 transition-opacity duration-700 group-hover:opacity-90" />
@@ -44,7 +44,7 @@ export function PortfolioSection() {
         <MotionReveal className="grid gap-10 pb-14 lg:grid-cols-12 lg:items-end lg:gap-6 lg:pb-20">
           <div className="lg:col-span-3"><span className="label-mono text-white/38">{copy.label[locale]}</span></div>
           <div className="lg:col-span-7"><h2 className="text-[clamp(3.4rem,7vw,7.4rem)] font-[510] leading-[0.86] tracking-[-0.065em]">{copy.headline[locale]}<br /><span className="font-[family-name:var(--font-instrument-serif)] font-normal italic text-[#cfef57]">{copy.accent[locale]}</span></h2></div>
-          <div className="lg:col-span-2 lg:text-right"><Link href="/portofolio" className="group inline-flex items-center gap-2 text-xs font-semibold text-white/70 hover:text-white">{copy.all[locale]} <ArrowUpRightIcon className="button-arrow h-4 w-4" /></Link></div>
+          <div className="lg:col-span-2 lg:text-right"><Link href="/work" className="group inline-flex items-center gap-2 text-xs font-semibold text-white/70 hover:text-white">{copy.all[locale]} <ArrowUpRightIcon className="button-arrow h-4 w-4" /></Link></div>
         </MotionReveal>
 
         <div className="grid gap-x-6 gap-y-16 lg:grid-cols-12 lg:gap-y-24">

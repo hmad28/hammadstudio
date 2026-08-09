@@ -2,24 +2,25 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { homeContent } from "@/lib/home-content";
 import { ArrowUpRightIcon, CloseIcon, HammadStudioLogo, MenuIcon } from "./icons";
 import { LanguageSwitcher } from "./language-switcher";
 import { useLocale } from "./locale-provider";
 
-const projectUrl = "https://wa.me/6287888362186?text=Halo%20HAMMAD.STUDIO%2C%20saya%20ingin%20memulai%20project";
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
   const reduceMotion = useReducedMotion();
   const { locale } = useLocale();
   const copy = homeContent.nav;
   const navItems = [
-    { href: "/#services", label: copy.services[locale] },
-    { href: "/#work", label: copy.work[locale] },
+    { href: "/services", label: copy.services[locale] },
+    { href: "/work", label: copy.work[locale] },
     { href: "/pricing", label: copy.pricing[locale] },
-    { href: "/about", label: copy.studio[locale] },
+    { href: "/studio", label: copy.studio[locale] },
   ];
 
   useEffect(() => {
@@ -39,11 +40,14 @@ export function Navbar() {
       >
         <Link href="/" aria-label="HAMMAD.STUDIO home"><HammadStudioLogo /></Link>
         <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-7 text-[0.7rem] font-medium text-white/58 lg:flex" aria-label="Primary navigation">
-          {navItems.map((item) => <Link key={item.href} href={item.href} className="nav-link transition-colors hover:text-white">{item.label}</Link>)}
+          {navItems.map((item) => {
+            const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
+            return <Link key={item.href} href={item.href} aria-current={active ? "page" : undefined} className={`nav-link transition-colors hover:text-white ${active ? "text-white" : ""}`}>{item.label}</Link>;
+          })}
         </nav>
         <div className="flex items-center gap-2">
           <LanguageSwitcher compact />
-          <a href={projectUrl} target="_blank" rel="noreferrer" className="acid-button group hidden items-center gap-2 rounded-full px-4 py-2.5 text-[0.7rem] font-semibold lg:inline-flex">{copy.talk[locale]} <ArrowUpRightIcon className="button-arrow h-3.5 w-3.5" /></a>
+          <Link href="/contact" className="acid-button group hidden items-center gap-2 rounded-full px-4 py-2.5 text-[0.7rem] font-semibold lg:inline-flex">{copy.talk[locale]} <ArrowUpRightIcon className="button-arrow h-3.5 w-3.5" /></Link>
           <button type="button" onClick={() => setOpen((value) => !value)} className="flex h-9 w-9 items-center justify-center rounded-full border border-white/12 text-white lg:hidden" aria-expanded={open} aria-controls="mobile-navigation" aria-label={open ? copy.close[locale] : copy.open[locale]}>
             {open ? <CloseIcon className="h-4 w-4" /> : <MenuIcon className="h-4 w-4" />}
           </button>
@@ -60,7 +64,7 @@ export function Navbar() {
                 </motion.div>
               ))}
             </nav>
-            <a href={projectUrl} target="_blank" rel="noreferrer" className="acid-button group mt-5 flex w-full items-center justify-center gap-2 rounded-full px-4 py-3 text-sm font-semibold">{homeContent.hero.primary[locale]} <ArrowUpRightIcon className="button-arrow h-4 w-4" /></a>
+            <Link href="/contact" onClick={() => setOpen(false)} className="acid-button group mt-5 flex w-full items-center justify-center gap-2 rounded-full px-4 py-3 text-sm font-semibold">{homeContent.hero.primary[locale]} <ArrowUpRightIcon className="button-arrow h-4 w-4" /></Link>
           </motion.div>
         )}
       </AnimatePresence>
