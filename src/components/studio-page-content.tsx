@@ -1,109 +1,42 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRightIcon } from "./icons";
 import { useLocale } from "./locale-provider";
 import { MotionReveal } from "./motion-reveal";
 
 const content = {
-  label: { id: "Studio", en: "Studio" },
-  title: { id: "Kami membangun produk digital dengan cara yang", en: "We build digital products the way we believe is" },
-  accent: { id: "kami percaya benar.", en: "proper." },
-  intro: {
-    id: "Hammad Studio adalah independent digital development studio untuk bisnis, organisasi, dan ide yang membutuhkan website hingga software custom dengan fondasi teknis yang kuat.",
-    en: "Hammad Studio is an independent digital development studio for businesses, organizations, and ideas that need websites through to custom software with strong technical foundations.",
-  },
-  principles: {
-    label: { id: "Cara kami bekerja / 01", en: "How we work / 01" },
-    title: { id: "Prinsip yang menjaga setiap", en: "Principles behind every" },
-    accent: { id: "keputusan.", en: "decision." },
-    items: [
-      { title: "Build what matters", id: "Membangun apa yang benar-benar dibutuhkan, bukan apa yang sekadar terlihat canggih.", en: "Build what is actually needed, not what merely looks sophisticated." },
-      { title: "Simple when possible", id: "Solusi sederhana dipilih ketika sudah cukup untuk menyelesaikan masalah.", en: "Choose the simpler solution when it is enough to solve the problem." },
-      { title: "Built for real use", id: "Produk dipikirkan untuk kondisi setelah launch, bukan hanya untuk presentasi.", en: "Products are designed for life after launch, not just for presentations." },
-      { title: "Grow when needed", id: "Fondasi hari ini tidak boleh menghalangi kebutuhan bisnis berikutnya.", en: "Today's foundations should not block tomorrow's business needs." },
-    ],
-  },
-  engineering: {
-    label: { id: "Engineering / 02", en: "Engineering / 02" },
-    title: { id: "Visual yang kuat perlu", en: "Strong visuals need" },
-    accent: { id: "fondasi yang layak.", en: "sound foundations." },
-    description: { id: "Kami memperhatikan cara produk disusun, dijalankan, dirawat, dan dikembangkan kembali ketika kebutuhan bertambah.", en: "We consider how a product is structured, operated, maintained, and extended as requirements grow." },
-    items: ["Architecture", "Performance", "Maintainability", "Testing", "Deployment"],
-  },
-  security: {
-    label: { id: "Security / 03", en: "Security / 03" },
-    title: { id: "Security bukan", en: "Security is not" },
-    accent: { id: "fitur tambahan.", en: "an add-on." },
-    description: {
-      id: "Background kami di software engineering, cybersecurity, dan security research membuat risiko dipertimbangkan sejak awal development.",
-      en: "Our background in software engineering, cybersecurity, and security research means risk is considered from the start of development.",
-    },
-    note: {
-      id: "Kami tidak menjanjikan sistem yang mustahil diretas. Kami menerapkan security-conscious engineering sesuai kebutuhan dan risiko setiap produk.",
-      en: "We do not promise an impossible-to-hack system. We apply security-conscious engineering according to each product's needs and risks.",
-    },
-    items: ["Secure authentication", "Access control", "Input validation", "API protection", "Session security", "Rate limiting", "Audit logging", "Dependency review", "Secure file handling", "Monitoring"],
-  },
-  tools: {
-    label: { id: "Tools / 04", en: "Tools / 04" },
-    title: { id: "Tools mengikuti kebutuhan", en: "Tools follow the" },
-    accent: { id: "pekerjaan.", en: "job." },
-    description: { id: "Kami tidak memaksakan satu stack untuk semua project. Pilihan teknis mengikuti scope, risiko, dan kebutuhan operasional.", en: "We do not force one stack onto every project. Technical choices follow scope, risk, and operational needs." },
-    items: ["Frontend", "Backend", "Database", "Cloud", "Automation / AI"],
-  },
-  person: {
-    label: { id: "Di balik studio / 05", en: "Behind the studio / 05" },
-    title: "Hammad Matt",
-    description: { id: "Hammad Studio dipimpin oleh Hammad Matt, developer dengan fokus pada fullstack engineering, automation, dan security research.", en: "Hammad Studio is led by Hammad Matt, a developer focused on full-stack engineering, automation, and security research." },
-    link: { id: "Mulai percakapan", en: "Start a conversation" },
-  },
+  hero: { label: { id: "Hammad Studio", en: "Hammad Studio" }, title: { id: "Produk digital, dibangun dengan cara yang", en: "Digital products, built the way we believe is" }, accent: { id: "kami percaya benar.", en: "proper." }, intro: { id: "Independent digital development studio untuk bisnis dan organisasi yang membutuhkan website hingga software custom dengan fondasi teknis yang kuat.", en: "An independent digital development studio for businesses and organizations that need websites through to custom software with strong technical foundations." } },
+  principles: { label: { id: "Cara kami bekerja", en: "How we work" }, title: { id: "Prinsip yang menjaga", en: "Principles behind" }, accent: { id: "setiap keputusan.", en: "every decision." }, items: [
+    { title: "Build what matters", id: "Membangun apa yang benar-benar dibutuhkan, bukan apa yang sekadar terlihat canggih.", en: "Build what is actually needed, not what merely looks sophisticated." },
+    { title: "Simple when possible", id: "Solusi sederhana dipilih ketika sudah cukup menyelesaikan masalah.", en: "Choose the simpler solution when it is enough to solve the problem." },
+    { title: "Built for real use", id: "Produk dipikirkan untuk kondisi setelah launch, bukan hanya presentasi.", en: "Products are designed for life after launch, not just presentations." },
+    { title: "Grow when needed", id: "Fondasi hari ini tidak boleh menghalangi kebutuhan berikutnya.", en: "Today's foundations should not block tomorrow's needs." },
+  ] },
+  engineering: { label: { id: "Engineering", en: "Engineering" }, title: { id: "Visual kuat. Fondasi", en: "Strong visuals. Sound" }, accent: { id: "tetap layak.", en: "foundations." }, copy: { id: "Kami memperhatikan cara produk disusun, dijalankan, dirawat, dan dikembangkan kembali ketika kebutuhan bertambah.", en: "We consider how a product is structured, operated, maintained, and extended as requirements grow." }, items: ["Architecture", "Performance", "Maintainability", "Testing", "Deployment"] },
+  security: { label: { id: "Security-conscious development", en: "Security-conscious development" }, title: { id: "Security bukan fitur tambahan.", en: "Security is not an add-on." }, copy: { id: "Background di software engineering, cybersecurity, dan security research membuat risiko dipertimbangkan sejak awal development.", en: "A background in software engineering, cybersecurity, and security research means risk is considered from the start." }, note: { id: "Kami tidak menjanjikan sistem yang mustahil diretas. Praktik security diterapkan sesuai kebutuhan dan risiko setiap produk.", en: "We do not promise an impossible-to-hack system. Security practices are applied according to each product's needs and risks." }, items: ["Secure authentication", "Access control", "Input validation", "API protection", "Session security", "Rate limiting", "Audit logging", "Dependency review"] },
+  tools: { label: { id: "Tools", en: "Tools" }, title: { id: "Tools mengikuti pekerjaan.", en: "Tools follow the job." }, copy: { id: "Kami tidak memaksakan satu stack untuk semua project. Pilihan teknis mengikuti scope, risiko, dan kebutuhan operasional.", en: "We do not force one stack onto every project. Technical choices follow scope, risk, and operational needs." }, items: ["Frontend", "Backend", "Database", "Cloud", "Automation / AI"] },
+  founder: { label: { id: "Di balik studio", en: "Behind the studio" }, title: "Hammad Matt", role: { id: "Fullstack engineering · Automation · Security research", en: "Full-stack engineering · Automation · Security research" }, copy: { id: "Hammad Studio dipimpin langsung oleh Hammad Matt. Setiap project mendapat perhatian pada keputusan produk, kualitas implementasi, dan risiko teknis—bukan hanya handoff kepada tim anonim.", en: "Hammad Studio is led directly by Hammad Matt. Every project receives attention across product decisions, implementation quality, and technical risk—not simply handed off to an anonymous team." }, cta: { id: "Mulai percakapan", en: "Start a conversation" } },
 } as const;
 
 export function StudioPageContent() {
   const { locale } = useLocale();
+  return <div className="bg-[#f0eee7] text-[#0a0a09]">
+    <section className="pb-20 pt-36 sm:pb-28 sm:pt-44"><div className="site-container grid gap-10 lg:grid-cols-[minmax(0,6fr)_minmax(0,6fr)] lg:items-center"><MotionReveal><span className="label-mono text-black/45">{content.hero.label[locale]}</span><h1 className="mt-5 text-[clamp(3.5rem,6.5vw,6.7rem)] font-[520] leading-[0.9] tracking-[-0.065em]">{content.hero.title[locale]} <span className="font-[family-name:var(--font-instrument-serif)] font-normal italic">{content.hero.accent[locale]}</span></h1><p className="body-copy mt-7 max-w-[650px] text-black/56">{content.hero.intro[locale]}</p></MotionReveal><MotionReveal delay={0.08} className="relative aspect-[4/3] overflow-hidden rounded-[14px] bg-[#0a0a09]"><Image src="/images/work/saudi-education-expo.webp" alt="Hammad Studio project work" fill priority sizes="(max-width: 1024px) 100vw, 600px" className="object-cover object-top" /><div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" /><span className="label-mono absolute bottom-6 left-6 text-white/65">Independent · Indonesia · Remote</span></MotionReveal></div></section>
 
-  return (
-    <div className="bg-[#f0eee7] pb-28 pt-32 text-[#0a0a09] sm:pb-36 sm:pt-40">
-      <div className="site-container">
-        <MotionReveal className="grid gap-8 pb-24 lg:grid-cols-12 lg:gap-6">
-          <span className="label-mono text-black/40 lg:col-span-3">{content.label[locale]}</span>
-          <div className="lg:col-span-9">
-            <h1 className="max-w-[980px] text-[clamp(3.3rem,7vw,7rem)] font-[520] leading-[0.88] tracking-[-0.065em]">{content.title[locale]} <span className="font-[family-name:var(--font-instrument-serif)] font-normal italic">{content.accent[locale]}</span></h1>
-            <p className="mt-8 max-w-[720px] text-base leading-[1.75] text-black/55 sm:text-lg">{content.intro[locale]}</p>
-          </div>
-        </MotionReveal>
+    <section className="bg-[#e6e4de] py-20 sm:py-28"><div className="site-container"><SectionHeader label={content.principles.label[locale]} title={content.principles.title[locale]} accent={content.principles.accent[locale]} /><div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{content.principles.items.map((item, index) => <MotionReveal key={item.title} delay={index * 0.04} className="surface-card min-h-[270px] p-7"><span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#cfef57] font-[family-name:var(--font-geist-mono)] text-xs">0{index + 1}</span><h3 className="mt-10 text-xl font-[550] tracking-[-0.035em]">{item.title}</h3><p className="mt-4 text-sm leading-[1.65] text-black/52">{item[locale]}</p></MotionReveal>)}</div></div></section>
 
-        <StudioSection label={content.principles.label[locale]} title={content.principles.title[locale]} accent={content.principles.accent[locale]}>
-          <div className="grid border-l border-t border-black/15 sm:grid-cols-2">
-            {content.principles.items.map((item, index) => <MotionReveal key={item.title} delay={index * 0.05} className="min-h-[220px] border-b border-r border-black/15 p-6 sm:p-8"><span className="label-mono text-black/30">0{index + 1}</span><h3 className="mt-10 text-2xl font-[520] tracking-[-0.04em]">{item.title}</h3><p className="mt-4 max-w-[430px] text-sm leading-[1.65] text-black/52">{item[locale]}</p></MotionReveal>)}
-          </div>
-        </StudioSection>
+    <section className="py-20 sm:py-28"><div className="site-container surface-card grid overflow-hidden lg:grid-cols-2"><div className="relative min-h-[360px] bg-[#111] sm:min-h-[500px]"><Image src="/images/work/operations-dashboard.webp" alt="Operations dashboard engineering preview" fill sizes="(max-width: 1024px) 100vw, 620px" className="object-cover object-top" /></div><MotionReveal className="flex flex-col justify-center p-7 sm:p-10 lg:p-12"><span className="label-mono text-black/42">{content.engineering.label[locale]}</span><h2 className="mt-5 text-[clamp(2.8rem,5vw,5rem)] font-[520] leading-[0.94] tracking-[-0.058em]">{content.engineering.title[locale]} <span className="font-[family-name:var(--font-instrument-serif)] font-normal italic">{content.engineering.accent[locale]}</span></h2><p className="mt-6 text-base leading-[1.7] text-black/55">{content.engineering.copy[locale]}</p><div className="mt-8 flex flex-wrap gap-2">{content.engineering.items.map((item) => <span key={item} className="rounded-full border border-black/15 px-4 py-2 text-sm">{item}</span>)}</div></MotionReveal></div></section>
 
-        <StudioSection label={content.engineering.label[locale]} title={content.engineering.title[locale]} accent={content.engineering.accent[locale]} description={content.engineering.description[locale]}>
-          <WordGrid items={content.engineering.items} />
-        </StudioSection>
+    <section id="security" className="scroll-mt-24 bg-[#0a0a09] py-20 text-white sm:py-28"><div className="site-container grid gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]"><MotionReveal><span className="label-mono text-[#cfef57]">{content.security.label[locale]}</span><h2 className="mt-5 text-[clamp(3rem,5.5vw,5.7rem)] font-[520] leading-[0.92] tracking-[-0.06em]">{content.security.title[locale]}</h2><p className="mt-7 max-w-[580px] text-base leading-[1.7] text-white/52">{content.security.copy[locale]}</p><p className="mt-8 max-w-[580px] border-l-2 border-[#cfef57] pl-5 text-sm leading-[1.65] text-white/66">{content.security.note[locale]}</p></MotionReveal><div className="grid gap-3 sm:grid-cols-2">{content.security.items.map((item, index) => <MotionReveal key={item} delay={(index % 4) * 0.04} className="rounded-[10px] border border-white/10 bg-white/[0.035] p-6"><span className="label-mono text-white/25">0{index + 1}</span><p className="mt-8 text-lg font-[520]">{item}</p></MotionReveal>)}</div></div></section>
 
-        <section id="security" className="scroll-mt-24 border-t border-black/15 py-20 sm:py-28">
-          <MotionReveal className="grid gap-8 lg:grid-cols-12 lg:gap-6"><span className="label-mono text-black/40 lg:col-span-3">{content.security.label[locale]}</span><div className="lg:col-span-9"><h2 className="max-w-[880px] text-[clamp(3rem,6vw,6rem)] font-[510] leading-[0.9] tracking-[-0.06em]">{content.security.title[locale]} <span className="font-[family-name:var(--font-instrument-serif)] font-normal italic">{content.security.accent[locale]}</span></h2><p className="mt-7 max-w-[690px] text-base leading-[1.7] text-black/55">{content.security.description[locale]}</p></div></MotionReveal>
-          <div className="mt-14 grid gap-3 lg:ml-[25%] lg:grid-cols-2">{content.security.items.map((item, index) => <MotionReveal key={item} delay={(index % 5) * 0.03} className="flex items-center justify-between border-b border-black/15 py-4"><span className="text-sm font-[520]">{item}</span><span className="label-mono text-black/25">{String(index + 1).padStart(2, "0")}</span></MotionReveal>)}</div>
-          <MotionReveal className="mt-12 max-w-[760px] border-l-2 border-[#91ad2e] pl-6 text-lg leading-[1.6] text-black/65 lg:ml-[25%]">{content.security.note[locale]}</MotionReveal>
-        </section>
+    <section className="py-20 sm:py-28"><div className="site-container"><MotionReveal className="surface-card grid gap-8 p-7 sm:p-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-center"><div><span className="label-mono text-black/42">{content.tools.label[locale]}</span><h2 className="mt-5 text-[clamp(2.8rem,5vw,5rem)] font-[520] leading-[0.94] tracking-[-0.058em]">{content.tools.title[locale]}</h2><p className="mt-6 max-w-[530px] text-base leading-[1.7] text-black/54">{content.tools.copy[locale]}</p></div><div className="grid grid-cols-2 gap-3 sm:grid-cols-3">{content.tools.items.map((item, index) => <div key={item} className="flex min-h-[110px] items-end rounded-[9px] bg-[#e3e1da] p-5"><span><span className="label-mono text-black/25">0{index + 1}</span><strong className="mt-4 block text-base font-[550]">{item}</strong></span></div>)}</div></MotionReveal></div></section>
 
-        <StudioSection label={content.tools.label[locale]} title={content.tools.title[locale]} accent={content.tools.accent[locale]} description={content.tools.description[locale]}>
-          <WordGrid items={content.tools.items} />
-        </StudioSection>
-
-        <section className="border-t border-black/15 pt-20 sm:pt-28"><MotionReveal className="grid gap-10 lg:grid-cols-12 lg:gap-6"><span className="label-mono text-black/40 lg:col-span-3">{content.person.label[locale]}</span><div className="lg:col-span-9"><h2 className="text-[clamp(3.2rem,7vw,7rem)] font-[520] leading-none tracking-[-0.065em]">{content.person.title}</h2><p className="mt-7 max-w-[680px] text-base leading-[1.7] text-black/55 sm:text-lg">{content.person.description[locale]}</p><Link href="/contact" className="group mt-8 inline-flex items-center gap-2 border-b border-black pb-1 text-sm font-semibold">{content.person.link[locale]} <ArrowUpRightIcon className="button-arrow h-4 w-4" /></Link></div></MotionReveal></section>
-      </div>
-    </div>
-  );
+    <section className="bg-[#e6e4de] py-20 sm:py-28"><div className="site-container grid gap-6 lg:grid-cols-2"><MotionReveal className="relative flex min-h-[430px] items-end overflow-hidden rounded-[14px] bg-[#0a0a09] p-8 text-white"><div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(207,239,87,.20),transparent_35%)]" /><span className="relative text-[clamp(7rem,18vw,13rem)] font-[540] leading-[0.7] tracking-[-0.08em] text-white/[0.08]">HM</span><span className="label-mono absolute left-8 top-8 text-[#cfef57]">{content.founder.label[locale]}</span></MotionReveal><MotionReveal delay={0.06} className="surface-card flex flex-col justify-center p-8 sm:p-11"><span className="label-mono text-black/38">Founder / Developer</span><h2 className="mt-5 text-[clamp(3rem,6vw,5.8rem)] font-[520] leading-none tracking-[-0.065em]">{content.founder.title}</h2><p className="mt-4 text-sm font-[520] text-black/48">{content.founder.role[locale]}</p><p className="mt-7 max-w-[600px] text-base leading-[1.75] text-black/56">{content.founder.copy[locale]}</p><Link href="/contact" className="group mt-8 inline-flex w-fit items-center gap-2 text-sm font-semibold">{content.founder.cta[locale]} <ArrowUpRightIcon className="button-arrow h-4 w-4" /></Link></MotionReveal></div></section>
+  </div>;
 }
 
-function StudioSection({ label, title, accent, description, children }: { label: string; title: string; accent: string; description?: string; children: React.ReactNode }) {
-  return <section className="border-t border-black/15 py-20 sm:py-28"><MotionReveal className="grid gap-8 lg:grid-cols-12 lg:gap-6"><span className="label-mono text-black/40 lg:col-span-3">{label}</span><div className="lg:col-span-9"><h2 className="max-w-[900px] text-[clamp(3rem,6vw,6rem)] font-[510] leading-[0.9] tracking-[-0.06em]">{title} <span className="font-[family-name:var(--font-instrument-serif)] font-normal italic">{accent}</span></h2>{description && <p className="mt-7 max-w-[690px] text-base leading-[1.7] text-black/55">{description}</p>}</div></MotionReveal><div className="mt-14 lg:ml-[25%]">{children}</div></section>;
-}
-
-function WordGrid({ items }: { items: readonly string[] }) {
-  return <div className="grid border-l border-t border-black/15 sm:grid-cols-2 lg:grid-cols-5">{items.map((item, index) => <MotionReveal key={item} delay={index * 0.04} className="min-h-[130px] border-b border-r border-black/15 p-5"><span className="label-mono text-black/25">0{index + 1}</span><p className="mt-8 text-lg font-[520] tracking-[-0.03em]">{item}</p></MotionReveal>)}</div>;
+function SectionHeader({ label, title, accent }: { label: string; title: string; accent: string }) {
+  return <MotionReveal><span className="label-mono text-black/45">{label}</span><h2 className="section-heading mt-5 max-w-[800px]">{title} <span className="font-[family-name:var(--font-instrument-serif)] font-normal italic">{accent}</span></h2></MotionReveal>;
 }

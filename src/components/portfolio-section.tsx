@@ -9,8 +9,8 @@ import { MotionReveal } from "./motion-reveal";
 
 const projects = [
   { slug: "saudi-education-expo", title: "Saudi Education Expo", category: "event", year: "2026", image: "/images/work/saudi-education-expo.webp", className: "lg:col-span-12", ratio: "aspect-[4/3] sm:aspect-[16/9] lg:aspect-[2/1]" },
-  { slug: "umrah-operations-platform", title: "Umrah Operations Platform", category: "operations", year: "2026", image: "/images/work/operations-dashboard.webp", className: "lg:col-span-7", ratio: "aspect-[4/3]" },
-  { slug: "ajwa-date-store", title: "Ajwa Date Store", category: "commerce", year: "2026", image: "/images/work/ajwa-date-store.webp", className: "lg:col-span-5 lg:mt-28", ratio: "aspect-[4/3] lg:aspect-[5/6]" },
+  { slug: "umrah-operations-platform", title: "Umrah Operations Platform", category: "operations", year: "2026", image: "/images/work/operations-dashboard.webp", className: "lg:col-span-6", ratio: "aspect-[4/3]" },
+  { slug: "ajwa-date-store", title: "Ajwa Date Store", category: "commerce", year: "2026", image: "/images/work/ajwa-date-store.webp", className: "lg:col-span-6", ratio: "aspect-[4/3]" },
 ] as const;
 
 function ProjectCard({ project, index, category }: { project: (typeof projects)[number]; index: number; category: string }) {
@@ -43,7 +43,7 @@ export function PortfolioSection() {
       <div className="site-container">
         <MotionReveal className="grid gap-10 pb-14 lg:grid-cols-12 lg:items-end lg:gap-6 lg:pb-20">
           <div className="lg:col-span-3"><span className="label-mono text-white/38">{copy.label[locale]}</span></div>
-          <div className="lg:col-span-7"><h2 className="text-[clamp(3.4rem,7vw,7.4rem)] font-[510] leading-[0.86] tracking-[-0.065em]">{copy.headline[locale]}<br /><span className="font-[family-name:var(--font-instrument-serif)] font-normal italic text-[#cfef57]">{copy.accent[locale]}</span></h2></div>
+          <div className="lg:col-span-7"><h2 className="text-[clamp(3.1rem,5.7vw,5.8rem)] font-[510] leading-[0.9] tracking-[-0.06em]">{copy.headline[locale]}<br /><span className="font-[family-name:var(--font-instrument-serif)] font-normal italic text-[#cfef57]">{copy.accent[locale]}</span></h2></div>
           <div className="lg:col-span-2 lg:text-right"><Link href="/work" className="group inline-flex items-center gap-2 text-xs font-semibold text-white/70 hover:text-white">{copy.all[locale]} <ArrowUpRightIcon className="button-arrow h-4 w-4" /></Link></div>
         </MotionReveal>
 

@@ -39,7 +39,7 @@ export function Navbar() {
         className={`pointer-events-auto mx-auto flex h-14 max-w-[1240px] items-center justify-between rounded-full border px-4 transition-all duration-500 sm:h-[60px] sm:px-5 ${scrolled ? "max-w-[900px] border-white/14 bg-[#0a0a09]/88 shadow-[0_18px_60px_rgba(0,0,0,.34)] backdrop-blur-2xl" : "border-white/10 bg-[#0a0a09]/58 backdrop-blur-xl"}`}
       >
         <Link href="/" aria-label="HAMMAD.STUDIO home"><HammadStudioLogo /></Link>
-        <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-7 text-[0.7rem] font-medium text-white/58 lg:flex" aria-label="Primary navigation">
+        <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-7 text-xs font-medium text-white/62 lg:flex" aria-label="Primary navigation">
           {navItems.map((item) => {
             const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
             return <Link key={item.href} href={item.href} aria-current={active ? "page" : undefined} className={`nav-link transition-colors hover:text-white ${active ? "text-white" : ""}`}>{item.label}</Link>;

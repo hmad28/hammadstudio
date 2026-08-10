@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRightIcon } from "./icons";
 import { useLocale } from "./locale-provider";
 import { MotionReveal } from "./motion-reveal";
@@ -54,26 +55,27 @@ const content = {
   ],
 } as const;
 
+const images = [
+  "/images/work/saudi-education-expo.webp",
+  "/images/work/ajwa-date-store.webp",
+  "/images/work/operations-dashboard.webp",
+  "/images/work/operations-dashboard.webp",
+  "/images/work/operations-dashboard.webp",
+  "/images/work/saudi-education-expo.webp",
+] as const;
+
 export function ServicesCatalog() {
   const { locale } = useLocale();
 
   return (
     <section className="bg-[#f0eee7] pb-28 text-[#0a0a09] sm:pb-36">
-      <div className="site-container border-t border-black/15">
-        {content.services.map((service) => (
-          <MotionReveal key={service.number} className="grid gap-8 border-b border-black/15 py-12 sm:py-16 lg:grid-cols-12 lg:gap-6">
-            <div className="lg:col-span-1"><span className="label-mono text-black/35">{service.number}</span></div>
-            <div className="lg:col-span-5">
-              <h2 className="text-[clamp(2.8rem,5vw,5rem)] font-[510] leading-[0.9] tracking-[-0.055em]">{service.title[locale]}</h2>
-              <p className="mt-6 max-w-[540px] text-base leading-[1.7] text-black/56">{service.description[locale]}</p>
-            </div>
-            <div className="lg:col-span-6">
-              <span className="label-mono text-black/35">{content.scope[locale]}</span>
-              <div className="mt-5 flex flex-wrap gap-2">
-                {service.items.map((item) => <span key={item} className="rounded-full border border-black/15 px-3.5 py-2 text-xs text-black/62">{item}</span>)}
-              </div>
-              <Link href={`/services/${service.slug}`} className="group mt-8 inline-flex items-center gap-2 text-sm font-semibold">{content.view[locale]} {service.title[locale]} <ArrowUpRightIcon className="button-arrow h-4 w-4" /></Link>
-            </div>
+      <div className="site-container grid gap-5 md:grid-cols-2">
+        {content.services.map((service, index) => (
+          <MotionReveal key={service.number} delay={(index % 2) * 0.05}>
+            <Link href={`/services/${service.slug}`} className="surface-card group flex h-full min-h-[560px] flex-col overflow-hidden transition duration-500 hover:-translate-y-1 hover:bg-white/60 hover:shadow-[0_25px_80px_rgba(15,15,12,.08)]">
+              <div className="relative h-60 overflow-hidden bg-[#111] sm:h-72"><Image src={images[index]} alt={`${service.title[locale]} preview`} fill sizes="(max-width: 768px) 100vw, 600px" className="object-cover object-top opacity-80 transition duration-1000 group-hover:scale-[1.025] group-hover:opacity-100" /><div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" /><span className="label-mono absolute left-6 top-6 text-white/70">{service.number}</span></div>
+              <div className="flex flex-1 flex-col p-7 sm:p-8"><h2 className="text-[clamp(2.3rem,4vw,3.6rem)] font-[520] leading-none tracking-[-0.055em]">{service.title[locale]}</h2><p className="mt-5 text-base leading-[1.7] text-black/56">{service.description[locale]}</p><div className="mt-6 flex flex-wrap gap-2">{service.items.slice(0, 5).map((item) => <span key={item} className="rounded-full border border-black/12 px-3 py-1.5 text-xs text-black/55">{item}</span>)}</div><span className="mt-auto flex items-center justify-between pt-8 text-sm font-semibold">{content.view[locale]} {service.title[locale]} <ArrowUpRightIcon className="button-arrow h-4 w-4" /></span></div>
+            </Link>
           </MotionReveal>
         ))}
       </div>

@@ -27,12 +27,12 @@ export function HeroSection() {
         </div>
 
         <div className="grid gap-8 pb-12 pt-10 lg:grid-cols-12 lg:items-end lg:pb-16 lg:pt-12">
-          <h1 className="text-[clamp(4rem,9.7vw,9rem)] font-[540] leading-[0.79] tracking-[-0.072em] text-[#f6f4ee] lg:col-span-9">
+          <h1 className="text-[clamp(3.8rem,8vw,7.5rem)] font-[540] leading-[0.84] tracking-[-0.068em] text-[#f6f4ee] lg:col-span-8">
             <span className="hero-line"><motion.span initial={reduceMotion ? false : { y: "110%" }} animate={{ y: 0 }} transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}>{copy.lineOne[locale]}</motion.span></span>
             <span className="hero-line pb-[0.08em]"><motion.span initial={reduceMotion ? false : { y: "110%" }} animate={{ y: 0 }} transition={{ duration: 0.9, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}><span className="font-[family-name:var(--font-instrument-serif)] font-normal italic tracking-[-0.045em] text-[#cfef57]">{copy.accent[locale]}</span> {copy.lineTwo[locale]}</motion.span></span>
           </h1>
 
-          <motion.div className="lg:col-span-3 lg:pb-2" initial={reduceMotion ? false : { opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.75, delay: 0.32, ease: [0.16, 1, 0.3, 1] }}>
+          <motion.div className="lg:col-span-4 lg:pb-2" initial={reduceMotion ? false : { opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.75, delay: 0.32, ease: [0.16, 1, 0.3, 1] }}>
             <p className="max-w-[340px] text-sm leading-[1.6] text-white/58 sm:text-base lg:ml-auto">{copy.description[locale]}</p>
             <div className="mt-6 flex flex-wrap gap-3 lg:justify-end">
               <Link href="/contact" className="acid-button group inline-flex items-center gap-2 rounded-full px-5 py-3 text-xs font-semibold">{copy.primary[locale]} <ArrowUpRightIcon className="button-arrow h-3.5 w-3.5" /></Link>

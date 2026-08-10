@@ -6,6 +6,7 @@ import { ServicesSection } from "@/components/services-section";
 import { PortfolioSection } from "@/components/portfolio-section";
 import { PricingSection } from "@/components/pricing-section";
 import { ProcessPreviewSection } from "@/components/process-preview-section";
+import { FAQSection } from "@/components/faq-section";
 
 export default function HomePage() {
   return (
@@ -25,11 +26,14 @@ export default function HomePage() {
       {/* 05 SELECTED WORK */}
       <PortfolioSection />
 
+      {/* 05 PROCESS */}
+      <ProcessPreviewSection />
+
       {/* 06 PRICING */}
       <PricingSection />
 
-      {/* 06 PROCESS */}
-      <ProcessPreviewSection />
+      {/* 07 FAQ */}
+      <FAQSection />
     </div>
   );
 }

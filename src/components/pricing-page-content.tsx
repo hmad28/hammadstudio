@@ -13,6 +13,7 @@ const content = {
   fit: { id: "Cocok untuk", en: "Best for" },
   included: { id: "Scope umum", en: "Typical scope" },
   request: { id: "Minta estimasi project", en: "Request a project estimate" },
+  choose: { id: "Diskusikan paket", en: "Discuss this package" },
   packages: [
     {
       category: "Website",
@@ -67,21 +68,22 @@ export function PricingPageContent() {
   return (
     <div className="bg-[#f0eee7] pb-28 pt-32 text-[#0a0a09] sm:pb-36 sm:pt-40">
       <div className="site-container">
-        <MotionReveal className="grid gap-8 pb-20 lg:grid-cols-12 lg:gap-6">
-          <div className="lg:col-span-3"><span className="label-mono text-black/40">{content.label[locale]}</span></div>
-          <div className="lg:col-span-9"><h1 className="max-w-[940px] text-[clamp(3.3rem,7vw,7rem)] font-[520] leading-[0.88] tracking-[-0.065em]">{content.title[locale]}</h1><p className="mt-8 max-w-[720px] text-base leading-[1.7] text-black/55 sm:text-lg">{content.intro[locale]}</p></div>
+        <MotionReveal className="grid gap-8 pb-16 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-end">
+          <div><span className="label-mono text-black/40">{content.label[locale]}</span><h1 className="mt-5 max-w-[760px] text-[clamp(3.4rem,6.5vw,6.5rem)] font-[520] leading-[0.9] tracking-[-0.065em]">{content.title[locale]}</h1></div>
+          <p className="body-copy max-w-[650px] text-black/55 lg:ml-auto">{content.intro[locale]}</p>
         </MotionReveal>
 
         {content.packages.map((group) => (
-          <section key={group.category} className="border-t border-black/15 py-14 sm:py-20">
-            <MotionReveal className="grid gap-6 lg:grid-cols-12 lg:gap-6"><div className="lg:col-span-4"><h2 className="text-[clamp(2.7rem,5vw,5rem)] font-[510] leading-none tracking-[-0.055em]">{group.category}</h2></div><p className="max-w-[620px] text-base leading-[1.65] text-black/52 lg:col-span-8">{group.intro[locale]}</p></MotionReveal>
+          <section key={group.category} className="border-t border-black/15 py-12 sm:py-16">
+            <MotionReveal className="grid gap-5 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] lg:items-end"><h2 className="text-[clamp(2.5rem,4.2vw,4.3rem)] font-[510] leading-none tracking-[-0.055em]">{group.category}</h2><p className="max-w-[620px] text-base leading-[1.65] text-black/52">{group.intro[locale]}</p></MotionReveal>
             <div className={`mt-10 grid gap-3 ${group.plans.length === 4 ? "lg:grid-cols-2 xl:grid-cols-4" : group.plans.length === 3 ? "lg:grid-cols-3" : "lg:grid-cols-1"}`}>
               {group.plans.map((plan, index) => (
-                <MotionReveal key={plan.name} delay={index * 0.05} className={`flex min-h-[440px] flex-col rounded-[9px] border p-6 sm:p-7 ${"featured" in plan && plan.featured ? "border-[#0a0a09] bg-[#0a0a09] text-white" : "border-black/14 bg-[#e8e5dc]"}`}>
+                <MotionReveal key={plan.name} delay={index * 0.05} className={`flex ${group.plans.length === 1 ? "min-h-[330px]" : "min-h-[440px]"} flex-col rounded-[12px] border p-6 sm:p-7 ${"featured" in plan && plan.featured ? "border-[#0a0a09] bg-[#0a0a09] text-white" : "border-black/14 bg-[#e8e5dc]"}`}>
                   <div className="flex items-start justify-between"><span className="label-mono opacity-42">{plan.name}</span><span className="font-[family-name:var(--font-geist-mono)] text-[0.6rem] opacity-30">0{index + 1}</span></div>
                   <div className="mt-10"><span className="text-[0.65rem] opacity-40">{content.from[locale]}</span><p className="mt-1 text-[clamp(2.3rem,4vw,3.8rem)] font-[520] leading-none tracking-[-0.06em]">{plan.price}</p></div>
                   <div className="mt-8 border-t border-current/15 pt-5"><span className="label-mono opacity-35">{content.fit[locale]}</span><p className="mt-3 text-sm leading-[1.6] opacity-58">{plan.bestFor[locale]}</p></div>
-                  <div className="mt-7"><span className="label-mono opacity-35">{content.included[locale]}</span><ul className="mt-4 space-y-2.5">{plan.items.map((item) => <li key={item} className="flex items-start gap-2.5 text-xs leading-[1.5] opacity-62"><CheckIcon className="mt-0.5 h-3.5 w-3.5 shrink-0 text-current" />{item}</li>)}</ul></div>
+                  <div className="mt-7"><span className="label-mono opacity-35">{content.included[locale]}</span><ul className={`mt-4 ${group.plans.length === 1 ? "grid gap-2.5 sm:grid-cols-2 lg:grid-cols-3" : "space-y-2.5"}`}>{plan.items.map((item) => <li key={item} className="flex items-start gap-2.5 text-xs leading-[1.5] opacity-62"><CheckIcon className="mt-0.5 h-3.5 w-3.5 shrink-0 text-current" />{item}</li>)}</ul></div>
+                  <Link href="/contact" className={`group mt-auto inline-flex w-fit items-center gap-2 pt-8 text-sm font-semibold ${"featured" in plan && plan.featured ? "text-[#cfef57]" : ""}`}>{content.choose[locale]} <ArrowUpRightIcon className="button-arrow h-4 w-4" /></Link>
                 </MotionReveal>
               ))}
             </div>

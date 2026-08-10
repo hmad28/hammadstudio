@@ -26,7 +26,7 @@ export function CTAFooter() {
       <section className="relative overflow-hidden py-12 sm:py-16">
         <div className="site-container relative z-10">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-6">
-            <div className="lg:col-span-5">
+            <div className="lg:col-span-4">
               <Link href="/"><HammadStudioLogo /></Link>
               <p className="mt-4 max-w-[360px] text-sm leading-[1.6] text-white/42">{copy.description[locale]}</p>
               <div className="mt-5 flex items-center gap-2 text-xs text-white/45"><span className="availability-dot" /> {copy.available[locale]}</div>
@@ -34,7 +34,8 @@ export function CTAFooter() {
             <nav className="grid grid-cols-2 gap-x-8 gap-y-3 text-sm text-white/55 lg:col-span-3" aria-label="Footer navigation">
               <Link href="/services" className="hover:text-white">{nav.services[locale]}</Link><Link href="/work" className="hover:text-white">{nav.work[locale]}</Link><Link href="/pricing" className="hover:text-white">{nav.pricing[locale]}</Link><Link href="/studio" className="hover:text-white">{nav.studio[locale]}</Link>
             </nav>
-            <div className="lg:col-span-4 lg:text-right">
+            <nav className="grid gap-3 text-sm text-white/45 lg:col-span-2" aria-label="Services"><Link href="/services/website" className="hover:text-white">Website</Link><Link href="/services/e-commerce" className="hover:text-white">E-Commerce</Link><Link href="/services/web-application" className="hover:text-white">Web Application</Link><Link href="/services/custom-development" className="hover:text-white">Custom Development</Link></nav>
+            <div className="lg:col-span-3 lg:text-right">
               <p className="label-mono text-white/30">{copy.newBusiness[locale]}</p>
               <a href="mailto:hello@hammad.studio" className="mt-3 inline-block text-lg tracking-[-0.03em] text-white/85 transition-colors hover:text-[#cfef57] sm:text-xl">hello@hammad.studio</a>
               <p className="mt-3 text-xs text-white/35">Depok &amp; Jakarta, Indonesia</p>

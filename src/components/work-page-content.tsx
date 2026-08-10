@@ -2,31 +2,35 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { workProjects, workSlugs } from "@/lib/work-content";
 import { ArrowUpRightIcon } from "./icons";
 import { useLocale } from "./locale-provider";
 import { MotionReveal } from "./motion-reveal";
-import { workProjects, workSlugs } from "@/lib/work-content";
 
 const copy = {
   label: { id: "Karya pilihan", en: "Selected work" },
-  title: { id: "Karya yang\nsudah kami bangun.", en: "Work we have\nbrought to life." },
-  intro: { id: "Visual adalah pintu masuk. Setiap case study menjelaskan masalah, solusi, scope, experience, dan hasil tanpa metric yang dibuat-buat.", en: "Visuals are the entry point. Each case study explains the problem, solution, scope, experience, and outcome without invented metrics." },
+  title: { id: "Karya yang sudah kami bangun.", en: "Work we have brought to life." },
+  intro: { id: "Case study menjelaskan masalah, solusi, experience, dan hasil tanpa metric yang dibuat-buat.", en: "Each case study explains the problem, solution, experience, and outcome without invented metrics." },
+  featured: { id: "Project utama", en: "Featured project" },
 } as const;
 
 export function WorkPageContent() {
   const { locale } = useLocale();
+  const featured = workProjects[workSlugs[0]];
+  const rest = workSlugs.slice(1);
 
   return (
     <div className="bg-[#0a0a09] pb-28 pt-36 text-white sm:pb-36 sm:pt-44">
       <div className="site-container">
-        <MotionReveal className="grid gap-9 border-b border-white/12 pb-16 lg:grid-cols-12 lg:gap-6"><div className="lg:col-span-3"><span className="label-mono text-[#cfef57]">{copy.label[locale]}</span></div><div className="lg:col-span-7"><h1 className="whitespace-pre-line text-[clamp(3.8rem,8vw,8rem)] font-[520] leading-[0.84] tracking-[-0.07em]">{copy.title[locale]}</h1></div><p className="max-w-[300px] self-end text-sm leading-[1.65] text-white/45 lg:col-span-2">{copy.intro[locale]}</p></MotionReveal>
-        <div className="mt-16 grid gap-20 sm:mt-24">
-          {workSlugs.map((slug, index) => {
-            const project = workProjects[slug];
-            return <MotionReveal key={slug}><Link href={`/work/${slug}`} className="group block"><div className={`project-frame relative overflow-hidden rounded-[8px] bg-[#151514] ${index === 0 ? "aspect-[4/3] sm:aspect-[2/1]" : "aspect-[4/3] sm:aspect-[16/8]"}`}><Image src={project.image} alt={`${project.title} project preview`} fill sizes="(max-width: 1240px) 100vw, 1240px" className="object-cover object-top transition-transform duration-[1200ms] ease-out group-hover:scale-[1.025]" /><span className="absolute right-5 top-5 flex h-12 w-12 items-center justify-center rounded-full bg-[#cfef57] text-black transition-transform duration-500 group-hover:rotate-45"><ArrowUpRightIcon className="h-4 w-4" /></span></div><div className="grid grid-cols-[1fr_auto] gap-4 border-b border-white/12 py-6"><div><p className="label-mono text-white/32">0{index + 1} / {project.category[locale]}</p><h2 className="mt-2 text-[clamp(2rem,4vw,4rem)] font-[510] leading-none tracking-[-0.055em]">{project.title}</h2></div><span className="self-end text-xs text-white/35">{project.year}</span></div></Link></MotionReveal>;
-          })}
-        </div>
+        <MotionReveal className="grid gap-8 pb-14 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:items-end"><div><span className="label-mono text-[#cfef57]">{copy.label[locale]}</span><h1 className="mt-5 max-w-[820px] text-[clamp(3.7rem,7vw,7rem)] font-[520] leading-[0.88] tracking-[-0.068em]">{copy.title[locale]}</h1></div><p className="body-copy max-w-[540px] text-white/48 lg:ml-auto">{copy.intro[locale]}</p></MotionReveal>
+
+        <MotionReveal><ProjectCard slug={workSlugs[0]} title={featured.title} image={featured.image} category={featured.category[locale]} year={featured.year} label={copy.featured[locale]} featured /></MotionReveal>
+        <div className="mt-6 grid gap-6 md:grid-cols-2">{rest.map((slug, index) => { const project = workProjects[slug]; return <MotionReveal key={slug} delay={index * 0.06}><ProjectCard slug={slug} title={project.title} image={project.image} category={project.category[locale]} year={project.year} label={`0${index + 2}`} /></MotionReveal>; })}</div>
       </div>
     </div>
   );
+}
+
+function ProjectCard({ slug, title, image, category, year, label, featured = false }: { slug: string; title: string; image: string; category: string; year: string; label: string; featured?: boolean }) {
+  return <Link href={`/work/${slug}`} className="group block"><div className={`project-frame relative overflow-hidden rounded-[12px] bg-[#151514] ${featured ? "aspect-[4/3] sm:aspect-[2/1]" : "aspect-[4/3]"}`}><Image src={image} alt={`${title} project preview`} fill sizes={featured ? "(max-width: 1240px) 100vw, 1240px" : "(max-width: 768px) 100vw, 600px"} className="object-cover object-top transition-transform duration-[1200ms] ease-out group-hover:scale-[1.025]" /><div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" /><span className="label-mono absolute left-5 top-5 rounded-full bg-black/45 px-3 py-2 text-white/70 backdrop-blur-md">{label}</span><span className="absolute right-5 top-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#cfef57] text-black transition-transform duration-500 group-hover:rotate-45"><ArrowUpRightIcon className="h-4 w-4" /></span></div><div className="flex items-end justify-between gap-4 py-5"><div><p className="label-mono text-white/35">{category}</p><h2 className={`${featured ? "text-[clamp(2rem,4vw,4rem)]" : "text-[clamp(1.8rem,3vw,2.8rem)]"} mt-2 font-[520] leading-none tracking-[-0.05em]`}>{title}</h2></div><span className="text-xs text-white/38">{year}</span></div></Link>;
 }

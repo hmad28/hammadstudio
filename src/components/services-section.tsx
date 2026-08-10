@@ -1,61 +1,46 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { homeContent } from "@/lib/home-content";
 import { ArrowUpRightIcon } from "./icons";
 import { useLocale } from "./locale-provider";
+import { MotionReveal } from "./motion-reveal";
+
+const slugs = ["website", "e-commerce", "web-application", "business-system", "automation-ai", "custom-development"] as const;
 
 export function ServicesSection() {
-  const [active, setActive] = useState(0);
-  const reduceMotion = useReducedMotion();
   const { locale } = useLocale();
   const copy = homeContent.services;
-  const services = copy.items;
-  const service = services[active];
-  const slugs = ["website", "e-commerce", "web-application", "business-system", "automation-ai", "custom-development"] as const;
 
   return (
-    <section id="services" className="scroll-mt-24 bg-[#f0eee7] pb-24 text-[#0a0a09] sm:pb-32 lg:pb-40">
-      <div className="site-container grid gap-12 border-t border-black/15 pt-8 lg:grid-cols-12 lg:gap-6">
-        <div className="lg:col-span-4">
-          <div className="lg:sticky lg:top-28">
-            <span className="label-mono text-black/45">{copy.label[locale]}</span>
-            <h2 className="mt-6 max-w-[420px] text-[clamp(3rem,5vw,5.5rem)] font-[510] leading-[0.9] tracking-[-0.06em]">{copy.headline[locale]} <span className="font-[family-name:var(--font-instrument-serif)] font-normal italic">{copy.accent[locale]}</span></h2>
-            <div className="relative mt-10 hidden aspect-[4/3] max-w-[390px] overflow-hidden rounded-[8px] bg-[#111] lg:block">
-              <AnimatePresence mode="wait">
-                <motion.div key={service.image + active} initial={reduceMotion ? false : { opacity: 0, scale: 1.04 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.45 }} className="absolute inset-0">
-                  <Image src={service.image} alt="" fill sizes="390px" className="object-cover object-top" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" />
-                  <span className="label-mono absolute bottom-5 left-5 text-white/60">{service.number} / {service.title[locale]}</span>
-                </motion.div>
-              </AnimatePresence>
-            </div>
+    <section id="services" className="scroll-mt-24 bg-[#f0eee7] py-20 text-[#0a0a09] sm:py-28 lg:py-32">
+      <div className="site-container">
+        <MotionReveal className="grid gap-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-end">
+          <div>
+            <span className="label-mono text-black/48">{copy.label[locale]}</span>
+            <h2 className="section-heading mt-5 max-w-[650px]">{copy.headline[locale]} <span className="font-[family-name:var(--font-instrument-serif)] font-normal italic">{copy.accent[locale]}</span></h2>
           </div>
-        </div>
+          <p className="body-copy max-w-[600px] text-black/56 lg:ml-auto">{locale === "id" ? "Mulai dari digital presence hingga software yang mengikuti workflow bisnis Anda." : "From a digital presence to software built around your business workflow."}</p>
+        </MotionReveal>
 
-        <div className="border-t border-black/20 lg:col-span-8">
-          {services.map((item, index) => {
-            const isActive = active === index;
-            return (
-              <Link key={item.number} href={`/services/${slugs[index]}`} onMouseEnter={() => setActive(index)} onFocus={() => setActive(index)} className="group block border-b border-black/20 py-6 sm:py-8">
-                <div className="grid grid-cols-[36px_1fr_auto] items-start gap-3 sm:grid-cols-[54px_1fr_auto]">
-                  <span className="pt-1 font-[family-name:var(--font-geist-mono)] text-[0.65rem] text-black/40">{item.number}</span>
-                  <div>
-                    <h3 className="text-[clamp(2rem,4vw,4.2rem)] font-[500] leading-[0.94] tracking-[-0.055em] transition-transform duration-500 ease-out group-hover:translate-x-2">{item.title[locale]}</h3>
-                    <AnimatePresence initial={false}>
-                      {isActive && (
-                        <motion.p initial={reduceMotion ? false : { height: 0, opacity: 0, y: 8 }} animate={{ height: "auto", opacity: 1, y: 0 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }} className="max-w-[590px] overflow-hidden pt-4 text-sm leading-[1.6] text-black/55 sm:text-base">{item.description[locale]}</motion.p>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                  <span className={`mt-1 flex h-9 w-9 items-center justify-center rounded-full border border-black/15 transition-all duration-300 ${isActive ? "rotate-45 bg-black text-white" : ""}`}><ArrowUpRightIcon className="h-4 w-4" /></span>
+        <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {copy.items.map((item, index) => (
+            <MotionReveal key={item.number} delay={(index % 3) * 0.05}>
+              <Link href={`/services/${slugs[index]}`} className="surface-card group flex min-h-[330px] flex-col overflow-hidden transition duration-500 hover:-translate-y-1 hover:bg-white/70 hover:shadow-[0_24px_70px_rgba(20,20,16,.08)]">
+                <div className="relative h-28 overflow-hidden bg-[#111]">
+                  <Image src={item.image} alt="" fill sizes="(max-width: 768px) 100vw, 400px" className="object-cover object-top opacity-70 transition duration-700 group-hover:scale-[1.035] group-hover:opacity-90" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#161614] to-transparent" />
+                  <span className="label-mono absolute left-6 top-5 text-white/70">{item.number}</span>
+                </div>
+                <div className="flex flex-1 flex-col p-6 sm:p-7">
+                  <h3 className="text-2xl font-[540] tracking-[-0.045em]">{item.title[locale]}</h3>
+                  <p className="mt-4 text-[0.95rem] leading-[1.65] text-black/55">{item.description[locale]}</p>
+                  <span className="mt-auto flex items-center justify-between pt-8 text-sm font-semibold">{locale === "id" ? "Lihat layanan" : "Explore service"}<ArrowUpRightIcon className="button-arrow h-4 w-4" /></span>
                 </div>
               </Link>
-            );
-          })}
+            </MotionReveal>
+          ))}
         </div>
       </div>
     </section>
