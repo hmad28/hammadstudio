@@ -14,6 +14,8 @@ export const selectedWorkSlugs = [
   "nusuk-haromain-indonesia",
   "cutbae-barbershop",
   "buraq-logistik",
+  "add-logistik",
+  "solivate",
   "smk-solivate-01",
 ] as const;
 
@@ -85,8 +87,8 @@ export const workProjects: Record<WorkSlug, WorkProject> = {
     slug: "cpx-jersey",
     title: "CPX Jersey",
     category: { id: "E-Commerce · Sportswear", en: "E-Commerce · Sportswear" },
-    image: null,
-    website: "https://cpxindo-v2.vercel.app/",
+    image: "/images/work/cpx-jersey.png",
+    website: "https://cpxindo.solivate.com/",
     overview: {
       id: "Website commerce untuk brand jersey custom dengan katalog produk, kategori olahraga, cart, custom-order flow, serta integrasi marketplace.",
       en: "A commerce website for a custom jersey brand with product catalogue, sports categories, cart, custom-order flow, and marketplace integration.",
@@ -394,8 +396,8 @@ export const workProjects: Record<WorkSlug, WorkProject> = {
       id: "Corporate Website · Logistics",
       en: "Corporate Website · Logistics",
     },
-    image: null,
-    website: null,
+    image: "/images/work/buraq-logistik.png",
+    website: "https://buraqlogistik.com/",
     overview: {
       id: "Website corporate untuk perusahaan logistik yang mengkomunikasikan layanan trucking, distribusi regional, cakupan pengiriman, dan kapabilitas operasional.",
       en: "A corporate website for a logistics company communicating trucking services, regional distribution, shipping coverage, and operational capabilities.",
@@ -423,6 +425,84 @@ export const workProjects: Record<WorkSlug, WorkProject> = {
     outcome: {
       id: "Kehadiran corporate yang mempermudah penjelasan layanan dan pembukaan percakapan bisnis.",
       en: "A corporate presence simplifying service communication and opening business conversations.",
+    },
+    next: "add-logistik",
+  }),
+  "add-logistik": project({
+    slug: "add-logistik",
+    title: "Add Logistik",
+    category: {
+      id: "Corporate Website · Logistics",
+      en: "Corporate Website · Logistics",
+    },
+    image: "/images/work/add-logistik.png",
+    website: "https://add-logistik.com/",
+    overview: {
+      id: "Website corporate PT Antaran Dua Dunia untuk mengkomunikasikan layanan transportasi darat, armada, legalitas, dan kapabilitas distribusi bagi kebutuhan bisnis.",
+      en: "A corporate website for PT Antaran Dua Dunia communicating land transportation services, fleet, legal standing, and distribution capabilities for business needs.",
+    },
+    challenge: {
+      id: "Membuat layanan logistik B2B terasa terpercaya dan mudah dipahami tanpa membebani calon klien dengan detail operasional yang berlebihan.",
+      en: "Making B2B logistics services feel credible and easy to understand without overwhelming prospective clients with operational detail.",
+    },
+    built: {
+      id: "Website company profile dengan penjelasan layanan, armada, legalitas, keunggulan operasional, dan jalur konsultasi langsung.",
+      en: "A company profile website covering services, fleet, legal standing, operational strengths, and a direct consultation journey.",
+    },
+    experience: {
+      id: "Calon klien memahami positioning, layanan, dan kesiapan operasional perusahaan sebelum memulai konsultasi pengiriman.",
+      en: "Prospective clients understand the company's positioning, services, and operational readiness before starting a shipping consultation.",
+    },
+    features: [
+      "Land transportation",
+      "Service overview",
+      "Fleet information",
+      "Company legality",
+      "Operational strengths",
+      "Consultation CTA",
+    ],
+    outcome: {
+      id: "Kehadiran digital corporate yang memperkuat kredibilitas perusahaan dan mempermudah pembukaan peluang kerja sama logistik.",
+      en: "A corporate digital presence strengthening company credibility and making logistics partnership opportunities easier to initiate.",
+    },
+    next: "solivate",
+  }),
+  solivate: project({
+    slug: "solivate",
+    title: "Solivate Studio",
+    category: {
+      id: "Agency Website · Digital Studio",
+      en: "Agency Website · Digital Studio",
+    },
+    image: "/images/work/solivate.png",
+    website: "https://solivate.com/",
+    overview: {
+      id: "Website digital agency yang memperkenalkan layanan pembuatan website, platform digital, dan sistem custom untuk UMKM, komunitas, event, serta organisasi.",
+      en: "A digital agency website presenting website development, digital platforms, and custom systems for SMEs, communities, events, and organisations.",
+    },
+    challenge: {
+      id: "Menjelaskan spektrum layanan digital yang luas dalam positioning agency yang tetap fokus, modern, dan mudah menghasilkan inquiry.",
+      en: "Explaining a broad range of digital services through agency positioning that remains focused, modern, and effective at generating inquiries.",
+    },
+    built: {
+      id: "Website agency dengan service catalogue, portfolio, pricing, proses kerja, trust signals, dan alur memulai project.",
+      en: "An agency website with service catalogue, portfolio, pricing, process, trust signals, and a project-start journey.",
+    },
+    experience: {
+      id: "Calon klien dapat memahami kemampuan studio, melihat karya, memperkirakan investasi, dan memulai percakapan project.",
+      en: "Prospective clients can understand the studio's capabilities, review work, estimate investment, and begin a project conversation.",
+    },
+    features: [
+      "Agency positioning",
+      "Service catalogue",
+      "Portfolio",
+      "Pricing overview",
+      "Development process",
+      "Project inquiry",
+    ],
+    outcome: {
+      id: "Website utama agency yang menyatukan positioning, bukti kerja, dan lead generation dalam satu experience.",
+      en: "The agency's main website unifying positioning, proof of work, and lead generation in one experience.",
     },
     next: "smk-solivate-01",
   }),
