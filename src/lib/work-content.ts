@@ -8,15 +8,12 @@ export const featuredWorkSlugs = [
 ] as const;
 
 export const selectedWorkSlugs = [
-  "al-muhtadun",
   "spectrasec",
   "shofi-frozen",
   "nusuk-haromain-indonesia",
-  "cutbae-barbershop",
   "buraq-logistik",
   "add-logistik",
   "solivate",
-  "smk-solivate-01",
 ] as const;
 
 export const workSlugs = [...featuredWorkSlugs, ...selectedWorkSlugs] as const;
@@ -195,45 +192,6 @@ export const workProjects: Record<WorkSlug, WorkProject> = {
       id: "Website bisnis yang mengubah kepercayaan dan informasi menjadi jalur inquiry yang jelas.",
       en: "A business website turning trust and information into a clear inquiry journey.",
     },
-    next: "al-muhtadun",
-  }),
-  "al-muhtadun": project({
-    slug: "al-muhtadun",
-    title: "Al Muhtadun",
-    category: {
-      id: "Management System · Religious",
-      en: "Management System · Religious",
-    },
-    image: "/images/work/al-muhtadun.png",
-    website: "https://4-masjid-plus-dashboard-operasional.vercel.app/",
-    overview: {
-      id: "Sistem digital pengelolaan masjid dengan transparansi keuangan, donasi, zakat, qurban, booking fasilitas, program pendidikan, dan dashboard administrasi.",
-      en: "A mosque management system with financial transparency, donations, zakat, qurban, facility booking, educational programmes, and an administration dashboard.",
-    },
-    challenge: {
-      id: "Menyatukan pelayanan jamaah dan proses operasional pengurus dalam sistem yang tetap ramah untuk publik.",
-      en: "Uniting community services and operational workflows in a system that remains approachable to the public.",
-    },
-    built: {
-      id: "Portal masjid dan dashboard administrasi untuk keuangan, donasi, program ibadah, pendidikan, dan fasilitas.",
-      en: "A mosque portal and administration dashboard for finance, donations, worship programmes, education, and facilities.",
-    },
-    experience: {
-      id: "Jamaah memperoleh informasi dan layanan, sementara pengurus memiliki alur pengelolaan yang lebih terstruktur.",
-      en: "The community receives information and services while administrators gain a more structured management workflow.",
-    },
-    features: [
-      "Financial transparency",
-      "Donation & zakat",
-      "Qurban",
-      "Facility booking",
-      "Education programmes",
-      "Admin dashboard",
-    ],
-    outcome: {
-      id: "Fondasi digital yang menghubungkan transparansi publik dengan kebutuhan operasional masjid.",
-      en: "A digital foundation connecting public transparency with mosque operations.",
-    },
     next: "spectrasec",
   }),
   spectrasec: project({
@@ -347,45 +305,6 @@ export const workProjects: Record<WorkSlug, WorkProject> = {
     outcome: {
       id: "Kehadiran digital premium yang mendukung trust, edukasi, dan lead generation.",
       en: "A premium digital presence supporting trust, education, and lead generation.",
-    },
-    next: "cutbae-barbershop",
-  }),
-  "cutbae-barbershop": project({
-    slug: "cutbae-barbershop",
-    title: "CUTBAE Barbershop",
-    category: {
-      id: "Local Business · Lifestyle",
-      en: "Local Business · Lifestyle",
-    },
-    image: "/images/work/cutbae-barbershop.png",
-    website: "https://cutbaebarbershop.vercel.app/",
-    overview: {
-      id: "Website bisnis lokal untuk barbershop dengan katalog layanan dan harga, barber profile, gallery, testimonial, lokasi, dan WhatsApp booking.",
-      en: "A local business website for a barbershop with service and price catalogue, barber profiles, gallery, testimonials, location, and WhatsApp booking.",
-    },
-    challenge: {
-      id: "Menerjemahkan pengalaman barbershop premium ke website yang tetap cepat menghasilkan booking.",
-      en: "Translating a premium barbershop experience into a website that still drives bookings quickly.",
-    },
-    built: {
-      id: "Website lifestyle dengan layanan, harga, barber profile, galeri, testimonial, lokasi, dan booking WhatsApp.",
-      en: "A lifestyle website with services, pricing, barber profiles, gallery, testimonials, location, and WhatsApp booking.",
-    },
-    experience: {
-      id: "Pengunjung memahami kualitas layanan, melihat bukti pengalaman, lalu booking tanpa alur panjang.",
-      en: "Visitors understand service quality, review experience proof, and book without a long journey.",
-    },
-    features: [
-      "Service catalogue",
-      "Pricing",
-      "Barber profiles",
-      "Gallery",
-      "Testimonials",
-      "WhatsApp booking",
-    ],
-    outcome: {
-      id: "Website lokal yang menghubungkan brand experience dengan tindakan booking langsung.",
-      en: "A local website connecting brand experience with direct booking action.",
     },
     next: "buraq-logistik",
   }),
@@ -503,45 +422,6 @@ export const workProjects: Record<WorkSlug, WorkProject> = {
     outcome: {
       id: "Website utama agency yang menyatukan positioning, bukti kerja, dan lead generation dalam satu experience.",
       en: "The agency's main website unifying positioning, proof of work, and lead generation in one experience.",
-    },
-    next: "smk-solivate-01",
-  }),
-  "smk-solivate-01": project({
-    slug: "smk-solivate-01",
-    title: "SMK Solivate 01",
-    category: {
-      id: "Institutional Website · Education",
-      en: "Institutional Website · Education",
-    },
-    image: "/images/work/smk-solivate-01.png",
-    website: "https://3-smk-solivate.vercel.app/",
-    overview: {
-      id: "Konsep website sekolah modern dengan struktur multipage untuk memperkenalkan institusi, program pendidikan, informasi sekolah, dan aktivitas akademik.",
-      en: "A modern school website concept with a multi-page structure introducing the institution, educational programmes, school information, and academic activities.",
-    },
-    challenge: {
-      id: "Membuat profil sekolah terasa modern sambil menjaga informasi akademik dan penerimaan siswa mudah ditemukan.",
-      en: "Making a school profile feel modern while keeping academic and admissions information easy to find.",
-    },
-    built: {
-      id: "Website institusi multipage dengan profil, jurusan, fasilitas, berita, kontak, dan jalur pendaftaran.",
-      en: "A multi-page institutional website with profile, departments, facilities, news, contact, and admissions journey.",
-    },
-    experience: {
-      id: "Siswa dan orang tua dapat memahami keunggulan sekolah lalu bergerak menuju informasi jurusan atau pendaftaran.",
-      en: "Students and parents can understand the school's strengths before moving into programme or admissions information.",
-    },
-    features: [
-      "Institution profile",
-      "Study programmes",
-      "Facilities",
-      "School news",
-      "Admissions",
-      "Multi-page structure",
-    ],
-    outcome: {
-      id: "Konsep digital institusi yang menyeimbangkan kredibilitas, informasi, dan kebutuhan penerimaan siswa.",
-      en: "An institutional digital concept balancing credibility, information, and student admissions needs.",
     },
     next: "masjid-raya-puri-telukjambe",
   }),
