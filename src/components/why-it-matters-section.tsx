@@ -94,7 +94,7 @@ export function WhyItMattersSection() {
                 href="/services/website"
                 className="acid-button group inline-flex items-center gap-2 rounded-full px-6 py-3 text-xs font-semibold text-black"
               >
-                Website development <ArrowUpRightIcon className="button-arrow h-4 w-4" />
+                {copy.cta[locale]} <ArrowUpRightIcon className="button-arrow h-4 w-4" />
               </Link>
             </div>
           </div>
