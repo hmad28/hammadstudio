@@ -9,6 +9,7 @@ export const featuredWorkSlugs = [
 
 export const selectedWorkSlugs = [
   "spectrasec",
+  "naiklevel-ai",
   "shofi-frozen",
   "nusuk-haromain-indonesia",
   "buraq-logistik",
@@ -230,6 +231,45 @@ export const workProjects: Record<WorkSlug, WorkProject> = {
     outcome: {
       id: "Identitas digital yang memperkuat kredibilitas dan akses pengetahuan komunitas cybersecurity.",
       en: "A digital identity strengthening the credibility and accessibility of a cybersecurity community.",
+    },
+    next: "naiklevel-ai",
+  }),
+  "naiklevel-ai": project({
+    slug: "naiklevel-ai",
+    title: "NaikLevel AI",
+    category: {
+      id: "Learning Platform · Artificial Intelligence",
+      en: "Learning Platform · Artificial Intelligence",
+    },
+    image: "/images/work/naiklevel-ai.png",
+    website: "https://naiklevelai.hammad.studio/",
+    overview: {
+      id: "Platform pembelajaran AI praktis berbasis teks untuk mempelajari AI agent, automation, dan modern tools melalui panduan step-by-step yang langsung dapat diterapkan.",
+      en: "A practical text-based AI learning platform for mastering AI agents, automation, and modern tools through immediately applicable step-by-step guides.",
+    },
+    challenge: {
+      id: "Mengubah topik AI yang cepat berubah dan teknis menjadi materi singkat yang mudah dicari, dicoba, dan dibuka kembali saat dibutuhkan.",
+      en: "Turning fast-moving technical AI topics into concise material that is easy to search, try, and revisit when needed.",
+    },
+    built: {
+      id: "Learning platform dengan jalur belajar, library materi, reader dokumentasi, checkpoint praktik, progress, dan panduan troubleshooting.",
+      en: "A learning platform with guided paths, a content library, documentation reader, practice checkpoints, progress, and troubleshooting guides.",
+    },
+    experience: {
+      id: "Pengguna memilih tujuan belajar, mengikuti panduan pendek, menjalankan command, menyelesaikan checkpoint, lalu kembali saat membutuhkan referensi.",
+      en: "Users choose a learning goal, follow concise guides, run commands, complete checkpoints, and return whenever they need a reference.",
+    },
+    features: [
+      "Learning paths",
+      "Documentation reader",
+      "Practical AI guides",
+      "Progress tracking",
+      "Command checkpoints",
+      "Troubleshooting content",
+    ],
+    outcome: {
+      id: "Knowledge platform yang membuat pembelajaran AI lebih dekat dengan pekerjaan nyata daripada format course pasif.",
+      en: "A knowledge platform bringing AI learning closer to real work than passive course formats.",
     },
     next: "shofi-frozen",
   }),

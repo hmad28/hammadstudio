@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { workSlugs } from "@/lib/work-content";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://hammad.studio";
 
@@ -13,9 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/services/automation-ai",
     "/services/custom-development",
     "/work",
-    "/work/saudi-education-expo",
-    "/work/umrah-operations-platform",
-    "/work/ajwa-date-store",
+    ...workSlugs.map((slug) => `/work/${slug}`),
     "/pricing",
     "/studio",
     "/contact",

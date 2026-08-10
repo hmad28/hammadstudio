@@ -9,7 +9,10 @@ import { MotionReveal } from "./motion-reveal";
 const content = {
   hero: {
     label: { id: "Hammad Studio", en: "Hammad Studio" },
-    title: { id: "Produk digital, dibangun dengan cara yang", en: "Digital products, built the way we believe is" },
+    title: {
+      id: "Produk digital, dibangun dengan cara yang",
+      en: "Digital products, built the way we believe is",
+    },
     accent: { id: "kami percaya benar.", en: "proper." },
     intro: {
       id: "Independent digital development studio untuk bisnis dan organisasi yang membutuhkan website hingga software custom dengan fondasi teknis yang kuat.",
@@ -21,10 +24,26 @@ const content = {
     title: { id: "Prinsip yang menjaga", en: "Principles behind" },
     accent: { id: "setiap keputusan.", en: "every decision." },
     items: [
-      { title: "Build what matters", id: "Membangun apa yang benar-benar dibutuhkan, bukan apa yang sekadar terlihat canggih.", en: "Build what is actually needed, not what merely looks sophisticated." },
-      { title: "Simple when possible", id: "Solusi sederhana dipilih ketika sudah cukup menyelesaikan masalah.", en: "Choose the simpler solution when it is enough to solve the problem." },
-      { title: "Built for real use", id: "Produk dipikirkan untuk kondisi setelah launch, bukan hanya presentasi.", en: "Products are designed for life after launch, not just presentations." },
-      { title: "Grow when needed", id: "Fondasi hari ini tidak boleh menghalangi kebutuhan berikutnya.", en: "Today's foundations should not block tomorrow's needs." },
+      {
+        title: "Build what matters",
+        id: "Membangun apa yang benar-benar dibutuhkan, bukan apa yang sekadar terlihat canggih.",
+        en: "Build what is actually needed, not what merely looks sophisticated.",
+      },
+      {
+        title: "Simple when possible",
+        id: "Solusi sederhana dipilih ketika sudah cukup menyelesaikan masalah.",
+        en: "Choose the simpler solution when it is enough to solve the problem.",
+      },
+      {
+        title: "Built for real use",
+        id: "Produk dipikirkan untuk kondisi setelah launch, bukan hanya presentasi.",
+        en: "Products are designed for life after launch, not just presentations.",
+      },
+      {
+        title: "Grow when needed",
+        id: "Fondasi hari ini tidak boleh menghalangi kebutuhan berikutnya.",
+        en: "Today's foundations should not block tomorrow's needs.",
+      },
     ],
   },
   engineering: {
@@ -35,11 +54,23 @@ const content = {
       id: "Kami memperhatikan cara produk disusun, dijalankan, dirawat, dan dikembangkan kembali ketika kebutuhan bertambah.",
       en: "We consider how a product is structured, operated, maintained, and extended as requirements grow.",
     },
-    items: ["Architecture", "Performance", "Maintainability", "Testing", "Deployment"],
+    items: [
+      "Architecture",
+      "Performance",
+      "Maintainability",
+      "Testing",
+      "Deployment",
+    ],
   },
   security: {
-    label: { id: "Security-conscious development", en: "Security-conscious development" },
-    title: { id: "Security bukan fitur tambahan.", en: "Security is not an add-on." },
+    label: {
+      id: "Security-conscious development",
+      en: "Security-conscious development",
+    },
+    title: {
+      id: "Security bukan fitur tambahan.",
+      en: "Security is not an add-on.",
+    },
     copy: {
       id: "Background di software engineering, cybersecurity, dan security research membuat risiko dipertimbangkan sejak awal development.",
       en: "A background in software engineering, cybersecurity, and security research means risk is considered from the start.",
@@ -71,7 +102,10 @@ const content = {
   founder: {
     label: { id: "Di balik studio", en: "Behind the studio" },
     title: "Hammad Matt",
-    role: { id: "Fullstack engineering · Automation · Security research", en: "Full-stack engineering · Automation · Security research" },
+    role: {
+      id: "Fullstack engineering · Automation · Security research",
+      en: "Full-stack engineering · Automation · Security research",
+    },
     copy: {
       id: "Hammad Studio dipimpin langsung oleh Hammad Matt. Setiap project mendapat perhatian pada keputusan produk, kualitas implementasi, dan risiko teknis—bukan sekadar handoff kepada tim anonim.",
       en: "Hammad Studio is led directly by Hammad Matt. Every project receives attention across product decisions, implementation quality, and technical risk—not simply handed off to an anonymous team.",
@@ -102,7 +136,10 @@ export function StudioPageContent() {
       {/* Dark Midnight Hero Header */}
       <section className="relative overflow-hidden bg-[#070a12] pb-20 pt-36 text-white sm:pb-28 sm:pt-44">
         {/* Purple & Lime Radial Mesh Glow */}
-        <div className="pointer-events-none absolute left-1/2 top-1/3 -z-0 h-[600px] w-[900px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(128,87,255,0.45)_0%,rgba(210,243,76,0.18)_50%,transparent_70%)] blur-3xl" aria-hidden="true" />
+        <div
+          className="pointer-events-none absolute left-1/2 top-1/3 -z-0 h-[600px] w-[900px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(128,87,255,0.45)_0%,rgba(210,243,76,0.18)_50%,transparent_70%)] blur-3xl"
+          aria-hidden="true"
+        />
 
         <div className="site-container relative z-10 grid gap-10 lg:grid-cols-12 lg:items-center">
           <MotionReveal className="lg:col-span-6">
@@ -115,14 +152,19 @@ export function StudioPageContent() {
                 {content.hero.accent[locale]}
               </span>
             </h1>
-            <p className="body-copy mt-7 max-w-[620px] text-white/65">{content.hero.intro[locale]}</p>
+            <p className="body-copy mt-7 max-w-[620px] text-white/65">
+              {content.hero.intro[locale]}
+            </p>
           </MotionReveal>
 
-          <MotionReveal delay={0.08} className="luxury-dark-card relative aspect-[4/3] overflow-hidden rounded-2xl p-1.5 shadow-2xl lg:col-span-6">
+          <MotionReveal
+            delay={0.08}
+            className="luxury-dark-card relative aspect-[4/3] overflow-hidden rounded-2xl p-1.5 shadow-2xl lg:col-span-6"
+          >
             <div className="relative h-full w-full overflow-hidden rounded-xl">
               <Image
-                src="/images/work/saudi-education-expo.webp"
-                alt="Hammad Studio workspace & engineering preview"
+                src="/images/work/solivate.png"
+                alt="Solivate Studio digital agency homepage"
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 600px"
@@ -147,8 +189,10 @@ export function StudioPageContent() {
           />
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {content.principles.items.map((item, index) => {
-              const tintClass = principleTintClasses[index % principleTintClasses.length];
-              const badgeStyle = principleBadgeStyles[index % principleBadgeStyles.length];
+              const tintClass =
+                principleTintClasses[index % principleTintClasses.length];
+              const badgeStyle =
+                principleBadgeStyles[index % principleBadgeStyles.length];
 
               return (
                 <MotionReveal
@@ -156,11 +200,17 @@ export function StudioPageContent() {
                   delay={index * 0.04}
                   className={`flex min-h-[260px] flex-col rounded-2xl p-7 transition duration-400 hover:-translate-y-1 ${tintClass}`}
                 >
-                  <span className={`flex h-10 w-10 items-center justify-center rounded-full font-[family-name:var(--font-geist-mono)] text-xs font-bold ${badgeStyle}`}>
+                  <span
+                    className={`flex h-10 w-10 items-center justify-center rounded-full font-[family-name:var(--font-geist-mono)] text-xs font-bold ${badgeStyle}`}
+                  >
                     0{index + 1}
                   </span>
-                  <h3 className="mt-8 text-xl font-[550] tracking-[-0.035em] text-[#17181d]">{item.title}</h3>
-                  <p className="mt-3 text-xs leading-[1.65] text-[#6d7180] sm:text-sm">{item[locale]}</p>
+                  <h3 className="mt-8 text-xl font-[550] tracking-[-0.035em] text-[#17181d]">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 text-xs leading-[1.65] text-[#6d7180] sm:text-sm">
+                    {item[locale]}
+                  </p>
                 </MotionReveal>
               );
             })}
@@ -173,8 +223,8 @@ export function StudioPageContent() {
         <div className="site-container surface-card grid overflow-hidden rounded-2xl border border-[#dde0e7] bg-white lg:grid-cols-12 shadow-xl">
           <div className="relative min-h-[360px] bg-[#070a12] sm:min-h-[480px] lg:col-span-6">
             <Image
-              src="/images/work/operations-dashboard.webp"
-              alt="Operations dashboard engineering preview"
+              src="/images/generated/custom-development.png"
+              alt="Custom software architecture illustration"
               fill
               sizes="(max-width: 1024px) 100vw, 620px"
               className="object-cover object-top"
@@ -195,7 +245,10 @@ export function StudioPageContent() {
             </p>
             <div className="mt-8 flex flex-wrap gap-2">
               {content.engineering.items.map((item) => (
-                <span key={item} className="rounded-full border border-black/10 bg-[#f6f7fb] px-4 py-2 text-xs font-semibold text-[#17181d] sm:text-sm">
+                <span
+                  key={item}
+                  className="rounded-full border border-black/10 bg-[#f6f7fb] px-4 py-2 text-xs font-semibold text-[#17181d] sm:text-sm"
+                >
                   {item}
                 </span>
               ))}
@@ -205,10 +258,15 @@ export function StudioPageContent() {
       </section>
 
       {/* Security Section */}
-      <section id="security" className="scroll-mt-24 footer-surface-v2 py-20 text-white sm:py-28">
+      <section
+        id="security"
+        className="scroll-mt-24 footer-surface-v2 py-20 text-white sm:py-28"
+      >
         <div className="site-container grid gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
           <MotionReveal>
-            <span className="label-mono text-[#d2f34c]">{content.security.label[locale]}</span>
+            <span className="label-mono text-[#d2f34c]">
+              {content.security.label[locale]}
+            </span>
             <h2 className="mt-4 text-[clamp(2.8rem,5vw,5.2rem)] font-[520] leading-[0.92] tracking-[-0.06em]">
               {content.security.title[locale]}
             </h2>
@@ -229,7 +287,9 @@ export function StudioPageContent() {
               >
                 <div className="flex items-center gap-3">
                   <CheckIcon className="h-4 w-4 text-[#d2f34c]" />
-                  <p className="text-sm font-semibold text-white sm:text-base">{item}</p>
+                  <p className="text-sm font-semibold text-white sm:text-base">
+                    {item}
+                  </p>
                 </div>
               </MotionReveal>
             ))}
@@ -254,10 +314,17 @@ export function StudioPageContent() {
             </div>
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
               {content.tools.items.map((item, index) => (
-                <div key={item} className="flex min-h-[110px] items-end rounded-xl bg-[#f6f7fb] p-5 border border-[#dde0e7]">
+                <div
+                  key={item}
+                  className="flex min-h-[110px] items-end rounded-xl bg-[#f6f7fb] p-5 border border-[#dde0e7]"
+                >
                   <div>
-                    <span className="label-mono text-[#8057ff] font-bold">0{index + 1}</span>
-                    <strong className="mt-3 block text-sm font-semibold text-[#17181d] sm:text-base">{item}</strong>
+                    <span className="label-mono text-[#8057ff] font-bold">
+                      0{index + 1}
+                    </span>
+                    <strong className="mt-3 block text-sm font-semibold text-[#17181d] sm:text-base">
+                      {item}
+                    </strong>
                   </div>
                 </div>
               ))}
@@ -279,8 +346,13 @@ export function StudioPageContent() {
             </span>
           </MotionReveal>
 
-          <MotionReveal delay={0.06} className="surface-card flex flex-col justify-center rounded-2xl border border-[#dde0e7] bg-white p-8 sm:p-12 shadow-lg">
-            <span className="label-mono text-[#8057ff] font-bold">Founder / Lead Engineer</span>
+          <MotionReveal
+            delay={0.06}
+            className="surface-card flex flex-col justify-center rounded-2xl border border-[#dde0e7] bg-white p-8 sm:p-12 shadow-lg"
+          >
+            <span className="label-mono text-[#8057ff] font-bold">
+              Founder / Lead Engineer
+            </span>
             <h2 className="mt-4 text-[clamp(2.8rem,5.5vw,5.2rem)] font-[520] leading-none tracking-[-0.065em] text-[#17181d]">
               {content.founder.title}
             </h2>
@@ -290,8 +362,12 @@ export function StudioPageContent() {
             <p className="mt-6 max-w-[600px] text-sm leading-[1.75] text-[#6d7180] sm:text-base">
               {content.founder.copy[locale]}
             </p>
-            <Link href="/contact" className="acid-button group mt-8 inline-flex w-fit items-center gap-2 rounded-full px-6 py-3 text-xs font-semibold text-black sm:text-sm">
-              {content.founder.cta[locale]} <ArrowUpRightIcon className="button-arrow h-4 w-4" />
+            <Link
+              href="/contact"
+              className="acid-button group mt-8 inline-flex w-fit items-center gap-2 rounded-full px-6 py-3 text-xs font-semibold text-black sm:text-sm"
+            >
+              {content.founder.cta[locale]}{" "}
+              <ArrowUpRightIcon className="button-arrow h-4 w-4" />
             </Link>
           </MotionReveal>
         </div>
@@ -300,7 +376,15 @@ export function StudioPageContent() {
   );
 }
 
-function SectionHeader({ label, title, accent }: { label: string; title: string; accent: string }) {
+function SectionHeader({
+  label,
+  title,
+  accent,
+}: {
+  label: string;
+  title: string;
+  accent: string;
+}) {
   return (
     <MotionReveal>
       <span className="label-mono text-black/45">{label}</span>
@@ -313,4 +397,3 @@ function SectionHeader({ label, title, accent }: { label: string; title: string;
     </MotionReveal>
   );
 }
-
