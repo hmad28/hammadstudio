@@ -14,10 +14,11 @@ export function HeroSection() {
   const { locale } = useLocale();
   const copy = homeContent.hero;
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start start", "end start"] });
-  const showcaseY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : 60]);
+  const showcaseY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : 90]);
+  const sideY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : 150]);
 
   return (
-    <section ref={sectionRef} id="hero" className="hero-surface relative overflow-hidden pb-16 pt-32 text-white sm:pt-36 lg:pt-40">
+    <section ref={sectionRef} id="hero" className="hero-surface relative min-h-screen overflow-hidden pb-16 pt-32 text-white sm:pt-36 lg:pt-40">
       <div className="hero-noise pointer-events-none absolute inset-0" aria-hidden="true" />
       <div className="site-container relative z-10">
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4">
@@ -31,7 +32,7 @@ export function HeroSection() {
           </div>
         </div>
 
-        <div className="mx-auto max-w-[840px] pb-12 pt-10 text-center lg:pb-16 lg:pt-14">
+        <div className="mx-auto max-w-[860px] pb-12 pt-10 text-center lg:pb-16 lg:pt-14">
           <h1 className="text-[clamp(3.4rem,7.2vw,6.8rem)] font-[540] leading-[0.88] tracking-[-0.065em] text-[#f6f4ee]">
             <span className="hero-line">
               <motion.span initial={reduceMotion ? false : { y: "110%" }} animate={{ y: 0 }} transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}>
@@ -72,43 +73,70 @@ export function HeroSection() {
           </motion.div>
         </div>
 
-        {/* Hero Device Showcase Mockups - Laptop (Center) + Mobile (Left) + Tablet (Right) */}
+        {/* Restore original 3D Stage Hero Composition with side tilted cards (-5deg & 5deg) */}
         <motion.div
-          className="hero-stage relative mx-auto h-[320px] max-w-[1140px] sm:h-[480px] lg:h-[580px]"
+          className="hero-stage relative mx-auto h-[330px] max-w-[1180px] sm:h-[490px] lg:h-[620px]"
           style={{ y: showcaseY }}
-          initial={reduceMotion ? false : { opacity: 0, y: 60, scale: 0.97 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 70, scale: 0.97 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 1.05, delay: 0.38, ease: [0.16, 1, 0.3, 1] }}
         >
-          {/* Left: Mobile App Mockup */}
-          <div className="absolute -left-[4%] top-[12%] z-20 h-[72%] w-[26%] overflow-hidden rounded-[22px] border-2 border-white/18 bg-[#0c0c0b] shadow-[0_25px_60px_rgba(0,0,0,0.8)] sm:-left-[2%] lg:left-[2%]">
-            <Image src="/images/work/operations-dashboard.webp" alt="Mobile app UI mockup" fill sizes="(max-width: 640px) 30vw, 300px" className="object-cover object-top" />
-          </div>
+          {/* Left Tilted Card: Ajwa Date Store */}
+          <motion.div
+            style={{ y: sideY }}
+            className="absolute -left-[13%] top-[15%] h-[64%] w-[38%] -rotate-[5deg] overflow-hidden rounded-[10px] border border-white/10 bg-[#111] opacity-65 shadow-2xl sm:-left-[8%] sm:opacity-90"
+          >
+            <Image
+              src="/images/work/ajwa-date-store.webp"
+              alt="Ajwa Date Store project preview"
+              fill
+              priority
+              sizes="(max-width: 640px) 45vw, 430px"
+              className="object-cover object-top"
+            />
+          </motion.div>
 
-          {/* Right: Tablet / Secondary Mockup */}
-          <div className="absolute -right-[4%] top-[18%] z-20 h-[68%] w-[32%] overflow-hidden rounded-[16px] border-2 border-white/18 bg-[#0c0c0b] shadow-[0_25px_60px_rgba(0,0,0,0.8)] sm:-right-[2%] lg:right-[2%]">
-            <Image src="/images/work/ajwa-date-store.webp" alt="Store product mockup" fill sizes="(max-width: 640px) 35vw, 360px" className="object-cover object-top" />
-          </div>
+          {/* Right Tilted Card: Operations Dashboard */}
+          <motion.div
+            style={{ y: sideY }}
+            className="absolute -right-[13%] top-[15%] h-[64%] w-[38%] rotate-[5deg] overflow-hidden rounded-[10px] border border-white/10 bg-[#111] opacity-65 shadow-2xl sm:-right-[8%] sm:opacity-90"
+          >
+            <Image
+              src="/images/work/operations-dashboard.webp"
+              alt="Operations dashboard project preview"
+              fill
+              priority
+              sizes="(max-width: 640px) 45vw, 430px"
+              className="object-cover object-top"
+            />
+          </motion.div>
 
-          {/* Center: Main Laptop Frame Mockup */}
-          <div className="group absolute left-1/2 top-0 z-10 h-[88%] w-[84%] -translate-x-1/2 overflow-hidden rounded-[14px] border-2 border-white/20 bg-[#0d0d0d] shadow-[0_35px_100px_rgba(0,0,0,0.95)] sm:w-[72%]">
-            <Image src="/images/work/saudi-education-expo.webp" alt="Saudi Education Expo platform" fill priority sizes="(max-width: 640px) 90vw, 840px" className="object-cover object-top transition-transform duration-1000 ease-out group-hover:scale-[1.018]" />
-            <div className="absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-black/85 via-black/40 to-transparent p-5 sm:p-7">
+          {/* Main Center Featured Card: Saudi Education Expo */}
+          <div className="group absolute left-1/2 top-0 z-10 h-[82%] w-[82%] -translate-x-1/2 overflow-hidden rounded-[10px] border border-white/15 bg-[#0d0d0d] shadow-[0_45px_120px_rgba(0,0,0,.7)] sm:w-[70%]">
+            <Image
+              src="/images/work/saudi-education-expo.webp"
+              alt="Saudi Education Expo platform"
+              fill
+              priority
+              sizes="(max-width: 640px) 86vw, 820px"
+              className="object-cover object-top transition-transform duration-1000 ease-out group-hover:scale-[1.018]"
+            />
+            <div className="absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-black/80 to-transparent p-4 pt-16 sm:p-6 sm:pt-24">
               <div>
-                <p className="label-mono text-white/50">{copy.featured[locale]} · 2026</p>
-                <p className="mt-1 text-base font-semibold text-white sm:text-xl">Saudi Education Expo</p>
+                <p className="label-mono text-white/45">{copy.featured[locale]} / 2026</p>
+                <p className="mt-2 text-sm font-medium sm:text-lg">Saudi Education Expo</p>
               </div>
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#cfef57] text-black shadow-lg sm:h-11 sm:w-11">
+              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#cfef57] text-black sm:h-11 sm:w-11">
                 <ArrowUpRightIcon className="h-4 w-4" />
               </span>
             </div>
           </div>
 
-          {/* Ambient Glow */}
-          <div className="absolute bottom-[2%] left-[10%] right-[10%] h-[20%] rounded-[50%] bg-[#cfef57]/12 blur-3xl" aria-hidden="true" />
+          <div className="absolute bottom-[4%] left-[8%] right-[8%] h-[18%] rounded-[50%] bg-[#cfef57]/10 blur-3xl" aria-hidden="true" />
         </motion.div>
       </div>
     </section>
   );
 }
+
 
