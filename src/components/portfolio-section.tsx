@@ -3,61 +3,36 @@
 import Image from "next/image";
 import Link from "next/link";
 import { homeContent } from "@/lib/home-content";
+import { featuredWorkSlugs, workProjects } from "@/lib/work-content";
 import { ArrowUpRightIcon } from "./icons";
 import { useLocale } from "./locale-provider";
 import { MotionReveal } from "./motion-reveal";
-
-const projects = [
-  {
-    slug: "saudi-education-expo",
-    title: "Saudi Education Expo",
-    category: "event",
-    year: "2026",
-    image: "/images/work/saudi-education-expo.webp",
-    className: "lg:col-span-12",
-    ratio: "aspect-[16/9] sm:aspect-[2/1] lg:aspect-[21/9]",
-  },
-  {
-    slug: "umrah-operations-platform",
-    title: "Umrah Operations Platform",
-    category: "operations",
-    year: "2026",
-    image: "/images/work/operations-dashboard.webp",
-    className: "lg:col-span-6",
-    ratio: "aspect-[16/10]",
-  },
-  {
-    slug: "ajwa-date-store",
-    title: "Ajwa Date Store",
-    category: "commerce",
-    year: "2026",
-    image: "/images/work/ajwa-date-store.webp",
-    className: "lg:col-span-6",
-    ratio: "aspect-[16/10]",
-  },
-] as const;
 
 function ProjectCard({
   project,
   index,
   category,
 }: {
-  project: (typeof projects)[number];
+  project: (typeof workProjects)[(typeof featuredWorkSlugs)[number]];
   index: number;
   category: string;
 }) {
   return (
-    <MotionReveal className={project.className} delay={index === 0 ? 0 : 0.08}>
+    <MotionReveal className="lg:col-span-6" delay={index === 0 ? 0 : 0.08}>
       <Link href={`/work/${project.slug}`} className="group block">
-        <div className={`project-frame luxury-dark-card relative overflow-hidden rounded-2xl p-1 shadow-[0_30px_80px_rgba(0,0,0,0.8)] ${project.ratio}`}>
+        <div className="project-frame luxury-dark-card relative aspect-[4/3] overflow-hidden rounded-2xl p-1 shadow-[0_30px_80px_rgba(0,0,0,0.8)] sm:aspect-[16/10]">
           <div className="relative h-full w-full overflow-hidden rounded-xl">
-            <Image
-              src={project.image}
-              alt={`${project.title} project preview`}
-              fill
-              sizes={index === 0 ? "(max-width: 1200px) 100vw, 1180px" : "(max-width: 1023px) 100vw, 580px"}
-              className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.025]"
-            />
+            {project.image ? (
+              <Image
+                src={project.image}
+                alt={`${project.title} homepage hero`}
+                fill
+                sizes="(max-width: 1023px) 100vw, 580px"
+                className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.025]"
+              />
+            ) : (
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_15%,rgba(210,243,76,0.22),transparent_28%),linear-gradient(135deg,#151027,#070a12_70%)]" />
+            )}
             <div className="absolute inset-0 bg-gradient-to-t from-[#06050b] via-[#06050b]/30 to-transparent opacity-85 transition-opacity duration-500 group-hover:opacity-95" />
 
             {/* Corner Action Arrow */}
@@ -88,9 +63,15 @@ export function PortfolioSection() {
   const copy = homeContent.work;
 
   return (
-    <section id="work" className="work-surface-v2 relative scroll-mt-20 py-24 text-white sm:py-32 lg:py-36">
+    <section
+      id="work"
+      className="work-surface-v2 relative scroll-mt-20 py-24 text-white sm:py-32 lg:py-36"
+    >
       {/* Background Ambient Purple/Indigo Glow */}
-      <div className="pointer-events-none absolute left-1/2 top-1/3 -z-10 h-[600px] w-[900px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(91,55,213,0.32)_0%,rgba(40,100,255,0.18)_50%,transparent_70%)] blur-3xl" aria-hidden="true" />
+      <div
+        className="pointer-events-none absolute left-1/2 top-1/3 -z-10 h-[600px] w-[900px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(91,55,213,0.32)_0%,rgba(40,100,255,0.18)_50%,transparent_70%)] blur-3xl"
+        aria-hidden="true"
+      />
 
       <div className="site-container">
         <MotionReveal className="flex flex-col items-start justify-between gap-6 pb-12 sm:flex-row sm:items-end lg:pb-16">
@@ -110,23 +91,25 @@ export function PortfolioSection() {
             href="/work"
             className="acid-button group inline-flex items-center gap-2 rounded-full px-6 py-3 text-xs font-semibold text-black sm:text-sm"
           >
-            {copy.all[locale]} <ArrowUpRightIcon className="button-arrow h-4 w-4" />
+            {copy.all[locale]}{" "}
+            <ArrowUpRightIcon className="button-arrow h-4 w-4" />
           </Link>
         </MotionReveal>
 
         <div className="grid gap-6 lg:grid-cols-12">
-          {projects.map((project, index) => (
-            <ProjectCard
-              key={project.title}
-              project={project}
-              index={index}
-              category={copy.categories[project.category][locale]}
-            />
-          ))}
+          {featuredWorkSlugs.map((slug, index) => {
+            const project = workProjects[slug];
+            return (
+              <ProjectCard
+                key={project.title}
+                project={project}
+                index={index}
+                category={project.category[locale]}
+              />
+            );
+          })}
         </div>
       </div>
     </section>
   );
 }
-
-

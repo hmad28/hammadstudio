@@ -9,7 +9,15 @@ import type { WorkSlug } from "@/lib/work-content";
 import { workProjects } from "@/lib/work-content";
 
 const labels = {
-  overview: { id: "Overview", en: "Overview" }, challenge: { id: "Challenge", en: "Challenge" }, built: { id: "What we built", en: "What we built" }, experience: { id: "Experience", en: "Experience" }, features: { id: "Key features", en: "Key features" }, flow: { id: "System / flow", en: "System / flow" }, outcome: { id: "Outcome", en: "Outcome" }, next: { id: "Project berikutnya", en: "Next project" },
+  overview: { id: "Overview", en: "Overview" },
+  challenge: { id: "Challenge", en: "Challenge" },
+  built: { id: "What we built", en: "What we built" },
+  experience: { id: "Experience", en: "Experience" },
+  features: { id: "Key features", en: "Key features" },
+  flow: { id: "System / flow", en: "System / flow" },
+  outcome: { id: "Outcome", en: "Outcome" },
+  next: { id: "Project berikutnya", en: "Next project" },
+  visit: { id: "Kunjungi website", en: "Visit website" },
 } as const;
 
 export function ProjectDetailPage({ slug }: { slug: WorkSlug }) {
@@ -21,7 +29,10 @@ export function ProjectDetailPage({ slug }: { slug: WorkSlug }) {
     <article className="bg-[#f7f5ef] text-[#17181d]">
       <header className="relative overflow-hidden bg-[#070a12] pb-14 pt-36 text-white sm:pt-44">
         {/* Purple/Magenta Ambient Glow */}
-        <div className="pointer-events-none absolute left-1/2 top-1/3 -z-0 h-[600px] w-[900px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(128,87,255,0.4)_0%,rgba(228,75,255,0.25)_45%,transparent_75%)] blur-3xl" aria-hidden="true" />
+        <div
+          className="pointer-events-none absolute left-1/2 top-1/3 -z-0 h-[600px] w-[900px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(128,87,255,0.4)_0%,rgba(228,75,255,0.25)_45%,transparent_75%)] blur-3xl"
+          aria-hidden="true"
+        />
 
         <div className="site-container relative z-10">
           <span className="purple-glow-badge inline-block rounded-full px-3.5 py-1 text-[0.68rem] font-bold">
@@ -30,6 +41,16 @@ export function ProjectDetailPage({ slug }: { slug: WorkSlug }) {
           <h1 className="mt-7 max-w-[1150px] text-[clamp(4rem,10vw,10rem)] font-[520] leading-[0.8] tracking-[-0.075em]">
             {project.title}
           </h1>
+          {project.website ? (
+            <a
+              href={project.website}
+              target="_blank"
+              rel="noreferrer"
+              className="acid-button mt-9 inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-black"
+            >
+              {labels.visit[locale]} <ArrowUpRightIcon className="h-4 w-4" />
+            </a>
+          ) : null}
         </div>
       </header>
 
@@ -37,14 +58,22 @@ export function ProjectDetailPage({ slug }: { slug: WorkSlug }) {
         <div className="site-container">
           <div className="luxury-dark-card relative aspect-[4/3] overflow-hidden rounded-2xl p-2 shadow-[0_40px_100px_rgba(0,0,0,0.8)] sm:aspect-[2/1]">
             <div className="relative h-full w-full overflow-hidden rounded-xl">
-              <Image
-                src={project.image}
-                alt={`${project.title} project mockup`}
-                fill
-                priority
-                sizes="(max-width: 1240px) 100vw, 1240px"
-                className="object-cover object-top"
-              />
+              {project.image ? (
+                <Image
+                  src={project.image}
+                  alt={`${project.title} homepage hero`}
+                  fill
+                  priority
+                  sizes="(max-width: 1240px) 100vw, 1240px"
+                  className="object-cover object-top"
+                />
+              ) : (
+                <div className="flex h-full items-center justify-center bg-[radial-gradient(circle_at_70%_20%,rgba(210,243,76,0.22),transparent_30%),linear-gradient(135deg,#171027,#070a12_72%)] p-8 text-center">
+                  <span className="text-[clamp(3rem,8vw,8rem)] font-[520] leading-none tracking-[-0.07em] text-white/90">
+                    {project.title}
+                  </span>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -53,7 +82,9 @@ export function ProjectDetailPage({ slug }: { slug: WorkSlug }) {
       <section className="about-surface-v2 py-24 sm:py-32">
         <div className="site-container grid gap-14 lg:grid-cols-12 lg:gap-6">
           <div className="lg:col-span-3">
-            <span className="label-mono text-[#8057ff] font-semibold">{labels.overview[locale]}</span>
+            <span className="label-mono text-[#8057ff] font-semibold">
+              {labels.overview[locale]}
+            </span>
           </div>
           <div className="space-y-16 lg:col-span-9">
             <MotionReveal>
@@ -63,13 +94,20 @@ export function ProjectDetailPage({ slug }: { slug: WorkSlug }) {
             </MotionReveal>
             <div className="grid gap-10 border-t border-black/10 pt-8 sm:grid-cols-2">
               <MotionReveal className="tint-card-lavender p-6 rounded-2xl">
-                <span className="label-mono text-[#8057ff] font-bold">{labels.challenge[locale]}</span>
+                <span className="label-mono text-[#8057ff] font-bold">
+                  {labels.challenge[locale]}
+                </span>
                 <p className="mt-4 text-base leading-[1.7] text-[#17181d]">
                   {project.challenge[locale]}
                 </p>
               </MotionReveal>
-              <MotionReveal delay={0.06} className="tint-card-ice p-6 rounded-2xl">
-                <span className="label-mono text-[#2864ff] font-bold">{labels.built[locale]}</span>
+              <MotionReveal
+                delay={0.06}
+                className="tint-card-ice p-6 rounded-2xl"
+              >
+                <span className="label-mono text-[#2864ff] font-bold">
+                  {labels.built[locale]}
+                </span>
                 <p className="mt-4 text-base leading-[1.7] text-[#17181d]">
                   {project.built[locale]}
                 </p>
@@ -95,9 +133,16 @@ export function ProjectDetailPage({ slug }: { slug: WorkSlug }) {
             </span>
             <div className="mt-6 grid gap-3 sm:grid-cols-2">
               {project.features.map((feature, index) => (
-                <div key={feature} className="surface-card rounded-xl border border-[#dde0e7] bg-white p-5 shadow-sm">
-                  <span className="text-xs font-mono font-bold text-[#8057ff]">0{index + 1}</span>
-                  <p className="mt-3 text-sm font-semibold text-[#17181d]">{feature}</p>
+                <div
+                  key={feature}
+                  className="surface-card rounded-xl border border-[#dde0e7] bg-white p-5 shadow-sm"
+                >
+                  <span className="text-xs font-mono font-bold text-[#8057ff]">
+                    0{index + 1}
+                  </span>
+                  <p className="mt-3 text-sm font-semibold text-[#17181d]">
+                    {feature}
+                  </p>
                 </div>
               ))}
             </div>
@@ -107,9 +152,14 @@ export function ProjectDetailPage({ slug }: { slug: WorkSlug }) {
 
       {/* Next Project Signature CTA */}
       <section className="cta-surface-signature py-20">
-        <Link href={`/work/${nextProject.slug}`} className="site-container group flex items-end justify-between gap-5 text-[#070a12]">
+        <Link
+          href={`/work/${nextProject.slug}`}
+          className="site-container group flex items-end justify-between gap-5 text-[#070a12]"
+        >
           <div>
-            <span className="label-mono font-bold tracking-wider text-[#070a12]/80">{labels.next[locale]}</span>
+            <span className="label-mono font-bold tracking-wider text-[#070a12]/80">
+              {labels.next[locale]}
+            </span>
             <h2 className="mt-5 text-[clamp(2.8rem,7vw,7rem)] font-[520] leading-[0.88] tracking-[-0.065em] text-[#070a12]">
               {nextProject.title}
             </h2>

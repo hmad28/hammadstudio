@@ -2,27 +2,33 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { workProjects, workSlugs } from "@/lib/work-content";
+import { selectedWorkSlugs, workProjects } from "@/lib/work-content";
 import { ArrowUpRightIcon } from "./icons";
 import { useLocale } from "./locale-provider";
 import { MotionReveal } from "./motion-reveal";
 
 const copy = {
-  label: { id: "Karya pilihan", en: "Selected work" },
-  title: { id: "Karya yang sudah kami bangun.", en: "Work we have brought to life." },
-  intro: { id: "Case study menjelaskan masalah, solusi, experience, dan hasil tanpa metric yang dibuat-buat.", en: "Each case study explains the problem, solution, experience, and outcome without invented metrics." },
-  featured: { id: "Project utama", en: "Featured project" },
+  label: { id: "Selected Projects", en: "Selected Projects" },
+  title: {
+    id: "Project pilihan, dibangun untuk kebutuhan nyata.",
+    en: "Selected projects, built for real needs.",
+  },
+  intro: {
+    id: "Website, platform, dan sistem digital untuk organisasi, komunitas, serta bisnis dari berbagai industri.",
+    en: "Websites, platforms, and digital systems for organisations, communities, and businesses across industries.",
+  },
 } as const;
 
 export function WorkPageContent() {
   const { locale } = useLocale();
-  const featured = workProjects[workSlugs[0]];
-  const rest = workSlugs.slice(1);
 
   return (
     <div className="work-surface-v2 min-h-screen pb-28 pt-36 text-white sm:pb-36 sm:pt-44">
       {/* Background Ambient Purple/Indigo Glow */}
-      <div className="pointer-events-none absolute left-1/2 top-1/4 -z-0 h-[600px] w-[900px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(91,55,213,0.35)_0%,rgba(40,100,255,0.2)_50%,transparent_70%)] blur-3xl" aria-hidden="true" />
+      <div
+        className="pointer-events-none absolute left-1/2 top-1/4 -z-0 h-[600px] w-[900px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(91,55,213,0.35)_0%,rgba(40,100,255,0.2)_50%,transparent_70%)] blur-3xl"
+        aria-hidden="true"
+      />
 
       <div className="site-container relative z-10">
         <MotionReveal className="grid gap-8 pb-14 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:items-end">
@@ -39,29 +45,29 @@ export function WorkPageContent() {
           </p>
         </MotionReveal>
 
-        <MotionReveal>
-          <ProjectCard
-            slug={workSlugs[0]}
-            title={featured.title}
-            image={featured.image}
-            category={featured.category[locale]}
-            year={featured.year}
-            label={copy.featured[locale]}
-            featured
-          />
-        </MotionReveal>
-        <div className="mt-8 grid gap-6 md:grid-cols-2">
-          {rest.map((slug, index) => {
+        <div className="grid gap-6 md:grid-cols-2">
+          {selectedWorkSlugs.map((slug, index) => {
             const project = workProjects[slug];
             return (
-              <MotionReveal key={slug} delay={index * 0.06}>
+              <MotionReveal
+                key={slug}
+                className={
+                  index === selectedWorkSlugs.length - 1
+                    ? "md:col-span-2"
+                    : undefined
+                }
+                delay={index * 0.04}
+              >
                 <ProjectCard
                   slug={slug}
                   title={project.title}
                   image={project.image}
                   category={project.category[locale]}
                   year={project.year}
-                  label={`0${index + 2}`}
+                  label={String(index + 1).padStart(2, "0")}
+                  description={project.overview[locale]}
+                  featured={index === selectedWorkSlugs.length - 1}
+                  priority={index === 0}
                 />
               </MotionReveal>
             );
@@ -79,15 +85,19 @@ function ProjectCard({
   category,
   year,
   label,
+  description,
   featured = false,
+  priority = false,
 }: {
   slug: string;
   title: string;
-  image: string;
+  image: string | null;
   category: string;
   year: string;
   label: string;
+  description: string;
   featured?: boolean;
+  priority?: boolean;
 }) {
   return (
     <Link href={`/work/${slug}`} className="group block">
@@ -97,13 +107,22 @@ function ProjectCard({
         }`}
       >
         <div className="relative h-full w-full overflow-hidden rounded-xl">
-          <Image
-            src={image}
-            alt={`${title} project preview`}
-            fill
-            sizes={featured ? "(max-width: 1240px) 100vw, 1240px" : "(max-width: 768px) 100vw, 600px"}
-            className="object-cover object-top transition-transform duration-[1200ms] ease-out group-hover:scale-[1.03]"
-          />
+          {image ? (
+            <Image
+              src={image}
+              alt={`${title} homepage hero`}
+              fill
+              priority={priority}
+              sizes={
+                featured
+                  ? "(max-width: 1240px) 100vw, 1240px"
+                  : "(max-width: 768px) 100vw, 600px"
+              }
+              className="object-cover object-top transition-transform duration-[1200ms] ease-out group-hover:scale-[1.03]"
+            />
+          ) : (
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(148,110,255,0.28),transparent_30%),linear-gradient(135deg,#171027,#070a12_72%)]" />
+          )}
           <div className="absolute inset-0 bg-gradient-to-t from-[#070a12] via-[#070a12]/30 to-transparent opacity-85 transition-opacity duration-500 group-hover:opacity-95" />
 
           {/* Category Badge Pill */}
@@ -120,9 +139,14 @@ function ProjectCard({
           <div className="absolute inset-x-6 bottom-6 flex items-end justify-between text-white sm:inset-x-8 sm:bottom-8">
             <div>
               <span className="text-xs font-mono text-white/50">{year}</span>
-              <h2 className={`${featured ? "text-[clamp(2.2rem,4.5vw,4.2rem)]" : "text-[clamp(1.8rem,3vw,2.8rem)]"} mt-1 font-[520] leading-none tracking-[-0.05em] text-white`}>
+              <h2
+                className={`${featured ? "text-[clamp(2.2rem,4.5vw,4.2rem)]" : "text-[clamp(1.8rem,3vw,2.8rem)]"} mt-1 font-[520] leading-none tracking-[-0.05em] text-white`}
+              >
                 {title}
               </h2>
+              <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/65 sm:text-base">
+                {description}
+              </p>
             </div>
           </div>
         </div>
