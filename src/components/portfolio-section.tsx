@@ -88,9 +88,9 @@ export function PortfolioSection() {
   const copy = homeContent.work;
 
   return (
-    <section id="work" className="dark-mesh-surface relative scroll-mt-20 py-24 text-white sm:py-32 lg:py-36">
-      {/* Background Ambient Violet Glow */}
-      <div className="pointer-events-none absolute right-0 top-1/4 -z-10 h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_at_center,rgba(139,92,246,0.14)_0%,transparent_70%)] blur-3xl" aria-hidden="true" />
+    <section id="work" className="work-surface-v2 relative scroll-mt-20 py-24 text-white sm:py-32 lg:py-36">
+      {/* Background Ambient Purple/Indigo Glow */}
+      <div className="pointer-events-none absolute left-1/2 top-1/3 -z-10 h-[600px] w-[900px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(91,55,213,0.32)_0%,rgba(40,100,255,0.18)_50%,transparent_70%)] blur-3xl" aria-hidden="true" />
 
       <div className="site-container">
         <MotionReveal className="flex flex-col items-start justify-between gap-6 pb-12 sm:flex-row sm:items-end lg:pb-16">

@@ -36,18 +36,27 @@ export function Navbar() {
         initial={reduceMotion ? false : { opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-        className={`pointer-events-auto mx-auto flex h-14 max-w-[1240px] items-center justify-between rounded-full border px-4 transition-all duration-500 sm:h-[60px] sm:px-5 ${scrolled ? "max-w-[900px] border-white/14 bg-[#0a0a09]/88 shadow-[0_18px_60px_rgba(0,0,0,.34)] backdrop-blur-2xl" : "border-white/10 bg-[#0a0a09]/58 backdrop-blur-xl"}`}
+        className={`pointer-events-auto mx-auto flex h-14 max-w-[1240px] items-center justify-between rounded-full border border-white/10 border-r-[#8057ff]/35 px-4 transition-all duration-500 sm:h-[60px] sm:px-5 ${
+          scrolled
+            ? "max-w-[900px] border-white/15 bg-[#090a12]/82 shadow-[0_18px_60px_rgba(0,0,0,.45)] backdrop-blur-2xl"
+            : "bg-[#090a12]/68 backdrop-blur-xl"
+        }`}
       >
         <Link href="/" aria-label="HAMMAD.STUDIO home"><HammadStudioLogo /></Link>
-        <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-7 text-xs font-medium text-white/62 lg:flex" aria-label="Primary navigation">
+        <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-7 text-xs font-medium text-white/70 lg:flex" aria-label="Primary navigation">
           {navItems.map((item) => {
             const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
-            return <Link key={item.href} href={item.href} aria-current={active ? "page" : undefined} className={`nav-link transition-colors hover:text-white ${active ? "text-white" : ""}`}>{item.label}</Link>;
+            return <Link key={item.href} href={item.href} aria-current={active ? "page" : undefined} className={`nav-link transition-colors hover:text-white ${active ? "text-white font-semibold" : ""}`}>{item.label}</Link>;
           })}
         </nav>
         <div className="flex items-center gap-2">
           <LanguageSwitcher compact />
-          <Link href="/contact" className="acid-button group hidden items-center gap-2 rounded-full px-4 py-2.5 text-[0.7rem] font-semibold lg:inline-flex">{copy.talk[locale]} <ArrowUpRightIcon className="button-arrow h-3.5 w-3.5" /></Link>
+          <Link
+            href="/contact"
+            className="group hidden items-center gap-2 rounded-full bg-gradient-to-r from-[#ddf86d] to-[#bee52d] px-4 py-2.5 text-[0.7rem] font-semibold text-[#070a12] shadow-[0_4px_20px_rgba(210,243,76,0.22)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_32px_rgba(210,243,76,0.32)] lg:inline-flex"
+          >
+            {copy.talk[locale]} <ArrowUpRightIcon className="button-arrow h-3.5 w-3.5" />
+          </Link>
           <button type="button" onClick={() => setOpen((value) => !value)} className="flex h-9 w-9 items-center justify-center rounded-full border border-white/12 text-white lg:hidden" aria-expanded={open} aria-controls="mobile-navigation" aria-label={open ? copy.close[locale] : copy.open[locale]}>
             {open ? <CloseIcon className="h-4 w-4" /> : <MenuIcon className="h-4 w-4" />}
           </button>

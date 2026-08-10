@@ -2,22 +2,54 @@
 @import "tw-animate-css";
 
 :root {
-  --ink: #070709;
-  --ink-purple: #0f0c1b;
-  --ink-midnight: #0b0d19;
-  --paper: #f2f0e9;
-  --paper-deep: #e8e5dc;
-  --acid: #cfef57;
-  --violet: #8b5cf6;
-  --indigo: #6366f1;
-  --white: #f6f4ee;
+  /* Master Palette V2 */
+  --midnight: #070A12;
+  --midnight-indigo: #0C1020;
+  --carbon: #111217;
+
+  --ivory: #F7F5EF;
+  --pearl: #F6F7FB;
+  --mist: #F2EFFF;
+  --ice: #EDF5FF;
+
+  /* Text */
+  --text-dark: #17181D;
+  --text-muted: #6D7180;
+  --text-light: #F8F8F5;
+  --text-dark-muted: #B9BCC6;
+
+  /* Brand Accents */
+  --acid: #D2F34C;
+  --acid-deep: #A8D82C;
+  --violet: #8057FF;
+  --purple: #5A37D5;
+  --cobalt: #2864FF;
+  --cyan: #35C9FF;
+  --magenta: #E44BFF;
+
+  /* Secondary Accents */
+  --coral: #FF7262;
+  --orange: #FF9654;
+  --emerald: #54B98B;
+
+  /* Interfaces */
+  --border-light: #DDE0E7;
+  --border-dark: rgba(255, 255, 255, 0.12);
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Backward Compatibility aliases */
+  --ink: #070A12;
+  --ink-purple: #0C1020;
+  --ink-midnight: #070A12;
+  --paper: #F7F5EF;
+  --paper-deep: #EBE8DE;
+  --white: #F8F8F5;
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; background: var(--ink); }
-body { margin: 0; background: var(--ink); color: var(--white); overflow-x: hidden; }
-::selection { background: var(--acid); color: var(--ink); }
+html { scroll-behavior: smooth; background: var(--midnight); }
+body { margin: 0; background: var(--midnight); color: var(--text-light); overflow-x: hidden; }
+::selection { background: var(--acid); color: var(--midnight); }
 a, button { -webkit-tap-highlight-color: transparent; outline-offset: 4px; }
 
 .site-container { width: min(100% - 40px, 1240px); margin-inline: auto; }
@@ -29,20 +61,50 @@ a, button { -webkit-tap-highlight-color: transparent; outline-offset: 4px; }
   line-height: 1.2;
   text-transform: uppercase;
 }
+
+/* 4 Surface Families */
 .surface-card {
-  border: 1px solid rgb(10 10 9 / 11%);
-  border-radius: 14px;
-  background: rgb(255 255 255 / 50%);
-  backdrop-filter: blur(12px);
-  box-shadow: inset 0 1px 0 rgb(255 255 255 / 80%), 0 10px 30px rgb(0 0 0 / 2%);
+  border: 1px solid rgba(23, 24, 29, 0.08);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(14px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 10px 30px rgba(7, 10, 18, 0.03);
+}
+
+.tint-card-lavender {
+  border: 1px solid rgba(128, 87, 255, 0.18);
+  border-radius: 16px;
+  background: #F1EDFF;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.tint-card-ice {
+  border: 1px solid rgba(40, 100, 255, 0.18);
+  border-radius: 16px;
+  background: #EDF5FF;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.tint-card-lime {
+  border: 1px solid rgba(210, 243, 76, 0.35);
+  border-radius: 16px;
+  background: #F3F9D9;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.tint-card-coral {
+  border: 1px solid rgba(255, 114, 98, 0.2);
+  border-radius: 16px;
+  background: #FFF0EB;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
 .luxury-dark-card {
-  border: 1px solid rgb(255 255 255 / 12%);
-  border-radius: 14px;
-  background: linear-gradient(145deg, rgba(25, 23, 38, 0.8) 0%, rgba(12, 11, 18, 0.95) 100%);
-  backdrop-filter: blur(16px);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 20px 50px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  background: linear-gradient(145deg, rgba(21, 19, 34, 0.88) 0%, rgba(12, 16, 32, 0.95) 100%);
+  backdrop-filter: blur(20px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 24px 60px rgba(0, 0, 0, 0.6);
 }
 
 .section-heading {
@@ -57,33 +119,102 @@ a, button { -webkit-tap-highlight-color: transparent; outline-offset: 4px; }
   line-height: 1.7;
 }
 
-/* Rich Atmosphere Gradients */
-.hero-surface {
+/* Rich Atmosphere Section Backgrounds */
+.hero-surface-v2 {
   background:
-    radial-gradient(70% 50% at 50% -10%, rgba(139, 92, 246, 0.18), transparent 70%),
-    radial-gradient(50% 45% at 85% 60%, rgba(99, 102, 241, 0.12), transparent 70%),
-    radial-gradient(45% 40% at 15% 75%, rgba(207, 239, 87, 0.08), transparent 70%),
-    linear-gradient(180deg, #07060b 0%, #0d0b17 60%, #070709 100%);
+    radial-gradient(55% 70% at 78% 38%, rgba(128, 87, 255, 0.48), transparent 68%),
+    radial-gradient(42% 55% at 96% 70%, rgba(228, 75, 255, 0.28), transparent 70%),
+    radial-gradient(38% 48% at 48% 100%, rgba(40, 100, 255, 0.32), transparent 72%),
+    linear-gradient(135deg, #060810 0%, #0A0C18 42%, #11102A 72%, #090A12 100%);
 }
 
-.dark-mesh-surface {
+.about-surface-v2 {
   background:
-    radial-gradient(60% 40% at 20% 20%, rgba(139, 92, 246, 0.14), transparent 70%),
-    radial-gradient(50% 50% at 80% 80%, rgba(207, 239, 87, 0.08), transparent 70%),
-    linear-gradient(180deg, #090810 0%, #06050b 100%);
+    radial-gradient(45% 70% at 92% 20%, rgba(128, 87, 255, 0.11), transparent 72%),
+    radial-gradient(34% 55% at 10% 90%, rgba(53, 201, 255, 0.07), transparent 72%),
+    #F7F5EF;
 }
 
-.light-tint-surface {
+.services-surface-v2 {
   background:
-    radial-gradient(60% 40% at 85% 10%, rgba(139, 92, 246, 0.05), transparent 70%),
-    radial-gradient(40% 40% at 15% 90%, rgba(207, 239, 87, 0.06), transparent 70%),
-    #f2f0e9;
+    radial-gradient(60% 50% at 50% 0%, rgba(128, 87, 255, 0.06), transparent 75%),
+    #F6F7FB;
 }
 
-.gray-tint-surface {
+.why-surface-v2 {
   background:
-    radial-gradient(50% 40% at 50% 0%, rgba(99, 102, 241, 0.06), transparent 70%),
-    #e8e5dc;
+    radial-gradient(50% 100% at 10% 50%, rgba(128, 87, 255, 0.10), transparent 75%),
+    radial-gradient(45% 100% at 88% 50%, rgba(53, 201, 255, 0.14), transparent 72%),
+    linear-gradient(90deg, #F5F1FF, #F8F7FB 48%, #EFF8FF);
+}
+
+.work-surface-v2 {
+  background:
+    radial-gradient(70% 80% at 50% 0%, rgba(91, 55, 213, 0.32), transparent 70%),
+    radial-gradient(45% 65% at 90% 80%, rgba(40, 100, 255, 0.18), transparent 75%),
+    linear-gradient(135deg, #0B0914, #100D24 55%, #08111F);
+}
+
+.pricing-surface-v2 {
+  background: #F7F5EF;
+}
+
+.process-surface-v2 {
+  background:
+    radial-gradient(35% 90% at 25% 40%, rgba(224, 75, 255, 0.10), transparent 72%),
+    radial-gradient(38% 90% at 76% 50%, rgba(40, 100, 255, 0.12), transparent 70%),
+    linear-gradient(135deg, #FAF7FF, #F6F6FB, #EEF8FF);
+}
+
+.testimonial-surface-v2 {
+  background:
+    radial-gradient(45% 60% at 15% 75%, rgba(255, 114, 98, 0.09), transparent 60%),
+    radial-gradient(50% 50% at 85% 25%, rgba(128, 87, 255, 0.08), transparent 70%),
+    #F4F1FA;
+}
+
+.faq-surface-v2 {
+  background: #F7F5EF;
+}
+
+.cta-surface-signature {
+  background:
+    radial-gradient(50% 130% at 100% 50%, rgba(89, 62, 255, 0.95), transparent 72%),
+    radial-gradient(35% 110% at 72% 10%, rgba(228, 75, 255, 0.55), transparent 70%),
+    linear-gradient(110deg, #D8F94E 0%, #CAF139 36%, #D5E94A 48%, #A88BFF 77%, #465BFF 100%);
+}
+
+.footer-surface-v2 {
+  background:
+    radial-gradient(50% 70% at 10% 100%, rgba(128, 87, 255, 0.18), transparent 70%),
+    radial-gradient(45% 70% at 95% 0%, rgba(40, 100, 255, 0.12), transparent 72%),
+    #070A12;
+}
+
+/* Service Category Specific Hovers */
+.service-website-card:hover {
+  border-color: rgba(128, 87, 255, 0.35);
+  background: radial-gradient(70% 80% at 100% 0%, rgba(128, 87, 255, 0.12), transparent 70%), #ffffff;
+}
+.service-ecommerce-card:hover {
+  border-color: rgba(228, 75, 255, 0.35);
+  background: radial-gradient(70% 80% at 100% 0%, rgba(228, 75, 255, 0.12), transparent 70%), #ffffff;
+}
+.service-webapp-card:hover {
+  border-color: rgba(40, 100, 255, 0.35);
+  background: radial-gradient(70% 80% at 100% 0%, rgba(40, 100, 255, 0.12), transparent 70%), #ffffff;
+}
+.service-system-card:hover {
+  border-color: rgba(84, 185, 139, 0.35);
+  background: radial-gradient(70% 80% at 100% 0%, rgba(84, 185, 139, 0.12), transparent 70%), #ffffff;
+}
+.service-automation-card:hover {
+  border-color: rgba(255, 150, 84, 0.35);
+  background: radial-gradient(70% 80% at 100% 0%, rgba(255, 150, 84, 0.12), transparent 70%), #ffffff;
+}
+.service-custom-card:hover {
+  border-color: rgba(163, 78, 255, 0.35);
+  background: radial-gradient(70% 80% at 100% 0%, rgba(163, 78, 255, 0.12), transparent 70%), #ffffff;
 }
 
 .purple-glow-badge {

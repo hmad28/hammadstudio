@@ -50,39 +50,42 @@ export function FAQSection() {
   const { locale } = useLocale();
 
   return (
-    <section className="bg-[#f0eee7] py-20 text-[#0a0a09] sm:py-28 lg:py-32">
+    <section className="faq-surface-v2 py-20 text-[#17181d] sm:py-28 lg:py-32">
       <div className="site-container grid gap-10 lg:grid-cols-[minmax(0,4.5fr)_minmax(0,7.5fr)]">
         <MotionReveal>
-          <span className="label-mono text-black/45">{content.label[locale]}</span>
+          <span className="label-mono inline-block rounded-full bg-[#8057ff]/10 px-3 py-1 text-[0.68rem] text-[#8057ff]">
+            {content.label[locale]}
+          </span>
           <h2 className="section-heading mt-4">
             {content.title[locale]}{" "}
-            <span className="font-[family-name:var(--font-instrument-serif)] font-normal italic">
+            <span className="font-[family-name:var(--font-instrument-serif)] font-normal italic text-[#8057ff]">
               {content.accent[locale]}
             </span>
           </h2>
-          <p className="mt-4 text-sm leading-[1.65] text-black/60 sm:text-base">
+          <p className="mt-4 text-sm leading-[1.65] text-[#6d7180] sm:text-base">
             {locale === "id"
               ? "Jawaban untuk pertanyaan yang paling sering ditanyakan oleh calon klien kami."
               : "Answers to the most common questions asked by prospective clients."}
           </p>
         </MotionReveal>
 
-        <div className="space-y-4">
+        <div className="space-y-3.5">
           {content.items.map((item, index) => (
             <MotionReveal
               key={item.q.en}
               delay={index * 0.04}
-              className="surface-card rounded-xl border border-[#deddd5] bg-white/70 p-6 sm:p-7"
+              className="group relative overflow-hidden rounded-2xl border border-[#dde0e7] bg-white p-6 shadow-sm transition duration-300 hover:bg-[#f2efff]/60 hover:border-[#8057ff]/30 sm:p-7"
             >
+              <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#8057ff] to-[#2864ff] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               <div className="flex items-start gap-4">
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#0a0a09] font-[family-name:var(--font-geist-mono)] text-xs font-medium text-[#cfef57]">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#070a12] font-[family-name:var(--font-geist-mono)] text-xs font-bold text-[#d2f34c]">
                   0{index + 1}
                 </span>
                 <div>
-                  <h3 className="text-base font-semibold tracking-[-0.025em] text-black sm:text-lg">
+                  <h3 className="text-base font-semibold tracking-[-0.025em] text-[#17181d] sm:text-lg">
                     {item.q[locale]}
                   </h3>
-                  <p className="mt-2.5 text-xs leading-[1.65] text-black/60 sm:text-sm">
+                  <p className="mt-2.5 text-xs leading-[1.65] text-[#6d7180] sm:text-sm">
                     {item.a[locale]}
                   </p>
                 </div>

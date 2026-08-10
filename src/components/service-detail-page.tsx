@@ -7,17 +7,30 @@ import { MotionReveal } from "./motion-reveal";
 import type { ServiceDetailSlug } from "@/lib/service-detail-content";
 import { serviceDetails } from "@/lib/service-detail-content";
 
+const categoryHeroGlows: Record<ServiceDetailSlug, string> = {
+  website: "bg-[radial-gradient(circle_at_75%_35%,rgba(40,100,255,0.45)_0%,rgba(128,87,255,0.35)_45%,transparent_75%)]",
+  "e-commerce": "bg-[radial-gradient(circle_at_75%_35%,rgba(128,87,255,0.45)_0%,rgba(228,75,255,0.35)_45%,transparent_75%)]",
+  "web-application": "bg-[radial-gradient(circle_at_75%_35%,rgba(40,100,255,0.45)_0%,rgba(53,201,255,0.35)_45%,transparent_75%)]",
+  "business-system": "bg-[radial-gradient(circle_at_75%_35%,rgba(37,78,219,0.45)_0%,rgba(84,185,139,0.35)_45%,transparent_75%)]",
+  "automation-ai": "bg-[radial-gradient(circle_at_75%_35%,rgba(128,87,255,0.45)_0%,rgba(255,150,84,0.35)_45%,transparent_75%)]",
+  "custom-development": "bg-[radial-gradient(circle_at_75%_35%,rgba(84,40,184,0.45)_0%,rgba(40,100,255,0.35)_35%,rgba(228,75,255,0.3)_60%,transparent_75%)]",
+};
+
 export function ServiceDetailPage({ slug }: { slug: ServiceDetailSlug }) {
   const { locale } = useLocale();
   const service = serviceDetails[slug];
+  const heroGlow = categoryHeroGlows[slug] || categoryHeroGlows.website;
 
   return (
-    <div className="bg-[#f0eee7] text-[#0a0a09]">
-      <section className="bg-[#0a0a09] pb-24 pt-36 text-white sm:pb-32 sm:pt-44">
-        <div className="site-container">
-          <span className="label-mono text-[#cfef57]">{service.number} / {service.title[locale]}</span>
+    <div className="bg-[#f7f5ef] text-[#17181d]">
+      <section className="relative overflow-hidden bg-[#070a12] pb-24 pt-36 text-white sm:pb-32 sm:pt-44">
+        {/* Category Colored Illumination Ambient Glow */}
+        <div className={`pointer-events-none absolute right-0 top-0 h-[600px] w-[800px] rounded-full blur-3xl opacity-80 ${heroGlow}`} aria-hidden="true" />
+        
+        <div className="site-container relative z-10">
+          <span className="label-mono inline-block rounded-full bg-white/10 px-3.5 py-1 text-[0.68rem] text-[#d2f34c]">{service.number} / {service.title[locale]}</span>
           <h1 className="mt-8 max-w-[1100px] whitespace-pre-line text-[clamp(3.8rem,8vw,8.4rem)] font-[520] leading-[0.84] tracking-[-0.07em]">{service.hero[locale]}</h1>
-          <div className="mt-10 grid gap-7 border-t border-white/12 pt-7 lg:grid-cols-12 lg:gap-6"><p className="max-w-[680px] text-base leading-[1.7] text-white/58 sm:text-lg lg:col-span-8">{service.intro[locale]}</p><div className="lg:col-span-4 lg:text-right"><Link href="/contact" className="acid-button group inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold">{service.cta[locale]} <ArrowUpRightIcon className="button-arrow h-4 w-4" /></Link></div></div>
+          <div className="mt-10 grid gap-7 border-t border-white/12 pt-7 lg:grid-cols-12 lg:gap-6"><p className="max-w-[680px] text-base leading-[1.7] text-white/70 sm:text-lg lg:col-span-8">{service.intro[locale]}</p><div className="lg:col-span-4 lg:text-right"><Link href="/contact" className="acid-button group inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold">{service.cta[locale]} <ArrowUpRightIcon className="button-arrow h-4 w-4" /></Link></div></div>
         </div>
       </section>
 

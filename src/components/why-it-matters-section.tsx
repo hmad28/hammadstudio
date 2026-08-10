@@ -20,19 +20,26 @@ const iconMap = {
   BuildingIcon,
 };
 
+const benefitIconStyles = [
+  "bg-[#8057ff] text-white", // Trust -> Violet
+  "bg-[#2864ff] text-white", // Clarity -> Cobalt
+  "bg-[#e44bff] text-white", // Conversion -> Magenta
+  "bg-[#070a12] text-[#d2f34c]", // Growth -> Lime
+];
+
 export function WhyItMattersSection() {
   const { locale } = useLocale();
   const copy = homeContent.whyItMatters;
 
   return (
-    <section id="why-it-matters" className="gray-tint-surface scroll-mt-20 py-20 text-[#0a0a09] sm:py-28 lg:py-32">
+    <section id="why-it-matters" className="why-surface-v2 scroll-mt-20 py-20 text-[#17181d] sm:py-28 lg:py-32">
       <div className="site-container">
-        <MotionReveal className="surface-card relative overflow-hidden rounded-2xl bg-[#eceae4]/90 border border-[#deddd5] shadow-xl lg:grid-cols-12 lg:grid">
+        <MotionReveal className="surface-card relative overflow-hidden rounded-2xl bg-white/80 border border-[#dde0e7] shadow-xl lg:grid-cols-12 lg:grid">
           {/* Ambient Glow */}
-          <div className="pointer-events-none absolute -left-20 -top-20 h-64 w-64 rounded-full bg-[radial-gradient(circle_at_center,rgba(139,92,246,0.15)_0%,transparent_70%)] blur-2xl" aria-hidden="true" />
+          <div className="pointer-events-none absolute -left-20 -top-20 h-72 w-72 rounded-full bg-[radial-gradient(circle_at_center,rgba(128,87,255,0.18)_0%,transparent_70%)] blur-2xl" aria-hidden="true" />
 
           {/* Left: Beautiful Website Mockup */}
-          <div className="relative min-h-[380px] overflow-hidden bg-[#0b0b12] sm:min-h-[500px] lg:col-span-6">
+          <div className="relative min-h-[380px] overflow-hidden bg-[#070a12] sm:min-h-[500px] lg:col-span-6">
             <Image
               src="/images/work/saudi-education-expo.webp"
               alt="Website Saudi Education Expo preview"
@@ -40,7 +47,7 @@ export function WhyItMattersSection() {
               sizes="(max-width: 1024px) 100vw, 620px"
               className="object-cover object-top transition duration-1000 hover:scale-[1.025]"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#06050b] via-[#06050b]/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#070a12] via-[#070a12]/20 to-transparent" />
             <div className="absolute inset-x-6 bottom-6 flex items-end justify-between text-white">
               <div>
                 <span className="purple-glow-badge inline-block rounded-full px-3 py-1 text-[0.65rem] font-semibold">
@@ -54,34 +61,36 @@ export function WhyItMattersSection() {
             </div>
           </div>
 
-          {/* Right: Seductive Business Copy + 4 Benefit Cards */}
+          {/* Right: Business Copy + 4 Benefit Cards */}
           <div className="flex flex-col justify-center p-8 sm:p-12 lg:col-span-6 lg:p-14">
-            <span className="label-mono purple-glow-badge w-fit rounded-full px-3 py-1 text-[0.68rem]">
+            <span className="label-mono inline-block rounded-full bg-[#8057ff]/10 px-3 py-1 text-[0.68rem] text-[#8057ff] w-fit">
               {copy.label[locale]}
             </span>
-            <h2 className="mt-4 text-[clamp(2.4rem,4.2vw,4.2rem)] font-[540] leading-[0.94] tracking-[-0.055em]">
+            <h2 className="mt-4 text-[clamp(2.4rem,4.2vw,4.2rem)] font-[540] leading-[0.94] tracking-[-0.055em] text-[#17181d]">
               {copy.headline[locale]}{" "}
-              <span className="font-[family-name:var(--font-instrument-serif)] font-normal italic">
+              <span className="font-[family-name:var(--font-instrument-serif)] font-normal italic text-[#8057ff]">
                 {copy.accent[locale]}
               </span>
             </h2>
-            <p className="mt-5 text-sm leading-[1.65] text-black/65 sm:text-base">
+            <p className="mt-5 text-sm leading-[1.65] text-[#6d7180] sm:text-base">
               {copy.description[locale]}
             </p>
 
             {/* 4 Benefit Cards */}
             <div className="mt-8 grid gap-3 sm:grid-cols-2">
-              {copy.items.map((item) => {
+              {copy.items.map((item, index) => {
                 const IconComp = iconMap[item.icon as keyof typeof iconMap] || ShieldCheckIcon;
+                const iconStyle = benefitIconStyles[index % benefitIconStyles.length];
+
                 return (
-                  <div key={item.title} className="rounded-xl border border-black/10 bg-white/70 p-4 shadow-sm backdrop-blur-md">
+                  <div key={item.title} className="rounded-xl border border-black/8 bg-white/90 p-4 shadow-sm backdrop-blur-md">
                     <div className="flex items-center gap-2.5">
-                      <span className="flex h-7 w-7 items-center justify-center rounded-md bg-[#0a0a09] text-[#cfef57]">
+                      <span className={`flex h-7 w-7 items-center justify-center rounded-md ${iconStyle}`}>
                         <IconComp className="h-4 w-4" />
                       </span>
-                      <h3 className="text-sm font-bold text-black">{item.title}</h3>
+                      <h3 className="text-sm font-bold text-[#17181d]">{item.title}</h3>
                     </div>
-                    <p className="mt-2 text-xs leading-[1.6] text-black/65">
+                    <p className="mt-2 text-xs leading-[1.6] text-[#6d7180]">
                       {item.description[locale]}
                     </p>
                   </div>

@@ -32,13 +32,22 @@ const iconMap = {
   CodeIcon,
 };
 
-const gradientStyles = [
-  "from-violet-500/15 via-indigo-500/10 to-transparent text-violet-600 border-violet-500/20",
-  "from-emerald-500/15 via-teal-500/10 to-transparent text-emerald-600 border-emerald-500/20",
-  "from-blue-500/15 via-cyan-500/10 to-transparent text-blue-600 border-blue-500/20",
-  "from-purple-500/15 via-fuchsia-500/10 to-transparent text-purple-600 border-purple-500/20",
-  "from-lime-500/20 via-yellow-500/10 to-transparent text-amber-700 border-lime-500/30",
-  "from-indigo-500/15 via-purple-500/10 to-transparent text-indigo-600 border-indigo-500/20",
+const categoryCardClasses = [
+  "service-website-card",
+  "service-ecommerce-card",
+  "service-webapp-card",
+  "service-system-card",
+  "service-automation-card",
+  "service-custom-card",
+];
+
+const categoryBadgeStyles = [
+  "bg-purple-100 text-[#8057ff] border-[#8057ff]/25",
+  "bg-fuchsia-100 text-[#e44bff] border-[#e44bff]/25",
+  "bg-blue-100 text-[#2864ff] border-[#2864ff]/25",
+  "bg-emerald-100 text-[#54b98b] border-[#54b98b]/25",
+  "bg-orange-100 text-[#ff9654] border-[#ff9654]/25",
+  "bg-purple-100 text-[#a34eff] border-[#a34eff]/25",
 ];
 
 export function ServicesSection() {
@@ -46,16 +55,16 @@ export function ServicesSection() {
   const copy = homeContent.services;
 
   return (
-    <section id="services" className="light-tint-surface scroll-mt-24 py-20 text-[#0a0a09] sm:py-28 lg:py-32">
+    <section id="services" className="services-surface-v2 scroll-mt-24 py-20 text-[#17181d] sm:py-28 lg:py-32">
       <div className="site-container">
         <MotionReveal className="flex flex-col items-start justify-between gap-4 border-b border-black/10 pb-8 sm:flex-row sm:items-end">
           <div>
-            <span className="label-mono purple-glow-badge rounded-full px-3 py-1 text-[0.68rem]">
+            <span className="label-mono inline-block rounded-full bg-[#8057ff]/10 px-3.5 py-1 text-[0.68rem] text-[#8057ff]">
               {copy.label[locale]}
             </span>
             <h2 className="section-heading mt-4 max-w-[650px]">
               {copy.headline[locale]}{" "}
-              <span className="font-[family-name:var(--font-instrument-serif)] font-normal italic">
+              <span className="font-[family-name:var(--font-instrument-serif)] font-normal italic text-[#8057ff]">
                 {copy.accent[locale]}
               </span>
             </h2>
@@ -68,29 +77,30 @@ export function ServicesSection() {
           </Link>
         </MotionReveal>
 
-        {/* 2x3 Grid of Stylish Service Cards with Ambient Gradient Icon Badges */}
+        {/* 2x3 Grid of Stylish Service Cards with Category Accents */}
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {copy.items.map((item, index) => {
             const IconComponent = iconMap[item.icon as keyof typeof iconMap] || GlobeIcon;
-            const style = gradientStyles[index % gradientStyles.length];
+            const hoverClass = categoryCardClasses[index % categoryCardClasses.length];
+            const badgeStyle = categoryBadgeStyles[index % categoryBadgeStyles.length];
 
             return (
               <MotionReveal key={item.number} delay={(index % 3) * 0.05}>
                 <Link
                   href={`/services/${slugs[index]}`}
-                  className="surface-card group relative flex min-h-[300px] flex-col overflow-hidden rounded-2xl border border-[#deddd5] bg-white/70 p-7 transition duration-300 hover:-translate-y-1 hover:border-black/20 hover:bg-white hover:shadow-[0_25px_60px_rgba(0,0,0,0.08)] sm:p-8"
+                  className={`surface-card group relative flex min-h-[300px] flex-col overflow-hidden rounded-2xl border border-[#dde0e7] bg-white p-7 transition duration-300 hover:-translate-y-1 hover:shadow-[0_25px_60px_rgba(7,10,18,0.08)] sm:p-8 ${hoverClass}`}
                 >
                   <div className="flex items-center justify-between">
-                    <div className={`flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br border ${style} transition-transform duration-300 group-hover:scale-110`}>
+                    <div className={`flex h-12 w-12 items-center justify-center rounded-xl border ${badgeStyle} transition-transform duration-300 group-hover:scale-110`}>
                       <IconComponent className="h-6 w-6" />
                     </div>
                     <span className="label-mono font-mono text-xs font-bold text-black/40">{item.number}</span>
                   </div>
 
-                  <h3 className="mt-7 text-xl font-[550] tracking-[-0.04em] text-black sm:text-2xl">
+                  <h3 className="mt-7 text-xl font-[550] tracking-[-0.04em] text-[#17181d] sm:text-2xl">
                     {item.title[locale]}
                   </h3>
-                  <p className="mt-3 text-sm leading-[1.68] text-black/65">
+                  <p className="mt-3 text-sm leading-[1.68] text-[#6d7180]">
                     {item.description[locale]}
                   </p>
 

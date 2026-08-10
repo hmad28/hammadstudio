@@ -18,12 +18,12 @@ export function HeroSection() {
   const sideY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : 150]);
 
   return (
-    <section ref={sectionRef} id="hero" className="hero-surface relative min-h-screen overflow-hidden pb-16 pt-32 text-white sm:pt-36 lg:pt-40">
+    <section ref={sectionRef} id="hero" className="hero-surface-v2 relative min-h-screen overflow-hidden pb-16 pt-32 text-white sm:pt-36 lg:pt-40">
       <div className="hero-noise pointer-events-none absolute inset-0" aria-hidden="true" />
       
       {/* Rich Multi-tone Ambient Mesh Glows */}
-      <div className="pointer-events-none absolute left-1/2 top-1/4 -z-10 h-[500px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(139,92,246,0.18)_0%,rgba(99,102,241,0.1)_40%,transparent_70%)] blur-3xl" aria-hidden="true" />
-      <div className="pointer-events-none absolute right-10 top-1/3 -z-10 h-[350px] w-[350px] rounded-full bg-[radial-gradient(circle_at_center,rgba(207,239,87,0.12)_0%,transparent_70%)] blur-2xl" aria-hidden="true" />
+      <div className="pointer-events-none absolute left-1/2 top-1/4 -z-10 h-[600px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(128,87,255,0.35)_0%,rgba(228,75,255,0.18)_40%,transparent_70%)] blur-3xl" aria-hidden="true" />
+      <div className="pointer-events-none absolute right-5 top-1/3 -z-10 h-[400px] w-[400px] rounded-full bg-[radial-gradient(circle_at_center,rgba(40,100,255,0.25)_0%,transparent_70%)] blur-3xl" aria-hidden="true" />
 
       <div className="site-container relative z-10">
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/12 pb-4">
