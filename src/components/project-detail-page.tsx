@@ -16,20 +16,109 @@ export function ProjectDetailPage({ slug }: { slug: WorkSlug }) {
   const { locale } = useLocale();
   const project = workProjects[slug];
   const nextProject = workProjects[project.next];
-  const flow = project.features.slice(0, 4);
 
   return (
-    <article className="bg-[#f0eee7] text-[#0a0a09]">
-      <header className="bg-[#0a0a09] pb-14 pt-36 text-white sm:pt-44"><div className="site-container"><span className="label-mono text-[#cfef57]">{project.category[locale]} / {project.year}</span><h1 className="mt-7 max-w-[1150px] text-[clamp(4rem,10vw,10rem)] font-[520] leading-[0.8] tracking-[-0.075em]">{project.title}</h1></div></header>
-      <div className="bg-[#0a0a09] pb-20 sm:pb-28"><div className="site-container"><div className="project-frame relative aspect-[4/3] overflow-hidden rounded-[8px] sm:aspect-[2/1]"><Image src={project.image} alt={`${project.title} project mockup`} fill priority sizes="(max-width: 1240px) 100vw, 1240px" className="object-cover object-top" /></div></div></div>
+    <article className="bg-[#f7f5ef] text-[#17181d]">
+      <header className="relative overflow-hidden bg-[#070a12] pb-14 pt-36 text-white sm:pt-44">
+        {/* Purple/Magenta Ambient Glow */}
+        <div className="pointer-events-none absolute left-1/2 top-1/3 -z-0 h-[600px] w-[900px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(128,87,255,0.4)_0%,rgba(228,75,255,0.25)_45%,transparent_75%)] blur-3xl" aria-hidden="true" />
 
-      <section className="py-24 sm:py-32"><div className="site-container grid gap-14 lg:grid-cols-12 lg:gap-6"><div className="lg:col-span-3"><span className="label-mono text-black/38">{labels.overview[locale]}</span></div><div className="space-y-16 lg:col-span-9"><MotionReveal><p className="max-w-[900px] text-[clamp(2rem,4.5vw,4.2rem)] font-[500] leading-[1.02] tracking-[-0.05em]">{project.overview[locale]}</p></MotionReveal><div className="grid gap-10 border-t border-black/15 pt-8 sm:grid-cols-2"><MotionReveal><span className="label-mono text-black/35">{labels.challenge[locale]}</span><p className="mt-4 text-base leading-[1.7] text-black/58">{project.challenge[locale]}</p></MotionReveal><MotionReveal delay={0.06}><span className="label-mono text-black/35">{labels.built[locale]}</span><p className="mt-4 text-base leading-[1.7] text-black/58">{project.built[locale]}</p></MotionReveal></div></div></div></section>
+        <div className="site-container relative z-10">
+          <span className="purple-glow-badge inline-block rounded-full px-3.5 py-1 text-[0.68rem] font-bold">
+            {project.category[locale]} · {project.year}
+          </span>
+          <h1 className="mt-7 max-w-[1150px] text-[clamp(4rem,10vw,10rem)] font-[520] leading-[0.8] tracking-[-0.075em]">
+            {project.title}
+          </h1>
+        </div>
+      </header>
 
-      <section className="bg-[#e8e5dc] py-24 sm:py-32"><div className="site-container grid gap-14 lg:grid-cols-12 lg:gap-6"><MotionReveal className="lg:col-span-5"><span className="label-mono text-black/38">{labels.experience[locale]}</span><p className="mt-6 text-[clamp(2rem,4vw,3.7rem)] font-[500] leading-[1.05] tracking-[-0.05em]">{project.experience[locale]}</p></MotionReveal><MotionReveal className="lg:col-span-7" delay={0.06}><span className="label-mono text-black/38">{labels.features[locale]}</span><div className="mt-6 grid border-l border-t border-black/15 sm:grid-cols-2">{project.features.map((feature, index) => <div key={feature} className="min-h-28 border-b border-r border-black/15 p-5"><span className="text-[0.6rem] text-black/28">0{index + 1}</span><p className="mt-6 text-sm font-[520]">{feature}</p></div>)}</div></MotionReveal></div></section>
+      <div className="bg-[#070a12] pb-20 sm:pb-28">
+        <div className="site-container">
+          <div className="luxury-dark-card relative aspect-[4/3] overflow-hidden rounded-2xl p-2 shadow-[0_40px_100px_rgba(0,0,0,0.8)] sm:aspect-[2/1]">
+            <div className="relative h-full w-full overflow-hidden rounded-xl">
+              <Image
+                src={project.image}
+                alt={`${project.title} project mockup`}
+                fill
+                priority
+                sizes="(max-width: 1240px) 100vw, 1240px"
+                className="object-cover object-top"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <section className="py-24 sm:py-32"><div className="site-container"><span className="label-mono text-black/38">{labels.flow[locale]}</span><div className="mt-7 flex flex-col border-l border-t border-black/15 sm:flex-row">{flow.map((step, index) => <div key={step} className="flex min-h-28 flex-1 items-center justify-between border-b border-r border-black/15 p-5"><span className="text-sm font-[520]">{step}</span>{index < flow.length - 1 ? <span className="text-black/25">→</span> : null}</div>)}</div><MotionReveal className="mt-16 grid gap-6 border-t border-black/15 pt-8 lg:grid-cols-12"><span className="label-mono text-black/38 lg:col-span-3">{labels.outcome[locale]}</span><p className="max-w-[780px] text-xl leading-[1.55] text-black/62 lg:col-span-9">{project.outcome[locale]}</p></MotionReveal></div></section>
+      <section className="about-surface-v2 py-24 sm:py-32">
+        <div className="site-container grid gap-14 lg:grid-cols-12 lg:gap-6">
+          <div className="lg:col-span-3">
+            <span className="label-mono text-[#8057ff] font-semibold">{labels.overview[locale]}</span>
+          </div>
+          <div className="space-y-16 lg:col-span-9">
+            <MotionReveal>
+              <p className="max-w-[900px] text-[clamp(2rem,4.5vw,4.2rem)] font-[500] leading-[1.02] tracking-[-0.05em] text-[#17181d]">
+                {project.overview[locale]}
+              </p>
+            </MotionReveal>
+            <div className="grid gap-10 border-t border-black/10 pt-8 sm:grid-cols-2">
+              <MotionReveal className="tint-card-lavender p-6 rounded-2xl">
+                <span className="label-mono text-[#8057ff] font-bold">{labels.challenge[locale]}</span>
+                <p className="mt-4 text-base leading-[1.7] text-[#17181d]">
+                  {project.challenge[locale]}
+                </p>
+              </MotionReveal>
+              <MotionReveal delay={0.06} className="tint-card-ice p-6 rounded-2xl">
+                <span className="label-mono text-[#2864ff] font-bold">{labels.built[locale]}</span>
+                <p className="mt-4 text-base leading-[1.7] text-[#17181d]">
+                  {project.built[locale]}
+                </p>
+              </MotionReveal>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <section className="bg-[#cfef57] py-20"><Link href={`/work/${nextProject.slug}`} className="site-container group flex items-end justify-between gap-5"><div><span className="label-mono text-black/45">{labels.next[locale]}</span><h2 className="mt-5 text-[clamp(2.8rem,7vw,7rem)] font-[520] leading-[0.88] tracking-[-0.065em]">{nextProject.title}</h2></div><span className="mb-2 flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-black text-white transition-transform duration-500 group-hover:rotate-45 sm:h-20 sm:w-20"><ArrowUpRightIcon className="h-5 w-5" /></span></Link></section>
+      <section className="services-surface-v2 py-24 sm:py-32">
+        <div className="site-container grid gap-14 lg:grid-cols-12 lg:gap-6">
+          <MotionReveal className="lg:col-span-5">
+            <span className="label-mono inline-block rounded-full bg-[#8057ff]/10 px-3 py-1 text-[0.68rem] text-[#8057ff]">
+              {labels.experience[locale]}
+            </span>
+            <p className="mt-6 text-[clamp(2rem,4vw,3.7rem)] font-[500] leading-[1.05] tracking-[-0.05em] text-[#17181d]">
+              {project.experience[locale]}
+            </p>
+          </MotionReveal>
+          <MotionReveal className="lg:col-span-7" delay={0.06}>
+            <span className="label-mono inline-block rounded-full bg-[#8057ff]/10 px-3 py-1 text-[0.68rem] text-[#8057ff]">
+              {labels.features[locale]}
+            </span>
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+              {project.features.map((feature, index) => (
+                <div key={feature} className="surface-card rounded-xl border border-[#dde0e7] bg-white p-5 shadow-sm">
+                  <span className="text-xs font-mono font-bold text-[#8057ff]">0{index + 1}</span>
+                  <p className="mt-3 text-sm font-semibold text-[#17181d]">{feature}</p>
+                </div>
+              ))}
+            </div>
+          </MotionReveal>
+        </div>
+      </section>
+
+      {/* Next Project Signature CTA */}
+      <section className="cta-surface-signature py-20">
+        <Link href={`/work/${nextProject.slug}`} className="site-container group flex items-end justify-between gap-5 text-[#070a12]">
+          <div>
+            <span className="label-mono font-bold tracking-wider text-[#070a12]/80">{labels.next[locale]}</span>
+            <h2 className="mt-5 text-[clamp(2.8rem,7vw,7rem)] font-[520] leading-[0.88] tracking-[-0.065em] text-[#070a12]">
+              {nextProject.title}
+            </h2>
+          </div>
+          <span className="mb-2 flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#070a12] text-white transition-transform duration-500 group-hover:rotate-45 sm:h-20 sm:w-20">
+            <ArrowUpRightIcon className="h-6 w-6 text-[#d2f34c]" />
+          </span>
+        </Link>
+      </section>
     </article>
   );
 }

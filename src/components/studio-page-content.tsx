@@ -80,43 +80,65 @@ const content = {
   },
 } as const;
 
+const principleTintClasses = [
+  "tint-card-lavender",
+  "tint-card-ice",
+  "tint-card-lime",
+  "tint-card-coral",
+];
+
+const principleBadgeStyles = [
+  "bg-[#8057ff] text-white",
+  "bg-[#2864ff] text-white",
+  "bg-[#070a12] text-[#d2f34c]",
+  "bg-[#ff7262] text-white",
+];
+
 export function StudioPageContent() {
   const { locale } = useLocale();
 
   return (
-    <div className="bg-[#f0eee7] text-[#0a0a09]">
-      <section className="pb-20 pt-36 sm:pb-28 sm:pt-44">
-        <div className="site-container grid gap-10 lg:grid-cols-12 lg:items-center">
+    <div className="bg-[#f7f5ef] text-[#17181d]">
+      {/* Dark Midnight Hero Header */}
+      <section className="relative overflow-hidden bg-[#070a12] pb-20 pt-36 text-white sm:pb-28 sm:pt-44">
+        {/* Purple & Lime Radial Mesh Glow */}
+        <div className="pointer-events-none absolute left-1/2 top-1/3 -z-0 h-[600px] w-[900px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(128,87,255,0.45)_0%,rgba(210,243,76,0.18)_50%,transparent_70%)] blur-3xl" aria-hidden="true" />
+
+        <div className="site-container relative z-10 grid gap-10 lg:grid-cols-12 lg:items-center">
           <MotionReveal className="lg:col-span-6">
-            <span className="label-mono text-black/45">{content.hero.label[locale]}</span>
-            <h1 className="mt-5 text-[clamp(3.2rem,6vw,6.4rem)] font-[520] leading-[0.9] tracking-[-0.065em]">
+            <span className="label-mono acid-glow-badge inline-block rounded-full px-3.5 py-1 text-[0.68rem]">
+              {content.hero.label[locale]}
+            </span>
+            <h1 className="mt-5 text-[clamp(3.2rem,6vw,6.4rem)] font-[520] leading-[0.9] tracking-[-0.065em] text-white">
               {content.hero.title[locale]}{" "}
-              <span className="font-[family-name:var(--font-instrument-serif)] font-normal italic">
+              <span className="bg-gradient-to-r from-[#d2f34c] via-[#e2fd78] to-[#93c5fd] bg-clip-text font-[family-name:var(--font-instrument-serif)] font-normal italic text-transparent">
                 {content.hero.accent[locale]}
               </span>
             </h1>
-            <p className="body-copy mt-7 max-w-[620px] text-black/60">{content.hero.intro[locale]}</p>
+            <p className="body-copy mt-7 max-w-[620px] text-white/65">{content.hero.intro[locale]}</p>
           </MotionReveal>
 
-          <MotionReveal delay={0.08} className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-[#0a0a09] border border-black/10 shadow-xl lg:col-span-6">
-            <Image
-              src="/images/work/saudi-education-expo.webp"
-              alt="Hammad Studio workspace & engineering preview"
-              fill
-              priority
-              sizes="(max-width: 1024px) 100vw, 600px"
-              className="object-cover object-top"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
-            <span className="label-mono absolute bottom-6 left-6 text-white/80">
-              Independent · Indonesia · Remote
-            </span>
+          <MotionReveal delay={0.08} className="luxury-dark-card relative aspect-[4/3] overflow-hidden rounded-2xl p-1.5 shadow-2xl lg:col-span-6">
+            <div className="relative h-full w-full overflow-hidden rounded-xl">
+              <Image
+                src="/images/work/saudi-education-expo.webp"
+                alt="Hammad Studio workspace & engineering preview"
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 600px"
+                className="object-cover object-top"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#070a12]/85 via-transparent to-transparent" />
+              <span className="label-mono purple-glow-badge absolute bottom-6 left-6 inline-block rounded-full px-3.5 py-1 text-[0.68rem]">
+                Independent · Indonesia · Remote
+              </span>
+            </div>
           </MotionReveal>
         </div>
       </section>
 
-      {/* Principles Section */}
-      <section className="bg-[#e6e4de] py-20 sm:py-28">
+      {/* Principles Section with 4 Chromatic Cards */}
+      <section className="about-surface-v2 py-20 sm:py-28">
         <div className="site-container">
           <SectionHeader
             label={content.principles.label[locale]}
@@ -124,27 +146,32 @@ export function StudioPageContent() {
             accent={content.principles.accent[locale]}
           />
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {content.principles.items.map((item, index) => (
-              <MotionReveal
-                key={item.title}
-                delay={index * 0.04}
-                className="surface-card flex min-h-[260px] flex-col rounded-xl border border-[#deddd5] bg-white/70 p-7"
-              >
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#0a0a09] font-[family-name:var(--font-geist-mono)] text-xs font-semibold text-[#cfef57]">
-                  0{index + 1}
-                </span>
-                <h3 className="mt-8 text-xl font-[550] tracking-[-0.035em] text-black">{item.title}</h3>
-                <p className="mt-3 text-xs leading-[1.65] text-black/60 sm:text-sm">{item[locale]}</p>
-              </MotionReveal>
-            ))}
+            {content.principles.items.map((item, index) => {
+              const tintClass = principleTintClasses[index % principleTintClasses.length];
+              const badgeStyle = principleBadgeStyles[index % principleBadgeStyles.length];
+
+              return (
+                <MotionReveal
+                  key={item.title}
+                  delay={index * 0.04}
+                  className={`flex min-h-[260px] flex-col rounded-2xl p-7 transition duration-400 hover:-translate-y-1 ${tintClass}`}
+                >
+                  <span className={`flex h-10 w-10 items-center justify-center rounded-full font-[family-name:var(--font-geist-mono)] text-xs font-bold ${badgeStyle}`}>
+                    0{index + 1}
+                  </span>
+                  <h3 className="mt-8 text-xl font-[550] tracking-[-0.035em] text-[#17181d]">{item.title}</h3>
+                  <p className="mt-3 text-xs leading-[1.65] text-[#6d7180] sm:text-sm">{item[locale]}</p>
+                </MotionReveal>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* Engineering Section */}
-      <section className="py-20 sm:py-28">
-        <div className="site-container surface-card grid overflow-hidden rounded-2xl border border-[#deddd5] bg-[#eceae4] lg:grid-cols-12">
-          <div className="relative min-h-[360px] bg-[#111] sm:min-h-[480px] lg:col-span-6">
+      <section className="services-surface-v2 py-20 sm:py-28">
+        <div className="site-container surface-card grid overflow-hidden rounded-2xl border border-[#dde0e7] bg-white lg:grid-cols-12 shadow-xl">
+          <div className="relative min-h-[360px] bg-[#070a12] sm:min-h-[480px] lg:col-span-6">
             <Image
               src="/images/work/operations-dashboard.webp"
               alt="Operations dashboard engineering preview"
@@ -154,19 +181,21 @@ export function StudioPageContent() {
             />
           </div>
           <MotionReveal className="flex flex-col justify-center p-8 sm:p-12 lg:col-span-6 lg:p-14">
-            <span className="label-mono text-black/45">{content.engineering.label[locale]}</span>
-            <h2 className="mt-4 text-[clamp(2.6rem,4.5vw,4.5rem)] font-[520] leading-[0.94] tracking-[-0.058em]">
+            <span className="label-mono inline-block rounded-full bg-[#8057ff]/10 px-3 py-1 text-[0.68rem] text-[#8057ff] w-fit">
+              {content.engineering.label[locale]}
+            </span>
+            <h2 className="mt-4 text-[clamp(2.6rem,4.5vw,4.5rem)] font-[520] leading-[0.94] tracking-[-0.058em] text-[#17181d]">
               {content.engineering.title[locale]}{" "}
-              <span className="font-[family-name:var(--font-instrument-serif)] font-normal italic">
+              <span className="font-[family-name:var(--font-instrument-serif)] font-normal italic text-[#8057ff]">
                 {content.engineering.accent[locale]}
               </span>
             </h2>
-            <p className="mt-5 text-sm leading-[1.7] text-black/60 sm:text-base">
+            <p className="mt-5 text-sm leading-[1.7] text-[#6d7180] sm:text-base">
               {content.engineering.copy[locale]}
             </p>
             <div className="mt-8 flex flex-wrap gap-2">
               {content.engineering.items.map((item) => (
-                <span key={item} className="rounded-full border border-black/15 bg-white/50 px-4 py-2 text-xs font-medium text-black/80 sm:text-sm">
+                <span key={item} className="rounded-full border border-black/10 bg-[#f6f7fb] px-4 py-2 text-xs font-semibold text-[#17181d] sm:text-sm">
                   {item}
                 </span>
               ))}
@@ -176,17 +205,17 @@ export function StudioPageContent() {
       </section>
 
       {/* Security Section */}
-      <section id="security" className="scroll-mt-24 bg-[#0a0a09] py-20 text-white sm:py-28">
+      <section id="security" className="scroll-mt-24 footer-surface-v2 py-20 text-white sm:py-28">
         <div className="site-container grid gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
           <MotionReveal>
-            <span className="label-mono text-[#cfef57]">{content.security.label[locale]}</span>
+            <span className="label-mono text-[#d2f34c]">{content.security.label[locale]}</span>
             <h2 className="mt-4 text-[clamp(2.8rem,5vw,5.2rem)] font-[520] leading-[0.92] tracking-[-0.06em]">
               {content.security.title[locale]}
             </h2>
-            <p className="mt-6 max-w-[580px] text-sm leading-[1.7] text-white/60 sm:text-base">
+            <p className="mt-6 max-w-[580px] text-sm leading-[1.7] text-white/65 sm:text-base">
               {content.security.copy[locale]}
             </p>
-            <p className="mt-6 max-w-[580px] border-l-2 border-[#cfef57] pl-5 text-xs leading-[1.65] text-white/70 sm:text-sm">
+            <p className="mt-6 max-w-[580px] border-l-2 border-[#d2f34c] pl-5 text-xs leading-[1.65] text-white/75 sm:text-sm">
               {content.security.note[locale]}
             </p>
           </MotionReveal>
@@ -196,10 +225,10 @@ export function StudioPageContent() {
               <MotionReveal
                 key={item}
                 delay={(index % 4) * 0.04}
-                className="rounded-xl border border-white/12 bg-white/[0.04] p-5 sm:p-6"
+                className="rounded-2xl border border-white/12 bg-white/[0.05] p-5 sm:p-6 backdrop-blur-md"
               >
                 <div className="flex items-center gap-3">
-                  <CheckIcon className="h-4 w-4 text-[#cfef57]" />
+                  <CheckIcon className="h-4 w-4 text-[#d2f34c]" />
                   <p className="text-sm font-semibold text-white sm:text-base">{item}</p>
                 </div>
               </MotionReveal>
@@ -211,22 +240,24 @@ export function StudioPageContent() {
       {/* Tools Section */}
       <section className="py-20 sm:py-28">
         <div className="site-container">
-          <MotionReveal className="surface-card grid gap-8 rounded-2xl border border-[#deddd5] bg-white/70 p-8 sm:p-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-center">
+          <MotionReveal className="surface-card grid gap-8 rounded-2xl border border-[#dde0e7] bg-white p-8 sm:p-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-center shadow-lg">
             <div>
-              <span className="label-mono text-black/45">{content.tools.label[locale]}</span>
-              <h2 className="mt-4 text-[clamp(2.5rem,4.5vw,4.5rem)] font-[520] leading-[0.94] tracking-[-0.058em]">
+              <span className="label-mono inline-block rounded-full bg-[#8057ff]/10 px-3 py-1 text-[0.68rem] text-[#8057ff]">
+                {content.tools.label[locale]}
+              </span>
+              <h2 className="mt-4 text-[clamp(2.5rem,4.5vw,4.5rem)] font-[520] leading-[0.94] tracking-[-0.058em] text-[#17181d]">
                 {content.tools.title[locale]}
               </h2>
-              <p className="mt-4 max-w-[530px] text-sm leading-[1.7] text-black/60 sm:text-base">
+              <p className="mt-4 max-w-[530px] text-sm leading-[1.7] text-[#6d7180] sm:text-base">
                 {content.tools.copy[locale]}
               </p>
             </div>
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
               {content.tools.items.map((item, index) => (
-                <div key={item} className="flex min-h-[110px] items-end rounded-xl bg-[#e6e4de] p-5">
+                <div key={item} className="flex min-h-[110px] items-end rounded-xl bg-[#f6f7fb] p-5 border border-[#dde0e7]">
                   <div>
-                    <span className="label-mono text-black/35">0{index + 1}</span>
-                    <strong className="mt-3 block text-sm font-semibold text-black sm:text-base">{item}</strong>
+                    <span className="label-mono text-[#8057ff] font-bold">0{index + 1}</span>
+                    <strong className="mt-3 block text-sm font-semibold text-[#17181d] sm:text-base">{item}</strong>
                   </div>
                 </div>
               ))}
@@ -236,27 +267,27 @@ export function StudioPageContent() {
       </section>
 
       {/* Founder Section - Hammad Matt Profile */}
-      <section className="bg-[#e6e4de] py-20 sm:py-28">
+      <section className="about-surface-v2 py-20 sm:py-28">
         <div className="site-container grid gap-6 lg:grid-cols-2">
-          <MotionReveal className="relative flex min-h-[420px] items-end overflow-hidden rounded-2xl bg-[#0a0a09] p-8 text-white shadow-xl">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(207,239,87,.20),transparent_40%)]" />
-            <span className="relative text-[clamp(6rem,16vw,12rem)] font-[540] leading-[0.7] tracking-[-0.08em] text-white/[0.08]">
+          <MotionReveal className="luxury-dark-card relative flex min-h-[420px] items-end overflow-hidden rounded-2xl p-8 text-white shadow-2xl">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(210,243,76,0.2),transparent_45%)]" />
+            <span className="relative text-[clamp(6rem,16vw,12rem)] font-[540] leading-[0.7] tracking-[-0.08em] text-white/[0.1]">
               HM
             </span>
-            <span className="label-mono absolute left-8 top-8 text-[#cfef57]">
+            <span className="label-mono acid-glow-badge absolute left-8 top-8 inline-block rounded-full px-3.5 py-1 text-[0.68rem]">
               {content.founder.label[locale]}
             </span>
           </MotionReveal>
 
-          <MotionReveal delay={0.06} className="surface-card flex flex-col justify-center rounded-2xl border border-[#deddd5] bg-white/70 p-8 sm:p-12">
-            <span className="label-mono text-black/45">Founder / Lead Engineer</span>
-            <h2 className="mt-4 text-[clamp(2.8rem,5.5vw,5.2rem)] font-[520] leading-none tracking-[-0.065em]">
+          <MotionReveal delay={0.06} className="surface-card flex flex-col justify-center rounded-2xl border border-[#dde0e7] bg-white p-8 sm:p-12 shadow-lg">
+            <span className="label-mono text-[#8057ff] font-bold">Founder / Lead Engineer</span>
+            <h2 className="mt-4 text-[clamp(2.8rem,5.5vw,5.2rem)] font-[520] leading-none tracking-[-0.065em] text-[#17181d]">
               {content.founder.title}
             </h2>
-            <p className="mt-3 text-xs font-semibold text-black/55 sm:text-sm">
+            <p className="mt-3 text-xs font-semibold text-[#6d7180] sm:text-sm">
               {content.founder.role[locale]}
             </p>
-            <p className="mt-6 max-w-[600px] text-sm leading-[1.75] text-black/65 sm:text-base">
+            <p className="mt-6 max-w-[600px] text-sm leading-[1.75] text-[#6d7180] sm:text-base">
               {content.founder.copy[locale]}
             </p>
             <Link href="/contact" className="acid-button group mt-8 inline-flex w-fit items-center gap-2 rounded-full px-6 py-3 text-xs font-semibold text-black sm:text-sm">

@@ -66,27 +66,37 @@ export function PricingPageContent() {
   const { locale } = useLocale();
 
   return (
-    <div className="bg-[#f0eee7] pb-28 pt-32 text-[#0a0a09] sm:pb-36 sm:pt-40">
-      <div className="site-container">
-        <MotionReveal className="grid gap-8 pb-16 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-end">
-          <div>
-            <span className="label-mono text-black/40">{content.label[locale]}</span>
-            <h1 className="mt-5 max-w-[760px] text-[clamp(3.2rem,6vw,6rem)] font-[520] leading-[0.9] tracking-[-0.065em]">
-              {content.title[locale]}
-            </h1>
-          </div>
-          <p className="body-copy max-w-[650px] text-black/60 lg:ml-auto">
-            {content.intro[locale]}
-          </p>
-        </MotionReveal>
+    <div className="bg-[#f7f5ef] text-[#17181d]">
+      {/* Dark Indigo Midnight Hero Header */}
+      <section className="relative overflow-hidden bg-[#070a12] pb-20 pt-36 text-white sm:pb-28 sm:pt-44">
+        {/* Indigo & Violet Ambient Glow */}
+        <div className="pointer-events-none absolute left-1/2 top-1/3 -z-0 h-[600px] w-[900px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(91,55,213,0.45)_0%,rgba(40,100,255,0.25)_50%,transparent_70%)] blur-3xl" aria-hidden="true" />
 
+        <div className="site-container relative z-10">
+          <MotionReveal className="grid gap-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-end">
+            <div>
+              <span className="label-mono acid-glow-badge inline-block rounded-full px-3.5 py-1 text-[0.68rem]">
+                {content.label[locale]}
+              </span>
+              <h1 className="mt-5 max-w-[760px] text-[clamp(3.2rem,6vw,6rem)] font-[520] leading-[0.9] tracking-[-0.065em] text-white">
+                {content.title[locale]}
+              </h1>
+            </div>
+            <p className="body-copy max-w-[650px] text-white/65 lg:ml-auto">
+              {content.intro[locale]}
+            </p>
+          </MotionReveal>
+        </div>
+      </section>
+
+      <div className="site-container py-16 sm:py-24">
         {content.packages.map((group) => (
-          <section key={group.category} className="border-t border-black/15 py-12 sm:py-16">
+          <section key={group.category} className="border-t border-black/12 py-12 sm:py-16">
             <MotionReveal className="grid gap-5 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] lg:items-end">
-              <h2 className="text-[clamp(2.4rem,4vw,4rem)] font-[530] leading-none tracking-[-0.055em]">
+              <h2 className="text-[clamp(2.4rem,4vw,4rem)] font-[530] leading-none tracking-[-0.055em] text-[#17181d]">
                 {group.category}
               </h2>
-              <p className="max-w-[620px] text-sm leading-[1.65] text-black/60 sm:text-base">
+              <p className="max-w-[620px] text-sm leading-[1.65] text-[#6d7180] sm:text-base">
                 {group.intro[locale]}
               </p>
             </MotionReveal>
@@ -99,84 +109,91 @@ export function PricingPageContent() {
                   : "lg:grid-cols-1"
               }`}
             >
-              {group.plans.map((plan, index) => (
-                <MotionReveal
-                  key={plan.name}
-                  delay={index * 0.05}
-                  className={`flex ${
-                    group.plans.length === 1 ? "min-h-[300px]" : "min-h-[440px]"
-                  } flex-col rounded-xl border p-6 sm:p-7 transition duration-400 hover:-translate-y-1 hover:shadow-lg ${
-                    "featured" in plan && plan.featured
-                      ? "border-[#0a0a09] bg-[#0a0a09] text-white"
-                      : "border-[#deddd5] bg-white/70 text-black hover:bg-white"
-                  }`}
-                >
-                  <div className="flex items-start justify-between">
-                    <span className={`label-mono ${"featured" in plan && plan.featured ? "text-[#cfef57]" : "text-black/50"}`}>
-                      {plan.name} {"featured" in plan && plan.featured && "★"}
-                    </span>
-                    <span className="font-[family-name:var(--font-geist-mono)] text-xs opacity-40">0{index + 1}</span>
-                  </div>
-                  <div className="mt-8">
-                    <span className="text-[0.7rem] uppercase tracking-wider opacity-45">{content.from[locale]}</span>
-                    <p className="mt-1 text-[clamp(2.2rem,3.8vw,3.6rem)] font-[540] leading-none tracking-[-0.06em]">
-                      {plan.price}
-                    </p>
-                  </div>
-                  <div className="mt-7 border-t border-current/15 pt-5">
-                    <span className="label-mono opacity-40">{content.fit[locale]}</span>
-                    <p className="mt-2 text-xs leading-[1.6] opacity-65 sm:text-sm">{plan.bestFor[locale]}</p>
-                  </div>
-                  <div className="mt-6">
-                    <span className="label-mono opacity-40">{content.included[locale]}</span>
-                    <ul
-                      className={`mt-3.5 ${
-                        group.plans.length === 1 ? "grid gap-2.5 sm:grid-cols-2 lg:grid-cols-3" : "space-y-2.5"
-                      }`}
-                    >
-                      {plan.items.map((item) => (
-                        <li key={item} className="flex items-start gap-2.5 text-xs leading-[1.5] opacity-75 sm:text-xs">
-                          <CheckIcon className={`mt-0.5 h-3.5 w-3.5 shrink-0 ${"featured" in plan && plan.featured ? "text-[#cfef57]" : "text-black"}`} />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <Link
-                    href="/contact"
-                    className={`group mt-auto inline-flex w-fit items-center gap-2 pt-8 text-xs font-semibold sm:text-sm ${
-                      "featured" in plan && plan.featured ? "text-[#cfef57]" : "text-black"
+              {group.plans.map((plan, index) => {
+                const isFeatured = "featured" in plan && plan.featured;
+                const isTinted = index === 2 || index === 3;
+
+                return (
+                  <MotionReveal
+                    key={plan.name}
+                    delay={index * 0.05}
+                    className={`flex ${
+                      group.plans.length === 1 ? "min-h-[300px]" : "min-h-[440px]"
+                    } flex-col rounded-2xl p-6 sm:p-7 transition duration-400 hover:-translate-y-1 ${
+                      isFeatured
+                        ? "luxury-dark-card text-white shadow-[0_25px_60px_rgba(7,10,18,0.5)]"
+                        : isTinted
+                        ? "tint-card-lavender text-[#17181d]"
+                        : "surface-card border border-[#dde0e7] bg-white text-[#17181d] shadow-sm hover:border-[#8057ff]/30"
                     }`}
                   >
-                    {content.choose[locale]} <ArrowUpRightIcon className="button-arrow h-4 w-4" />
-                  </Link>
-                </MotionReveal>
-              ))}
+                    <div className="flex items-center justify-between">
+                      <span className={`label-mono ${isFeatured ? "text-[#d2f34c]" : "text-[#8057ff] font-bold"}`}>
+                        {plan.name} {isFeatured && "★"}
+                      </span>
+                      <span className="font-[family-name:var(--font-geist-mono)] text-xs opacity-40">0{index + 1}</span>
+                    </div>
+                    <div className="mt-8">
+                      <span className="text-[0.7rem] uppercase tracking-wider opacity-50 font-mono">{content.from[locale]}</span>
+                      <p className="mt-1 text-[clamp(2.2rem,3.8vw,3.6rem)] font-[540] leading-none tracking-[-0.06em]">
+                        {plan.price}
+                      </p>
+                    </div>
+                    <div className="mt-7 border-t border-current/15 pt-5">
+                      <span className="label-mono opacity-40">{content.fit[locale]}</span>
+                      <p className="mt-2 text-xs leading-[1.6] opacity-75 sm:text-sm">{plan.bestFor[locale]}</p>
+                    </div>
+                    <div className="mt-6">
+                      <span className="label-mono opacity-40">{content.included[locale]}</span>
+                      <ul
+                        className={`mt-3.5 ${
+                          group.plans.length === 1 ? "grid gap-2.5 sm:grid-cols-2 lg:grid-cols-3" : "space-y-2.5"
+                        }`}
+                      >
+                        {plan.items.map((item) => (
+                          <li key={item} className="flex items-start gap-2.5 text-xs leading-[1.5] opacity-85 sm:text-xs">
+                            <CheckIcon className={`mt-0.5 h-3.5 w-3.5 shrink-0 ${isFeatured ? "text-[#d2f34c]" : "text-[#8057ff]"}`} />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <Link
+                      href="/contact"
+                      className={`group mt-auto inline-flex w-fit items-center gap-2 pt-8 text-xs font-semibold sm:text-sm ${
+                        isFeatured ? "text-[#d2f34c]" : "text-[#17181d] group-hover:text-[#8057ff]"
+                      }`}
+                    >
+                      {content.choose[locale]} <ArrowUpRightIcon className="button-arrow h-4 w-4" />
+                    </Link>
+                  </MotionReveal>
+                );
+              })}
             </div>
           </section>
         ))}
 
-        <MotionReveal className="mt-6 grid gap-10 rounded-2xl bg-[#0a0a09] p-8 text-white sm:p-12 lg:grid-cols-12 lg:gap-8">
+        <MotionReveal className="mt-6 grid gap-10 rounded-2xl bg-[#070a12] p-8 text-white sm:p-12 lg:grid-cols-12 lg:gap-8 shadow-2xl border border-white/12">
           <div className="lg:col-span-4">
-            <span className="label-mono text-[#cfef57]">Security baseline</span>
+            <span className="label-mono text-[#d2f34c]">Security baseline</span>
             <h2 className="mt-4 text-2xl font-[530] tracking-[-0.05em] sm:text-3xl lg:text-4xl">
               {content.securityTitle[locale]}
             </h2>
-            <p className="mt-4 text-xs leading-[1.65] text-white/55 sm:text-sm">
+            <p className="mt-4 text-xs leading-[1.65] text-white/60 sm:text-sm">
               {content.securityIntro[locale]}
             </p>
           </div>
           <div className="lg:col-span-5">
             <ul className="grid gap-3 sm:grid-cols-2">
               {content.securityItems.map((item) => (
-                <li key={item} className="flex items-center gap-2.5 border-b border-white/10 pb-3 text-xs text-white/70 sm:text-sm">
-                  <CheckIcon className="h-4 w-4 text-[#cfef57]" />
+                <li key={item} className="flex items-center gap-2.5 border-b border-white/10 pb-3 text-xs text-white/75 sm:text-sm">
+                  <CheckIcon className="h-4 w-4 text-[#d2f34c]" />
                   {item}
                 </li>
               ))}
             </ul>
-            <p className="mt-6 text-xs leading-[1.65] text-white/40">{content.advanced[locale]}</p>
-            <p className="mt-3 text-xs leading-[1.65] text-[#cfef57]/75">{content.notice[locale]}</p>
+            <p className="mt-6 text-xs leading-[1.65] text-white/45">{content.advanced[locale]}</p>
+            <p className="mt-3 text-xs leading-[1.65] text-[#d2f34c]/85">{content.notice[locale]}</p>
           </div>
           <div className="lg:col-span-3 lg:text-right">
             <Link

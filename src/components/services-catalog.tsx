@@ -64,20 +64,75 @@ const images = [
   "/images/work/saudi-education-expo.webp",
 ] as const;
 
+const categoryCardClasses = [
+  "service-website-card",
+  "service-ecommerce-card",
+  "service-webapp-card",
+  "service-system-card",
+  "service-automation-card",
+  "service-custom-card",
+];
+
+const categoryBadgeStyles = [
+  "bg-purple-100 text-[#8057ff] border-[#8057ff]/30",
+  "bg-fuchsia-100 text-[#e44bff] border-[#e44bff]/30",
+  "bg-blue-100 text-[#2864ff] border-[#2864ff]/30",
+  "bg-emerald-100 text-[#54b98b] border-[#54b98b]/30",
+  "bg-orange-100 text-[#ff9654] border-[#ff9654]/30",
+  "bg-purple-100 text-[#a34eff] border-[#a34eff]/30",
+];
+
 export function ServicesCatalog() {
   const { locale } = useLocale();
 
   return (
-    <section className="bg-[#f0eee7] pb-28 text-[#0a0a09] sm:pb-36">
-      <div className="site-container grid gap-5 md:grid-cols-2">
-        {content.services.map((service, index) => (
-          <MotionReveal key={service.number} delay={(index % 2) * 0.05}>
-            <Link href={`/services/${service.slug}`} className="surface-card group flex h-full min-h-[560px] flex-col overflow-hidden transition duration-500 hover:-translate-y-1 hover:bg-white/60 hover:shadow-[0_25px_80px_rgba(15,15,12,.08)]">
-              <div className="relative h-60 overflow-hidden bg-[#111] sm:h-72"><Image src={images[index]} alt={`${service.title[locale]} preview`} fill sizes="(max-width: 768px) 100vw, 600px" className="object-cover object-top opacity-80 transition duration-1000 group-hover:scale-[1.025] group-hover:opacity-100" /><div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" /><span className="label-mono absolute left-6 top-6 text-white/70">{service.number}</span></div>
-              <div className="flex flex-1 flex-col p-7 sm:p-8"><h2 className="text-[clamp(2.3rem,4vw,3.6rem)] font-[520] leading-none tracking-[-0.055em]">{service.title[locale]}</h2><p className="mt-5 text-base leading-[1.7] text-black/56">{service.description[locale]}</p><div className="mt-6 flex flex-wrap gap-2">{service.items.slice(0, 5).map((item) => <span key={item} className="rounded-full border border-black/12 px-3 py-1.5 text-xs text-black/55">{item}</span>)}</div><span className="mt-auto flex items-center justify-between pt-8 text-sm font-semibold">{content.view[locale]} {service.title[locale]} <ArrowUpRightIcon className="button-arrow h-4 w-4" /></span></div>
-            </Link>
-          </MotionReveal>
-        ))}
+    <section className="services-surface-v2 py-20 text-[#17181d] sm:py-28">
+      <div className="site-container grid gap-6 md:grid-cols-2">
+        {content.services.map((service, index) => {
+          const hoverClass = categoryCardClasses[index % categoryCardClasses.length];
+          const badgeStyle = categoryBadgeStyles[index % categoryBadgeStyles.length];
+
+          return (
+            <MotionReveal key={service.number} delay={(index % 2) * 0.05}>
+              <Link
+                href={`/services/${service.slug}`}
+                className={`surface-card group flex h-full min-h-[560px] flex-col overflow-hidden rounded-2xl border border-[#dde0e7] bg-white transition duration-500 hover:-translate-y-1.5 hover:shadow-[0_30px_90px_rgba(7,10,18,0.1)] ${hoverClass}`}
+              >
+                <div className="relative h-64 overflow-hidden bg-[#070a12] sm:h-72">
+                  <Image
+                    src={images[index]}
+                    alt={`${service.title[locale]} preview`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 600px"
+                    className="object-cover object-top opacity-80 transition duration-1000 group-hover:scale-[1.03] group-hover:opacity-100"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#070a12] via-transparent to-transparent opacity-85" />
+                  <span className={`label-mono absolute left-6 top-6 inline-block rounded-full border px-3 py-1 text-[0.68rem] font-bold backdrop-blur-md ${badgeStyle}`}>
+                    {service.number} / {service.title[locale]}
+                  </span>
+                </div>
+                <div className="flex flex-1 flex-col p-8 sm:p-9">
+                  <h2 className="text-[clamp(2.3rem,4vw,3.6rem)] font-[520] leading-none tracking-[-0.055em] text-[#17181d]">
+                    {service.title[locale]}
+                  </h2>
+                  <p className="mt-5 text-base leading-[1.7] text-[#6d7180]">
+                    {service.description[locale]}
+                  </p>
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {service.items.slice(0, 5).map((item) => (
+                      <span key={item} className="rounded-full border border-black/10 bg-[#f6f7fb] px-3.5 py-1.5 text-xs text-[#17181d]/80">
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                  <span className="mt-auto flex items-center justify-between pt-8 text-sm font-semibold text-[#17181d] group-hover:text-[#8057ff]">
+                    {content.view[locale]} {service.title[locale]} <ArrowUpRightIcon className="button-arrow h-4 w-4" />
+                  </span>
+                </div>
+              </Link>
+            </MotionReveal>
+          );
+        })}
       </div>
     </section>
   );
