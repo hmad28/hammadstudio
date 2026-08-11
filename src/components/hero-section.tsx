@@ -1,19 +1,36 @@
 "use client";
 
+import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useReducedMotion } from "motion/react";
+import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { homeContent } from "@/lib/home-content";
 import { ArrowUpRightIcon } from "./icons";
 import { useLocale } from "./locale-provider";
 
 export function HeroSection() {
+  const sectionRef = useRef<HTMLElement>(null);
   const reduceMotion = useReducedMotion();
   const { locale } = useLocale();
   const copy = homeContent.hero;
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+  const centerCardY = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, reduceMotion ? 0 : 64],
+  );
+  const sideCardY = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, reduceMotion ? 0 : 118],
+  );
 
   return (
     <section
+      ref={sectionRef}
       id="hero"
       className="hero-surface-v2 relative min-h-screen overflow-hidden pb-16 pt-32 text-white sm:pt-36 lg:pt-40"
     >
@@ -128,7 +145,8 @@ export function HeroSection() {
         >
           {/* Left Tilted Card */}
           <motion.div
-            className="absolute -left-[13%] top-[15%] h-[64%] w-[38%] -rotate-[5deg] overflow-hidden rounded-xl border border-white/20 bg-[#111] opacity-75 shadow-[0_20px_50px_rgba(0,0,0,0.8)] backdrop-blur-md sm:-left-[8%] sm:opacity-95"
+            style={{ y: sideCardY, rotate: "-5deg" }}
+            className="absolute -left-[13%] top-[15%] h-[64%] w-[38%] overflow-hidden rounded-xl border border-white/20 bg-[#111] opacity-75 shadow-[0_20px_50px_rgba(0,0,0,0.8)] backdrop-blur-md will-change-transform sm:-left-[8%] sm:opacity-95"
           >
             <Image
               src="/images/work/cpx-jersey.png"
@@ -141,7 +159,8 @@ export function HeroSection() {
 
           {/* Right Tilted Card */}
           <motion.div
-            className="absolute -right-[13%] top-[15%] h-[64%] w-[38%] rotate-[5deg] overflow-hidden rounded-xl border border-white/20 bg-[#111] opacity-75 shadow-[0_20px_50px_rgba(0,0,0,0.8)] backdrop-blur-md sm:-right-[8%] sm:opacity-95"
+            style={{ y: sideCardY, rotate: "5deg" }}
+            className="absolute -right-[13%] top-[15%] h-[64%] w-[38%] overflow-hidden rounded-xl border border-white/20 bg-[#111] opacity-75 shadow-[0_20px_50px_rgba(0,0,0,0.8)] backdrop-blur-md will-change-transform sm:-right-[8%] sm:opacity-95"
           >
             <Image
               src="/images/work/sahabat-qolbu.png"
@@ -153,7 +172,10 @@ export function HeroSection() {
           </motion.div>
 
           {/* Main Center Card with Glowing Gradient Border */}
-          <div className="group absolute left-1/2 top-0 z-10 h-[82%] w-[82%] -translate-x-1/2 overflow-hidden rounded-2xl border-2 border-white/25 bg-[#0d0d14] p-0.5 shadow-[0_45px_120px_rgba(0,0,0,0.9)] sm:w-[70%]">
+          <motion.div
+            style={{ x: "-50%", y: centerCardY }}
+            className="group absolute left-1/2 top-0 z-10 h-[82%] w-[82%] overflow-hidden rounded-2xl border-2 border-white/25 bg-[#0d0d14] p-0.5 shadow-[0_45px_120px_rgba(0,0,0,0.9)] will-change-transform sm:w-[70%]"
+          >
             <div className="relative h-full w-full overflow-hidden rounded-[14px]">
               <Image
                 src="/images/work/solivate.png"
@@ -177,7 +199,7 @@ export function HeroSection() {
                 </span>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Dual Multi-color Glowing Ambient Backdrop */}
           <div
