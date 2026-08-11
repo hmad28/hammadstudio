@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { workProjects, workSlugs } from "@/lib/work-content";
 import { insightArticles } from "@/lib/insight-content";
+import { industryLandings, solutionLandings } from "@/lib/seo-expansion-content";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://hammad.studio";
 
@@ -12,6 +13,7 @@ const staticRoutes = [
   { path: "/jasa-website-company-profile", priority: 0.9, changeFrequency: "monthly" },
   { path: "/redesign-website", priority: 0.85, changeFrequency: "monthly" },
   { path: "/industri/logistik", priority: 0.85, changeFrequency: "monthly" },
+  { path: "/jasa-pembuatan-website-depok", priority: 0.85, changeFrequency: "monthly" },
   { path: "/services/website", priority: 0.8, changeFrequency: "monthly" },
   { path: "/services/e-commerce", priority: 0.8, changeFrequency: "monthly" },
   { path: "/services/web-application", priority: 0.8, changeFrequency: "monthly" },
@@ -23,6 +25,8 @@ const staticRoutes = [
   { path: "/studio", priority: 0.7, changeFrequency: "monthly" },
   { path: "/contact", priority: 0.7, changeFrequency: "yearly" },
   { path: "/insight", priority: 0.8, changeFrequency: "weekly" },
+  { path: "/privacy", priority: 0.3, changeFrequency: "yearly" },
+  { path: "/terms", priority: 0.3, changeFrequency: "yearly" },
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -50,5 +54,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }));
 
-  return [...pages, ...projects, ...insights];
+  const solutions: MetadataRoute.Sitemap = Object.values(solutionLandings).map((landing) => ({
+    url: `${siteUrl}/solusi/${landing.slug}`,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
+  const industries: MetadataRoute.Sitemap = Object.values(industryLandings).map((landing) => ({
+    url: `${siteUrl}/industri/${landing.slug}`,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
+  return [...pages, ...projects, ...solutions, ...industries, ...insights];
 }

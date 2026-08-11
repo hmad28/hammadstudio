@@ -9,5 +9,12 @@ export const metadata = createPageMetadata({
 });
 
 export default function StudioPage() {
-  return <StudioPageContent />;
+  const profileJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "AboutPage", "@id": "https://hammad.studio/studio#about", name: "Tentang Hammad Studio", url: "https://hammad.studio/studio", mainEntity: { "@id": "https://hammad.studio/#organization" } },
+      { "@type": "Person", "@id": "https://hammad.studio/#hammad-matt", name: "Hammad Matt", jobTitle: "Founder & Lead Engineer", worksFor: { "@id": "https://hammad.studio/#organization" }, url: "https://hammad.studio/studio" },
+    ],
+  };
+  return <><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(profileJsonLd).replace(/</g, "\\u003c") }} /><StudioPageContent /></>;
 }

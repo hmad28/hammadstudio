@@ -146,7 +146,7 @@ function ProjectCard({
           {image ? (
             <Image
               src={image}
-              alt={`${title} homepage hero`}
+              alt={`${title} — ${category}`}
               fill
               priority={priority}
               sizes="(max-width: 767px) 100vw, (max-width: 1279px) 58vw, 720px"

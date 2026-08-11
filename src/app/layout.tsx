@@ -5,6 +5,7 @@ import { Navbar } from "@/components/navbar";
 import { CTAFooter } from "@/components/cta-footer";
 import { LocaleProvider } from "@/components/locale-provider";
 import { GoogleAnalytics } from "@/components/google-analytics";
+import { WebVitals } from "@/components/web-vitals";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-geist" });
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
@@ -79,6 +80,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <CTAFooter />
         </LocaleProvider>
         <GoogleAnalytics />
+        {process.env.NEXT_PUBLIC_GA_ID ? <WebVitals /> : null}
       </body>
     </html>
   );

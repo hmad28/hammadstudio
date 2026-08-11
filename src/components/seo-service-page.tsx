@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRightIcon, CheckIcon } from "./icons";
+import { StickyWhatsAppCTA } from "./sticky-whatsapp-cta";
 
 type Proof = {
   name: string;
@@ -21,6 +22,8 @@ type SEOServicePageProps = {
   deliverables: readonly string[];
   proofs: readonly Proof[];
   faqs: readonly FAQ[];
+  startingPrice?: string;
+  relatedLinks?: readonly { href: string; label: string; description: string }[];
 };
 
 export function SEOServicePage({
@@ -32,12 +35,15 @@ export function SEOServicePage({
   deliverables,
   proofs,
   faqs,
+  startingPrice = "Website mulai Rp 2,5 juta. Scope, timeline, dan biaya berulang dijelaskan sebelum project dimulai.",
+  relatedLinks = [],
 }: SEOServicePageProps) {
   return (
     <main className="bg-[#f7f5ef] text-[#17181d]">
       <section className="relative overflow-hidden bg-[#070a12] pb-24 pt-36 text-white sm:pb-32 sm:pt-44">
         <div className="pointer-events-none absolute right-[-10%] top-[-20%] h-[700px] w-[800px] rounded-full bg-[radial-gradient(circle,rgba(128,87,255,.42),rgba(40,100,255,.18)_45%,transparent_72%)] blur-3xl" aria-hidden="true" />
         <div className="site-container relative z-10">
+          <nav aria-label="Breadcrumb" className="label-mono mb-8 text-white/42"><Link href="/">Beranda</Link> <span className="mx-2">/</span> <Link href="/services">Layanan</Link></nav>
           <p className="label-mono text-[#d2f34c]">{eyebrow}</p>
           <h1 className="mt-7 max-w-[1100px] text-[clamp(3.4rem,8vw,8rem)] font-[520] leading-[0.86] tracking-[-0.07em]">{title}</h1>
           <div className="mt-10 grid gap-8 border-t border-white/15 pt-7 lg:grid-cols-12">
@@ -48,6 +54,13 @@ export function SEOServicePage({
               </Link>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="border-b border-black/12 bg-white py-7">
+        <div className="site-container flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <p className="max-w-[780px] text-sm font-medium leading-6 text-black/65">{startingPrice}</p>
+          <Link href="/harga-website" className="group inline-flex shrink-0 items-center gap-2 text-sm font-semibold text-[#8057ff]">Lihat rincian harga <ArrowUpRightIcon className="button-arrow h-4 w-4" /></Link>
         </div>
       </section>
 
@@ -109,6 +122,8 @@ export function SEOServicePage({
         </div>
       </section>
 
+      {relatedLinks.length > 0 ? <section className="border-t border-black/12 bg-[#ebe9e2] py-20 sm:py-24"><div className="site-container"><p className="label-mono text-[#8057ff]">PELAJARI LEBIH SPESIFIK</p><h2 className="mt-4 text-4xl font-[520] tracking-[-.05em]">Pilih kebutuhan yang paling dekat.</h2><div className="mt-8 grid border-l border-t border-black/15 md:grid-cols-3">{relatedLinks.map((item) => <Link key={item.href} href={item.href} className="group flex min-h-52 flex-col border-b border-r border-black/15 p-6 transition-colors hover:bg-white"><h3 className="text-xl font-[520] tracking-[-.03em]">{item.label}</h3><p className="mt-3 text-sm leading-6 text-black/55">{item.description}</p><ArrowUpRightIcon className="button-arrow mt-auto h-4 w-4" /></Link>)}</div></div></section> : null}
+
       <section className="bg-[#070a12] py-24 text-white sm:py-32">
         <div className="site-container grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-4">
@@ -127,6 +142,7 @@ export function SEOServicePage({
           </div>
         </div>
       </section>
+      <StickyWhatsAppCTA />
     </main>
   );
 }

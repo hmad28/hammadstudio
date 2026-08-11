@@ -71,7 +71,7 @@ export function ProjectDetailPage({ slug }: { slug: WorkSlug }) {
               {project.image ? (
                 <Image
                   src={project.image}
-                  alt={`${project.title} homepage hero`}
+                  alt={`${project.title} — ${project.category[locale]}`}
                   fill
                   priority
                   sizes="(max-width: 1240px) 100vw, 1240px"

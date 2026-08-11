@@ -1,0 +1,120 @@
+import { companyFaqs, umkmFaqs } from "./seo-landing-content";
+
+export type ExpansionLanding = {
+  slug: string;
+  title: string;
+  description: string;
+  eyebrow: string;
+  hero: string;
+  intro: string;
+  audience: string;
+  outcomes: readonly string[];
+  deliverables: readonly string[];
+  proofs: readonly { name: string; detail: string; href: string }[];
+  faqs: readonly { question: string; answer: string }[];
+  startingPrice: string;
+};
+
+export const solutionLandings = {
+  "umkm/toko-online": {
+    slug: "umkm/toko-online",
+    title: "Jasa Pembuatan Website Toko Online UMKM",
+    description: "Website toko online untuk UMKM dengan katalog produk, WhatsApp, cart, checkout, promo, dan pengelolaan produk sesuai kebutuhan bisnis.",
+    eyebrow: "TOKO ONLINE UNTUK UMKM",
+    hero: "Toko online milik brand, bukan sekadar etalase di marketplace.",
+    intro: "Website toko online membantu UMKM menyajikan produk dengan identitas sendiri, mengarahkan order ke WhatsApp atau checkout, dan membangun database serta pengalaman customer yang lebih terkontrol.",
+    audience: "Cocok untuk bisnis makanan, fashion, merchandise, frozen food, dan brand lokal yang ingin melengkapi marketplace serta media sosial dengan storefront resmi.",
+    outcomes: ["Produk tersusun dalam katalog yang mudah dicari.", "Order dapat diarahkan ke WhatsApp atau checkout.", "Promo dan presentasi brand tidak dibatasi marketplace.", "Analytics membantu melihat produk dan jalur yang digunakan customer."],
+    deliverables: ["Struktur kategori dan katalog produk", "Halaman produk responsif", "Cart atau order via WhatsApp", "Promo dan featured products", "CMS pengelolaan produk", "Analytics dan event order", "SEO foundation untuk kategori utama", "Deployment dan handover"],
+    proofs: [{ name: "Shofi Frozen", detail: "Katalog frozen food dengan pencarian, wishlist, promo, cart, dan checkout WhatsApp.", href: "/work/shofi-frozen" }, { name: "CPX Jersey", detail: "Commerce sportswear dengan katalog, cart, custom order, dan integrasi marketplace.", href: "/work/cpx-jersey" }, { name: "Website UMKM", detail: "Lihat fondasi website untuk bisnis kecil dan brand berkembang.", href: "/jasa-website-umkm" }],
+    faqs: umkmFaqs,
+    startingPrice: "Website katalog dan commerce sederhana mulai Rp 5 juta. Payment gateway, shipping, dan integrasi lain dihitung sesuai scope.",
+  },
+  "umkm/landing-page-produk": {
+    slug: "umkm/landing-page-produk",
+    title: "Jasa Landing Page Produk untuk UMKM",
+    description: "Landing page produk untuk campaign UMKM yang menghubungkan iklan, penawaran, bukti, FAQ, dan WhatsApp dalam satu alur conversion.",
+    eyebrow: "LANDING PAGE PRODUK",
+    hero: "Bawa traffic iklan ke halaman yang fokus menjelaskan dan menjual.",
+    intro: "Landing page produk menyatukan value proposition, visual, benefit, bukti, objection handling, dan CTA dalam satu journey yang dapat diukur—bukan mengirim calon customer ke profil yang penuh distraksi.",
+    audience: "Untuk UMKM dan brand yang menjalankan campaign Meta, TikTok, Google, influencer, atau peluncuran produk dan membutuhkan destination page khusus.",
+    outcomes: ["Pesan campaign tetap konsisten dari iklan ke halaman.", "Customer mendapat konteks sebelum membuka WhatsApp.", "Klik CTA dan form dapat diukur sebagai conversion.", "Halaman dapat diuji dan dikembangkan untuk campaign berikutnya."],
+    deliverables: ["Campaign discovery", "Copy hierarchy dan objection handling", "Responsive landing page", "WhatsApp atau lead form", "Analytics dan conversion event", "Performance optimization", "Metadata dan indexability sesuai campaign", "Deployment"],
+    proofs: [{ name: "NaikLevel AI", detail: "Landing dan commerce flow untuk produk edukasi AI dengan pembayaran serta konfirmasi.", href: "/work/naiklevel-ai" }, { name: "Shofi Frozen", detail: "Product discovery dan order flow untuk bisnis frozen food.", href: "/work/shofi-frozen" }, { name: "Harga Website", detail: "Bandingkan titik awal paket yang tersedia.", href: "/harga-website" }],
+    faqs: umkmFaqs,
+    startingPrice: "Landing page custom mulai Rp 2,5 juta. Copywriting, foto produk, dan kebutuhan campaign dihitung berdasarkan kesiapan materi.",
+  },
+  "perusahaan/sistem-custom-dashboard": {
+    slug: "perusahaan/sistem-custom-dashboard",
+    title: "Jasa Pembuatan Dashboard dan Sistem Custom Perusahaan",
+    description: "Pengembangan dashboard, portal, dan sistem web custom untuk workflow, data, role pengguna, approval, serta reporting perusahaan.",
+    eyebrow: "SISTEM CUSTOM PERUSAHAAN",
+    hero: "Sistem yang mengikuti workflow bisnis, bukan memaksa bisnis mengikuti template.",
+    intro: "Dashboard dan sistem custom dibangun ketika spreadsheet, chat, dan software umum tidak lagi cukup menangani role, data, approval, serta kebutuhan operasional perusahaan.",
+    audience: "Untuk perusahaan dan organisasi yang membutuhkan portal pelanggan, dashboard operasional, administrasi, booking, reporting, atau integrasi dengan layanan yang sudah digunakan.",
+    outcomes: ["Data dan aktivitas penting lebih terstruktur.", "Role serta permission mengikuti tanggung jawab tim.", "Workflow repetitif dapat dikurangi atau diautomasi.", "Sistem dapat dikembangkan bertahap mengikuti prioritas bisnis."],
+    deliverables: ["Discovery dan workflow mapping", "Requirement serta acceptance criteria", "Architecture dan data model", "Authentication, role, dan permission", "Dashboard serta operational flow", "API dan integrasi", "Security review dan QA", "Deployment, dokumentasi, dan handover"],
+    proofs: [{ name: "StudyShare", detail: "Platform dengan akun, kontribusi materi, kategori, dan discovery content.", href: "/work/studyshare" }, { name: "Masjid Raya Puri Telukjambe", detail: "Platform layanan, jadwal, donasi, livestream, dan booking fasilitas.", href: "/work/masjid-raya-puri-telukjambe" }, { name: "Web Application", detail: "Lihat cakupan umum aplikasi web Hammad Studio.", href: "/services/web-application" }],
+    faqs: companyFaqs,
+    startingPrice: "Dashboard atau web application umumnya mulai Rp 10 juta; sistem bisnis custom mulai Rp 15 juta berdasarkan role, data, workflow, dan integrasi.",
+  },
+  "perusahaan/maintenance-support": {
+    slug: "perusahaan/maintenance-support",
+    title: "Jasa Maintenance Website Perusahaan",
+    description: "Maintenance website perusahaan untuk update teknis, monitoring, backup, perbaikan bug, perubahan konten, dan pengembangan berkelanjutan.",
+    eyebrow: "MAINTENANCE & SUPPORT",
+    hero: "Website perusahaan membutuhkan ownership setelah hari peluncuran.",
+    intro: "Maintenance menjaga website tetap aman, kompatibel, terukur, dan relevan. Scope dukungan dapat mencakup monitoring, dependency update, backup, bug fixing, content update, serta improvement terencana.",
+    audience: "Untuk perusahaan yang membutuhkan PIC teknis jelas, ritme pemeliharaan, dokumentasi, dan response time yang disepakati sesuai tingkat kepentingan website.",
+    outcomes: ["Masalah teknis memiliki jalur eskalasi yang jelas.", "Update dependency dan risiko keamanan dipantau.", "Konten serta improvement tidak menumpuk tanpa owner.", "Perubahan dapat direncanakan dengan scope dan prioritas transparan."],
+    deliverables: ["Technical health check", "Dependency dan security update", "Backup serta recovery review", "Bug fixing berdasarkan prioritas", "Content update allowance", "Performance monitoring", "Monthly activity summary", "SLA sesuai paket dan kebutuhan"],
+    proofs: [{ name: "Solivate", detail: "Website teknologi dengan kebutuhan presentasi layanan yang terus berkembang.", href: "/work/solivate" }, { name: "ADD Logistik", detail: "Website corporate yang menjadi rujukan layanan perusahaan.", href: "/work/add-logistik" }, { name: "Redesign Website", detail: "Audit dan perbaikan menyeluruh untuk website yang sudah tertinggal.", href: "/redesign-website" }],
+    faqs: companyFaqs,
+    startingPrice: "Maintenance disusun berdasarkan response time, frekuensi update, dan kompleksitas stack. Audit awal dilakukan sebelum komitmen dukungan.",
+  },
+} as const satisfies Record<string, ExpansionLanding>;
+
+export const industryLandings = {
+  travel: {
+    slug: "travel",
+    title: "Jasa Website Travel Umrah dan Haji",
+    description: "Website travel Umrah dan Haji yang membangun kepercayaan melalui paket, legal information, edukasi, galeri, konsultasi, dan alur pendaftaran.",
+    eyebrow: "WEBSITE INDUSTRI TRAVEL",
+    hero: "Bangun kepercayaan calon jamaah sebelum percakapan pertama.",
+    intro: "Website travel Umrah dan Haji perlu menyatukan informasi paket, layanan, kredibilitas, edukasi, dokumentasi perjalanan, serta jalur konsultasi dalam pengalaman yang menenangkan dan mudah dipahami.",
+    audience: "Untuk travel Umrah, Haji, dan wisata halal yang ingin memiliki pusat informasi resmi di luar media sosial serta mempermudah journey calon jamaah.",
+    outcomes: ["Paket dan fasilitas lebih mudah dibandingkan.", "Legalitas serta trust signals mendapat ruang yang jelas.", "Artikel dan FAQ membantu menjawab kekhawatiran jamaah.", "Konsultasi dan pendaftaran diarahkan melalui journey yang terukur."],
+    deliverables: ["Paket dan departure information", "Profil, legalitas, dan trust signals", "Galeri serta dokumentasi", "Artikel edukasi dan FAQ", "Konsultasi dan registration flow", "WhatsApp atau lead form", "CMS dan SEO foundation", "Analytics serta conversion tracking"],
+    proofs: [{ name: "Sahabat Qolbu", detail: "Website travel dengan fokus pada trust, paket, konsultasi, dan pendaftaran.", href: "/work/sahabat-qolbu" }, { name: "Nusuk Haromain Indonesia", detail: "Website premium dengan paket, artikel, galeri, dan journey calon jamaah.", href: "/work/nusuk-haromain-indonesia" }, { name: "Company Profile", detail: "Fondasi website perusahaan untuk kredibilitas dan inquiry.", href: "/jasa-website-company-profile" }],
+    faqs: companyFaqs,
+    startingPrice: "Website travel dimulai dari scope company profile; katalog paket, CMS artikel, pendaftaran, dan integrasi disesuaikan kebutuhan operasional.",
+  },
+  "umkm-kuliner": {
+    slug: "umkm-kuliner",
+    title: "Jasa Website UMKM Kuliner dan Frozen Food",
+    description: "Website untuk UMKM kuliner dengan katalog menu atau produk, promo, lokasi, WhatsApp order, dan pengelolaan konten yang sederhana.",
+    eyebrow: "WEBSITE UMKM KULINER",
+    hero: "Buat produk kuliner lebih mudah ditemukan, dipilih, dan dipesan.",
+    intro: "Website kuliner memberi bisnis ruang resmi untuk menyajikan menu, katalog, harga, promo, lokasi, cara penyimpanan, dan alur pemesanan tanpa bergantung pada format media sosial.",
+    audience: "Untuk frozen food, catering, bakery, coffee shop, restoran, dan produsen makanan yang membutuhkan katalog serta jalur order yang lebih rapi.",
+    outcomes: ["Menu dan produk tersusun dalam kategori yang jelas.", "Customer dapat memesan melalui WhatsApp dengan konteks.", "Promo, lokasi, dan informasi bisnis mudah ditemukan.", "Brand memiliki halaman resmi untuk campaign dan pencarian Google."],
+    deliverables: ["Katalog menu atau produk", "Kategori dan pencarian", "Promo dan featured items", "WhatsApp order flow", "Maps dan informasi outlet", "CMS sederhana", "SEO foundation", "Analytics dan tracking order"],
+    proofs: [{ name: "Shofi Frozen", detail: "Storefront frozen food dengan katalog, pencarian, wishlist, promo, cart, dan checkout WhatsApp.", href: "/work/shofi-frozen" }, { name: "Toko Online UMKM", detail: "Lihat cakupan storefront milik brand.", href: "/solusi/umkm/toko-online" }, { name: "Website UMKM", detail: "Fondasi website untuk bisnis lokal dan brand berkembang.", href: "/jasa-website-umkm" }],
+    faqs: umkmFaqs,
+    startingPrice: "Website UMKM kuliner sederhana mulai Rp 2,5 juta; katalog dan commerce flow mulai Rp 5 juta sesuai jumlah produk dan pengelolaan.",
+  },
+  pendidikan: {
+    slug: "pendidikan",
+    title: "Jasa Website dan Platform Pendidikan",
+    description: "Website sekolah, lembaga pendidikan, course, dan platform belajar dengan informasi program, materi, registrasi, akun, serta pengelolaan konten.",
+    eyebrow: "WEBSITE INDUSTRI PENDIDIKAN",
+    hero: "Informasi pendidikan yang jelas, platform belajar yang mudah digunakan.",
+    intro: "Kebutuhan pendidikan dapat dimulai dari website institusi hingga platform dengan akun, materi, kontribusi, registrasi, dan dashboard. Arsitektur dipilih berdasarkan pengguna serta workflow nyata.",
+    audience: "Untuk sekolah, lembaga kursus, komunitas belajar, penyelenggara pelatihan, dan produk edukasi digital.",
+    outcomes: ["Program dan informasi institusi mudah dipahami.", "Materi dapat dikelola dan ditemukan secara terstruktur.", "Registrasi atau pembelian memiliki journey yang jelas.", "Platform dapat berkembang mengikuti role serta kebutuhan belajar."],
+    deliverables: ["Profil institusi dan program", "CMS berita atau materi", "Registrasi dan form", "Akun serta role bila diperlukan", "Search dan content discovery", "Pembayaran untuk produk edukasi", "Analytics dan SEO foundation", "Security review dan handover"],
+    proofs: [{ name: "StudyShare", detail: "Platform kolaboratif dengan akun, catatan, kategori mata pelajaran, dan discovery.", href: "/work/studyshare" }, { name: "NaikLevel AI", detail: "Website produk edukasi AI dengan commerce dan pembayaran manual.", href: "/work/naiklevel-ai" }, { name: "Web Application", detail: "Cakupan aplikasi web untuk role, data, dan workflow.", href: "/services/web-application" }],
+    faqs: companyFaqs,
+    startingPrice: "Website institusi mengikuti scope website; platform dengan akun, data, dan workflow umumnya mulai Rp 10 juta.",
+  },
+} as const satisfies Record<string, ExpansionLanding>;

@@ -3,7 +3,7 @@ type StructuredFAQ = {
   answer: string;
 };
 
-export function createServiceJsonLd(name: string, description: string, path: string, faqs: readonly StructuredFAQ[]) {
+export function createServiceJsonLd(name: string, description: string, path: string, faqs: readonly StructuredFAQ[], areaServedName = "Indonesia") {
   const url = `https://hammad.studio${path}`;
 
   return {
@@ -15,7 +15,7 @@ export function createServiceJsonLd(name: string, description: string, path: str
         name,
         description,
         url,
-        areaServed: { "@type": "Country", name: "Indonesia" },
+        areaServed: areaServedName === "Indonesia" ? { "@type": "Country", name: areaServedName } : { "@type": "City", name: areaServedName },
         provider: { "@id": "https://hammad.studio/#organization" },
       },
       {

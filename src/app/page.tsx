@@ -55,6 +55,17 @@ const organizationJsonLd = {
         contactType: "sales",
         availableLanguage: ["Indonesian", "English"],
       },
+      founder: {
+        "@id": "https://hammad.studio/#hammad-matt",
+      },
+    },
+    {
+      "@type": "Person",
+      "@id": "https://hammad.studio/#hammad-matt",
+      name: "Hammad Matt",
+      jobTitle: "Founder & Lead Engineer",
+      worksFor: { "@id": "https://hammad.studio/#organization" },
+      url: "https://hammad.studio/studio",
     },
     {
       "@type": "WebSite",

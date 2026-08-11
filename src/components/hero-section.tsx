@@ -158,7 +158,6 @@ export function HeroSection() {
               src="/images/work/cpx-jersey.png"
               alt="CPX Jersey homepage hero"
               fill
-              priority
               sizes="(max-width: 640px) 45vw, 430px"
               className="object-cover object-top"
             />
@@ -173,7 +172,6 @@ export function HeroSection() {
               src="/images/work/sahabat-qolbu.png"
               alt="Sahabat Qolbu homepage hero"
               fill
-              priority
               sizes="(max-width: 640px) 45vw, 430px"
               className="object-cover object-top"
             />
