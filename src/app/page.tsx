@@ -6,7 +6,6 @@ import { WhyItMattersSection } from "@/components/why-it-matters-section";
 import { PortfolioSection } from "@/components/portfolio-section";
 import { PricingSection } from "@/components/pricing-section";
 import { ProcessPreviewSection } from "@/components/process-preview-section";
-import { TestimonialSection } from "@/components/testimonial-section";
 import { FAQSection } from "@/components/faq-section";
 
 export default function HomePage() {
@@ -33,12 +32,8 @@ export default function HomePage() {
       {/* 07 PROCESS (Soft Gray, 4 Visual Step Cards) */}
       <ProcessPreviewSection />
 
-      {/* 08 TESTIMONIALS (Soft Gray, Client Proof & Reviews) */}
-      <TestimonialSection />
-
-      {/* 09 FAQ (Off-white, Q&A Cards) */}
+      {/* 08 FAQ (Off-white, Q&A Cards) */}
       <FAQSection />
     </div>
   );
 }
-
