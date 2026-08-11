@@ -41,7 +41,7 @@ export function SEOServicePage({
   deliverables,
   proofs,
   faqs,
-  startingPrice = "Website mulai Rp 2,5 juta. Scope, timeline, dan biaya berulang dijelaskan sebelum project dimulai.",
+  startingPrice = "Website mulai Rp 199 ribu. Scope, timeline, dan biaya berulang dijelaskan sebelum project dimulai.",
   relatedLinks = [],
   primaryCta = { href: "/contact", label: "Konsultasikan kebutuhan" },
   leadMagnet,

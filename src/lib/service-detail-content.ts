@@ -90,10 +90,10 @@ export const serviceDetails: Record<ServiceDetailSlug, ServiceDetail> = {
       },
     ],
     packages: [
-      { name: "Essential", price: "Rp 2,5 juta" },
-      { name: "Business", price: "Rp 4,5 juta" },
-      { name: "Professional", price: "Rp 7,5 juta" },
-      { name: "Custom", price: "Mulai Rp 12 juta" },
+      { name: "Personal Starter", price: "Rp 299 ribu" },
+      { name: "UMKM Starter", price: "Rp 499 ribu" },
+      { name: "UMKM Professional", price: "Rp 1,099 juta+" },
+      { name: "Corporate Website", price: "Rp 2,5 juta+" },
     ],
     pricing: {
       id: "Pilih titik awal yang paling mendekati kebutuhan. Scope final disepakati bersama secara transparan.",
@@ -134,9 +134,9 @@ export const serviceDetails: Record<ServiceDetailSlug, ServiceDetail> = {
     ],
     flow: ["Discover", "Product", "Cart", "Checkout", "Payment", "Order", "Fulfillment"],
     packages: [
-      { name: "Commerce Starter", price: "Rp 5 juta" },
-      { name: "Commerce", price: "Rp 8 juta" },
-      { name: "Commerce Pro", price: "Mulai Rp 12,5 juta" },
+      { name: "E-Commerce Starter", price: "Rp 1,099 juta+" },
+      { name: "E-Commerce Business", price: "Rp 2,499 juta+" },
+      { name: "E-Commerce Pro", price: "Rp 5,499 juta+" },
     ],
     pricing: {
       id: "Marketplace membantu discovery. Website e-commerce memberi Anda kendali penuh atas data dan pengalaman pembeli.",
@@ -182,8 +182,8 @@ export const serviceDetails: Record<ServiceDetailSlug, ServiceDetail> = {
       en: "Web application complexity is shaped by user roles, data architecture, workflows, integrations, and business logic.",
     },
     pricing: {
-      id: "Project web application umumnya mulai Rp 10 juta.",
-      en: "Web application projects typically start at Rp 10 million.",
+      id: "Web application terfokus dapat dimulai dari Business System Rp 2,5 juta+. Scope final mengikuti role, workflow, data, dan integrasi.",
+      en: "Focused web applications can start from the Rp 2.5 million+ Business System package. Final scope follows roles, workflows, data, and integrations.",
     },
   },
   "business-system": {
@@ -222,8 +222,8 @@ export const serviceDetails: Record<ServiceDetailSlug, ServiceDetail> = {
       en: "Enterprise ERP replacements or legacy integrations are evaluated thoroughly prior to project commitment.",
     },
     pricing: {
-      id: "Business system umumnya mulai Rp 15 juta, lalu mengikuti scope.",
-      en: "Business system projects typically start at Rp 15 million, depending on scope.",
+      id: "Business System mulai Rp 2,5 juta+ dan Operational System mulai Rp 5 juta+. Kebutuhan enterprise menggunakan custom quotation.",
+      en: "Business Systems start at Rp 2.5 million+, while Operational Systems start at Rp 5 million+. Enterprise requirements use a custom quotation.",
     },
   },
   "automation-ai": {
@@ -262,8 +262,8 @@ export const serviceDetails: Record<ServiceDetailSlug, ServiceDetail> = {
       en: "WhatsApp API, AI usage, and email provider costs are detailed separately from day one.",
     },
     pricing: {
-      id: "Automation sederhana mulai sekitar Rp 5 juta, bergantung pada channel, API, dan integrasi pihak ketiga.",
-      en: "Simple automation starts around Rp 5 million, depending on channels, APIs, and third-party tools.",
+      id: "Automation dihitung sebagai add-on atau custom scope berdasarkan channel, API, volume penggunaan, dan integrasi pihak ketiga.",
+      en: "Automation is quoted as an add-on or custom scope based on channels, APIs, usage volume, and third-party integrations.",
     },
   },
   "custom-development": {
@@ -300,9 +300,8 @@ export const serviceDetails: Record<ServiceDetailSlug, ServiceDetail> = {
     ],
     flow: ["Discovery", "Scope", "Architecture", "Design & Build", "Testing", "Launch & Handover"],
     pricing: {
-      id: "Project custom umumnya mulai Rp 15 juta, bergantung pada kompleksitas produk.",
-      en: "Custom projects typically start at Rp 15 million, depending on product complexity.",
+      id: "Custom Software menggunakan quotation setelah discovery, module breakdown, workflow, integration, security, infrastructure, dan timeline dipetakan.",
+      en: "Custom Software is quoted after discovery maps the modules, workflows, integrations, security, infrastructure, and timeline.",
     },
   },
 };
-

@@ -24,6 +24,7 @@ export default function WebsiteRedesignPage() {
         deliverables={["Audit konten, UX, performa, dan indexability", "Inventaris URL dan rencana redirect 301", "Information architecture dan content hierarchy baru", "UI/UX responsif berdasarkan brand", "Development dan migrasi konten", "Metadata, canonical, sitemap, dan structured data", "Analytics serta conversion event", "QA dan monitoring pascapeluncuran"]}
         proofs={[{ name: "ADD Logistik", detail: "Presentasi layanan logistik B2B dengan struktur informasi yang lebih jelas.", href: "/work/add-logistik" }, { name: "Solivate", detail: "Website perusahaan teknologi dengan positioning dan pengalaman visual yang diperbarui.", href: "/work/solivate" }, { name: "Sahabat Qolbu", detail: "Website travel yang memusatkan trust, paket, dan journey konsultasi.", href: "/work/sahabat-qolbu" }]}
         faqs={companyFaqs}
+        startingPrice="Redesign dihitung setelah audit website, inventaris URL, kebutuhan migrasi, serta scope baru dipetakan."
         primaryCta={{ href: "/contact", label: "Minta audit dan proposal" }}
         leadMagnet={{ href: "/downloads/checklist-revamp-website-perusahaan.pdf", label: "Unduh checklist PDF" }}
       />

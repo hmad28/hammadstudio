@@ -23,7 +23,7 @@ const content = {
     timeline: { id: "Target timeline", en: "Target timeline" },
   },
   needs: ["Website", "E-Commerce", "Web Application", "Business System", "Automation & AI", "Custom Development", "Belum yakin / Not sure"],
-  budgets: ["Rp 2,5–5 juta", "Rp 5–10 juta", "Rp 10–20 juta", "Rp 20 juta+", "Belum ditentukan / Not decided"],
+  budgets: ["Di bawah Rp 1 juta", "Rp 1–2,5 juta", "Rp 2,5–5 juta", "Rp 5–10 juta", "Rp 10 juta+", "Belum ditentukan / Not decided"],
   timelines: ["Secepatnya / As soon as possible", "1–2 bulan / months", "3–4 bulan / months", "Fleksibel / Flexible"],
   submit: { id: "Kirim project brief", en: "Send project brief" },
   validation: { id: "Lengkapi nama, kontak, jenis kebutuhan, dan cerita singkat project.", en: "Complete your name, contact, project type, and a short project summary." },

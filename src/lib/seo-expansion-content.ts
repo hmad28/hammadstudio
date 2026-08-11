@@ -30,7 +30,7 @@ export const solutionLandings = {
     deliverables: ["Struktur kategori dan katalog produk", "Halaman produk responsif", "Cart atau order via WhatsApp", "Promo dan featured products", "CMS pengelolaan produk", "Analytics dan event order", "SEO foundation untuk kategori utama", "Deployment dan handover"],
     proofs: [{ name: "Shofi Frozen", detail: "Katalog frozen food dengan pencarian, wishlist, promo, cart, dan checkout WhatsApp.", href: "/work/shofi-frozen" }, { name: "CPX Jersey", detail: "Commerce sportswear dengan katalog, cart, custom order, dan integrasi marketplace.", href: "/work/cpx-jersey" }, { name: "Website UMKM", detail: "Lihat fondasi website untuk bisnis kecil dan brand berkembang.", href: "/jasa-website-umkm" }],
     faqs: umkmFaqs,
-    startingPrice: "Website katalog dan commerce sederhana mulai Rp 5 juta. Payment gateway, shipping, dan integrasi lain dihitung sesuai scope.",
+    startingPrice: "E-Commerce Starter mulai Rp 1,099 juta+ untuk pembayaran manual. Payment gateway dan pelacakan otomatis tersedia mulai E-Commerce Business Rp 2,499 juta+.",
   },
   "umkm/landing-page-produk": {
     slug: "umkm/landing-page-produk",
@@ -44,7 +44,7 @@ export const solutionLandings = {
     deliverables: ["Campaign discovery", "Copy hierarchy dan objection handling", "Responsive landing page", "WhatsApp atau lead form", "Analytics dan conversion event", "Performance optimization", "Metadata dan indexability sesuai campaign", "Deployment"],
     proofs: [{ name: "NaikLevel AI", detail: "Landing dan commerce flow untuk produk edukasi AI dengan pembayaran serta konfirmasi.", href: "/work/naiklevel-ai" }, { name: "Shofi Frozen", detail: "Product discovery dan order flow untuk bisnis frozen food.", href: "/work/shofi-frozen" }, { name: "Harga Website", detail: "Bandingkan titik awal paket yang tersedia.", href: "/harga-website" }],
     faqs: umkmFaqs,
-    startingPrice: "Landing page custom mulai Rp 2,5 juta. Copywriting, foto produk, dan kebutuhan campaign dihitung berdasarkan kesiapan materi.",
+    startingPrice: "Landing page UMKM mulai Rp 499 ribu. Copywriting, foto produk, dan kebutuhan campaign dihitung berdasarkan kesiapan materi.",
   },
   "perusahaan/sistem-custom-dashboard": {
     slug: "perusahaan/sistem-custom-dashboard",
@@ -58,7 +58,7 @@ export const solutionLandings = {
     deliverables: ["Discovery dan workflow mapping", "Requirement serta acceptance criteria", "Architecture dan data model", "Authentication, role, dan permission", "Dashboard serta operational flow", "API dan integrasi", "Security review dan QA", "Deployment, dokumentasi, dan handover"],
     proofs: [{ name: "StudyShare", detail: "Platform dengan akun, kontribusi materi, kategori, dan discovery content.", href: "/work/studyshare" }, { name: "Masjid Raya Puri Telukjambe", detail: "Platform layanan, jadwal, donasi, livestream, dan booking fasilitas.", href: "/work/masjid-raya-puri-telukjambe" }, { name: "Web Application", detail: "Lihat cakupan umum aplikasi web Hammad Studio.", href: "/services/web-application" }],
     faqs: companyFaqs,
-    startingPrice: "Dashboard atau web application umumnya mulai Rp 10 juta; sistem bisnis custom mulai Rp 15 juta berdasarkan role, data, workflow, dan integrasi.",
+    startingPrice: "Business System mulai Rp 2,5 juta+; Operational System mulai Rp 5 juta+. Estimasi mengikuti role, data, workflow, dan integrasi.",
   },
   "perusahaan/maintenance-support": {
     slug: "perusahaan/maintenance-support",
@@ -103,7 +103,7 @@ export const industryLandings = {
     deliverables: ["Katalog menu atau produk", "Kategori dan pencarian", "Promo dan featured items", "WhatsApp order flow", "Maps dan informasi outlet", "CMS sederhana", "SEO foundation", "Analytics dan tracking order"],
     proofs: [{ name: "Shofi Frozen", detail: "Storefront frozen food dengan katalog, pencarian, wishlist, promo, cart, dan checkout WhatsApp.", href: "/work/shofi-frozen" }, { name: "Toko Online UMKM", detail: "Lihat cakupan storefront milik brand.", href: "/solusi/umkm/toko-online" }, { name: "Website UMKM", detail: "Fondasi website untuk bisnis lokal dan brand berkembang.", href: "/jasa-website-umkm" }],
     faqs: umkmFaqs,
-    startingPrice: "Website UMKM kuliner sederhana mulai Rp 2,5 juta; katalog dan commerce flow mulai Rp 5 juta sesuai jumlah produk dan pengelolaan.",
+    startingPrice: "Website UMKM kuliner mulai Rp 499 ribu; E-Commerce Starter mulai Rp 1,099 juta+ sesuai jumlah produk dan kebutuhan pengelolaan.",
   },
   pendidikan: {
     slug: "pendidikan",
@@ -117,7 +117,7 @@ export const industryLandings = {
     deliverables: ["Profil institusi dan program", "CMS berita atau materi", "Registrasi dan form", "Akun serta role bila diperlukan", "Search dan content discovery", "Pembayaran untuk produk edukasi", "Analytics dan SEO foundation", "Security review dan handover"],
     proofs: [{ name: "StudyShare", detail: "Platform kolaboratif dengan akun, catatan, kategori mata pelajaran, dan discovery.", href: "/work/studyshare" }, { name: "NaikLevel AI", detail: "Website produk edukasi AI dengan commerce dan pembayaran manual.", href: "/work/naiklevel-ai" }, { name: "Web Application", detail: "Cakupan aplikasi web untuk role, data, dan workflow.", href: "/services/web-application" }],
     faqs: companyFaqs,
-    startingPrice: "Website institusi mengikuti scope website; platform dengan akun, data, dan workflow umumnya mulai Rp 10 juta.",
+    startingPrice: "Institution Profile mulai Rp 499 ribu+ dan Institution Pro dengan CMS mulai Rp 799 ribu+. Sistem dengan akun, data, dan workflow mengikuti paket Business System.",
   },
   fashion: {
     slug: "fashion",

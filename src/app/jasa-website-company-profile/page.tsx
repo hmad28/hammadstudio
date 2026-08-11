@@ -24,6 +24,7 @@ export default function CompanyProfileWebsitePage() {
         deliverables={sharedDeliverables}
         proofs={[proofProjects[1], { name: "Buraq Logistik", detail: "Website corporate untuk layanan trucking, distribusi, dan cakupan operasional.", href: "/work/buraq-logistik" }, { name: "Solivate", detail: "Website perusahaan teknologi dengan struktur layanan dan positioning yang jelas.", href: "/work/solivate" }]}
         faqs={companyFaqs}
+        startingPrice="Corporate Website mulai Rp 2,5 juta+. CMS, multilingual, document center, dan integrasi mengikuti scope."
         relatedLinks={[{ href: "/redesign-website", label: "Redesign Website", description: "Revamp struktur, desain, performa, dan SEO website perusahaan lama." }, { href: "/solusi/perusahaan/maintenance-support", label: "Maintenance & Support", description: "Ownership teknis setelah website diluncurkan." }, { href: "/solusi/perusahaan/sistem-custom-dashboard", label: "Dashboard Custom", description: "Portal dan sistem untuk workflow perusahaan yang lebih spesifik." }]}
         primaryCta={{ href: "/contact", label: "Minta proposal" }}
         leadMagnet={{ href: "/downloads/checklist-revamp-website-perusahaan.pdf", label: "Unduh checklist PDF" }}

@@ -1,9 +1,10 @@
 import { PricingPageContent } from "@/components/pricing-page-content";
+import { pricingPlans } from "@/lib/pricing-catalog";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
-  title: "Harga Pembuatan Website dan Sistem Digital",
-  description: "Lihat estimasi harga pembuatan website untuk UMKM, company profile, e-commerce, aplikasi web, dan sistem custom dengan scope yang transparan.",
+  title: "Harga Pembuatan Website 2026 Mulai Rp199 Ribu",
+  description: "Price list Hammad Studio 2026 untuk website personal, UMKM, company profile, e-commerce, event, business system, pemerintah, dan software custom.",
   path: "/harga-website",
 });
 
@@ -18,13 +19,17 @@ export default function WebsitePricingPage() {
     areaServed: { "@type": "Country", name: "Indonesia" },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Paket Website",
-      itemListElement: [
-        { "@type": "Offer", name: "Essential", price: "2500000", priceCurrency: "IDR" },
-        { "@type": "Offer", name: "Business", price: "4500000", priceCurrency: "IDR" },
-        { "@type": "Offer", name: "Professional", price: "7500000", priceCurrency: "IDR" },
-        { "@type": "Offer", name: "Corporate / Custom", price: "12000000", priceCurrency: "IDR", description: "Harga mulai dari Rp 12 juta" },
-      ],
+      name: "Price List Hammad Studio 2026",
+      itemListElement: pricingPlans.map((plan) => {
+        const numericPrice = plan.price.match(/[\d.]+/)?.[0].replaceAll(".", "");
+        return {
+          "@type": "Offer",
+          name: plan.name,
+          ...(numericPrice ? { price: numericPrice, priceCurrency: "IDR" } : {}),
+          description: `${plan.summary} Harga: ${plan.price}.`,
+          url: `https://hammad.studio/harga-website#plan-${plan.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`,
+        };
+      }),
     },
   };
 
