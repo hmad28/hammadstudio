@@ -42,7 +42,12 @@ export function Navbar() {
             : "bg-[#090a12]/68 backdrop-blur-xl"
         }`}
       >
-        <Link href="/" aria-label="HAMMAD.STUDIO home"><HammadStudioLogo /></Link>
+        <Link href="/" aria-label="HAMMAD.STUDIO home">
+          <HammadStudioLogo
+            priority
+            className="h-auto w-[122px] sm:w-[150px]"
+          />
+        </Link>
         <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-7 text-xs font-medium text-white/70 lg:flex" aria-label="Primary navigation">
           {navItems.map((item) => {
             const active = pathname === item.href || pathname.startsWith(`${item.href}/`);

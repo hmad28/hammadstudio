@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { homeContent } from "@/lib/home-content";
-import { ArrowUpRightIcon, HammadStudioLogo } from "./icons";
+import { ArrowUpRightIcon, HammadStudioLogo, InstagramIcon } from "./icons";
 import { useLocale } from "./locale-provider";
 import { MotionReveal } from "./motion-reveal";
 
@@ -60,7 +60,9 @@ export function CTAFooter() {
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
             {/* Col 1: Brand & Availability */}
             <div className="lg:col-span-4">
-              <Link href="/"><HammadStudioLogo /></Link>
+              <Link href="/" aria-label="HAMMAD.STUDIO home">
+                <HammadStudioLogo className="h-auto w-[184px]" />
+              </Link>
               <p className="mt-4 max-w-[340px] text-xs leading-[1.65] text-white/60 sm:text-sm">
                 {copy.description[locale]}
               </p>
@@ -101,6 +103,15 @@ export function CTAFooter() {
               >
                 hello@hammad.studio
               </a>
+              <a
+                href="https://www.instagram.com/hammad.biz/"
+                target="_blank"
+                rel="noreferrer"
+                className="mt-4 flex items-center gap-2 text-sm text-white/68 transition-colors hover:text-[#d2f34c] lg:justify-end"
+              >
+                <InstagramIcon className="h-4 w-4" />
+                @hammad.biz
+              </a>
               <p className="mt-2 text-xs text-white/60">Depok &amp; Jakarta, Indonesia</p>
               <p className="mt-1 text-xs text-white/45">Global Remote Services</p>
             </div>
@@ -123,5 +134,4 @@ export function CTAFooter() {
     </footer>
   );
 }
-
 

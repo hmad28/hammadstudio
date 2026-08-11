@@ -10,53 +10,80 @@ import { MotionReveal } from "./motion-reveal";
 const copy = {
   label: { id: "Selected Projects", en: "Selected Projects" },
   title: {
-    id: "Project pilihan, dibangun untuk kebutuhan nyata.",
-    en: "Selected projects, built for real needs.",
+    id: "Karya digital untuk kebutuhan nyata.",
+    en: "Digital work for real needs.",
   },
   intro: {
-    id: "Website, platform, dan sistem digital untuk organisasi, komunitas, serta bisnis dari berbagai industri.",
-    en: "Websites, platforms, and digital systems for organisations, communities, and businesses across industries.",
+    id: "Website, platform, dan sistem yang dirancang untuk bisnis, komunitas, dan organisasi dari berbagai industri.",
+    en: "Websites, platforms, and systems designed for businesses, communities, and organisations across industries.",
   },
+  view: { id: "Lihat studi kasus", en: "View case study" },
 } as const;
+
+const projectLayouts = [
+  {
+    wrapper: "md:col-span-7",
+    image: "aspect-[4/3] sm:aspect-[16/11]",
+    title: "text-[clamp(2.15rem,4vw,4rem)]",
+  },
+  {
+    wrapper: "md:col-span-5 md:pt-24",
+    image: "aspect-[4/3] sm:aspect-[5/4]",
+    title: "text-[clamp(2rem,3.2vw,3.15rem)]",
+  },
+  {
+    wrapper: "md:col-span-5",
+    image: "aspect-[4/3] sm:aspect-[5/4]",
+    title: "text-[clamp(2rem,3.2vw,3.15rem)]",
+  },
+  {
+    wrapper: "md:col-span-7 md:pt-24",
+    image: "aspect-[4/3] sm:aspect-[16/11]",
+    title: "text-[clamp(2.15rem,4vw,4rem)]",
+  },
+  {
+    wrapper: "md:col-span-7",
+    image: "aspect-[4/3] sm:aspect-[16/11]",
+    title: "text-[clamp(2.15rem,4vw,4rem)]",
+  },
+  {
+    wrapper: "md:col-span-5 md:pt-24",
+    image: "aspect-[4/3] sm:aspect-[5/4]",
+    title: "text-[clamp(2rem,3.2vw,3.15rem)]",
+  },
+  {
+    wrapper: "md:col-span-12",
+    image: "aspect-[4/3] sm:aspect-[2/1]",
+    title: "text-[clamp(2.5rem,5.2vw,5.5rem)]",
+  },
+] as const;
 
 export function WorkPageContent() {
   const { locale } = useLocale();
 
   return (
-    <div className="work-surface-v2 min-h-screen pb-28 pt-36 text-white sm:pb-36 sm:pt-44">
-      {/* Background Ambient Purple/Indigo Glow */}
-      <div
-        className="pointer-events-none absolute left-1/2 top-1/4 -z-0 h-[600px] w-[900px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(91,55,213,0.35)_0%,rgba(40,100,255,0.2)_50%,transparent_70%)] blur-3xl"
-        aria-hidden="true"
-      />
-
-      <div className="site-container relative z-10">
-        <MotionReveal className="grid gap-8 pb-14 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:items-end">
-          <div>
-            <span className="label-mono acid-glow-badge inline-block rounded-full px-3.5 py-1 text-[0.68rem]">
-              {copy.label[locale]}
-            </span>
-            <h1 className="mt-5 max-w-[820px] text-[clamp(3.7rem,7vw,7rem)] font-[520] leading-[0.88] tracking-[-0.068em] text-white">
-              {copy.title[locale]}
-            </h1>
-          </div>
-          <p className="body-copy max-w-[540px] text-white/60 lg:ml-auto">
+    <main className="work-surface-v2 min-h-[100dvh] overflow-hidden pb-28 pt-28 text-white sm:pb-36 sm:pt-32 lg:pt-36">
+      <div className="site-container">
+        <MotionReveal className="max-w-[940px] pb-20 sm:pb-28 lg:pb-36">
+          <span className="label-mono text-[#d2f34c]">{copy.label[locale]}</span>
+          <h1 className="mt-6 text-[clamp(3.35rem,7.2vw,7.25rem)] font-[520] leading-[0.88] tracking-[-0.072em] text-[#f8f8f5] text-balance">
+            {copy.title[locale]}
+          </h1>
+          <p className="body-copy mt-7 max-w-[630px] text-white/62">
             {copy.intro[locale]}
           </p>
         </MotionReveal>
 
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-x-6 gap-y-24 md:grid-cols-12 md:gap-y-32 lg:gap-x-10 lg:gap-y-40">
           {selectedWorkSlugs.map((slug, index) => {
             const project = workProjects[slug];
+            const layout = projectLayouts[index];
+
             return (
               <MotionReveal
                 key={slug}
-                className={
-                  index === selectedWorkSlugs.length - 1
-                    ? "md:col-span-2"
-                    : undefined
-                }
-                delay={index * 0.04}
+                className={layout.wrapper}
+                delay={index % 2 === 0 ? 0 : 0.06}
               >
                 <ProjectCard
                   slug={slug}
@@ -64,17 +91,18 @@ export function WorkPageContent() {
                   image={project.image}
                   category={project.category[locale]}
                   year={project.year}
-                  label={String(index + 1).padStart(2, "0")}
                   description={project.overview[locale]}
-                  featured={index === selectedWorkSlugs.length - 1}
+                  imageClassName={layout.image}
+                  titleClassName={layout.title}
                   priority={index === 0}
+                  viewLabel={copy.view[locale]}
                 />
               </MotionReveal>
             );
           })}
         </div>
       </div>
-    </div>
+    </main>
   );
 }
 
@@ -84,73 +112,69 @@ function ProjectCard({
   image,
   category,
   year,
-  label,
   description,
-  featured = false,
-  priority = false,
+  imageClassName,
+  titleClassName,
+  priority,
+  viewLabel,
 }: {
   slug: string;
   title: string;
   image: string | null;
   category: string;
   year: string;
-  label: string;
   description: string;
-  featured?: boolean;
-  priority?: boolean;
+  imageClassName: string;
+  titleClassName: string;
+  priority: boolean;
+  viewLabel: string;
 }) {
   return (
-    <Link href={`/work/${slug}`} className="group block">
-      <div
-        className={`luxury-dark-card relative overflow-hidden rounded-2xl p-1.5 shadow-[0_35px_90px_rgba(0,0,0,0.7)] transition-all duration-500 hover:border-[#d2f34c]/45 ${
-          featured ? "aspect-[4/3] sm:aspect-[2/1]" : "aspect-[4/3]"
-        }`}
-      >
-        <div className="relative h-full w-full overflow-hidden rounded-xl">
+    <Link
+      href={`/work/${slug}`}
+      aria-label={`${viewLabel}: ${title}`}
+      className="group block rounded-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-[#d2f34c] active:translate-y-px"
+    >
+      <article>
+        <div
+          className={`${imageClassName} relative overflow-hidden rounded-2xl border border-white/12 bg-[#111217] shadow-[0_24px_70px_rgba(3,5,12,0.38)] transition-[border-color,transform,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-1 group-hover:border-[#d2f34c]/48 group-hover:shadow-[0_34px_90px_rgba(3,5,12,0.5)]`}
+        >
           {image ? (
             <Image
               src={image}
               alt={`${title} homepage hero`}
               fill
               priority={priority}
-              sizes={
-                featured
-                  ? "(max-width: 1240px) 100vw, 1240px"
-                  : "(max-width: 768px) 100vw, 600px"
-              }
-              className="object-cover object-top transition-transform duration-[1200ms] ease-out group-hover:scale-[1.03]"
+              sizes="(max-width: 767px) 100vw, (max-width: 1279px) 58vw, 720px"
+              className="object-cover object-top transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.018]"
             />
           ) : (
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(148,110,255,0.28),transparent_30%),linear-gradient(135deg,#171027,#070a12_72%)]" />
+            <div className="absolute inset-0 bg-[#111217]" />
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#070a12] via-[#070a12]/30 to-transparent opacity-85 transition-opacity duration-500 group-hover:opacity-95" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#070a12]/22 via-transparent to-white/[0.035]" />
+        </div>
 
-          {/* Category Badge Pill */}
-          <span className="purple-glow-badge absolute left-5 top-5 inline-block rounded-full px-3.5 py-1 text-[0.65rem] font-bold backdrop-blur-md">
-            {label} · {category}
-          </span>
+        <div className="mt-6 grid gap-5 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start">
+          <div>
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 font-mono text-[0.68rem] font-semibold uppercase tracking-[0.1em] text-white/48">
+              <span>{category}</span>
+              <span className="text-white/72">{year}</span>
+            </div>
+            <h2
+              className={`${titleClassName} mt-3 font-[520] leading-[0.94] tracking-[-0.055em] text-[#f8f8f5] transition-colors duration-300 group-hover:text-[#d2f34c]`}
+            >
+              {title}
+            </h2>
+            <p className="mt-4 max-w-[680px] text-sm leading-7 text-white/56 sm:text-base">
+              {description}
+            </p>
+          </div>
 
-          {/* Action Button */}
-          <span className="acid-button absolute right-5 top-5 flex h-11 w-11 items-center justify-center rounded-full text-black shadow-xl transition-transform duration-500 group-hover:scale-110">
+          <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-white/18 text-white transition-[background-color,border-color,color,transform] duration-300 group-hover:rotate-45 group-hover:border-[#d2f34c] group-hover:bg-[#d2f34c] group-hover:text-[#070a12] sm:mt-1">
             <ArrowUpRightIcon className="h-4 w-4" />
           </span>
-
-          {/* Bottom Title */}
-          <div className="absolute inset-x-6 bottom-6 flex items-end justify-between text-white sm:inset-x-8 sm:bottom-8">
-            <div>
-              <span className="text-xs font-mono text-white/50">{year}</span>
-              <h2
-                className={`${featured ? "text-[clamp(2.2rem,4.5vw,4.2rem)]" : "text-[clamp(1.8rem,3vw,2.8rem)]"} mt-1 font-[520] leading-none tracking-[-0.05em] text-white`}
-              >
-                {title}
-              </h2>
-              <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/65 sm:text-base">
-                {description}
-              </p>
-            </div>
-          </div>
         </div>
-      </div>
+      </article>
     </Link>
   );
 }

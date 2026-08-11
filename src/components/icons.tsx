@@ -1,10 +1,23 @@
 import React from "react";
+import Image from "next/image";
 
-export function HammadStudioLogo({ className = "h-auto" }: { className?: string }) {
+export function HammadStudioLogo({
+  className = "h-auto w-[138px]",
+  priority = false,
+}: {
+  className?: string;
+  priority?: boolean;
+}) {
   return (
-    <span className={`text-[0.72rem] font-semibold tracking-[0.22em] text-white uppercase select-none sm:text-xs ${className}`}>
-      HAMMAD<span className="text-[#8e8e8a] font-medium">.STUDIO</span>
-    </span>
+    <Image
+      src="/images/brand/hammad-studio-logo.png"
+      alt="HAMMAD.STUDIO"
+      width={6363}
+      height={1666}
+      priority={priority}
+      unoptimized
+      className={`select-none object-contain ${className}`}
+    />
   );
 }
 
@@ -188,4 +201,3 @@ export function QuoteIcon({ className = "w-6 h-6" }: { className?: string }) {
     </svg>
   );
 }
-
