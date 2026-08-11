@@ -8,6 +8,7 @@ import { PortfolioSection } from "@/components/portfolio-section";
 import { PricingSection } from "@/components/pricing-section";
 import { ProcessPreviewSection } from "@/components/process-preview-section";
 import { FAQSection } from "@/components/faq-section";
+import { AudiencePathsSection } from "@/components/audience-paths-section";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -17,7 +18,7 @@ const organizationJsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
+      "@type": ["Organization", "ProfessionalService"],
       "@id": "https://hammad.studio/#organization",
       name: "HAMMAD.STUDIO",
       alternateName: "Hammad Studio",
@@ -29,6 +30,7 @@ const organizationJsonLd = {
         height: 1666,
       },
       email: "hello@hammad.studio",
+      telephone: "+62-878-8836-2186",
       description:
         "Studio pengembangan digital untuk website, e-commerce, aplikasi web, automation, dan sistem bisnis custom.",
       areaServed: {
@@ -47,6 +49,12 @@ const organizationJsonLd = {
         "https://www.instagram.com/hammad.biz/",
         "https://www.facebook.com/itshammadstudio",
       ],
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: "+62-878-8836-2186",
+        contactType: "sales",
+        availableLanguage: ["Indonesian", "English"],
+      },
     },
     {
       "@type": "WebSite",
@@ -79,6 +87,8 @@ export default function HomePage() {
 
       {/* 03 SERVICES (Off-white, 2x3 Grid with Icons) */}
       <ServicesSection />
+
+      <AudiencePathsSection />
 
       {/* 04 WHY IT MATTERS (Soft Gray, Split Value & Benefit Cards) */}
       <WhyItMattersSection />

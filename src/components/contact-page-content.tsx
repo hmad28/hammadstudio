@@ -4,6 +4,7 @@ import { cloneElement, FormEvent, useState } from "react";
 import { ArrowUpRightIcon } from "./icons";
 import { useLocale } from "./locale-provider";
 import { MotionReveal } from "./motion-reveal";
+import { trackConversion } from "@/lib/analytics";
 
 const whatsappNumber = "6287888362186";
 
@@ -74,6 +75,7 @@ export function ContactPageContent() {
       form.project,
     ].join("\n");
 
+    trackConversion("generate_lead", { channel: "whatsapp_form", project_type: form.need });
     window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
   }
 
@@ -114,6 +116,7 @@ export function ContactPageContent() {
                 <p className="text-xs text-[#6d7180] font-mono">{content.direct[locale]}</p>
                 <a
                   href={`https://wa.me/${whatsappNumber}`}
+                  onClick={() => trackConversion("whatsapp_click", { placement: "contact_sidebar" })}
                   target="_blank"
                   rel="noreferrer"
                   className="group mt-3 inline-flex items-center gap-2 border-b-2 border-[#8057ff] pb-1 text-sm font-bold text-[#8057ff]"
@@ -176,6 +179,7 @@ export function ContactPageContent() {
                 <p className="text-sm text-[#6d7180]">{content.direct[locale]}</p>
                 <a
                   href={`https://wa.me/${whatsappNumber}`}
+                  onClick={() => trackConversion("whatsapp_click", { placement: "contact_mobile" })}
                   target="_blank"
                   rel="noreferrer"
                   className="group mt-3 inline-flex items-center gap-2 border-b-2 border-[#8057ff] pb-1 text-sm font-bold text-[#8057ff]"

@@ -20,10 +20,20 @@ const labels = {
   visit: { id: "Kunjungi website", en: "Visit website" },
 } as const;
 
+const relatedServiceBySlug: Partial<Record<WorkSlug, { href: string; label: string }>> = {
+  "shofi-frozen": { href: "/jasa-website-umkm", label: "Jasa website untuk UMKM" },
+  "cpx-jersey": { href: "/jasa-website-umkm", label: "Jasa website untuk UMKM" },
+  "add-logistik": { href: "/industri/logistik", label: "Website untuk perusahaan logistik" },
+  "buraq-logistik": { href: "/industri/logistik", label: "Website untuk perusahaan logistik" },
+  "sahabat-qolbu": { href: "/jasa-website-company-profile", label: "Jasa website company profile" },
+  "solivate": { href: "/jasa-website-company-profile", label: "Jasa website company profile" },
+};
+
 export function ProjectDetailPage({ slug }: { slug: WorkSlug }) {
   const { locale } = useLocale();
   const project = workProjects[slug];
   const nextProject = workProjects[project.next];
+  const relatedService = relatedServiceBySlug[slug] ?? { href: "/jasa-pembuatan-website", label: "Jasa pembuatan website" };
 
   return (
     <article className="bg-[#f7f5ef] text-[#17181d]">
@@ -147,6 +157,20 @@ export function ProjectDetailPage({ slug }: { slug: WorkSlug }) {
               ))}
             </div>
           </MotionReveal>
+        </div>
+      </section>
+
+      <section className="border-t border-black/10 bg-[#ebe9e2] py-20 sm:py-28">
+        <div className="site-container grid gap-10 lg:grid-cols-12">
+          <div className="lg:col-span-3">
+            <span className="label-mono font-semibold text-[#8057ff]">{labels.outcome[locale]}</span>
+          </div>
+          <div className="lg:col-span-9">
+            <p className="max-w-[900px] text-[clamp(2rem,4vw,4rem)] font-[500] leading-[1.04] tracking-[-0.05em]">{project.outcome[locale]}</p>
+            <Link href={relatedService.href} className="group mt-8 inline-flex items-center gap-2 border-b border-black/30 pb-1 text-sm font-semibold">
+              {relatedService.label} <ArrowUpRightIcon className="button-arrow h-4 w-4" />
+            </Link>
+          </div>
         </div>
       </section>
 

@@ -109,9 +109,10 @@ export function CTAFooter() {
               <nav className="mt-5 grid grid-cols-2 gap-x-8 gap-y-3 text-sm text-white/72" aria-label="Footer navigation">
                 <Link href="/services" className="transition hover:text-[#f2efff]">{nav.services[locale]}</Link>
                 <Link href="/work" className="transition hover:text-[#f2efff]">{nav.work[locale]}</Link>
-                <Link href="/pricing" className="transition hover:text-[#f2efff]">{nav.pricing[locale]}</Link>
+                <Link href="/harga-website" className="transition hover:text-[#f2efff]">{nav.pricing[locale]}</Link>
                 <Link href="/studio" className="transition hover:text-[#f2efff]">{nav.studio[locale]}</Link>
                 <Link href="/contact" className="transition hover:text-[#f2efff]">Contact</Link>
+                <Link href="/insight" className="transition hover:text-[#f2efff]">Insight</Link>
               </nav>
             </div>
 
@@ -121,6 +122,8 @@ export function CTAFooter() {
                 <Link href="/jasa-pembuatan-website" className="transition hover:text-[#f2efff]">Jasa Pembuatan Website</Link>
                 <Link href="/jasa-website-umkm" className="transition hover:text-[#f2efff]">Website UMKM</Link>
                 <Link href="/jasa-website-company-profile" className="transition hover:text-[#f2efff]">Company Profile</Link>
+                <Link href="/redesign-website" className="transition hover:text-[#f2efff]">Redesign Website</Link>
+                <Link href="/industri/logistik" className="transition hover:text-[#f2efff]">Website Logistik</Link>
                 <Link href="/services/e-commerce" className="transition hover:text-[#f2efff]">E-Commerce</Link>
                 <Link href="/services/web-application" className="transition hover:text-[#f2efff]">Web Application</Link>
                 <Link href="/services/custom-development" className="transition hover:text-[#f2efff]">Custom Dev</Link>

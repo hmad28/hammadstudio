@@ -2,9 +2,9 @@ import { WorkPageContent } from "@/components/work-page-content";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
-  title: "Karya Digital dan Studi Kasus",
+  title: "Portfolio dan Studi Kasus Website",
   description:
-    "Portofolio website, e-commerce, platform komunitas, dan sistem bisnis yang dirancang dan dibangun oleh Hammad Studio.",
+    "Lihat studi kasus website UMKM, company profile, logistik, travel, e-commerce, dan platform digital yang dirancang Hammad Studio.",
   path: "/work",
 });
 

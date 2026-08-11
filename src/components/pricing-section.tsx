@@ -48,7 +48,7 @@ export function PricingSection() {
             return (
               <MotionReveal key={item.title[locale]} delay={index * 0.04}>
                 <Link
-                  href="/pricing"
+                  href="/harga-website"
                   className={`group relative flex flex-col overflow-hidden rounded-2xl p-7 transition duration-300 hover:-translate-y-1 ${cardStyle}`}
                 >
                   {isDarkCustom && (
@@ -88,7 +88,7 @@ export function PricingSection() {
         <div className="mt-8 flex flex-col gap-4 border-t border-black/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-xs text-black/60 sm:text-sm">{copy.note[locale]}</p>
           <Link
-            href="/pricing"
+            href="/harga-website"
             className="acid-button group inline-flex items-center gap-2 rounded-full px-6 py-3 text-xs font-semibold text-black"
           >
             {copy.all[locale]} <ArrowUpRightIcon className="button-arrow h-4 w-4" />
@@ -98,5 +98,4 @@ export function PricingSection() {
     </section>
   );
 }
-
 

@@ -15,7 +15,7 @@ import { useLocale } from "./locale-provider";
 import { MotionReveal } from "./motion-reveal";
 
 const slugs = [
-  "website",
+  "jasa-pembuatan-website",
   "e-commerce",
   "web-application",
   "business-system",
@@ -87,7 +87,7 @@ export function ServicesSection() {
             return (
               <MotionReveal key={item.number} delay={(index % 3) * 0.05}>
                 <Link
-                  href={`/services/${slugs[index]}`}
+                  href={index === 0 ? `/${slugs[index]}` : `/services/${slugs[index]}`}
                   className={`surface-card group relative flex min-h-[300px] flex-col overflow-hidden rounded-2xl border border-[#dde0e7] bg-white p-7 transition duration-300 hover:-translate-y-1 hover:shadow-[0_25px_60px_rgba(7,10,18,0.08)] sm:p-8 ${hoverClass}`}
                 >
                   <div className="flex items-center justify-between">
@@ -117,5 +117,4 @@ export function ServicesSection() {
     </section>
   );
 }
-
 

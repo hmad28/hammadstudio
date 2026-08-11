@@ -17,6 +17,14 @@ export const selectedWorkSlugs = [
   "solivate",
 ] as const;
 
+export const priorityCaseStudySlugs = [
+  "shofi-frozen",
+  "add-logistik",
+  "sahabat-qolbu",
+  "buraq-logistik",
+  "cpx-jersey",
+] as const;
+
 export const workSlugs = [...featuredWorkSlugs, ...selectedWorkSlugs] as const;
 export type WorkSlug = (typeof workSlugs)[number];
 

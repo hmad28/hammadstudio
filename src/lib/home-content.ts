@@ -10,7 +10,7 @@ export const homeContent = {
   },
   hero: {
     eyebrow: {
-      id: "Studio digital independen",
+      id: "Jasa pembuatan website profesional",
       en: "Independent digital studio",
     },
     availability: {
@@ -18,11 +18,11 @@ export const homeContent = {
       en: "Available for select projects",
     },
     location: { id: "Indonesia & remote", en: "Indonesia & remote" },
-    lineOne: { id: "Produk digital,", en: "Digital products," },
-    accent: { id: "dibangun dengan", en: "built the" },
-    lineTwo: { id: "cara yang benar.", en: "right way." },
+    lineOne: { id: "Website profesional", en: "Professional websites" },
+    accent: { id: "untuk bisnis yang", en: "for businesses ready" },
+    lineTwo: { id: "ingin berkembang.", en: "to grow." },
     description: {
-      id: "Kami membangun website, e-commerce, aplikasi, dan sistem digital custom yang membantu bisnis tampil lebih meyakinkan, bekerja lebih rapi, dan berkembang lebih jauh.",
+      id: "Hammad Studio membantu UMKM dan perusahaan membangun website, company profile, e-commerce, hingga sistem digital custom yang dirancang sesuai kebutuhan bisnis.",
       en: "We build websites, e-commerce, applications, and custom digital systems that help businesses present credibly, operate smoothly, and scale further.",
     },
     primary: { id: "Mulai project", en: "Start a project" },

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { selectedWorkSlugs, workProjects } from "@/lib/work-content";
+import { priorityCaseStudySlugs, selectedWorkSlugs, workProjects } from "@/lib/work-content";
 import { ArrowUpRightIcon } from "./icons";
 import { useLocale } from "./locale-provider";
 import { MotionReveal } from "./motion-reveal";
@@ -60,6 +60,10 @@ const projectLayouts = [
 
 export function WorkPageContent() {
   const { locale } = useLocale();
+  const orderedSlugs = [
+    ...priorityCaseStudySlugs,
+    ...selectedWorkSlugs.filter((slug) => !(priorityCaseStudySlugs as readonly string[]).includes(slug)),
+  ];
 
   return (
     <main className="work-surface-v2 min-h-[100dvh] overflow-hidden pb-28 pt-28 text-white sm:pb-36 sm:pt-32 lg:pt-36">
@@ -75,9 +79,9 @@ export function WorkPageContent() {
         </MotionReveal>
 
         <div className="grid gap-x-6 gap-y-24 md:grid-cols-12 md:gap-y-32 lg:gap-x-10 lg:gap-y-40">
-          {selectedWorkSlugs.map((slug, index) => {
+          {orderedSlugs.map((slug, index) => {
             const project = workProjects[slug];
-            const layout = projectLayouts[index];
+            const layout = projectLayouts[index % projectLayouts.length];
 
             return (
               <MotionReveal

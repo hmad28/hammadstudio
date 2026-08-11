@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/navbar";
 import { CTAFooter } from "@/components/cta-footer";
 import { LocaleProvider } from "@/components/locale-provider";
+import { GoogleAnalytics } from "@/components/google-analytics";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-geist" });
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
@@ -18,11 +19,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://hammad.studio"),
   applicationName: "HAMMAD.STUDIO",
   title: {
-    default: "Jasa Pembuatan Website & Sistem Digital | HAMMAD.STUDIO",
+    default: "Jasa Pembuatan Website Profesional untuk Bisnis | HAMMAD.STUDIO",
     template: "%s | HAMMAD.STUDIO",
   },
   description:
-    "Hammad Studio membangun website, e-commerce, aplikasi web, automation, dan sistem bisnis custom untuk bisnis dan organisasi di Indonesia.",
+    "Jasa pembuatan website untuk UMKM dan perusahaan. Website modern, cepat, mobile-friendly, SEO-ready, dan sesuai kebutuhan bisnis.",
   authors: [{ name: "HAMMAD.STUDIO", url: "https://hammad.studio" }],
   creator: "HAMMAD.STUDIO",
   publisher: "HAMMAD.STUDIO",
@@ -38,6 +39,9 @@ export const metadata: Metadata = {
     "digital development studio",
   ],
   icons: { icon: "/icon.svg" },
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION,
+  },
   robots: {
     index: true,
     follow: true,
@@ -50,9 +54,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Jasa Pembuatan Website & Sistem Digital | HAMMAD.STUDIO",
+    title: "Jasa Pembuatan Website Profesional untuk Bisnis | HAMMAD.STUDIO",
     description:
-      "Website, e-commerce, aplikasi web, automation, dan sistem bisnis custom yang dirancang untuk kebutuhan nyata.",
+      "Website untuk UMKM dan perusahaan yang dibangun dengan desain, development, performa, SEO foundation, dan keamanan sejak awal.",
     url: "https://hammad.studio",
     siteName: "HAMMAD.STUDIO",
     locale: "id_ID",
@@ -60,7 +64,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jasa Pembuatan Website & Sistem Digital | HAMMAD.STUDIO",
+    title: "Jasa Pembuatan Website Profesional untuk Bisnis | HAMMAD.STUDIO",
     description:
       "Website, e-commerce, aplikasi web, automation, dan sistem bisnis custom yang dirancang untuk kebutuhan nyata.",
   },
@@ -75,6 +79,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <main>{children}</main>
           <CTAFooter />
         </LocaleProvider>
+        <GoogleAnalytics />
       </body>
     </html>
   );

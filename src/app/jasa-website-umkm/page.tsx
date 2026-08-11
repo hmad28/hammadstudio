@@ -1,6 +1,6 @@
 import { SEOServicePage } from "@/components/seo-service-page";
 import { createPageMetadata } from "@/lib/seo";
-import { proofProjects, sharedDeliverables, sharedFaqs } from "@/lib/seo-landing-content";
+import { proofProjects, sharedDeliverables, umkmFaqs } from "@/lib/seo-landing-content";
 import { createServiceJsonLd } from "@/lib/structured-data";
 
 const path = "/jasa-website-umkm";
@@ -10,7 +10,7 @@ const description = "Jasa website UMKM yang membantu bisnis tampil terpercaya, m
 export const metadata = createPageMetadata({ title, description, path });
 
 export default function SMEWebsitePage() {
-  const jsonLd = createServiceJsonLd(title, description, path, sharedFaqs);
+  const jsonLd = createServiceJsonLd(title, description, path, umkmFaqs);
 
   return (
     <>
@@ -23,7 +23,7 @@ export default function SMEWebsitePage() {
         outcomes={["Customer punya sumber informasi resmi yang bisa dipercaya.", "Produk, layanan, harga, dan cara order tersusun lebih jelas.", "Campaign dapat diarahkan ke halaman yang fokus pada conversion.", "Bisnis memiliki fondasi untuk pencarian Google dan ekspansi berikutnya."]}
         deliverables={sharedDeliverables}
         proofs={[proofProjects[0], proofProjects[2], { name: "CPX Jersey", detail: "Commerce sportswear untuk produk ready-stock dan kebutuhan custom order.", href: "/work/cpx-jersey" }]}
-        faqs={sharedFaqs}
+        faqs={umkmFaqs}
       />
     </>
   );

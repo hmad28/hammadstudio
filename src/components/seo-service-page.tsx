@@ -81,6 +81,9 @@ export function SEOServicePage({
                 <CheckIcon className="h-4 w-4 shrink-0" /> {item}
               </li>
             ))}
+            <li className="flex items-center gap-3 border-b border-black/14 py-4 text-sm font-semibold text-[#8057ff]">
+              <ArrowUpRightIcon className="h-4 w-4 shrink-0" /> <Link href="/harga-website">Lihat estimasi harga website</Link>
+            </li>
           </ul>
         </div>
       </section>
