@@ -25,6 +25,7 @@ export default function SMEWebsitePage() {
         proofs={[proofProjects[0], proofProjects[2], { name: "CPX Jersey", detail: "Commerce sportswear untuk produk ready-stock dan kebutuhan custom order.", href: "/work/cpx-jersey" }]}
         faqs={umkmFaqs}
         relatedLinks={[{ href: "/solusi/umkm/toko-online", label: "Toko Online UMKM", description: "Katalog, cart, WhatsApp, dan checkout untuk brand yang menjual produk." }, { href: "/solusi/umkm/landing-page-produk", label: "Landing Page Produk", description: "Destination page yang fokus untuk iklan dan campaign." }, { href: "/industri/umkm-kuliner", label: "Website UMKM Kuliner", description: "Katalog serta order flow untuk bisnis makanan dan frozen food." }]}
+        primaryCta={{ href: "https://wa.me/6287888362186?text=Halo%20Hammad%20Studio%2C%20saya%20ingin%20membuat%20website%20untuk%20UMKM.", label: "Chat WhatsApp", external: true }}
       />
     </>
   );

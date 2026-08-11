@@ -24,6 +24,8 @@ export default function LogisticsWebsitePage() {
         deliverables={["Struktur layanan dan area coverage", "Company profile dan trust signals", "Showcase armada atau kapabilitas", "RFQ, form inquiry, atau WhatsApp", "Download profil perusahaan bila diperlukan", "Halaman project dan pelanggan relevan", "SEO foundation untuk service pages", "Analytics dan tracking inquiry"]}
         proofs={[{ name: "ADD Logistik", detail: "Website company profile untuk menjelaskan layanan dan membangun kredibilitas perusahaan logistik.", href: "/work/add-logistik" }, { name: "Buraq Logistik", detail: "Website corporate untuk trucking, distribusi regional, coverage, dan kapabilitas operasional.", href: "/work/buraq-logistik" }, { name: "Company Profile", detail: "Lihat pendekatan lengkap untuk kebutuhan website perusahaan B2B.", href: "/jasa-website-company-profile" }]}
         faqs={companyFaqs}
+        primaryCta={{ href: "/contact", label: "Minta proposal" }}
+        leadMagnet={{ href: "/downloads/checklist-revamp-website-perusahaan.pdf", label: "Unduh checklist PDF" }}
       />
     </>
   );

@@ -33,5 +33,6 @@ export default async function SolutionPage({ params }: { params: Promise<{ audie
   const path = `/solusi/${landing.slug}`;
   const jsonLd = createServiceJsonLd(landing.title, landing.description, path, landing.faqs);
 
-  return <><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} /><SEOServicePage eyebrow={landing.eyebrow} title={landing.hero} intro={landing.intro} audience={landing.audience} outcomes={landing.outcomes} deliverables={landing.deliverables} proofs={landing.proofs} faqs={landing.faqs} startingPrice={landing.startingPrice} /></>;
+  const isUmkm = audience === "umkm";
+  return <><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} /><SEOServicePage eyebrow={landing.eyebrow} title={landing.hero} intro={landing.intro} audience={landing.audience} outcomes={landing.outcomes} deliverables={landing.deliverables} proofs={landing.proofs} faqs={landing.faqs} startingPrice={landing.startingPrice} primaryCta={isUmkm ? { href: "https://wa.me/6287888362186?text=Halo%20Hammad%20Studio%2C%20saya%20ingin%20mendiskusikan%20website%20UMKM.", label: "Chat WhatsApp", external: true } : { href: "/contact", label: "Minta proposal" }} leadMagnet={isUmkm ? undefined : { href: "/downloads/checklist-revamp-website-perusahaan.pdf", label: "Unduh checklist PDF" }} /></>;
 }

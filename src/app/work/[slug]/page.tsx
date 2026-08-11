@@ -36,11 +36,17 @@ export default async function WorkDetailPage({ params }: { params: Promise<{ slu
     name: project.title,
     description: project.overview.id,
     url: `https://hammad.studio/work/${slug}`,
+    genre: "Case Study",
+    inLanguage: "id-ID",
+    dateCreated: project.year,
     image: project.image
       ? `https://hammad.studio${project.image}`
       : undefined,
     creator: {
       "@id": "https://hammad.studio/#organization",
+    },
+    isPartOf: {
+      "@id": "https://hammad.studio/work#portfolio",
     },
   };
 

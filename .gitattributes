@@ -7,3 +7,6 @@
 # Batch files must always use CRLF
 *.bat text eol=crlf
 *.cmd text eol=crlf
+
+# Binary documents must never receive line-ending normalization
+*.pdf binary

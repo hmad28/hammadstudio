@@ -319,6 +319,72 @@ export const insightArticles = [
       { heading: "Pertanyaan yang lebih penting", paragraphs: ["Periksa siapa yang mengerjakan, scope, bukti, availability, ownership, dokumentasi, backup plan, dan dukungan setelah launch."], points: ["PIC", "Deliverable", "Timeline", "Ownership", "Maintenance", "Handover"] },
     ],
   },
+  {
+    slug: "modal-awal-website-umkm-dan-potensi-hasil",
+    title: "Modal Awal Website UMKM dan Cara Menghitung Potensi Hasil",
+    description: "Cara menghitung investasi website UMKM dan potensi hasil berdasarkan traffic, conversion, nilai transaksi, biaya operasional, dan periode pengukuran.",
+    answer: "Modal website UMKM mencakup biaya build, domain, hosting, konten, maintenance, dan acquisition. Potensi hasil tidak dapat dijamin; hitung dengan asumsi traffic, conversion rate, nilai transaksi, margin, dan periode yang realistis lalu bandingkan dengan total biaya.",
+    publishedAt: "2026-08-11", updatedAt: "2026-08-11", readTime: "8 menit", relatedHref: "/harga-website", relatedLabel: "Lihat estimasi investasi website", cluster: "umkm",
+    sections: [
+      { heading: "Komponen modal awal", paragraphs: ["Pisahkan biaya satu kali dan biaya berulang agar cash flow lebih mudah dipahami."], points: ["Discovery, design, dan development", "Domain dan infrastructure", "Foto serta copy", "Integrasi pihak ketiga", "Maintenance", "Iklan atau distribusi"] },
+      { heading: "Rumus sederhana potensi hasil", paragraphs: ["Gunakan skenario, bukan janji. Contoh model: pengunjung dikalikan conversion rate menghasilkan order atau lead; hasil tersebut dikalikan nilai transaksi dan margin. Gunakan skenario rendah, tengah, dan tinggi serta catat sumber setiap asumsi."] },
+      { heading: "Kapan investasi dianggap masuk akal?", paragraphs: ["Nilai website tidak selalu berupa transaksi langsung. Untuk bisnis jasa, kontribusi dapat berupa qualified lead, proposal, dan deal. Untuk katalog, website juga dapat mengurangi pekerjaan berulang ketika customer mencari informasi."], points: ["Organic revenue", "Qualified leads", "Cost per lead", "Waktu operasional yang berkurang", "Aset content dan brand"] },
+      { heading: "Hindari klaim profit tanpa data", paragraphs: ["Vendor tidak dapat menjamin omzet hanya dari website karena hasil dipengaruhi produk, harga, traffic, offer, follow-up, kompetisi, dan operasional. Minta measurement plan, bukan angka bombastis."] },
+    ],
+  },
+  {
+    slug: "menghubungkan-katalog-website-ke-whatsapp",
+    title: "Cara Menghubungkan Katalog Website ke WhatsApp",
+    description: "Pilihan alur katalog ke WhatsApp dari tombol sederhana, pesan terisi otomatis, cart, pilihan varian, hingga tracking conversion.",
+    answer: "Katalog website dapat terhubung ke WhatsApp melalui tautan wa.me dengan pesan terisi otomatis. Untuk banyak produk, pilihan varian atau cart dapat dirangkum menjadi satu pesan agar customer dan admin menerima konteks order yang jelas.",
+    publishedAt: "2026-08-11", updatedAt: "2026-08-11", readTime: "7 menit", relatedHref: "/solusi/umkm/toko-online", relatedLabel: "Bangun katalog dengan WhatsApp order", cluster: "umkm",
+    sections: [
+      { heading: "Level 1: tombol WhatsApp", paragraphs: ["Tombol dapat membuka nomor bisnis dengan pesan awal yang menyebut halaman atau produk. Ini cocok untuk katalog kecil dan proses order yang tetap manual."] },
+      { heading: "Level 2: produk dan varian", paragraphs: ["Pesan dapat memuat nama produk, varian, ukuran, jumlah, dan URL. Validasi pilihan sebelum membuka WhatsApp mengurangi percakapan bolak-balik."], points: ["Product ID", "Varian", "Jumlah", "Catatan", "URL produk"] },
+      { heading: "Level 3: cart ke WhatsApp", paragraphs: ["Beberapa item dikumpulkan di cart, kemudian dibuat menjadi ringkasan pesan. Admin tetap perlu SOP untuk memeriksa stock, ongkir, pembayaran, dan status order."] },
+      { heading: "Tracking yang perlu dipasang", paragraphs: ["Catat klik WhatsApp berdasarkan produk, placement, dan campaign. Klik bukan order; cocokkan dengan data chat atau transaksi untuk menghitung conversion yang benar."] },
+    ],
+  },
+  {
+    slug: "laravel-vs-nextjs-website-perusahaan",
+    title: "Laravel vs Next.js untuk Website dan Sistem Perusahaan",
+    description: "Perbandingan Laravel dan Next.js berdasarkan peran backend/frontend, content, integrasi, authentication, deployment, dan kebutuhan tim.",
+    answer: "Laravel dan Next.js bukan selalu pengganti langsung. Laravel adalah framework backend full-stack PHP, sedangkan Next.js adalah framework React untuk aplikasi web dan rendering. Keduanya bahkan dapat digunakan bersama; pilihan bergantung pada domain logic, tim, CMS, integrasi, dan operasi.",
+    publishedAt: "2026-08-11", updatedAt: "2026-08-11", readTime: "9 menit", relatedHref: "/solusi/perusahaan/sistem-custom-dashboard", relatedLabel: "Diskusikan arsitektur sistem perusahaan", cluster: "technical",
+    comparison: { leftTitle: "Laravel", rightTitle: "Next.js", rows: [{ label: "Fokus", left: "Backend/full-stack PHP", right: "React full-stack dan rendering web" }, { label: "Cocok", left: "Domain logic, admin, API, workflow", right: "Experience web, SSR/SSG, React ecosystem" }, { label: "Tim", left: "Ekosistem PHP", right: "Ekosistem TypeScript/React" }, { label: "Kombinasi", left: "Dapat menjadi API/backend", right: "Dapat menjadi frontend" }] },
+    sections: [
+      { heading: "Jangan memilih dari benchmark headline", paragraphs: ["Nilai requirement, capability tim, hosting, integrasi, security model, dan maintenance. Performa production lebih dipengaruhi arsitektur serta implementasi daripada nama framework saja."] },
+      { heading: "Kapan Laravel masuk akal?", paragraphs: ["Laravel kuat untuk business logic, CRUD kompleks, job queue, authentication, API, dan ekosistem PHP yang sudah dimiliki perusahaan."] },
+      { heading: "Kapan Next.js masuk akal?", paragraphs: ["Next.js cocok untuk pengalaman web berbasis React, rendering statis atau server, integrasi frontend, dan tim TypeScript yang membutuhkan satu codebase modern."] },
+      { heading: "Kapan digunakan bersama?", paragraphs: ["Laravel dapat menangani API serta domain logic, sementara Next.js menangani website atau portal. Konsekuensinya adalah dua runtime, authentication lintas sistem, deployment, observability, dan ownership yang harus jelas."] },
+    ],
+  },
+  {
+    slug: "checklist-keamanan-website-perusahaan",
+    title: "Checklist Keamanan dan Audit Website Perusahaan",
+    description: "Checklist keamanan website perusahaan untuk ownership, dependency, authentication, input, file, API, headers, backup, logging, dan response process.",
+    answer: "Audit keamanan website perusahaan harus memeriksa ownership, dependency, authentication, authorization, input, upload file, API, secret, security headers, backup, logging, dan proses respons insiden. Checklist harus disesuaikan dengan risiko dan data yang diproses.",
+    publishedAt: "2026-08-11", updatedAt: "2026-08-11", readTime: "10 menit", relatedHref: "/solusi/perusahaan/maintenance-support", relatedLabel: "Diskusikan maintenance dan security review", cluster: "technical",
+    sections: [
+      { heading: "Asset dan ownership", paragraphs: ["Inventaris domain, DNS, hosting, repository, CMS, database, email, analytics, vendor, serta admin. Hapus akses yang tidak diperlukan dan aktifkan MFA bila tersedia."], points: ["Account owner", "MFA", "Role", "Offboarding", "Recovery contact"] },
+      { heading: "Application security", paragraphs: ["Periksa validation, output encoding, authentication, authorization, session, CSRF sesuai arsitektur, rate limiting, upload file, dan dependency. Uji berdasarkan threat model, bukan checklist generik saja."], points: ["Input validation", "RBAC", "Session", "API authorization", "Rate limit", "File validation"] },
+      { heading: "Infrastructure dan recovery", paragraphs: ["Pastikan HTTPS, secret tidak masuk repository, security headers, backup yang dapat direstore, patch cadence, logging, monitoring, dan incident contact tersedia."] },
+      { heading: "Apa yang bukan bukti keamanan?", paragraphs: ["HTTPS saja, logo security, framework modern, atau satu kali scan bukan jaminan. Keamanan merupakan proses berulang yang mengikuti perubahan sistem dan ancaman."] },
+    ],
+  },
+  {
+    slug: "integrasi-website-dengan-crm-erp",
+    title: "Panduan Integrasi Website Perusahaan dengan CRM dan ERP",
+    description: "Panduan merancang integrasi website ke CRM atau ERP untuk lead, customer, product, order, stock, invoice, webhook, retry, dan ownership data.",
+    answer: "Integrasi website dengan CRM atau ERP perlu menentukan source of truth, data yang dipertukarkan, trigger, permission, error handling, retry, logging, dan owner operasional. Mulailah dari satu workflow bernilai tinggi sebelum menyambungkan seluruh sistem.",
+    publishedAt: "2026-08-11", updatedAt: "2026-08-11", readTime: "10 menit", relatedHref: "/solusi/perusahaan/sistem-custom-dashboard", relatedLabel: "Diskusikan integrasi sistem", cluster: "company",
+    sections: [
+      { heading: "Mulai dari workflow", paragraphs: ["Contoh awal yang terarah adalah mengirim qualified inquiry dari website ke CRM, bukan langsung membuat sinkronisasi dua arah untuk seluruh customer dan order."] },
+      { heading: "Tentukan source of truth", paragraphs: ["Putuskan sistem mana yang berwenang atas lead, customer, produk, stock, harga, order, dan invoice. Konflik muncul ketika dua sistem dapat mengubah data yang sama tanpa aturan."] },
+      { heading: "Desain kontrak integrasi", paragraphs: ["Dokumentasikan field, identifier, format, authentication, webhook, rate limit, timeout, retry, idempotency, dan penanganan data sensitif."], points: ["Data mapping", "API auth", "Webhook", "Retry", "Idempotency", "Audit log"] },
+      { heading: "Operasi setelah launch", paragraphs: ["Siapkan monitoring, alert, dead-letter flow, manual recovery, ownership vendor, dan test ketika salah satu sistem diperbarui. Integrasi yang tidak terpantau dapat gagal tanpa terlihat oleh tim bisnis."] },
+    ],
+  },
 ] as const satisfies readonly InsightArticle[];
 
 export type InsightSlug = (typeof insightArticles)[number]["slug"];

@@ -13,6 +13,8 @@ export type ExpansionLanding = {
   proofs: readonly { name: string; detail: string; href: string }[];
   faqs: readonly { question: string; answer: string }[];
   startingPrice: string;
+  proofLabel?: string;
+  proofTitle?: string;
 };
 
 export const solutionLandings = {
@@ -116,5 +118,65 @@ export const industryLandings = {
     proofs: [{ name: "StudyShare", detail: "Platform kolaboratif dengan akun, catatan, kategori mata pelajaran, dan discovery.", href: "/work/studyshare" }, { name: "NaikLevel AI", detail: "Website produk edukasi AI dengan commerce dan pembayaran manual.", href: "/work/naiklevel-ai" }, { name: "Web Application", detail: "Cakupan aplikasi web untuk role, data, dan workflow.", href: "/services/web-application" }],
     faqs: companyFaqs,
     startingPrice: "Website institusi mengikuti scope website; platform dengan akun, data, dan workflow umumnya mulai Rp 10 juta.",
+  },
+  fashion: {
+    slug: "fashion",
+    title: "Jasa Website Fashion dan Brand Apparel",
+    description: "Website fashion dan apparel dengan katalog koleksi, varian produk, lookbook, custom order, marketplace, dan commerce flow milik brand.",
+    eyebrow: "WEBSITE FASHION & APPAREL",
+    hero: "Tampilkan koleksi dan karakter brand tanpa batasan layout marketplace.",
+    intro: "Website fashion membantu brand menyatukan campaign, koleksi, ukuran, varian, lookbook, ready stock, custom order, dan jalur pembelian dalam pengalaman visual milik sendiri.",
+    audience: "Untuk brand pakaian, jersey, modest fashion, accessories, dan apparel custom yang ingin membangun storefront resmi serta melengkapi marketplace.",
+    outcomes: ["Koleksi dan kategori lebih mudah dieksplorasi.", "Visual brand konsisten dari campaign hingga produk.", "Varian, ukuran, dan custom order mendapat alur yang jelas.", "Traffic dapat diarahkan ke checkout, WhatsApp, atau marketplace."],
+    deliverables: ["Collection dan category architecture", "Product detail dan variant", "Size guide dan product information", "Lookbook atau campaign", "Cart, WhatsApp, atau marketplace flow", "CMS produk", "Analytics dan commerce event", "SEO foundation"],
+    proofs: [{ name: "CPX Jersey", detail: "Commerce sportswear dengan katalog, kategori olahraga, cart, custom order, dan marketplace.", href: "/work/cpx-jersey" }, { name: "Toko Online UMKM", detail: "Cakupan storefront, katalog, dan order flow milik brand.", href: "/solusi/umkm/toko-online" }, { name: "E-Commerce", detail: "Lihat layanan commerce untuk kebutuhan transaksi yang lebih lengkap.", href: "/services/e-commerce" }],
+    faqs: umkmFaqs,
+    startingPrice: "Website katalog fashion mulai mengikuti scope commerce sederhana. Varian, inventory, pembayaran, dan custom order dihitung sesuai workflow.",
+  },
+  manufaktur: {
+    slug: "manufaktur",
+    title: "Jasa Website Perusahaan Manufaktur",
+    description: "Website perusahaan manufaktur untuk menjelaskan kapabilitas produksi, fasilitas, sertifikasi valid, produk, industri, dokumentasi, dan RFQ B2B.",
+    eyebrow: "WEBSITE PERUSAHAAN MANUFAKTUR",
+    hero: "Ubah kapabilitas produksi menjadi informasi yang mudah dinilai buyer B2B.",
+    intro: "Website manufaktur perlu membantu procurement dan calon partner memahami produk, kapasitas, proses, industri yang dilayani, quality control, dokumen, serta jalur request for quotation.",
+    audience: "Untuk produsen dan perusahaan manufaktur yang membutuhkan company profile teknis, katalog, dokumen, dan inquiry B2B tanpa membuat klaim sertifikasi yang tidak dapat diverifikasi.",
+    outcomes: ["Kapabilitas dan product range lebih mudah dipahami.", "Buyer dapat menemukan dokumen dan jalur RFQ.", "Informasi fasilitas serta quality process tersusun jelas.", "Tim sales memiliki referensi resmi yang dapat dibagikan."],
+    deliverables: ["Capability dan facility pages", "Product atau solution catalog", "Industry application", "Quality process dan dokumen valid", "Downloadable specification", "RFQ dan inquiry routing", "CMS serta multilingual option", "SEO foundation dan analytics"],
+    proofs: [{ name: "Website Company Profile", detail: "Pendekatan Hammad Studio untuk trust, layanan, dokumen, dan inquiry perusahaan.", href: "/jasa-website-company-profile" }, { name: "Dashboard Custom", detail: "Kapabilitas sistem untuk katalog, workflow, role, dan data yang lebih spesifik.", href: "/solusi/perusahaan/sistem-custom-dashboard" }, { name: "ADD Logistik", detail: "Contoh penyusunan layanan dan inquiry untuk kebutuhan B2B.", href: "/work/add-logistik" }],
+    faqs: companyFaqs,
+    startingPrice: "Website manufaktur dimulai dari scope corporate website. Katalog, dokumen, multilingual, RFQ, dan integrasi dihitung berdasarkan kebutuhan.",
+    proofLabel: "RELEVANT CAPABILITY",
+    proofTitle: "Fondasi B2B yang dapat diterapkan secara jujur.",
+  },
+  konstruksi: {
+    slug: "konstruksi",
+    title: "Jasa Website Perusahaan Konstruksi dan Kontraktor",
+    description: "Website kontraktor dan perusahaan konstruksi untuk profil, layanan, portofolio proyek, area kerja, dokumen, tender support, dan inquiry.",
+    eyebrow: "WEBSITE KONSTRUKSI & KONTRAKTOR",
+    hero: "Buat kapabilitas dan pengalaman proyek lebih mudah diverifikasi.",
+    intro: "Website konstruksi perlu menyusun layanan, klasifikasi pekerjaan, portofolio, area operasi, metode kerja, keselamatan, dokumen valid, dan contact path untuk calon klien atau partner.",
+    audience: "Untuk kontraktor, konsultan, supplier konstruksi, dan penyedia jasa proyek yang membutuhkan company profile digital serta presentasi project yang terstruktur.",
+    outcomes: ["Layanan dan spesialisasi proyek lebih jelas.", "Portofolio dapat dipilah berdasarkan kategori.", "Dokumen valid tersedia pada konteks yang tepat.", "Inquiry tender atau partnership memiliki jalur yang jelas."],
+    deliverables: ["Company dan capability profile", "Service hierarchy", "Project portfolio dan filters", "Area operasi", "Document downloads", "Tender atau inquiry form", "CMS project", "SEO foundation dan analytics"],
+    proofs: [{ name: "Website Company Profile", detail: "Fondasi untuk profil, layanan, project, dokumen, dan inquiry perusahaan.", href: "/jasa-website-company-profile" }, { name: "Redesign Website", detail: "Pendekatan audit serta migrasi website perusahaan yang sudah tertinggal.", href: "/redesign-website" }, { name: "Buraq Logistik", detail: "Contoh presentasi coverage dan kapabilitas operasional B2B.", href: "/work/buraq-logistik" }],
+    faqs: companyFaqs,
+    startingPrice: "Website konstruksi dimulai dari scope company profile; jumlah project, CMS, dokumen, dan kebutuhan tender menentukan estimasi final.",
+    proofLabel: "RELEVANT CAPABILITY",
+    proofTitle: "Struktur corporate yang mendukung proses proyek.",
+  },
+  "ekspor-impor": {
+    slug: "ekspor-impor",
+    title: "Jasa Website Perusahaan Ekspor Impor",
+    description: "Website perusahaan ekspor impor untuk komoditas atau produk, market coverage, proses, dokumen, logistics capability, dan inquiry internasional.",
+    eyebrow: "WEBSITE EKSPOR IMPOR",
+    hero: "Jelaskan produk, market, dan proses perdagangan lintas negara dengan percaya diri.",
+    intro: "Website ekspor impor perlu menghubungkan katalog atau komoditas, origin, market coverage, proses, dokumentasi valid, logistics capability, dan inquiry dalam struktur yang mudah dipahami buyer internasional.",
+    audience: "Untuk exporter, importer, trading company, supplier, dan distributor yang membutuhkan company profile bilingual atau multilingual serta inquiry B2B.",
+    outcomes: ["Product dan market coverage tersaji jelas.", "Buyer dapat memahami proses serta dokumen yang tersedia.", "Website mendukung bahasa dan market yang dituju.", "Inquiry diarahkan dengan kebutuhan produk dan destination."],
+    deliverables: ["Company dan trade profile", "Product atau commodity catalog", "Origin dan market coverage", "Process dan valid documents", "Multilingual architecture", "RFQ atau inquiry form", "Logistics capability", "SEO foundation dan analytics"],
+    proofs: [{ name: "ADD Logistik", detail: "Contoh website B2B untuk layanan logistik dan kredibilitas perusahaan.", href: "/work/add-logistik" }, { name: "Buraq Logistik", detail: "Presentasi coverage, distribusi, trucking, dan kapabilitas operasional.", href: "/work/buraq-logistik" }, { name: "Website Logistik", detail: "Landing vertical untuk kebutuhan trucking, freight, dan distribusi.", href: "/industri/logistik" }],
+    faqs: companyFaqs,
+    startingPrice: "Website ekspor impor mengikuti scope corporate website. Multilingual, katalog, RFQ, dokumen, dan integrasi dihitung sesuai market serta workflow.",
   },
 } as const satisfies Record<string, ExpansionLanding>;

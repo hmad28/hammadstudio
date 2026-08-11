@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { ArrowUpRightIcon, CheckIcon } from "./icons";
 import { StickyWhatsAppCTA } from "./sticky-whatsapp-cta";
+import { TrackedDownloadLink } from "./tracked-download-link";
+import { TrackedWhatsAppLink } from "./tracked-whatsapp-link";
 
 type Proof = {
   name: string;
@@ -24,6 +26,10 @@ type SEOServicePageProps = {
   faqs: readonly FAQ[];
   startingPrice?: string;
   relatedLinks?: readonly { href: string; label: string; description: string }[];
+  primaryCta?: { href: string; label: string; external?: boolean };
+  leadMagnet?: { href: string; label: string };
+  proofLabel?: string;
+  proofTitle?: string;
 };
 
 export function SEOServicePage({
@@ -37,6 +43,10 @@ export function SEOServicePage({
   faqs,
   startingPrice = "Website mulai Rp 2,5 juta. Scope, timeline, dan biaya berulang dijelaskan sebelum project dimulai.",
   relatedLinks = [],
+  primaryCta = { href: "/contact", label: "Konsultasikan kebutuhan" },
+  leadMagnet,
+  proofLabel = "BUKTI PROJECT",
+  proofTitle = "Bukan klaim. Lihat hasilnya.",
 }: SEOServicePageProps) {
   return (
     <main className="bg-[#f7f5ef] text-[#17181d]">
@@ -49,9 +59,10 @@ export function SEOServicePage({
           <div className="mt-10 grid gap-8 border-t border-white/15 pt-7 lg:grid-cols-12">
             <p className="max-w-[720px] text-base leading-8 text-white/68 sm:text-lg lg:col-span-8">{intro}</p>
             <div className="lg:col-span-4 lg:text-right">
-              <Link href="/contact" className="acid-button group inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold">
-                Konsultasikan kebutuhan <ArrowUpRightIcon className="button-arrow h-4 w-4" />
-              </Link>
+              <div className="flex flex-wrap gap-3 lg:justify-end">
+                {primaryCta.external ? <TrackedWhatsAppLink href={primaryCta.href} label={primaryCta.label} placement="service_hero" /> : <Link href={primaryCta.href} className="acid-button group inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold">{primaryCta.label} <ArrowUpRightIcon className="button-arrow h-4 w-4" /></Link>}
+                {leadMagnet ? <TrackedDownloadLink href={leadMagnet.href} label={leadMagnet.label} /> : null}
+              </div>
             </div>
           </div>
         </div>
@@ -61,6 +72,13 @@ export function SEOServicePage({
         <div className="site-container flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <p className="max-w-[780px] text-sm font-medium leading-6 text-black/65">{startingPrice}</p>
           <Link href="/harga-website" className="group inline-flex shrink-0 items-center gap-2 text-sm font-semibold text-[#8057ff]">Lihat rincian harga <ArrowUpRightIcon className="button-arrow h-4 w-4" /></Link>
+        </div>
+      </section>
+
+      <section className="border-y border-black/12 bg-white py-20 sm:py-24">
+        <div className="site-container grid gap-10 lg:grid-cols-12">
+          <div className="lg:col-span-5"><p className="label-mono text-[#8057ff]">TRANSPARANSI TEKNOLOGI</p><h2 className="mt-5 text-[clamp(2.5rem,4.5vw,4.5rem)] font-[520] leading-[.96] tracking-[-.055em]">Stack dipilih setelah kebutuhan bisnis jelas.</h2></div>
+          <div className="lg:col-span-7"><p className="max-w-[720px] leading-8 text-black/60">Website Hammad Studio menggunakan fondasi modern seperti Next.js, React, Tailwind CSS, dan deployment cloud ketika sesuai. Manfaatnya diterjemahkan ke hasil yang dapat dirasakan: halaman ringan, responsive, crawlable, mudah dikembangkan, dan punya kontrol engineering yang jelas. CMS, database, API, serta backend dipilih berdasarkan workflow - bukan karena satu teknologi harus dipakai untuk semua project.</p><div className="mt-7 flex flex-wrap gap-2">{["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel", "CMS & API sesuai scope"].map((technology) => <span key={technology} className="rounded-full border border-black/12 bg-[#f7f5ef] px-4 py-2 text-xs font-semibold">{technology}</span>)}</div></div>
         </div>
       </section>
 
@@ -105,8 +123,8 @@ export function SEOServicePage({
         <div className="site-container">
           <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
             <div>
-              <p className="label-mono text-black/38">BUKTI PROJECT</p>
-              <h2 className="mt-5 text-[clamp(2.8rem,5vw,5rem)] font-[510] tracking-[-0.055em]">Bukan klaim. Lihat hasilnya.</h2>
+              <p className="label-mono text-black/38">{proofLabel}</p>
+              <h2 className="mt-5 text-[clamp(2.8rem,5vw,5rem)] font-[510] tracking-[-0.055em]">{proofTitle}</h2>
             </div>
             <Link href="/work" className="group inline-flex items-center gap-2 text-sm font-semibold">Semua karya <ArrowUpRightIcon className="button-arrow h-4 w-4" /></Link>
           </div>

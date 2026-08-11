@@ -106,7 +106,7 @@ export function CTAFooter() {
           </div>
 
           <div className="grid gap-12 py-12 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8 lg:py-14">
-            <div className="lg:col-span-3">
+            <div className="lg:col-span-2">
               <p className="label-mono text-[#8057ff]">NAVIGASI</p>
               <nav className="mt-5 grid grid-cols-2 gap-x-8 gap-y-3 text-sm text-white/72" aria-label="Footer navigation">
                 <Link href="/services" className="transition hover:text-[#f2efff]">{nav.services[locale]}</Link>
@@ -136,7 +136,19 @@ export function CTAFooter() {
               </nav>
             </div>
 
-            <div className="sm:col-span-2 lg:col-span-5 lg:col-start-8 lg:text-right">
+            <div className="lg:col-span-3">
+              <p className="label-mono text-[#8057ff]">INDUSTRI</p>
+              <nav className="mt-5 grid gap-3 text-sm text-white/62" aria-label="Industry footer links">
+                <Link href="/industri/travel" className="transition hover:text-[#f2efff]">Travel Umrah</Link>
+                <Link href="/industri/logistik" className="transition hover:text-[#f2efff]">Logistik</Link>
+                <Link href="/industri/fashion" className="transition hover:text-[#f2efff]">Fashion &amp; Apparel</Link>
+                <Link href="/industri/manufaktur" className="transition hover:text-[#f2efff]">Manufaktur</Link>
+                <Link href="/industri/konstruksi" className="transition hover:text-[#f2efff]">Konstruksi</Link>
+                <Link href="/industri/ekspor-impor" className="transition hover:text-[#f2efff]">Ekspor Impor</Link>
+              </nav>
+            </div>
+
+            <div className="sm:col-span-2 lg:col-span-4 lg:text-right">
               <p className="max-w-[470px] text-base leading-7 text-white/58 lg:ml-auto">
                 {copy.closing[locale]}
               </p>

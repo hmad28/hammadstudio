@@ -29,9 +29,12 @@ Isi `NEXT_PUBLIC_GA_ID` pada environment production. Website sudah mengirim even
 
 - `generate_lead` dari form project ke WhatsApp;
 - `whatsapp_click` berdasarkan placement;
+- `file_download` untuk lead magnet checklist revamp website perusahaan;
 - LCP, INP, CLS, FCP, dan TTFB melalui Web Vitals.
 
-Tandai `generate_lead` dan `whatsapp_click` sebagai key event setelah datanya muncul. Jangan menganggap semua klik sebagai qualified lead; rekonsiliasi dengan pipeline penjualan.
+Tandai `generate_lead` dan `whatsapp_click` sebagai key event setelah datanya muncul. Gunakan `file_download` sebagai assisted-conversion signal, bukan qualified lead. Rekonsiliasi semuanya dengan pipeline penjualan.
+
+Lead magnet B2B tersedia di `/downloads/checklist-revamp-website-perusahaan.pdf`. Perbarui PDF dan halaman tujuan bersamaan bila scope, proses, atau kontak bisnis berubah.
 
 ## Google Business Profile
 
