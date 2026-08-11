@@ -36,7 +36,7 @@ export function Navbar() {
         initial={reduceMotion ? false : { opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-        className={`pointer-events-auto mx-auto flex h-14 max-w-[1240px] items-center justify-between rounded-full border border-white/10 border-r-[#8057ff]/35 px-4 transition-all duration-500 sm:h-[60px] sm:px-5 ${
+        className={`pointer-events-auto mx-auto flex h-16 max-w-[1240px] items-center justify-between rounded-full border border-white/10 border-r-[#8057ff]/35 px-4 transition-all duration-500 sm:h-[68px] sm:px-5 ${
           scrolled
             ? "max-w-[900px] border-white/15 bg-[#090a12]/82 shadow-[0_18px_60px_rgba(0,0,0,.45)] backdrop-blur-2xl"
             : "bg-[#090a12]/68 backdrop-blur-xl"
@@ -45,7 +45,7 @@ export function Navbar() {
         <Link href="/" aria-label="HAMMAD.STUDIO home">
           <HammadStudioLogo
             priority
-            className="h-auto w-[122px] sm:w-[150px]"
+            className="h-auto w-[150px] sm:w-[190px]"
           />
         </Link>
         <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-7 text-xs font-medium text-white/70 lg:flex" aria-label="Primary navigation">

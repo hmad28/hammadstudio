@@ -57,24 +57,47 @@ export function CTAFooter() {
       {/* Midnight Gradient Footer */}
       <section className="footer-surface-v2 relative overflow-hidden py-16 sm:py-20">
         <div className="site-container relative z-10">
-          <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
-            {/* Col 1: Brand & Availability */}
-            <div className="lg:col-span-4">
+          <div className="grid gap-12 border-b border-white/12 pb-12 sm:pb-14 lg:grid-cols-12 lg:items-end lg:gap-8">
+            <div className="lg:col-span-7">
               <Link href="/" aria-label="HAMMAD.STUDIO home">
-                <HammadStudioLogo className="h-auto w-[184px]" />
+                <HammadStudioLogo className="h-auto w-[260px] sm:w-[300px]" />
               </Link>
-              <p className="mt-4 max-w-[340px] text-xs leading-[1.65] text-white/60 sm:text-sm">
+              <p className="mt-6 max-w-[520px] text-sm leading-7 text-white/58 sm:text-base">
                 {copy.description[locale]}
               </p>
-              <div className="mt-6 flex items-center gap-2.5 text-xs text-white/80">
+              <div className="mt-5 flex items-center gap-2.5 text-xs text-white/78">
                 <span className="availability-dot" /> {copy.available[locale]}
               </div>
             </div>
 
-            {/* Col 2: Primary Nav */}
+            <div className="lg:col-span-5 lg:text-right">
+              <p className="label-mono text-[#d2f34c]">{copy.newBusiness[locale]}</p>
+              <a
+                href="mailto:hello@hammad.studio"
+                className="mt-3 inline-block text-[clamp(1.65rem,3.2vw,3rem)] font-[520] leading-none tracking-[-0.05em] text-white transition-colors hover:text-[#d2f34c]"
+              >
+                hello@hammad.studio
+              </a>
+              <div className="mt-6 flex flex-col gap-3 text-sm text-white/62 sm:flex-row sm:flex-wrap sm:items-center lg:justify-end">
+                <a
+                  href="https://www.instagram.com/hammad.biz/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-2 transition-colors hover:text-[#d2f34c]"
+                >
+                  <InstagramIcon className="h-4 w-4" />
+                  @hammad.biz
+                </a>
+                <span className="hidden h-4 w-px bg-white/18 sm:block" aria-hidden="true" />
+                <span>Depok &amp; Jakarta, Indonesia</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid gap-12 py-12 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8 lg:py-14">
             <div className="lg:col-span-3">
-              <p className="label-mono inline-block rounded-full bg-[#8057ff]/15 px-3 py-0.5 text-[0.65rem] text-[#8057ff]">NAVIGASI</p>
-              <nav className="mt-4 grid grid-cols-2 gap-y-3 text-sm text-white/75" aria-label="Footer navigation">
+              <p className="label-mono text-[#8057ff]">NAVIGASI</p>
+              <nav className="mt-5 grid grid-cols-2 gap-x-8 gap-y-3 text-sm text-white/72" aria-label="Footer navigation">
                 <Link href="/services" className="transition hover:text-[#f2efff]">{nav.services[locale]}</Link>
                 <Link href="/work" className="transition hover:text-[#f2efff]">{nav.work[locale]}</Link>
                 <Link href="/pricing" className="transition hover:text-[#f2efff]">{nav.pricing[locale]}</Link>
@@ -83,10 +106,9 @@ export function CTAFooter() {
               </nav>
             </div>
 
-            {/* Col 3: Services Nav */}
-            <div className="lg:col-span-2">
-              <p className="label-mono inline-block rounded-full bg-[#8057ff]/15 px-3 py-0.5 text-[0.65rem] text-[#8057ff]">LAYANAN</p>
-              <nav className="mt-4 grid gap-2.5 text-xs text-white/65 sm:text-sm" aria-label="Services footer link">
+            <div className="lg:col-span-3">
+              <p className="label-mono text-[#8057ff]">LAYANAN</p>
+              <nav className="mt-5 grid gap-3 text-sm text-white/62" aria-label="Services footer link">
                 <Link href="/services/website" className="transition hover:text-[#f2efff]">Website</Link>
                 <Link href="/services/e-commerce" className="transition hover:text-[#f2efff]">E-Commerce</Link>
                 <Link href="/services/web-application" className="transition hover:text-[#f2efff]">Web Application</Link>
@@ -94,32 +116,16 @@ export function CTAFooter() {
               </nav>
             </div>
 
-            {/* Col 4: Contact & Office */}
-            <div className="lg:col-span-3 lg:text-right">
-              <p className="label-mono acid-glow-badge inline-block rounded-full px-3 py-0.5 text-[0.65rem]">{copy.newBusiness[locale]}</p>
-              <a
-                href="mailto:hello@hammad.studio"
-                className="mt-3 inline-block text-lg font-medium tracking-[-0.03em] text-white transition hover:text-[#d2f34c] sm:text-xl"
-              >
-                hello@hammad.studio
-              </a>
-              <a
-                href="https://www.instagram.com/hammad.biz/"
-                target="_blank"
-                rel="noreferrer"
-                className="mt-4 flex items-center gap-2 text-sm text-white/68 transition-colors hover:text-[#d2f34c] lg:justify-end"
-              >
-                <InstagramIcon className="h-4 w-4" />
-                @hammad.biz
-              </a>
-              <p className="mt-2 text-xs text-white/60">Depok &amp; Jakarta, Indonesia</p>
-              <p className="mt-1 text-xs text-white/45">Global Remote Services</p>
+            <div className="sm:col-span-2 lg:col-span-5 lg:col-start-8 lg:text-right">
+              <p className="max-w-[470px] text-base leading-7 text-white/58 lg:ml-auto">
+                {copy.closing[locale]}
+              </p>
             </div>
           </div>
 
-          <div className="mt-16 flex flex-col gap-4 border-t border-white/12 pt-6 text-[0.7rem] text-white/50 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-col gap-3 border-t border-white/12 pt-6 text-[0.7rem] text-white/42 sm:flex-row sm:items-center sm:justify-between">
             <p>© {new Date().getFullYear()} HAMMAD.STUDIO · All rights reserved.</p>
-            <p>{copy.closing[locale]}</p>
+            <p>Global remote services</p>
           </div>
         </div>
 
@@ -134,4 +140,3 @@ export function CTAFooter() {
     </footer>
   );
 }
-

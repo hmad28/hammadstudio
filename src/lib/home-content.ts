@@ -486,8 +486,8 @@ export const homeContent = {
     },
     newBusiness: { id: "Kontak", en: "Contact" },
     closing: {
-      id: "Teknologi seharusnya membantu bisnis bergerak lebih baik — bukan membuat segalanya terasa lebih rumit.",
-      en: "Technology should help businesses move better — not make everything more complicated.",
+      id: "Teknologi seharusnya membantu bisnis bergerak lebih baik, bukan membuat segalanya terasa lebih rumit.",
+      en: "Technology should help businesses move better, not make everything more complicated.",
     },
   },
 } as const;
