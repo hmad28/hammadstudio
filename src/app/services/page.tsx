@@ -1,10 +1,13 @@
 import { LocalizedPageIntro } from "@/components/localized-page-intro";
 import { ServicesCatalog } from "@/components/services-catalog";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Website, Aplikasi, Sistem & Automation – Hammad Studio",
-  description: "Layanan website, e-commerce, web application, business system, automation AI, dan custom development dari Hammad Studio.",
-};
+export const metadata = createPageMetadata({
+  title: "Jasa Website, Aplikasi, Sistem & Automation",
+  description:
+    "Layanan pembuatan website, e-commerce, aplikasi web, sistem bisnis, automation AI, dan software custom dari Hammad Studio.",
+  path: "/services",
+});
 
 export default function ServicesPage() {
   return (

@@ -89,6 +89,15 @@ export function CTAFooter() {
                   @hammad.biz
                 </a>
                 <span className="hidden h-4 w-px bg-white/18 sm:block" aria-hidden="true" />
+                <a
+                  href="https://www.facebook.com/itshammadstudio"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="transition-colors hover:text-[#d2f34c]"
+                >
+                  Facebook
+                </a>
+                <span className="hidden h-4 w-px bg-white/18 sm:block" aria-hidden="true" />
                 <span>Depok &amp; Jakarta, Indonesia</span>
               </div>
             </div>
@@ -109,7 +118,9 @@ export function CTAFooter() {
             <div className="lg:col-span-3">
               <p className="label-mono text-[#8057ff]">LAYANAN</p>
               <nav className="mt-5 grid gap-3 text-sm text-white/62" aria-label="Services footer link">
-                <Link href="/services/website" className="transition hover:text-[#f2efff]">Website</Link>
+                <Link href="/jasa-pembuatan-website" className="transition hover:text-[#f2efff]">Jasa Pembuatan Website</Link>
+                <Link href="/jasa-website-umkm" className="transition hover:text-[#f2efff]">Website UMKM</Link>
+                <Link href="/jasa-website-company-profile" className="transition hover:text-[#f2efff]">Company Profile</Link>
                 <Link href="/services/e-commerce" className="transition hover:text-[#f2efff]">E-Commerce</Link>
                 <Link href="/services/web-application" className="transition hover:text-[#f2efff]">Web Application</Link>
                 <Link href="/services/custom-development" className="transition hover:text-[#f2efff]">Custom Dev</Link>

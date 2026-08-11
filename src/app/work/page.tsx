@@ -1,9 +1,12 @@
 import { WorkPageContent } from "@/components/work-page-content";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Karya — Hammad Studio",
-  description: "Case study website, commerce, event platform, dan business system yang dibangun Hammad Studio.",
-};
+export const metadata = createPageMetadata({
+  title: "Karya Digital dan Studi Kasus",
+  description:
+    "Portofolio website, e-commerce, platform komunitas, dan sistem bisnis yang dirancang dan dibangun oleh Hammad Studio.",
+  path: "/work",
+});
 
 export default function WorkPage() {
   return <WorkPageContent />;

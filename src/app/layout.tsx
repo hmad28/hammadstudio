@@ -16,30 +16,53 @@ const instrumentSerif = Instrument_Serif({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://hammad.studio"),
+  applicationName: "HAMMAD.STUDIO",
   title: {
-    default: "HAMMAD.STUDIO — Digital Development Studio",
-    template: "%s — HAMMAD.STUDIO",
+    default: "Jasa Pembuatan Website & Sistem Digital | HAMMAD.STUDIO",
+    template: "%s | HAMMAD.STUDIO",
   },
   description:
-    "Studio development digital untuk website, e-commerce, aplikasi web, automation, dan custom business systems dengan quality engineering dan security.",
+    "Hammad Studio membangun website, e-commerce, aplikasi web, automation, dan sistem bisnis custom untuk bisnis dan organisasi di Indonesia.",
+  authors: [{ name: "HAMMAD.STUDIO", url: "https://hammad.studio" }],
+  creator: "HAMMAD.STUDIO",
+  publisher: "HAMMAD.STUDIO",
+  category: "technology",
   keywords: [
     "HAMMAD.STUDIO",
-    "Digital Product Studio",
-    "Software Studio",
-    "Web Systems",
-    "Custom Software Indonesia",
-    "Web Application Indonesia",
-    "Automation Indonesia",
+    "jasa pembuatan website",
+    "jasa website Indonesia",
+    "software house Indonesia",
+    "web application Indonesia",
+    "sistem bisnis custom",
+    "automation AI Indonesia",
+    "digital development studio",
   ],
   icons: { icon: "/icon.svg" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
-    title: "HAMMAD.STUDIO — Digital Development Studio",
+    title: "Jasa Pembuatan Website & Sistem Digital | HAMMAD.STUDIO",
     description:
-      "Website, commerce, applications, systems, dan automation yang dibangun dengan quality engineering dan security.",
+      "Website, e-commerce, aplikasi web, automation, dan sistem bisnis custom yang dirancang untuk kebutuhan nyata.",
     url: "https://hammad.studio",
     siteName: "HAMMAD.STUDIO",
     locale: "id_ID",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Jasa Pembuatan Website & Sistem Digital | HAMMAD.STUDIO",
+    description:
+      "Website, e-commerce, aplikasi web, automation, dan sistem bisnis custom yang dirancang untuk kebutuhan nyata.",
   },
 };
 
