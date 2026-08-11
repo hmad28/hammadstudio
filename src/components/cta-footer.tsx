@@ -105,57 +105,26 @@ export function CTAFooter() {
             </div>
           </div>
 
-          <div className="grid gap-12 py-12 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8 lg:py-14">
-            <div className="lg:col-span-2">
-              <p className="label-mono text-[#8057ff]">NAVIGASI</p>
-              <nav className="mt-5 grid grid-cols-2 gap-x-8 gap-y-3 text-sm text-white/72" aria-label="Footer navigation">
-                <Link href="/services" className="transition hover:text-[#f2efff]">{nav.services[locale]}</Link>
-                <Link href="/work" className="transition hover:text-[#f2efff]">{nav.work[locale]}</Link>
-                <Link href="/harga-website" className="transition hover:text-[#f2efff]">{nav.pricing[locale]}</Link>
-                <Link href="/studio" className="transition hover:text-[#f2efff]">{nav.studio[locale]}</Link>
-                <Link href="/contact" className="transition hover:text-[#f2efff]">Contact</Link>
-                <Link href="/insight" className="transition hover:text-[#f2efff]">Insight</Link>
-              </nav>
-            </div>
-
-            <div className="lg:col-span-3">
-              <p className="label-mono text-[#8057ff]">LAYANAN</p>
-              <nav className="mt-5 grid gap-3 text-sm text-white/62" aria-label="Services footer link">
-                <Link href="/jasa-pembuatan-website" className="transition hover:text-[#f2efff]">Jasa Pembuatan Website</Link>
-                <Link href="/jasa-website-umkm" className="transition hover:text-[#f2efff]">Website UMKM</Link>
-                <Link href="/jasa-website-company-profile" className="transition hover:text-[#f2efff]">Company Profile</Link>
-                <Link href="/redesign-website" className="transition hover:text-[#f2efff]">Redesign Website</Link>
-                <Link href="/industri/logistik" className="transition hover:text-[#f2efff]">Website Logistik</Link>
-                <Link href="/industri/travel" className="transition hover:text-[#f2efff]">Website Travel</Link>
-                <Link href="/solusi/umkm/toko-online" className="transition hover:text-[#f2efff]">Toko Online UMKM</Link>
-                <Link href="/solusi/perusahaan/maintenance-support" className="transition hover:text-[#f2efff]">Maintenance Website</Link>
-                <Link href="/jasa-pembuatan-website-depok" className="transition hover:text-[#f2efff]">Jasa Website Depok</Link>
-                <Link href="/services/e-commerce" className="transition hover:text-[#f2efff]">E-Commerce</Link>
-                <Link href="/services/web-application" className="transition hover:text-[#f2efff]">Web Application</Link>
-                <Link href="/services/custom-development" className="transition hover:text-[#f2efff]">Custom Dev</Link>
-              </nav>
-            </div>
-
-            <div className="lg:col-span-3">
-              <p className="label-mono text-[#8057ff]">INDUSTRI</p>
-              <nav className="mt-5 grid gap-3 text-sm text-white/62" aria-label="Industry footer links">
-                <Link href="/industri/travel" className="transition hover:text-[#f2efff]">Travel Umrah</Link>
-                <Link href="/industri/logistik" className="transition hover:text-[#f2efff]">Logistik</Link>
-                <Link href="/industri/fashion" className="transition hover:text-[#f2efff]">Fashion &amp; Apparel</Link>
-                <Link href="/industri/manufaktur" className="transition hover:text-[#f2efff]">Manufaktur</Link>
-                <Link href="/industri/konstruksi" className="transition hover:text-[#f2efff]">Konstruksi</Link>
-                <Link href="/industri/ekspor-impor" className="transition hover:text-[#f2efff]">Ekspor Impor</Link>
-              </nav>
-            </div>
-
-            <div className="sm:col-span-2 lg:col-span-4 lg:text-right">
-              <p className="max-w-[470px] text-base leading-7 text-white/58 lg:ml-auto">
-                {copy.closing[locale]}
-              </p>
-            </div>
+          <div className="border-b border-white/12 py-7 sm:py-8">
+            <nav
+              className="flex flex-wrap items-center gap-x-7 gap-y-4 text-sm text-white/62 lg:flex-nowrap lg:justify-between lg:gap-x-4"
+              aria-label="Footer navigation"
+            >
+              <Link href="/services" className="whitespace-nowrap transition hover:text-[#f2efff]">{nav.services[locale]}</Link>
+              <Link href="/work" className="whitespace-nowrap transition hover:text-[#f2efff]">{nav.work[locale]}</Link>
+              <Link href="/harga-website" className="whitespace-nowrap transition hover:text-[#f2efff]">{nav.pricing[locale]}</Link>
+              <Link href="/studio" className="whitespace-nowrap transition hover:text-[#f2efff]">{nav.studio[locale]}</Link>
+              <Link href="/insight" className="whitespace-nowrap transition hover:text-[#f2efff]">Insight</Link>
+              <Link href="/jasa-website-umkm" className="whitespace-nowrap transition hover:text-[#f2efff]">Website UMKM</Link>
+              <Link href="/jasa-website-company-profile" className="whitespace-nowrap transition hover:text-[#f2efff]">Company Profile</Link>
+              <Link href="/redesign-website" className="whitespace-nowrap transition hover:text-[#f2efff]">Redesign</Link>
+              <Link href="/industri/logistik" className="whitespace-nowrap transition hover:text-[#f2efff]">Logistik</Link>
+              <Link href="/industri/travel" className="whitespace-nowrap transition hover:text-[#f2efff]">Travel</Link>
+              <Link href="/contact" className="whitespace-nowrap font-medium text-[#d2f34c] transition hover:text-white">Contact</Link>
+            </nav>
           </div>
 
-          <div className="flex flex-col gap-3 border-t border-white/12 pt-6 text-[0.7rem] text-white/42 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-col gap-3 pt-6 text-[0.7rem] text-white/42 sm:flex-row sm:items-center sm:justify-between">
             <p>© {new Date().getFullYear()} HAMMAD.STUDIO · All rights reserved.</p>
             <div className="flex gap-4"><Link href="/privacy" className="hover:text-white">Privacy</Link><Link href="/terms" className="hover:text-white">Terms</Link><span>Global remote services</span></div>
           </div>

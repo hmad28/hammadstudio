@@ -1,41 +1,19 @@
 "use client";
 
-import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  motion,
-  useReducedMotion,
-  useScroll,
-  useTransform,
-} from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { homeContent } from "@/lib/home-content";
 import { ArrowUpRightIcon } from "./icons";
 import { useLocale } from "./locale-provider";
 
 export function HeroSection() {
-  const sectionRef = useRef<HTMLElement>(null);
   const reduceMotion = useReducedMotion();
   const { locale } = useLocale();
   const copy = homeContent.hero;
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end start"],
-  });
-  const showcaseY = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [0, reduceMotion ? 0 : 90],
-  );
-  const sideY = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [0, reduceMotion ? 0 : 150],
-  );
 
   return (
     <section
-      ref={sectionRef}
       id="hero"
       className="hero-surface-v2 relative min-h-screen overflow-hidden pb-16 pt-32 text-white sm:pt-36 lg:pt-40"
     >
@@ -144,14 +122,12 @@ export function HeroSection() {
         {/* 3D Stage Hero Showcase with Gradient Borders & Glowing Aura */}
         <motion.div
           className="hero-stage relative mx-auto h-[330px] max-w-[1180px] sm:h-[490px] lg:h-[620px]"
-          style={{ y: showcaseY }}
           initial={reduceMotion ? false : { opacity: 0, y: 70, scale: 0.97 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 1.05, delay: 0.38, ease: [0.16, 1, 0.3, 1] }}
         >
           {/* Left Tilted Card */}
           <motion.div
-            style={{ y: sideY }}
             className="absolute -left-[13%] top-[15%] h-[64%] w-[38%] -rotate-[5deg] overflow-hidden rounded-xl border border-white/20 bg-[#111] opacity-75 shadow-[0_20px_50px_rgba(0,0,0,0.8)] backdrop-blur-md sm:-left-[8%] sm:opacity-95"
           >
             <Image
@@ -165,7 +141,6 @@ export function HeroSection() {
 
           {/* Right Tilted Card */}
           <motion.div
-            style={{ y: sideY }}
             className="absolute -right-[13%] top-[15%] h-[64%] w-[38%] rotate-[5deg] overflow-hidden rounded-xl border border-white/20 bg-[#111] opacity-75 shadow-[0_20px_50px_rgba(0,0,0,0.8)] backdrop-blur-md sm:-right-[8%] sm:opacity-95"
           >
             <Image
