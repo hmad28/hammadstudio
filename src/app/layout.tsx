@@ -38,7 +38,6 @@ export const metadata: Metadata = {
     "automation AI Indonesia",
     "digital development studio",
   ],
-  icons: { icon: "/icon.svg" },
   verification: {
     google: process.env.GOOGLE_SITE_VERIFICATION,
   },
