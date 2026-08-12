@@ -3,7 +3,7 @@
 import { trackConversion } from "@/lib/analytics";
 import { ArrowUpRightIcon } from "./icons";
 
-const whatsappUrl = "https://wa.me/6287888362186?text=Halo%20Hammad%20Studio%2C%20saya%20ingin%20mendiskusikan%20kebutuhan%20website.";
+const whatsappUrl = "https://wa.me/6285199391215?text=Halo%20Hammad%20Studio%2C%20saya%20ingin%20mendiskusikan%20kebutuhan%20website.";
 
 export function StickyWhatsAppCTA() {
   return (

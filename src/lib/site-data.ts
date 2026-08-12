@@ -3,7 +3,7 @@ import type { Locale, Localized, Package, Service } from "./types";
 export const t = (value: Localized, locale: Locale) => value[locale];
 
 export const site = {
-  name: "HAMMAD STUDIO®",
+  name: "Hammad Studio",
   email: "hello@hammad.studio",
   descriptor: { id: "INDEPENDENT DIGITAL PRODUCT STUDIO — INDONESIA", en: "INDEPENDENT DIGITAL PRODUCT STUDIO — INDONESIA" },
   meta: {

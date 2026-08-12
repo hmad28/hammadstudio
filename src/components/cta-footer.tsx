@@ -98,9 +98,18 @@ export function CTAFooter() {
                   Facebook
                 </a>
                 <span className="hidden h-4 w-px bg-white/18 sm:block" aria-hidden="true" />
-                <span>Depok &amp; Jakarta, Indonesia</span>
+                <a
+                  href="https://www.tiktok.com/@its_hammadstudio"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="transition-colors hover:text-[#d2f34c]"
+                >
+                  TikTok
+                </a>
                 <span className="hidden h-4 w-px bg-white/18 sm:block" aria-hidden="true" />
-                <a href="https://wa.me/6287888362186" target="_blank" rel="noreferrer" className="transition-colors hover:text-[#d2f34c]">+62 878-8836-2186</a>
+                <span>Jakarta, Indonesia</span>
+                <span className="hidden h-4 w-px bg-white/18 sm:block" aria-hidden="true" />
+                <a href="https://wa.me/6285199391215" target="_blank" rel="noreferrer" className="transition-colors hover:text-[#d2f34c]">+62 851-9939-1215</a>
               </div>
             </div>
           </div>
@@ -129,10 +138,10 @@ export function CTAFooter() {
                 <Link href="/industri/travel" className="transition hover:text-[#f2efff]">Website Travel</Link>
                 <Link href="/solusi/umkm/toko-online" className="transition hover:text-[#f2efff]">Toko Online UMKM</Link>
                 <Link href="/solusi/perusahaan/maintenance-support" className="transition hover:text-[#f2efff]">Maintenance Website</Link>
-                <Link href="/jasa-pembuatan-website-depok" className="transition hover:text-[#f2efff]">Jasa Website Depok</Link>
+                <Link href="/jasa-pembuatan-website-jakarta" className="transition hover:text-[#f2efff]">Jasa Website Jakarta</Link>
                 <Link href="/services/e-commerce" className="transition hover:text-[#f2efff]">E-Commerce</Link>
                 <Link href="/services/web-application" className="transition hover:text-[#f2efff]">Web Application</Link>
-                <Link href="/services/custom-development" className="transition hover:text-[#f2efff]">Custom Dev</Link>
+                <Link href="/website-custom" className="transition hover:text-[#f2efff]">Website Custom</Link>
               </nav>
             </div>
 
@@ -142,9 +151,10 @@ export function CTAFooter() {
                 <Link href="/industri/travel" className="transition hover:text-[#f2efff]">Travel Umrah</Link>
                 <Link href="/industri/logistik" className="transition hover:text-[#f2efff]">Logistik</Link>
                 <Link href="/industri/fashion" className="transition hover:text-[#f2efff]">Fashion &amp; Apparel</Link>
-                <Link href="/industri/manufaktur" className="transition hover:text-[#f2efff]">Manufaktur</Link>
-                <Link href="/industri/konstruksi" className="transition hover:text-[#f2efff]">Konstruksi</Link>
-                <Link href="/industri/ekspor-impor" className="transition hover:text-[#f2efff]">Ekspor Impor</Link>
+                <Link href="/industri/umkm-kuliner" className="transition hover:text-[#f2efff]">UMKM Kuliner</Link>
+                <Link href="/industri/pendidikan" className="transition hover:text-[#f2efff]">Pendidikan</Link>
+                <Link href="/industri/distributor" className="transition hover:text-[#f2efff]">Distributor</Link>
+                <Link href="/industri/event" className="transition hover:text-[#f2efff]">Event</Link>
               </nav>
             </div>
 

@@ -181,7 +181,7 @@ export function ServicesCatalog() {
           return (
             <MotionReveal key={service.number} delay={(index % 2) * 0.05}>
               <Link
-                href={`/services/${service.slug}`}
+              href={service.slug === "custom-development" ? "/website-custom" : `/services/${service.slug}`}
                 className={`surface-card group flex h-full min-h-[560px] flex-col overflow-hidden rounded-2xl border border-[#dde0e7] bg-white transition duration-500 hover:-translate-y-1.5 hover:shadow-[0_30px_90px_rgba(7,10,18,0.1)] ${hoverClass}`}
               >
                 <div className="relative h-64 overflow-hidden bg-[#070a12] sm:h-72">

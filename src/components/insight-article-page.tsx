@@ -13,7 +13,7 @@ export function InsightArticlePage({ article }: { article: InsightArticle }) {
           <p className="label-mono mt-10 text-[#d2f34c]">INSIGHT · {article.readTime}</p>
           <h1 className="mt-6 max-w-[1080px] text-[clamp(3.3rem,7vw,7rem)] font-[520] leading-[0.9] tracking-[-0.065em]">{article.title}</h1>
           <p className="mt-8 max-w-[760px] text-lg leading-8 text-white/66">{article.description}</p>
-          <p className="mt-6 text-xs text-white/38">Ditulis oleh Hammad Studio · Diperbarui <time dateTime={article.updatedAt}>11 Agustus 2026</time></p>
+          <p className="mt-6 text-xs text-white/38">Ditulis oleh Hammad Matt · Diperbarui <time dateTime={article.updatedAt}>{new Intl.DateTimeFormat("id-ID", { dateStyle: "long", timeZone: "Asia/Jakarta" }).format(new Date(`${article.updatedAt}T00:00:00+07:00`))}</time></p>
         </div>
       </header>
 

@@ -12,14 +12,14 @@ const staticRoutes = [
   { path: "/jasa-website-umkm", priority: 0.9, changeFrequency: "monthly" },
   { path: "/jasa-website-company-profile", priority: 0.9, changeFrequency: "monthly" },
   { path: "/redesign-website", priority: 0.85, changeFrequency: "monthly" },
+  { path: "/website-custom", priority: 0.85, changeFrequency: "monthly" },
   { path: "/industri/logistik", priority: 0.85, changeFrequency: "monthly" },
-  { path: "/jasa-pembuatan-website-depok", priority: 0.85, changeFrequency: "monthly" },
+  { path: "/jasa-pembuatan-website-jakarta", priority: 0.85, changeFrequency: "monthly" },
   { path: "/services/website", priority: 0.8, changeFrequency: "monthly" },
   { path: "/services/e-commerce", priority: 0.8, changeFrequency: "monthly" },
   { path: "/services/web-application", priority: 0.8, changeFrequency: "monthly" },
   { path: "/services/business-system", priority: 0.8, changeFrequency: "monthly" },
   { path: "/services/automation-ai", priority: 0.8, changeFrequency: "monthly" },
-  { path: "/services/custom-development", priority: 0.8, changeFrequency: "monthly" },
   { path: "/work", priority: 0.9, changeFrequency: "weekly" },
   { path: "/harga-website", priority: 0.9, changeFrequency: "monthly" },
   { path: "/studio", priority: 0.7, changeFrequency: "monthly" },
@@ -60,7 +60,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  const industries: MetadataRoute.Sitemap = Object.values(industryLandings).map((landing) => ({
+  const industries: MetadataRoute.Sitemap = Object.values(industryLandings).filter((landing) => !("indexable" in landing) || landing.indexable !== false).map((landing) => ({
     url: `${siteUrl}/industri/${landing.slug}`,
     changeFrequency: "monthly",
     priority: 0.8,

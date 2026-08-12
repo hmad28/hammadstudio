@@ -9,8 +9,12 @@ import { PricingSection } from "@/components/pricing-section";
 import { ProcessPreviewSection } from "@/components/process-preview-section";
 import { FAQSection } from "@/components/faq-section";
 import { AudiencePathsSection } from "@/components/audience-paths-section";
+import { HomepageProofSection } from "@/components/homepage-proof-section";
+import { StudioDifferenceSection } from "@/components/studio-difference-section";
 
 export const metadata: Metadata = {
+  title: "Jasa Pembuatan Website Profesional untuk Bisnis | Hammad Studio",
+  description: "Jasa pembuatan website untuk UMKM dan perusahaan. Website modern, cepat, mobile-friendly, SEO-ready, dan sesuai kebutuhan bisnis. Konsultasikan project Anda.",
   alternates: { canonical: "/" },
 };
 
@@ -20,8 +24,8 @@ const organizationJsonLd = {
     {
       "@type": ["Organization", "ProfessionalService"],
       "@id": "https://hammad.studio/#organization",
-      name: "HAMMAD.STUDIO",
-      alternateName: "Hammad Studio",
+      name: "Hammad Studio",
+      alternateName: "HAMMAD.STUDIO",
       url: "https://hammad.studio",
       logo: {
         "@type": "ImageObject",
@@ -30,7 +34,7 @@ const organizationJsonLd = {
         height: 1666,
       },
       email: "hello@hammad.studio",
-      telephone: "+62-878-8836-2186",
+      telephone: "+62-851-9939-1215",
       description:
         "Studio pengembangan digital untuk website, e-commerce, aplikasi web, automation, dan sistem bisnis custom.",
       areaServed: {
@@ -48,10 +52,11 @@ const organizationJsonLd = {
       sameAs: [
         "https://www.instagram.com/hammad.biz/",
         "https://www.facebook.com/itshammadstudio",
+        "https://www.tiktok.com/@its_hammadstudio",
       ],
       contactPoint: {
         "@type": "ContactPoint",
-        telephone: "+62-878-8836-2186",
+        telephone: "+62-851-9939-1215",
         contactType: "sales",
         availableLanguage: ["Indonesian", "English"],
       },
@@ -71,8 +76,8 @@ const organizationJsonLd = {
       "@type": "WebSite",
       "@id": "https://hammad.studio/#website",
       url: "https://hammad.studio",
-      name: "HAMMAD.STUDIO",
-      alternateName: "Hammad Studio",
+      name: "Hammad Studio",
+      alternateName: "HAMMAD.STUDIO",
       inLanguage: "id-ID",
       publisher: {
         "@id": "https://hammad.studio/#organization",
@@ -93,6 +98,8 @@ export default function HomePage() {
       {/* 01 HERO (Black) */}
       <HeroSection />
 
+      <HomepageProofSection />
+
       {/* 02 INTRO / POSITIONING (Off-white) */}
       <AboutSection />
 
@@ -103,6 +110,8 @@ export default function HomePage() {
 
       {/* 04 WHY IT MATTERS (Soft Gray, Split Value & Benefit Cards) */}
       <WhyItMattersSection />
+
+      <StudioDifferenceSection />
 
       {/* 05 SELECTED WORK (Dark Section, 1 Hero + 2 Grid Cards) */}
       <PortfolioSection />

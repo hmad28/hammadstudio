@@ -15,7 +15,7 @@ export const sharedFaqs = [
     answer: "Website dengan scope terarah umumnya membutuhkan beberapa minggu. Durasi final mengikuti jumlah halaman, kesiapan materi, fitur, dan putaran revisi yang disepakati.",
   },
   {
-    question: "Apakah website sudah SEO-friendly?",
+    question: "Apakah website memiliki SEO-ready foundation?",
     answer: "Ya. Struktur teknis, metadata, sitemap, canonical, schema dasar, performa, dan indexability disiapkan sejak awal. Pertumbuhan ranking tetap membutuhkan konten, bukti, dan authority yang dibangun bertahap.",
   },
   {

@@ -385,6 +385,24 @@ export const insightArticles = [
       { heading: "Operasi setelah launch", paragraphs: ["Siapkan monitoring, alert, dead-letter flow, manual recovery, ownership vendor, dan test ketika salah satu sistem diperbarui. Integrasi yang tidak terpantau dapat gagal tanpa terlihat oleh tim bisnis."] },
     ],
   },
+  {
+    slug: "contoh-website-company-profile-yang-bagus",
+    title: "Contoh Website Company Profile yang Bagus dan Apa yang Bisa Dipelajari",
+    description: "Contoh website company profile dari project nyata Hammad Studio untuk travel, logistik, dan perusahaan teknologi, lengkap dengan prinsip struktur yang dapat diterapkan.",
+    answer: "Website company profile yang bagus membuat calon klien cepat memahami siapa perusahaan, apa yang ditawarkan, bukti yang tersedia, dan langkah berikutnya. Kualitasnya tidak ditentukan oleh animasi paling ramai, tetapi oleh hierarchy informasi, trust signals, performa, serta jalur inquiry yang jelas.",
+    publishedAt: "2026-08-12",
+    updatedAt: "2026-08-12",
+    readTime: "8 menit",
+    relatedHref: "/jasa-website-company-profile",
+    relatedLabel: "Lihat jasa pembuatan website company profile",
+    cluster: "company",
+    sections: [
+      { heading: "ADD Logistik: memperjelas layanan dan coverage B2B", paragraphs: ["ADD Logistik menjadi contoh bagaimana website corporate dapat menyusun layanan, cakupan operasi, kemampuan perusahaan, dan contact path agar calon klien tidak perlu menebak apakah kebutuhannya dapat dilayani."], points: ["Service hierarchy yang mudah dipindai", "Coverage sebagai bagian dari keputusan buyer", "Inquiry ditempatkan setelah konteks bisnis cukup"] },
+      { heading: "Sahabat Qolbu: trust sebelum konsultasi", paragraphs: ["Untuk travel Umrah, website perlu memberi ruang pada paket, proses, edukasi, dokumentasi, dan jalur konsultasi. Fokusnya bukan membuat klaim kepercayaan, melainkan menyajikan informasi yang membantu calon jamaah menilai layanan dengan tenang."], points: ["Paket dan layanan tersusun", "Konten edukasi menjawab kekhawatiran", "CTA konsultasi hadir pada konteks yang tepat"] },
+      { heading: "Solivate: menjelaskan capability teknologi", paragraphs: ["Perusahaan teknologi sering terjebak daftar jargon. Website yang lebih efektif menerjemahkan capability menjadi masalah yang dapat diselesaikan, bentuk layanan, bukti kerja, serta cara memulai diskusi."], points: ["Outcome sebelum tech stack", "Capability dikaitkan dengan kebutuhan user", "Project digunakan sebagai bukti, bukan dekorasi"] },
+      { heading: "Checklist yang dapat diterapkan", paragraphs: ["Gunakan contoh sebagai bahan berpikir, bukan template untuk disalin. Struktur akhir harus mengikuti buyer, proses sales, materi yang tersedia, dan tujuan website perusahaan Anda."], points: ["H1 menjelaskan value utama", "Layanan memiliki hierarchy", "Profil dan informasi legal hanya memuat data valid", "Project atau capability memberi bukti", "Kontak dan RFQ meminta informasi secukupnya", "Halaman ringan, mobile-friendly, dan dapat dirayapi"] },
+    ],
+  },
 ] as const satisfies readonly InsightArticle[];
 
 export type InsightSlug = (typeof insightArticles)[number]["slug"];

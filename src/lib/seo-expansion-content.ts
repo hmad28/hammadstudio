@@ -15,6 +15,7 @@ export type ExpansionLanding = {
   startingPrice: string;
   proofLabel?: string;
   proofTitle?: string;
+  indexable?: boolean;
 };
 
 export const solutionLandings = {
@@ -148,6 +149,7 @@ export const industryLandings = {
     startingPrice: "Website manufaktur dimulai dari scope corporate website. Katalog, dokumen, multilingual, RFQ, dan integrasi dihitung berdasarkan kebutuhan.",
     proofLabel: "RELEVANT CAPABILITY",
     proofTitle: "Fondasi B2B yang dapat diterapkan secara jujur.",
+    indexable: false,
   },
   konstruksi: {
     slug: "konstruksi",
@@ -164,6 +166,7 @@ export const industryLandings = {
     startingPrice: "Website konstruksi dimulai dari scope company profile; jumlah project, CMS, dokumen, dan kebutuhan tender menentukan estimasi final.",
     proofLabel: "RELEVANT CAPABILITY",
     proofTitle: "Struktur corporate yang mendukung proses proyek.",
+    indexable: false,
   },
   "ekspor-impor": {
     slug: "ekspor-impor",
@@ -178,5 +181,33 @@ export const industryLandings = {
     proofs: [{ name: "ADD Logistik", detail: "Contoh website B2B untuk layanan logistik dan kredibilitas perusahaan.", href: "/work/add-logistik" }, { name: "Buraq Logistik", detail: "Presentasi coverage, distribusi, trucking, dan kapabilitas operasional.", href: "/work/buraq-logistik" }, { name: "Website Logistik", detail: "Landing vertical untuk kebutuhan trucking, freight, dan distribusi.", href: "/industri/logistik" }],
     faqs: companyFaqs,
     startingPrice: "Website ekspor impor mengikuti scope corporate website. Multilingual, katalog, RFQ, dokumen, dan integrasi dihitung sesuai market serta workflow.",
+  },
+  distributor: {
+    slug: "distributor",
+    title: "Jasa Website Distributor dan Supplier B2B",
+    description: "Website distributor dan supplier untuk menyusun kategori produk, area distribusi, brand principal, kapabilitas, dokumen, serta inquiry B2B.",
+    eyebrow: "WEBSITE DISTRIBUTOR & SUPPLIER",
+    hero: "Bantu buyer memahami produk, coverage, dan cara bekerja sama lebih cepat.",
+    intro: "Website distributor perlu menjawab pertanyaan buyer dan partner secara efisien: produk apa yang tersedia, area mana yang dilayani, bagaimana proses permintaan, dokumen apa yang dapat diakses, dan siapa yang harus dihubungi.",
+    audience: "Untuk distributor, supplier, trading company, dan bisnis B2B yang membutuhkan katalog terstruktur, coverage, dokumen, serta jalur request for quotation.",
+    outcomes: ["Kategori produk dan layanan lebih mudah dinavigasi.", "Coverage dan kapabilitas distribusi terlihat jelas.", "Buyer dapat mengirim inquiry dengan konteks kebutuhan.", "Tim sales memiliki referensi resmi yang konsisten."],
+    deliverables: ["Company dan capability profile", "Product atau brand catalog", "Coverage dan distribution network", "Document center sesuai kebutuhan", "RFQ atau inquiry routing", "CMS katalog", "Analytics dan conversion tracking", "SEO-ready foundation"],
+    proofs: [{ name: "ADD Logistik", detail: "Website B2B yang menyusun layanan, coverage, kapabilitas, dan jalur inquiry.", href: "/work/add-logistik" }, { name: "Buraq Logistik", detail: "Presentasi trucking, distribusi regional, cakupan, dan kemampuan operasional.", href: "/work/buraq-logistik" }, { name: "Website Company Profile", detail: "Fondasi trust, layanan, project, dokumen, dan inquiry untuk perusahaan.", href: "/jasa-website-company-profile" }],
+    faqs: companyFaqs,
+    startingPrice: "Website distributor dimulai dari Corporate Website Rp 2,5 juta+. Katalog, multilingual, RFQ, dokumen, dan integrasi dihitung sesuai scope.",
+  },
+  event: {
+    slug: "event",
+    title: "Jasa Website Event, Registrasi, dan Ticketing",
+    description: "Website event untuk agenda, speaker, venue, sponsor, registrasi, database peserta, ticketing, QR check-in, dan pelaporan sesuai skala acara.",
+    eyebrow: "WEBSITE & SISTEM EVENT",
+    hero: "Dari pengumuman acara sampai peserta hadir di venue.",
+    intro: "Kebutuhan event dapat berhenti pada halaman informasi atau berkembang menjadi registrasi, pembayaran, tiket digital, QR check-in, attendance dashboard, dan report. Scope dipilih sesuai alur acara—bukan semua fitur dipaksakan sejak awal.",
+    audience: "Untuk seminar, workshop, kajian, conference, expo, festival, campaign, dan acara komunitas yang membutuhkan informasi serta pengelolaan peserta lebih rapi.",
+    outcomes: ["Informasi acara dan CTA registrasi berada dalam satu journey.", "Data peserta tersimpan dan dapat dikelola sesuai scope.", "Ticketing serta check-in dapat ditambahkan ketika benar-benar dibutuhkan.", "Tim memiliki data registrasi, kehadiran, dan penjualan yang lebih terstruktur."],
+    deliverables: ["Event information dan agenda", "Speaker, venue, sponsor, dan FAQ", "Registration form dan database peserta", "Admin dashboard dan export", "Payment serta ticket type sesuai paket", "Digital ticket dan QR check-in opsional", "Analytics dan social sharing", "SEO-ready foundation"],
+    proofs: [{ name: "Masjid Raya Puri Telukjambe", detail: "Platform komunitas dengan informasi kegiatan, jadwal, livestream, donasi, dan pengelolaan fasilitas.", href: "/work/masjid-raya-puri-telukjambe" }, { name: "NaikLevel AI", detail: "Produk edukasi digital dengan landing, pembelian, pembayaran, dan konfirmasi.", href: "/work/naiklevel-ai" }, { name: "Harga Website", detail: "Event Website mulai Rp 749 ribu+, registrasi mulai Rp 1,499 juta+, dan ticketing mulai Rp 3,499 juta+.", href: "/harga-website" }],
+    faqs: companyFaqs,
+    startingPrice: "Event Website mulai Rp 749 ribu+. Event Registration mulai Rp 1,499 juta+ dan Event Ticketing mulai Rp 3,499 juta+ sesuai skala serta workflow.",
   },
 } as const satisfies Record<string, ExpansionLanding>;

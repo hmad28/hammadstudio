@@ -32,8 +32,8 @@ export const homeContent = {
   about: {
     label: { id: "Tentang Hammad Studio", en: "About Hammad Studio" },
     location: {
-      id: "Depok & Jakarta · Global Remote",
-      en: "Depok & Jakarta · Global Remote",
+      id: "Jakarta · Global Remote",
+      en: "Jakarta · Global Remote",
     },
     headlineBefore: {
       id: "Dari website sederhana",
