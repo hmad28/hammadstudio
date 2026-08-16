@@ -1,9 +1,11 @@
 import type { Icon } from "@phosphor-icons/react/lib";
 import { Browser } from "@phosphor-icons/react/Browser";
 import { Buildings } from "@phosphor-icons/react/Buildings";
+import { MegaphoneSimple } from "@phosphor-icons/react/MegaphoneSimple";
 import { AirplaneTilt } from "@phosphor-icons/react/AirplaneTilt";
 import { GraduationCap } from "@phosphor-icons/react/GraduationCap";
 import { UsersThree } from "@phosphor-icons/react/UsersThree";
+import { Mosque } from "@phosphor-icons/react/Mosque";
 import { ForkKnife } from "@phosphor-icons/react/ForkKnife";
 import { HouseLine } from "@phosphor-icons/react/HouseLine";
 import { Bed } from "@phosphor-icons/react/Bed";
@@ -22,8 +24,8 @@ import { Code } from "@phosphor-icons/react/Code";
 import type { PricingIcon as PricingIconName } from "@/lib/pricing-catalog";
 
 const icons: Record<PricingIconName, Icon> = {
-  landing: Browser, company: Buildings, travel: AirplaneTilt, education: GraduationCap,
-  organization: UsersThree, culinary: ForkKnife, property: HouseLine, hotel: Bed,
+  landing: Browser, company: Buildings, sales: MegaphoneSimple, travel: AirplaneTilt, education: GraduationCap,
+  organization: UsersThree, religious: Mosque, culinary: ForkKnife, property: HouseLine, hotel: Bed,
   media: Newspaper, healthcare: FirstAid, catalog: Package, commerce: ShoppingCart,
   event: CalendarDots, registration: IdentificationCard, ticketing: Ticket,
   booking: CalendarCheck, business: ChartLineUp, operations: FlowArrow,

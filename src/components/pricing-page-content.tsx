@@ -1,12 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { pricingGroups } from "@/lib/pricing-catalog";
+import { getPricingPlanId, pricingGroups } from "@/lib/pricing-catalog";
 import { ArrowUpRightIcon, CheckIcon } from "./icons";
 import { MotionReveal } from "./motion-reveal";
 import { PricingIcon } from "./pricing-icon";
-
-const planId = (name: string) => `plan-${name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
 
 export function PricingPageContent() {
   return (
@@ -29,7 +27,7 @@ export function PricingPageContent() {
             <div className="mt-9 grid items-start border-l border-t border-black/14 sm:grid-cols-2 lg:grid-cols-3">
               {group.plans.map((plan, index) => (
                 <MotionReveal key={plan.name} delay={(index % 3) * 0.035}>
-                  <details id={planId(plan.name)} className="group scroll-mt-24 border-b border-r border-black/14 bg-[#f2f0e9] transition-colors open:bg-white">
+                  <details id={getPricingPlanId(plan.name)} className="group scroll-mt-24 border-b border-r border-black/14 bg-[#f2f0e9] transition-colors open:bg-white">
                     <summary className="flex min-h-72 cursor-pointer list-none flex-col p-6 marker:hidden sm:p-7 [&::-webkit-details-marker]:hidden">
                       <div className="flex items-start justify-between"><PricingIcon name={plan.icon} className="h-8 w-8 text-[#8057ff]" /><span className="flex h-7 w-7 items-center justify-center border border-black/15 font-mono text-xs transition group-open:rotate-45 group-open:bg-[#17181d] group-open:text-white">+</span></div>
                       <h3 className="mt-10 text-2xl font-[540] tracking-[-.045em]">{plan.name}</h3>

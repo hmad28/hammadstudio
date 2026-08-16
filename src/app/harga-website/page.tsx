@@ -1,5 +1,5 @@
 import { PricingPageContent } from "@/components/pricing-page-content";
-import { pricingPlans } from "@/lib/pricing-catalog";
+import { getPricingPlanId, pricingPlans } from "@/lib/pricing-catalog";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
@@ -38,7 +38,7 @@ export default function WebsitePricingPage() {
           name: plan.name,
           ...(numericPrice ? { price: numericPrice, priceCurrency: "IDR" } : {}),
           description: `${plan.summary} Harga: ${plan.price}.`,
-          url: `https://hammad.studio/harga-website#plan-${plan.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`,
+          url: `https://hammad.studio/harga-website#${getPricingPlanId(plan.name)}`,
         };
       }),
     },

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { pricingPlans } from "@/lib/pricing-catalog";
+import { getPricingPlanId, pricingPlans } from "@/lib/pricing-catalog";
 import { ArrowUpRightIcon } from "./icons";
 import { MotionReveal } from "./motion-reveal";
 import { PricingIcon } from "./pricing-icon";
@@ -22,7 +22,7 @@ export function PricingSection() {
         <div className="mt-12 grid border-l border-t border-black/14 sm:grid-cols-2 lg:grid-cols-3">
           {featuredPlans.map((plan, index) => (
             <MotionReveal key={plan.name} delay={(index % 3) * 0.04}>
-              <Link href={`/harga-website#plan-${plan.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`} className="group flex min-h-64 flex-col border-b border-r border-black/14 bg-[#f2f0e9] p-6 transition-colors duration-300 hover:bg-[#070a12] hover:text-white sm:p-7">
+              <Link href={`/harga-website#${getPricingPlanId(plan.name)}`} className="group flex min-h-64 flex-col border-b border-r border-black/14 bg-[#f2f0e9] p-6 transition-colors duration-300 hover:bg-[#070a12] hover:text-white sm:p-7">
                 <div className="flex items-start justify-between"><PricingIcon name={plan.icon} className="h-8 w-8 text-[#8057ff] transition-colors group-hover:text-[#d2f34c]" /><span className="font-mono text-[.65rem] opacity-35">{String(index + 1).padStart(2, "0")}</span></div>
                 <h3 className="mt-9 text-2xl font-[540] tracking-[-.045em]">{plan.name}</h3>
                 <p className="mt-2 max-w-[300px] text-sm leading-6 opacity-55">{plan.summary}</p>

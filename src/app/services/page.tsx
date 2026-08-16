@@ -19,8 +19,8 @@ export default function ServicesPage() {
         <div className="relative z-10">
           <LocalizedPageIntro
             eyebrow={{ id: "Layanan Hammad Studio", en: "Hammad Studio services" }}
-            title={{ id: "Dari website hingga platform digital custom.", en: "From websites to custom digital platforms." }}
-            description={{ id: "Kami membangun website, e-commerce, aplikasi web, sistem bisnis, automation, dan software custom berdasarkan kebutuhan nyata, bukan sekadar menambahkan fitur.", en: "We build websites, e-commerce, web applications, business systems, automation, and custom software around real needs, not feature lists." }}
+            title={{ id: "Pilih yang bisnis Anda butuhkan.", en: "Choose what your business needs." }}
+            description={{ id: "Website, commerce, sistem bisnis, sampai software custom.", en: "Websites, commerce, business systems, and custom software." }}
             theme="dark"
           />
         </div>
