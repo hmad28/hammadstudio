@@ -6,7 +6,6 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { X } from "@phosphor-icons/react/X";
 import { trackConversion } from "@/lib/analytics";
 
-const sessionKey = "hammad-merdeka-popup-2026-v1";
 const promoEndsAt = new Date("2026-09-01T00:00:00+07:00").getTime();
 const whatsappHref = `https://wa.me/6285199391215?text=${encodeURIComponent("Halo Hammad Studio, saya melihat Promo Merdeka di website dan ingin klaim sekaligus konsultasi pembuatan website.")}`;
 
@@ -15,10 +14,9 @@ export function HomepagePromoPopup() {
   const reduceMotion = useReducedMotion();
 
   useEffect(() => {
-    if (Date.now() >= promoEndsAt || sessionStorage.getItem(sessionKey)) return;
+    if (Date.now() >= promoEndsAt) return;
 
     const timer = window.setTimeout(() => {
-      sessionStorage.setItem(sessionKey, "shown");
       setOpen(true);
     }, 1100);
 
