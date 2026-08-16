@@ -53,16 +53,16 @@ export function Navbar() {
             <Link href="/services" className={`nav-link flex items-center gap-1.5 transition-colors hover:text-white ${pathname.startsWith("/services") || pathname.startsWith("/jasa-") ? "font-semibold text-white" : ""}`}>
               {locale === "id" ? "Layanan" : "Services"}<CaretDown className="h-3 w-3 transition-transform duration-200 group-hover/services:rotate-180 group-focus-within/services:rotate-180" weight="bold" />
             </Link>
-            <div className="invisible absolute left-1/2 top-[58px] w-[1040px] max-w-[calc(100vw-40px)] -translate-x-1/2 translate-y-2 opacity-0 transition duration-200 group-hover/services:visible group-hover/services:translate-y-0 group-hover/services:opacity-100 group-focus-within/services:visible group-focus-within/services:translate-y-0 group-focus-within/services:opacity-100">
+            <div className="invisible absolute left-1/2 top-[58px] w-[1120px] max-w-[calc(100vw-40px)] -translate-x-1/2 translate-y-2 opacity-0 transition duration-200 group-hover/services:visible group-hover/services:translate-y-0 group-hover/services:opacity-100 group-focus-within/services:visible group-focus-within/services:translate-y-0 group-focus-within/services:opacity-100">
               <div className="grid grid-cols-5 gap-px overflow-hidden rounded-2xl border border-white/12 bg-white/10 p-px shadow-[0_28px_80px_rgba(0,0,0,.6)] backdrop-blur-2xl">
                 {pricingGroups.map((group) => (
-                  <div key={group.id} className={`bg-[#0b0d16]/97 p-3 ${group.id === "website" ? "col-span-2" : ""}`}>
-                    <p className="px-2 pb-2 pt-1 font-mono text-[.68rem] font-semibold tracking-[.1em] text-[#d2f34c]">{group.number} · {group.title}</p>
+                  <div key={group.id} className={`bg-[#0b0d16]/97 p-4 ${group.id === "website" ? "col-span-2" : ""}`}>
+                    <p className="px-2 pb-3 pt-1 font-mono text-[.75rem] font-semibold tracking-[.09em] text-[#d2f34c]">{group.number} · {group.title}</p>
                     <div className={group.id === "website" ? "grid grid-cols-2 gap-1" : "grid gap-1"}>
                       {group.plans.map((plan) => (
-                        <Link key={plan.name} href={`/harga-website#${getPricingPlanId(plan.name)}`} className="group/item flex min-h-11 items-center gap-2.5 rounded-lg px-2 py-2 text-white/62 transition hover:bg-white/[.07] hover:text-white">
-                          <PricingIcon name={plan.icon} className="h-4 w-4 shrink-0 text-[#8d72ef] transition group-hover/item:text-[#d2f34c]" />
-                          <span className="min-w-0 flex-1"><span className="block text-[.76rem] font-medium leading-4">{plan.name}</span><span className="mt-1 block font-mono text-[.58rem] text-white/34">{plan.price}</span></span>
+                        <Link key={plan.name} href={`/harga-website#${getPricingPlanId(plan.name)}`} className="group/item flex min-h-12 items-center gap-3 rounded-lg px-2.5 py-2.5 text-white/68 transition hover:bg-white/[.07] hover:text-white">
+                          <PricingIcon name={plan.icon} className="h-[18px] w-[18px] shrink-0 text-[#8d72ef] transition group-hover/item:text-[#d2f34c]" />
+                          <span className="min-w-0 flex-1"><span className="block text-[.88rem] font-medium leading-[1.15rem]">{plan.name}</span><span className="mt-1 block font-mono text-[.68rem] text-white/38">{plan.price}</span></span>
                         </Link>
                       ))}
                     </div>
@@ -96,9 +96,9 @@ export function Navbar() {
                 <div className="max-h-[56vh] space-y-4 overflow-y-auto pb-4 pr-1">
                   {pricingGroups.map((group) => (
                     <div key={group.id}>
-                      <p className="mb-2 font-mono text-[.66rem] font-semibold tracking-[.1em] text-[#d2f34c]">{group.title}</p>
+                      <p className="mb-2 font-mono text-[.72rem] font-semibold tracking-[.09em] text-[#d2f34c]">{group.title}</p>
                       <div className="grid grid-cols-2 gap-2">
-                        {group.plans.map((plan) => <Link key={plan.name} href={`/harga-website#${getPricingPlanId(plan.name)}`} onClick={() => setOpen(false)} className="flex min-h-12 items-center gap-2 border border-white/10 bg-white/[.035] px-3 py-2.5 text-[.78rem] leading-4 text-white/68"><PricingIcon name={plan.icon} className="h-[18px] w-[18px] shrink-0 text-[#8d72ef]" /><span>{plan.name}</span></Link>)}
+                        {group.plans.map((plan) => <Link key={plan.name} href={`/harga-website#${getPricingPlanId(plan.name)}`} onClick={() => setOpen(false)} className="flex min-h-14 items-center gap-2.5 border border-white/10 bg-white/[.035] px-3 py-3 text-[.88rem] leading-[1.15rem] text-white/72"><PricingIcon name={plan.icon} className="h-5 w-5 shrink-0 text-[#8d72ef]" /><span>{plan.name}</span></Link>)}
                       </div>
                     </div>
                   ))}

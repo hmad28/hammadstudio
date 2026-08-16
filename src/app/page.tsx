@@ -6,6 +6,7 @@ import { PortfolioSection } from "@/components/portfolio-section";
 import { FAQSection } from "@/components/faq-section";
 import { HomepageProofSection } from "@/components/homepage-proof-section";
 import { MerdekaPromoSection } from "@/components/merdeka-promo-section";
+import { faqItems } from "@/lib/faq-content";
 
 export const metadata: Metadata = {
   title: "Jasa Pembuatan Website Profesional untuk Bisnis | Hammad Studio",
@@ -77,6 +78,19 @@ const organizationJsonLd = {
       publisher: {
         "@id": "https://hammad.studio/#organization",
       },
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hammad.studio/#faq",
+      inLanguage: "id-ID",
+      mainEntity: faqItems.map((item) => ({
+        "@type": "Question",
+        name: item.question.id,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer.id,
+        },
+      })),
     },
   ],
 };
