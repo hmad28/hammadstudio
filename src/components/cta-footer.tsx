@@ -58,7 +58,7 @@ function FooterLink({ href, children }: { href: string; children: React.ReactNod
     <Link
       href={href}
       prefetch={false}
-      className="group flex w-fit items-center gap-2 py-0.5 text-[0.82rem] leading-5 text-white/56 transition-colors duration-200 hover:text-white focus-visible:text-white"
+      className="group flex w-fit items-center gap-2 py-1 text-[0.94rem] leading-6 text-white/62 transition-colors duration-200 hover:text-white focus-visible:text-white"
     >
       <span className="h-px w-0 bg-[#d2f34c] transition-[width] duration-200 group-hover:w-3" aria-hidden="true" />
       {children}
@@ -125,18 +125,18 @@ export function CTAFooter() {
               <Link href="/" aria-label="HAMMAD.STUDIO home">
                 <HammadStudioLogo className="h-auto w-[260px] sm:w-[300px]" />
               </Link>
-              <p className="mt-6 max-w-[520px] text-sm leading-7 text-white/58 sm:text-base">
+              <p className="mt-6 max-w-[580px] text-base leading-7 text-white/62 sm:text-lg sm:leading-8">
                 {locale === "id"
                   ? "Jasa pembuatan website, e-commerce, dan sistem bisnis untuk UMKM serta perusahaan dari Jakarta."
                   : "Websites, e-commerce, and business systems for growing businesses and companies from Jakarta."}
               </p>
-              <div className="mt-5 flex items-center gap-2.5 text-xs text-white/78">
+              <div className="mt-5 flex items-center gap-2.5 text-sm text-white/78">
                 <span className="availability-dot" /> {copy.available[locale]}
               </div>
             </div>
 
             <div className="lg:col-span-5 lg:text-right">
-              <p className="label-mono text-[#d2f34c]">{copy.newBusiness[locale]}</p>
+              <p className="label-mono !text-[.8rem] text-[#d2f34c]">{copy.newBusiness[locale]}</p>
               <a
                 href="mailto:hello@hammad.studio"
                 className="mt-3 inline-block text-[clamp(1.65rem,3.2vw,3rem)] font-[520] leading-none tracking-[-0.05em] text-white transition-colors hover:text-[#d2f34c]"
@@ -149,36 +149,36 @@ export function CTAFooter() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label="Instagram Hammad Studio"
-                  className="grid size-10 place-items-center border border-white/12 bg-white/[.035] text-white/65 transition hover:border-[#d2f34c]/60 hover:bg-[#d2f34c] hover:text-[#070a12]"
+                  className="grid size-11 place-items-center border border-white/12 bg-white/[.035] text-white/65 transition hover:border-[#d2f34c]/60 hover:bg-[#d2f34c] hover:text-[#070a12]"
                 >
-                  <InstagramLogo size={18} weight="regular" />
+                  <InstagramLogo size={20} weight="regular" />
                 </a>
                 <a
                   href="https://www.facebook.com/itshammadstudio"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="Facebook Hammad Studio"
-                  className="grid size-10 place-items-center border border-white/12 bg-white/[.035] text-white/65 transition hover:border-[#d2f34c]/60 hover:bg-[#d2f34c] hover:text-[#070a12]"
+                  className="grid size-11 place-items-center border border-white/12 bg-white/[.035] text-white/65 transition hover:border-[#d2f34c]/60 hover:bg-[#d2f34c] hover:text-[#070a12]"
                 >
-                  <FacebookLogo size={18} weight="regular" />
+                  <FacebookLogo size={20} weight="regular" />
                 </a>
                 <a
                   href="https://www.tiktok.com/@its_hammadstudio"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="TikTok Hammad Studio"
-                  className="grid size-10 place-items-center border border-white/12 bg-white/[.035] text-white/65 transition hover:border-[#d2f34c]/60 hover:bg-[#d2f34c] hover:text-[#070a12]"
+                  className="grid size-11 place-items-center border border-white/12 bg-white/[.035] text-white/65 transition hover:border-[#d2f34c]/60 hover:bg-[#d2f34c] hover:text-[#070a12]"
                 >
-                  <TiktokLogo size={18} weight="regular" />
+                  <TiktokLogo size={20} weight="regular" />
                 </a>
                 <a
                   href="https://wa.me/6285199391215"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="WhatsApp Hammad Studio"
-                  className="grid size-10 place-items-center border border-white/12 bg-white/[.035] text-white/65 transition hover:border-[#d2f34c]/60 hover:bg-[#d2f34c] hover:text-[#070a12]"
+                  className="grid size-11 place-items-center border border-white/12 bg-white/[.035] text-white/65 transition hover:border-[#d2f34c]/60 hover:bg-[#d2f34c] hover:text-[#070a12]"
                 >
-                  <WhatsappLogo size={18} weight="regular" />
+                  <WhatsappLogo size={20} weight="regular" />
                 </a>
               </div>
             </div>
@@ -187,7 +187,7 @@ export function CTAFooter() {
           <div className="grid border-b border-white/12 sm:grid-cols-2 lg:grid-cols-12">
             <div className="relative border-b border-white/10 py-10 sm:border-r lg:col-span-2 lg:border-b-0 lg:py-12 lg:pr-7">
               <span className="absolute right-4 top-4 font-mono text-[0.62rem] text-white/18">01</span>
-              <p className="label-mono text-[#d2f34c]">NAVIGASI</p>
+              <p className="label-mono !text-[.8rem] text-[#d2f34c]">NAVIGASI</p>
               <nav className="mt-5 grid gap-2" aria-label="Navigasi footer">
                 {navigationLinks.map((link) => (
                   <FooterLink key={link.href} href={link.href}>{link.label}</FooterLink>
@@ -197,7 +197,7 @@ export function CTAFooter() {
 
             <div className="relative border-b border-white/10 py-10 sm:pl-7 lg:col-span-3 lg:border-b-0 lg:border-r lg:px-7 lg:py-12">
               <span className="absolute right-4 top-4 font-mono text-[0.62rem] text-white/18">02</span>
-              <p className="label-mono text-[#8057ff]">LAYANAN POPULER</p>
+              <p className="label-mono !text-[.8rem] text-[#9b7dff]">LAYANAN POPULER</p>
               <nav className="mt-5 grid gap-2" aria-label="Layanan populer">
                 {serviceLinks.map((link) => (
                   <FooterLink key={`${link.href}-${link.label}`} href={link.href}>{link.label}</FooterLink>
@@ -207,7 +207,7 @@ export function CTAFooter() {
 
             <div className="relative border-b border-white/10 py-10 sm:border-r lg:col-span-3 lg:border-b-0 lg:px-7 lg:py-12">
               <span className="absolute right-4 top-4 font-mono text-[0.62rem] text-white/18">03</span>
-              <p className="label-mono text-[#8057ff]">INDUSTRI</p>
+              <p className="label-mono !text-[.8rem] text-[#9b7dff]">INDUSTRI</p>
               <nav className="mt-5 grid gap-2" aria-label="Solusi berdasarkan industri">
                 {industryLinks.map((link) => (
                   <FooterLink key={link.href} href={link.href}>{link.label}</FooterLink>
@@ -217,13 +217,13 @@ export function CTAFooter() {
 
             <div className="relative py-10 sm:pl-7 lg:col-span-4 lg:pl-7 lg:py-12">
               <span className="absolute right-4 top-4 font-mono text-[0.62rem] text-white/18">04</span>
-              <p className="label-mono text-[#8057ff]">PANDUAN BISNIS</p>
+              <p className="label-mono !text-[.8rem] text-[#9b7dff]">PANDUAN BISNIS</p>
               <nav className="mt-5 grid gap-2" aria-label="Insight Hammad Studio">
                 {insightLinks.map((link) => (
                   <FooterLink key={link.href} href={link.href}>{link.label}</FooterLink>
                 ))}
               </nav>
-              <Link href="/insight" className="group mt-6 inline-flex items-center gap-2 text-xs font-semibold text-[#d2f34c] transition hover:text-white">
+              <Link href="/insight" className="group mt-7 inline-flex items-center gap-2 text-sm font-semibold text-[#d2f34c] transition hover:text-white">
                 Lihat semua insight
                 <ArrowUpRight size={14} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
@@ -231,7 +231,7 @@ export function CTAFooter() {
           </div>
 
           <div className="grid gap-8 py-8 lg:grid-cols-12 lg:items-end">
-            <div className="flex flex-col gap-3 text-sm text-white/56 sm:flex-row sm:flex-wrap sm:items-center lg:col-span-8">
+            <div className="flex flex-col gap-3 text-base text-white/60 sm:flex-row sm:flex-wrap sm:items-center lg:col-span-8">
               <a href="mailto:hello@hammad.studio" className="inline-flex items-center gap-2 transition hover:text-white">
                 <EnvelopeSimple size={16} /> hello@hammad.studio
               </a>
@@ -242,12 +242,12 @@ export function CTAFooter() {
               <span className="hidden h-3 w-px bg-white/18 sm:block" aria-hidden="true" />
               <span className="inline-flex items-center gap-2"><MapPin size={16} /> Jakarta, Indonesia</span>
             </div>
-            <p className="text-sm leading-6 text-white/42 lg:col-span-4 lg:text-right">
+            <p className="text-base leading-7 text-white/46 lg:col-span-4 lg:text-right">
               Design · Development · SEO foundation · Security-conscious engineering
             </p>
           </div>
 
-          <div className="flex flex-col gap-3 border-t border-white/12 pt-6 text-[0.7rem] text-white/42 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-col gap-3 border-t border-white/12 pt-6 text-[0.8rem] text-white/46 sm:flex-row sm:items-center sm:justify-between">
             <p>© {new Date().getFullYear()} HAMMAD.STUDIO · All rights reserved.</p>
             <div className="flex flex-wrap gap-4"><Link href="/privacy" className="hover:text-white">Privacy</Link><Link href="/terms" className="hover:text-white">Terms</Link><span>Jakarta · Available worldwide</span></div>
           </div>

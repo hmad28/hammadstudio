@@ -1,6 +1,10 @@
 "use client";
 
 import { cloneElement, FormEvent, useState } from "react";
+import { ClockCountdown } from "@phosphor-icons/react/ClockCountdown";
+import { EnvelopeSimple } from "@phosphor-icons/react/EnvelopeSimple";
+import { MapPin } from "@phosphor-icons/react/MapPin";
+import { WhatsappLogo } from "@phosphor-icons/react/WhatsappLogo";
 import { ArrowUpRightIcon } from "./icons";
 import { useLocale } from "./locale-provider";
 import { MotionReveal } from "./motion-reveal";
@@ -81,58 +85,93 @@ export function ContactPageContent() {
 
   return (
     <div className="bg-[#f7f5ef] text-[#17181d]">
-      {/* Dark Midnight Hero Header */}
-      <section className="relative overflow-hidden bg-[#070a12] pb-16 pt-36 text-white sm:pb-24 sm:pt-44">
-        {/* Cobalt & Violet Ambient Glow */}
-        <div className="pointer-events-none absolute left-1/2 top-1/3 -z-0 h-[600px] w-[900px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(40,100,255,0.4)_0%,rgba(128,87,255,0.3)_50%,transparent_70%)] blur-3xl" aria-hidden="true" />
+      <section className="relative min-h-[820px] overflow-hidden bg-[#070a12] pb-20 pt-36 text-white sm:min-h-[860px] sm:pb-24 sm:pt-44">
+        <div className="pointer-events-none absolute inset-0 opacity-30 [background-image:linear-gradient(rgba(255,255,255,.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.06)_1px,transparent_1px)] [background-size:72px_72px] [mask-image:linear-gradient(to_bottom,black,transparent_90%)]" aria-hidden="true" />
+        <div className="pointer-events-none absolute -right-44 top-12 h-[38rem] w-[38rem] rounded-full border-[90px] border-[#8057ff]/25 shadow-[0_0_180px_rgba(128,87,255,.22)]" aria-hidden="true" />
+        <div className="pointer-events-none absolute bottom-[-5rem] right-[8vw] font-[family-name:var(--font-instrument-serif)] text-[24rem] italic leading-none text-white/[.025]" aria-hidden="true">?</div>
 
         <div className="site-container relative z-10">
-          <MotionReveal className="grid gap-8 lg:grid-cols-12 lg:gap-6">
-            <span className="label-mono acid-glow-badge inline-block rounded-full px-3.5 py-1 text-[0.68rem] lg:col-span-3 w-fit">
-              {content.label[locale]}
-            </span>
-            <div className="lg:col-span-9">
-              <h1 className="max-w-[940px] text-[clamp(3.3rem,7vw,7rem)] font-[520] leading-[0.88] tracking-[-0.065em] text-white">
-                {content.title[locale]}{" "}
-                <span className="bg-gradient-to-r from-[#d2f34c] via-[#e2fd78] to-[#93c5fd] bg-clip-text font-[family-name:var(--font-instrument-serif)] font-normal italic text-transparent">
-                  {content.accent[locale]}
-                </span>
-              </h1>
-              <p className="mt-8 max-w-[650px] text-base leading-[1.7] text-white/65 sm:text-lg">
-                {content.intro[locale]}
-              </p>
+          <MotionReveal>
+            <div className="flex items-center justify-between border-b border-white/14 pb-5">
+              <span className="label-mono !text-[.78rem] text-[#d2f34c]">CONTACT · JAKARTA</span>
+              <span className="hidden items-center gap-2 text-sm text-white/52 sm:flex"><span className="availability-dot" /> Available for selected projects</span>
+            </div>
+
+            <div className="grid gap-14 pt-12 lg:grid-cols-12 lg:items-end">
+              <div className="lg:col-span-8">
+                <h1 className="max-w-[920px] text-[clamp(4.3rem,9.3vw,9.2rem)] font-[530] leading-[.79] tracking-[-.077em] text-white">
+                  Punya ide?
+                  <br />
+                  <span className="font-[family-name:var(--font-instrument-serif)] font-normal italic text-[#d2f34c]">Kita bikin nyata.</span>
+                </h1>
+                <p className="mt-9 max-w-[620px] text-lg leading-8 text-white/62 sm:text-xl">
+                  Website, e-commerce, atau sistem bisnis. Mulai dari cerita singkat—brief lengkap bisa menyusul.
+                </p>
+              </div>
+
+              <div className="grid gap-px bg-white/12 lg:col-span-4">
+                <a
+                  href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Halo Hammad Studio, saya ingin konsultasi project.")}`}
+                  onClick={() => trackConversion("whatsapp_click", { placement: "contact_hero" })}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group flex items-center justify-between bg-[#d2f34c] p-5 text-[#070a12] transition hover:bg-white"
+                >
+                  <span className="flex items-center gap-3 text-base font-semibold"><WhatsappLogo size={24} weight="fill" /> WhatsApp</span>
+                  <ArrowUpRightIcon className="button-arrow h-5 w-5" />
+                </a>
+                <a href="mailto:hello@hammad.studio" className="group flex items-center justify-between bg-white/[.055] p-5 text-white transition hover:bg-white/10">
+                  <span className="flex items-center gap-3 text-base font-semibold"><EnvelopeSimple size={24} /> Email</span>
+                  <ArrowUpRightIcon className="button-arrow h-5 w-5 text-[#d2f34c]" />
+                </a>
+                <div className="grid grid-cols-2 gap-px bg-white/12">
+                  <div className="bg-[#0b0d16] p-5"><MapPin size={21} className="text-[#9b7dff]" /><p className="mt-3 text-sm text-white/62">Jakarta</p></div>
+                  <div className="bg-[#0b0d16] p-5"><ClockCountdown size={21} className="text-[#9b7dff]" /><p className="mt-3 text-sm text-white/62">Fast response</p></div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-16 flex flex-wrap gap-2 border-t border-white/14 pt-6 text-sm text-white/48">
+              {["Website", "E-Commerce", "Business System", "Custom Software"].map((item) => <span key={item} className="border border-white/12 px-3 py-2">{item}</span>)}
             </div>
           </MotionReveal>
         </div>
       </section>
 
-      {/* Form Surface Area */}
-      <section className="about-surface-v2 py-16 sm:py-24">
-        <div className="site-container">
-          <div className="grid lg:grid-cols-12 lg:gap-8">
-            <MotionReveal className="lg:col-span-3">
-              <span className="label-mono text-[#8057ff] font-bold">Brief / 01</span>
-              <div className="mt-8 hidden lg:block">
-                <p className="text-xs text-[#6d7180] font-mono">{content.direct[locale]}</p>
-                <a
-                  href={`https://wa.me/${whatsappNumber}`}
-                  onClick={() => trackConversion("whatsapp_click", { placement: "contact_sidebar" })}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="group mt-3 inline-flex items-center gap-2 border-b-2 border-[#8057ff] pb-1 text-sm font-bold text-[#8057ff]"
-                >
-                  {content.whatsapp[locale]} <ArrowUpRightIcon className="button-arrow h-4 w-4" />
-                </a>
-                <p className="mt-10 text-xs text-[#6d7180] font-mono">{content.email[locale]}</p>
-                <a href="mailto:hello@hammad.studio" className="mt-2 inline-block text-sm font-bold text-[#17181d] hover:text-[#8057ff]">
-                  hello@hammad.studio
-                </a>
+      <section className="relative overflow-hidden bg-[#f2f0e9] py-16 sm:py-24">
+        <div className="pointer-events-none absolute -left-24 top-20 h-64 w-64 rounded-full border-[42px] border-[#8057ff]/8" aria-hidden="true" />
+        <div className="site-container relative">
+          <div className="grid overflow-hidden border border-black/14 lg:grid-cols-12">
+            <MotionReveal className="relative overflow-hidden bg-[#d2f34c] p-7 text-[#111318] sm:p-10 lg:col-span-4 lg:min-h-[760px]">
+              <span className="font-mono text-xs font-semibold tracking-[.12em]">BRIEF / 01</span>
+              <h2 className="mt-8 max-w-[360px] text-[clamp(3rem,5vw,5.3rem)] font-[540] leading-[.86] tracking-[-.065em]">
+                Isi yang
+                <br />
+                <span className="font-[family-name:var(--font-instrument-serif)] font-normal italic">penting aja.</span>
+              </h2>
+              <p className="mt-7 max-w-[330px] text-base leading-7 text-black/66">Empat informasi wajib: nama, kontak, kebutuhan, dan gambaran singkat project.</p>
+
+              <div className="mt-12 grid gap-px bg-black/16">
+                {["Kirim brief", "Kami review", "Lanjut konsultasi"].map((item, index) => (
+                  <div key={item} className="flex items-center gap-4 bg-[#d2f34c] py-4">
+                    <span className="font-mono text-xs text-black/42">0{index + 1}</span>
+                    <span className="text-base font-semibold">{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-12 border-t border-black/18 pt-6 lg:absolute lg:bottom-10 lg:left-10 lg:right-10">
+                <p className="text-sm text-black/50">Lebih nyaman ngobrol langsung?</p>
+                <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noreferrer" className="mt-2 inline-flex items-center gap-2 text-lg font-semibold">+62 851-9939-1215 <ArrowUpRightIcon className="h-4 w-4" /></a>
               </div>
             </MotionReveal>
 
-            <MotionReveal className="mt-8 lg:col-span-9 lg:mt-0">
-              <div className="surface-card rounded-2xl border border-[#dde0e7] bg-white p-8 sm:p-12 shadow-xl">
-                <form onSubmit={handleSubmit} noValidate className="grid gap-x-6 gap-y-8 sm:grid-cols-2">
+            <MotionReveal className="bg-white p-7 sm:p-10 lg:col-span-8 lg:p-12">
+              <div className="mb-10 flex items-end justify-between gap-5 border-b border-black/12 pb-6">
+                <div><p className="font-mono text-xs font-semibold tracking-[.1em] text-[#8057ff]">PROJECT INQUIRY</p><h2 className="mt-2 text-3xl font-[550] tracking-[-.045em] sm:text-4xl">Ceritakan project Anda.</h2></div>
+                <span className="hidden font-mono text-xs text-black/35 sm:block">* WAJIB</span>
+              </div>
+              <form onSubmit={handleSubmit} noValidate className="grid gap-x-8 gap-y-9 sm:grid-cols-2">
                   <Field label={content.fields.name[locale]} required>
                     <input value={form.name} onChange={(event) => updateField("name", event.target.value)} autoComplete="name" />
                   </Field>
@@ -167,26 +206,12 @@ export function ContactPageContent() {
                     {error && <p role="alert" className="mb-4 border-l-2 border-red-500 pl-3 text-sm font-semibold text-red-600">{error}</p>}
                     <button
                       type="submit"
-                      className="acid-button group inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-semibold text-black transition-transform duration-300 hover:scale-[1.02] active:scale-[0.98]"
+                      className="group flex w-full items-center justify-between bg-[#070a12] px-6 py-5 text-base font-semibold text-white transition hover:bg-[#8057ff] active:scale-[.99] sm:w-auto sm:min-w-[260px]"
                     >
                       {content.submit[locale]} <ArrowUpRightIcon className="button-arrow h-4 w-4" />
                     </button>
                   </div>
                 </form>
-              </div>
-
-              <div className="mt-10 border-t border-black/10 pt-8 lg:hidden">
-                <p className="text-sm text-[#6d7180]">{content.direct[locale]}</p>
-                <a
-                  href={`https://wa.me/${whatsappNumber}`}
-                  onClick={() => trackConversion("whatsapp_click", { placement: "contact_mobile" })}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="group mt-3 inline-flex items-center gap-2 border-b-2 border-[#8057ff] pb-1 text-sm font-bold text-[#8057ff]"
-                >
-                  {content.whatsapp[locale]} <ArrowUpRightIcon className="button-arrow h-4 w-4" />
-                </a>
-              </div>
             </MotionReveal>
           </div>
         </div>
@@ -199,11 +224,11 @@ function Field({ label, required, wide, children }: { label: string; required?: 
   const child = cloneElement(children, {
     required,
     "aria-label": label,
-    className: "w-full border-0 border-b-2 border-black/15 bg-transparent px-0 py-3 text-base font-medium text-[#17181d] outline-none transition-colors placeholder:text-black/30 focus:border-[#8057ff] focus:ring-0",
+    className: "min-h-12 w-full border-0 border-b-2 border-black/15 bg-transparent px-0 py-3 text-lg font-medium text-[#17181d] outline-none transition-colors placeholder:text-black/30 focus:border-[#8057ff] focus:ring-0",
   });
   return (
     <label className={wide ? "sm:col-span-2" : ""}>
-      <span className="label-mono text-[#6d7180] font-bold">
+      <span className="label-mono !text-[.76rem] font-bold text-[#565a66]">
         {label}{required ? " *" : ""}
       </span>
       <span className="mt-2 block">{child}</span>
