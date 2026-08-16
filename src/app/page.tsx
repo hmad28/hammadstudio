@@ -5,6 +5,7 @@ import { ServicesSection } from "@/components/services-section";
 import { PortfolioSection } from "@/components/portfolio-section";
 import { HomepageProofSection } from "@/components/homepage-proof-section";
 import { MerdekaPromoSection } from "@/components/merdeka-promo-section";
+import { HomepagePromoPopup } from "@/components/homepage-promo-popup";
 
 export const metadata: Metadata = {
   title: "Jasa Pembuatan Website Profesional untuk Bisnis | Hammad Studio",
@@ -101,6 +102,8 @@ export default function HomePage() {
       <PortfolioSection />
 
       <MerdekaPromoSection />
+
+      <HomepagePromoPopup />
 
     </div>
   );
