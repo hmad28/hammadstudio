@@ -1,95 +1,53 @@
 "use client";
 
+import { Plus } from "@phosphor-icons/react/Plus";
 import { useLocale } from "./locale-provider";
 import { MotionReveal } from "./motion-reveal";
 
-const content = {
-  label: { id: "FAQ · PERTANYAAN UMUM", en: "FAQ · FREQUENTLY ASKED" },
-  title: { id: "Sebelum kita", en: "Before we" },
-  accent: { id: "mulai.", en: "begin." },
-  items: [
-    {
-      q: { id: "Berapa lama proses pengerjaan?", en: "How long does a project take?" },
-      a: {
-        id: "Website sederhana selesai dalam 2–3 minggu. Web application, e-commerce, dan system custom mengikuti scope, fitur, serta kesiapan konten.",
-        en: "A standard website is completed in 2–3 weeks. Web applications and custom systems depend on feature scope and content readiness.",
-      },
-    },
-    {
-      q: { id: "Apakah domain dan hosting termasuk?", en: "Are domain and hosting included?" },
-      a: {
-        id: "Setup, deployment, dan konfigurasi SSL sudah termasuk. Biaya domain dan server/cloud dijelaskan transparan sebelum project dimulai.",
-        en: "Deployment setup, SSL configuration, and domain routing are included. Infrastructure costs are detailed before starting.",
-      },
-    },
-    {
-      q: { id: "Apakah ada garansi & revisi?", en: "Are revisions and warranties included?" },
-      a: {
-        id: "Ya, setiap project mencakup milestone review round serta dukungan bug fixing pasca launch agar produk berjalan dengan lancar.",
-        en: "Yes, each project includes structured review rounds and post-launch bug fixing support.",
-      },
-    },
-    {
-      q: { id: "Apakah source code dan akses diberikan penuh?", en: "Is full source code provided?" },
-      a: {
-        id: "Ya. Setelah pelunasan, seluruh kepemilikan source code, repository git, dan kredensial admin diserahkan sepenuhnya kepada Anda.",
-        en: "Yes. Upon completion, full source code ownership, git repositories, and credentials are completely handed over to you.",
-      },
-    },
-    {
-      q: { id: "Bisa mulai dari website sederhana dulu?", en: "Can we start small and scale up later?" },
-      a: {
-        id: "Sangat bisa. Kami merancang arsitektur awal secara modular sehingga CMS, portal, e-commerce, atau fitur custom bisa dengan mudah ditambahkan nanti.",
-        en: "Absolutely. We build with modular software architecture so CMS, e-commerce, or custom features can easily be added later.",
-      },
-    },
-  ],
-} as const;
+const items = [
+  {
+    q: { id: "Berapa lama prosesnya?", en: "How long does it take?" },
+    a: { id: "Website sederhana umumnya selesai dalam 2–3 minggu. Sistem custom mengikuti scope dan kesiapan konten.", en: "A standard website usually takes 2–3 weeks. Custom systems follow the agreed scope and content readiness." },
+  },
+  {
+    q: { id: "Domain dan hosting termasuk?", en: "Are domain and hosting included?" },
+    a: { id: "Ya, sesuai paket. Setup deployment dan SSL juga kami kerjakan.", en: "Yes, depending on the package. Deployment and SSL setup are also handled." },
+  },
+  {
+    q: { id: "Ada revisi dan garansi?", en: "Are revisions and warranty included?" },
+    a: { id: "Ada milestone revisi dan dukungan bug fixing setelah website diluncurkan.", en: "Revision milestones and post-launch bug-fixing support are included." },
+  },
+  {
+    q: { id: "Source code jadi milik siapa?", en: "Who owns the source code?" },
+    a: { id: "Setelah pelunasan, source code dan akses project diserahkan kepada Anda.", en: "After final payment, the source code and project access are handed over to you." },
+  },
+] as const;
 
 export function FAQSection() {
   const { locale } = useLocale();
 
   return (
-    <section className="faq-surface-v2 py-20 text-[#17181d] sm:py-28 lg:py-32">
-      <div className="site-container grid gap-10 lg:grid-cols-[minmax(0,4.5fr)_minmax(0,7.5fr)]">
-        <MotionReveal>
-          <span className="label-mono inline-block rounded-full bg-[#8057ff]/10 px-3 py-1 text-[0.68rem] text-[#8057ff]">
-            {content.label[locale]}
-          </span>
-          <h2 className="section-heading mt-4">
-            {content.title[locale]}{" "}
-            <span className="font-[family-name:var(--font-instrument-serif)] font-normal italic text-[#8057ff]">
-              {content.accent[locale]}
-            </span>
+    <section id="faq" className="scroll-mt-24 bg-[#f2f0e9] py-20 text-[#17181d] sm:py-28">
+      <div className="site-container grid gap-10 lg:grid-cols-12">
+        <MotionReveal className="lg:col-span-5">
+          <span className="label-mono text-[#8057ff]">FAQ</span>
+          <h2 className="mt-4 text-[clamp(3.4rem,7vw,7rem)] font-[520] leading-[.82] tracking-[-.075em]">
+            {locale === "id" ? "Yang sering" : "Frequently"}<br /><span className="font-[family-name:var(--font-instrument-serif)] font-normal italic text-[#8057ff]">{locale === "id" ? "ditanyakan." : "asked."}</span>
           </h2>
-          <p className="mt-4 text-sm leading-[1.65] text-[#6d7180] sm:text-base">
-            {locale === "id"
-              ? "Jawaban untuk pertanyaan yang paling sering ditanyakan oleh calon klien kami."
-              : "Answers to the most common questions asked by prospective clients."}
-          </p>
+          <div className="mt-9 hidden h-32 w-32 rotate-12 border-[24px] border-[#d2f34c] lg:block" aria-hidden="true" />
         </MotionReveal>
 
-        <div className="space-y-3.5">
-          {content.items.map((item, index) => (
-            <MotionReveal
-              key={item.q.en}
-              delay={index * 0.04}
-              className="group relative overflow-hidden rounded-2xl border border-[#dde0e7] bg-white p-6 shadow-sm transition duration-300 hover:bg-[#f2efff]/60 hover:border-[#8057ff]/30 sm:p-7"
-            >
-              <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#8057ff] to-[#2864ff] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-              <div className="flex items-start gap-4">
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#070a12] font-[family-name:var(--font-geist-mono)] text-xs font-bold text-[#d2f34c]">
-                  0{index + 1}
-                </span>
-                <div>
-                  <h3 className="text-base font-semibold tracking-[-0.025em] text-[#17181d] sm:text-lg">
-                    {item.q[locale]}
-                  </h3>
-                  <p className="mt-2.5 text-xs leading-[1.65] text-[#6d7180] sm:text-sm">
-                    {item.a[locale]}
-                  </p>
-                </div>
-              </div>
+        <div className="border-t border-black/14 lg:col-span-7">
+          {items.map((item, index) => (
+            <MotionReveal key={item.q.en} delay={index * 0.035}>
+              <details className="group border-b border-black/14">
+                <summary className="flex cursor-pointer list-none items-center gap-4 py-6 marker:hidden sm:py-7 [&::-webkit-details-marker]:hidden">
+                  <span className="font-mono text-[.62rem] text-[#8057ff]">0{index + 1}</span>
+                  <h3 className="flex-1 text-lg font-[540] tracking-[-.03em] sm:text-xl">{item.q[locale]}</h3>
+                  <Plus className="h-5 w-5 transition-transform duration-200 group-open:rotate-45" weight="bold" />
+                </summary>
+                <p className="max-w-[600px] pb-7 pl-9 pr-8 text-sm leading-6 text-black/52">{item.a[locale]}</p>
+              </details>
             </MotionReveal>
           ))}
         </div>
@@ -97,4 +55,3 @@ export function FAQSection() {
     </section>
   );
 }
-

@@ -22,8 +22,8 @@ export const homeContent = {
     accent: { id: "untuk bisnis yang", en: "for businesses ready" },
     lineTwo: { id: "ingin berkembang.", en: "to grow." },
     description: {
-      id: "Hammad Studio membantu UMKM dan perusahaan membangun website, company profile, e-commerce, hingga sistem digital custom yang dirancang sesuai kebutuhan bisnis.",
-      en: "We build websites, e-commerce, applications, and custom digital systems that help businesses present credibly, operate smoothly, and scale further.",
+      id: "Website dan sistem digital yang dibangun untuk kebutuhan bisnis Anda.",
+      en: "Websites and digital systems built around your business.",
     },
     primary: { id: "Mulai project", en: "Start a project" },
     secondary: { id: "Lihat karya", en: "Explore work" },
@@ -476,8 +476,8 @@ export const homeContent = {
     lets: { id: "Mari wujudkan", en: "Let's realize" },
     talk: { id: "bersama.", en: "it together." },
     description: {
-      id: "Ceritakan kebutuhan, ide, atau masalah yang sedang ingin Anda selesaikan. Kami bantu menentukan pendekatan yang paling masuk akal untuk membangunnya.",
-      en: "Share your needs, ideas, or current challenges. We'll help determine the most sensible approach to build it.",
+      id: "Punya ide? Ceritakan. Kami bantu membangunnya.",
+      en: "Have an idea? Tell us. We'll help build it.",
     },
     ctaButton: { id: "Mari bicara", en: "Let's talk" },
     available: {

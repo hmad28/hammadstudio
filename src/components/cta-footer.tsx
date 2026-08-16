@@ -114,53 +114,23 @@ export function CTAFooter() {
             </div>
           </div>
 
-          <div className="grid gap-12 py-12 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8 lg:py-14">
-            <div className="lg:col-span-2">
+          <div className="grid gap-10 py-12 lg:grid-cols-12 lg:items-end lg:py-14">
+            <div className="lg:col-span-4">
               <p className="label-mono text-[#8057ff]">NAVIGASI</p>
               <nav className="mt-5 grid gap-3 text-sm text-white/72" aria-label="Footer navigation">
+                <Link href="/" className="transition hover:text-[#f2efff]">{locale === "id" ? "Beranda" : "Home"}</Link>
                 <Link href="/services" className="transition hover:text-[#f2efff]">{nav.services[locale]}</Link>
+                <Link href="/studio" className="transition hover:text-[#f2efff]">{locale === "id" ? "Tentang Kami" : "About"}</Link>
                 <Link href="/work" className="transition hover:text-[#f2efff]">{nav.work[locale]}</Link>
-                <Link href="/harga-website" className="transition hover:text-[#f2efff]">{nav.pricing[locale]}</Link>
-                <Link href="/studio" className="transition hover:text-[#f2efff]">{nav.studio[locale]}</Link>
-                <Link href="/contact" className="transition hover:text-[#f2efff]">Contact</Link>
-                <Link href="/insight" className="transition hover:text-[#f2efff]">Insight</Link>
+                <Link href="/#faq" className="transition hover:text-[#f2efff]">FAQ</Link>
               </nav>
             </div>
 
-            <div className="lg:col-span-3">
-              <p className="label-mono text-[#8057ff]">LAYANAN</p>
-              <nav className="mt-5 grid gap-3 text-sm text-white/62" aria-label="Services footer link">
-                <Link href="/jasa-pembuatan-website" className="transition hover:text-[#f2efff]">Jasa Pembuatan Website</Link>
-                <Link href="/jasa-website-umkm" className="transition hover:text-[#f2efff]">Website UMKM</Link>
-                <Link href="/jasa-website-company-profile" className="transition hover:text-[#f2efff]">Company Profile</Link>
-                <Link href="/redesign-website" className="transition hover:text-[#f2efff]">Redesign Website</Link>
-                <Link href="/industri/logistik" className="transition hover:text-[#f2efff]">Website Logistik</Link>
-                <Link href="/industri/travel" className="transition hover:text-[#f2efff]">Website Travel</Link>
-                <Link href="/solusi/umkm/toko-online" className="transition hover:text-[#f2efff]">Toko Online UMKM</Link>
-                <Link href="/solusi/perusahaan/maintenance-support" className="transition hover:text-[#f2efff]">Maintenance Website</Link>
-                <Link href="/jasa-pembuatan-website-jakarta" className="transition hover:text-[#f2efff]">Jasa Website Jakarta</Link>
-                <Link href="/services/e-commerce" className="transition hover:text-[#f2efff]">E-Commerce</Link>
-                <Link href="/services/web-application" className="transition hover:text-[#f2efff]">Web Application</Link>
-                <Link href="/website-custom" className="transition hover:text-[#f2efff]">Website Custom</Link>
-              </nav>
-            </div>
-
-            <div className="lg:col-span-3">
-              <p className="label-mono text-[#8057ff]">INDUSTRI</p>
-              <nav className="mt-5 grid gap-3 text-sm text-white/62" aria-label="Industry footer links">
-                <Link href="/industri/travel" className="transition hover:text-[#f2efff]">Travel Umrah</Link>
-                <Link href="/industri/logistik" className="transition hover:text-[#f2efff]">Logistik</Link>
-                <Link href="/industri/fashion" className="transition hover:text-[#f2efff]">Fashion &amp; Apparel</Link>
-                <Link href="/industri/umkm-kuliner" className="transition hover:text-[#f2efff]">UMKM Kuliner</Link>
-                <Link href="/industri/pendidikan" className="transition hover:text-[#f2efff]">Pendidikan</Link>
-                <Link href="/industri/distributor" className="transition hover:text-[#f2efff]">Distributor</Link>
-                <Link href="/industri/event" className="transition hover:text-[#f2efff]">Event</Link>
-              </nav>
-            </div>
-
-            <div className="sm:col-span-2 lg:col-span-4 lg:text-right">
-              <p className="max-w-[470px] text-base leading-7 text-white/58 lg:ml-auto">
-                {copy.closing[locale]}
+            <div className="relative overflow-hidden border border-white/10 bg-white/[.025] p-7 lg:col-span-8 lg:min-h-52">
+              <div className="absolute -right-10 -top-14 h-48 w-48 rounded-full border-[28px] border-[#8057ff]/15" aria-hidden="true" />
+              <p className="label-mono text-[#d2f34c]">JAKARTA · REMOTE</p>
+              <p className="mt-5 max-w-[650px] text-[clamp(2rem,4.5vw,4.6rem)] font-[520] leading-[.9] tracking-[-.06em] text-white">
+                Web. System. <span className="font-[family-name:var(--font-instrument-serif)] font-normal italic text-white/45">Built properly.</span>
               </p>
             </div>
           </div>

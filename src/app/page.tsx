@@ -3,10 +3,9 @@ import type { Metadata } from "next";
 import { HeroSection } from "@/components/hero-section";
 import { ServicesSection } from "@/components/services-section";
 import { PortfolioSection } from "@/components/portfolio-section";
-import { PricingSection } from "@/components/pricing-section";
 import { FAQSection } from "@/components/faq-section";
-import { AudiencePathsSection } from "@/components/audience-paths-section";
 import { HomepageProofSection } from "@/components/homepage-proof-section";
+import { MerdekaPromoSection } from "@/components/merdeka-promo-section";
 
 export const metadata: Metadata = {
   title: "Jasa Pembuatan Website Profesional untuk Bisnis | Hammad Studio",
@@ -99,13 +98,10 @@ export default function HomePage() {
       {/* 02 SERVICES */}
       <ServicesSection />
 
-      <AudiencePathsSection />
-
       {/* 03 SELECTED WORK */}
       <PortfolioSection />
 
-      {/* 06 PRICING PREVIEW (Off-white, Starting Price Cards) */}
-      <PricingSection />
+      <MerdekaPromoSection />
 
       {/* 05 FAQ */}
       <FAQSection />

@@ -1,106 +1,69 @@
 "use client";
 
 import Link from "next/link";
-import { homeContent } from "@/lib/home-content";
-import {
-  ArrowUpRightIcon,
-} from "./icons";
+import { ArrowUpRight } from "@phosphor-icons/react/ArrowUpRight";
 import { Browser } from "@phosphor-icons/react/Browser";
 import { ShoppingCart } from "@phosphor-icons/react/ShoppingCart";
 import { AppWindow } from "@phosphor-icons/react/AppWindow";
 import { ChartLineUp } from "@phosphor-icons/react/ChartLineUp";
 import { Robot } from "@phosphor-icons/react/Robot";
 import { Code } from "@phosphor-icons/react/Code";
+import { homeContent } from "@/lib/home-content";
 import { useLocale } from "./locale-provider";
 import { MotionReveal } from "./motion-reveal";
 
-const slugs = [
-  "jasa-pembuatan-website",
-  "e-commerce",
-  "web-application",
-  "business-system",
-  "automation-ai",
-  "custom-development",
+const services = [
+  { href: "/jasa-pembuatan-website", icon: Browser, id: "Website", en: "Website", shortId: "Landing page · Company profile · CMS", shortEn: "Landing page · Company profile · CMS" },
+  { href: "/services/e-commerce", icon: ShoppingCart, id: "E-Commerce", en: "E-Commerce", shortId: "Katalog · Checkout · Payment", shortEn: "Catalog · Checkout · Payment" },
+  { href: "/services/web-application", icon: AppWindow, id: "Web Application", en: "Web Application", shortId: "Portal · Booking · Member area", shortEn: "Portal · Booking · Member area" },
+  { href: "/services/business-system", icon: ChartLineUp, id: "Business System", en: "Business System", shortId: "CRM · Dashboard · Operasional", shortEn: "CRM · Dashboard · Operations" },
+  { href: "/services/automation-ai", icon: Robot, id: "Automation & AI", en: "Automation & AI", shortId: "Workflow · Follow-up · AI tools", shortEn: "Workflow · Follow-up · AI tools" },
+  { href: "/website-custom", icon: Code, id: "Custom Software", en: "Custom Software", shortId: "SaaS · Platform · Integrasi", shortEn: "SaaS · Platform · Integrations" },
 ] as const;
 
-const serviceIcons = [Browser, ShoppingCart, AppWindow, ChartLineUp, Robot, Code] as const;
-
-const categoryCardClasses = [
-  "service-website-card",
-  "service-ecommerce-card",
-  "service-webapp-card",
-  "service-system-card",
-  "service-automation-card",
-  "service-custom-card",
-];
-
-const categoryBadgeStyles = [
-  "bg-purple-100 text-[#8057ff] border-[#8057ff]/25",
-  "bg-fuchsia-100 text-[#e44bff] border-[#e44bff]/25",
-  "bg-blue-100 text-[#2864ff] border-[#2864ff]/25",
-  "bg-emerald-100 text-[#54b98b] border-[#54b98b]/25",
-  "bg-orange-100 text-[#ff9654] border-[#ff9654]/25",
-  "bg-purple-100 text-[#a34eff] border-[#a34eff]/25",
-];
+const layout = [
+  "lg:col-span-7 lg:row-span-2 lg:min-h-[510px]",
+  "lg:col-span-5 lg:min-h-[245px]",
+  "lg:col-span-5 lg:min-h-[245px]",
+  "lg:col-span-4 lg:min-h-[290px]",
+  "lg:col-span-4 lg:min-h-[290px]",
+  "lg:col-span-4 lg:min-h-[290px]",
+] as const;
 
 export function ServicesSection() {
   const { locale } = useLocale();
   const copy = homeContent.services;
 
   return (
-    <section id="services" className="services-surface-v2 scroll-mt-24 py-20 text-[#17181d] sm:py-28 lg:py-32">
-      <div className="site-container">
-        <MotionReveal className="flex flex-col items-start justify-between gap-4 border-b border-black/10 pb-8 sm:flex-row sm:items-end">
+    <section id="services" className="relative scroll-mt-24 overflow-hidden bg-[#f2f0e9] py-20 text-[#17181d] sm:py-28">
+      <div className="pointer-events-none absolute -left-32 top-20 h-80 w-80 rounded-full border-[48px] border-[#8057ff]/[.07]" aria-hidden="true" />
+      <div className="site-container relative">
+        <MotionReveal className="flex items-end justify-between gap-5 border-b border-black/12 pb-7">
           <div>
-            <span className="label-mono inline-block rounded-full bg-[#8057ff]/10 px-3.5 py-1 text-[0.68rem] text-[#8057ff]">
-              {copy.label[locale]}
-            </span>
-            <h2 className="section-heading mt-4 max-w-[650px]">
-              {copy.headline[locale]}{" "}
-              <span className="font-[family-name:var(--font-instrument-serif)] font-normal italic text-[#8057ff]">
-                {copy.accent[locale]}
-              </span>
+            <span className="label-mono text-[#8057ff]">{copy.label[locale]}</span>
+            <h2 className="mt-4 max-w-[680px] text-[clamp(3.1rem,6vw,6.2rem)] font-[520] leading-[.86] tracking-[-.068em]">
+              {copy.headline[locale]} <span className="font-[family-name:var(--font-instrument-serif)] font-normal italic text-[#8057ff]">{copy.accent[locale]}</span>
             </h2>
           </div>
-          <Link
-            href="/services"
-            className="acid-button group inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-semibold text-black sm:text-sm"
-          >
-            {copy.viewAll[locale]} <ArrowUpRightIcon className="button-arrow h-4 w-4" />
-          </Link>
+          <Link href="/services" aria-label={copy.viewAll[locale]} className="group hidden h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#17181d] text-white transition hover:-rotate-6 hover:bg-[#8057ff] sm:flex"><ArrowUpRight className="h-5 w-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" weight="bold" /></Link>
         </MotionReveal>
 
-        {/* 2x3 Grid of Stylish Service Cards with Category Accents */}
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {copy.items.map((item, index) => {
-            const IconComponent = serviceIcons[index] ?? Browser;
-            const hoverClass = categoryCardClasses[index % categoryCardClasses.length];
-            const badgeStyle = categoryBadgeStyles[index % categoryBadgeStyles.length];
-
+        <div className="mt-8 grid gap-3 lg:grid-cols-12 lg:grid-rows-2">
+          {services.map((service, index) => {
+            const Icon = service.icon;
             return (
-              <MotionReveal key={item.number} delay={(index % 3) * 0.05}>
-                <Link
-                  href={index === 0 ? `/${slugs[index]}` : index === 5 ? "/website-custom" : `/services/${slugs[index]}`}
-                  className={`surface-card group relative flex min-h-[300px] flex-col overflow-hidden rounded-2xl border border-[#dde0e7] bg-white p-7 transition duration-300 hover:-translate-y-1 hover:shadow-[0_25px_60px_rgba(7,10,18,0.08)] sm:p-8 ${hoverClass}`}
-                >
-                  <div className="flex items-center justify-between">
-                    <div className={`flex h-12 w-12 items-center justify-center rounded-xl border ${badgeStyle} transition-transform duration-300 group-hover:scale-110`}>
-                      <IconComponent className="h-6 w-6" weight="duotone" />
-                    </div>
-                    <span className="label-mono font-mono text-xs font-bold text-black/40">{item.number}</span>
+              <MotionReveal key={service.href} className={layout[index]} delay={(index % 3) * 0.04}>
+                <Link href={service.href} className="group relative flex h-full min-h-[260px] flex-col overflow-hidden border border-black/10 bg-white/55 p-6 transition duration-300 hover:-translate-y-1 hover:border-[#8057ff]/35 hover:bg-white sm:p-8">
+                  <Icon className={`absolute -right-8 -top-8 text-[#8057ff]/[.07] transition duration-500 group-hover:rotate-6 group-hover:scale-110 ${index === 0 ? "h-72 w-72" : "h-44 w-44"}`} weight="duotone" aria-hidden="true" />
+                  <div className="relative flex items-start justify-between">
+                    <span className="flex h-12 w-12 items-center justify-center border border-[#8057ff]/20 bg-[#8057ff]/[.07] text-[#8057ff]"><Icon className="h-6 w-6" weight="duotone" /></span>
+                    <span className="font-mono text-[.62rem] text-black/30">0{index + 1}</span>
                   </div>
-
-                  <h3 className="mt-7 text-xl font-[550] tracking-[-0.04em] text-[#17181d] sm:text-2xl">
-                    {item.title[locale]}
-                  </h3>
-                  <p className="mt-3 text-sm leading-[1.68] text-[#6d7180]">
-                    {item.description[locale]}
-                  </p>
-
-                  <div className="mt-auto pt-7 flex items-center justify-between border-t border-black/8 text-xs font-semibold text-black/75 group-hover:text-black">
-                    <span>{locale === "id" ? "Lihat detail layanan" : "Explore service details"}</span>
-                    <ArrowUpRightIcon className="button-arrow h-4 w-4" />
+                  <div className="relative mt-auto pt-16">
+                    <h3 className={`font-[540] leading-none tracking-[-.055em] ${index === 0 ? "text-4xl sm:text-6xl" : "text-3xl"}`}>{service[locale === "id" ? "id" : "en"]}</h3>
+                    <p className="mt-3 text-xs tracking-[.02em] text-black/42">{service[locale === "id" ? "shortId" : "shortEn"]}</p>
                   </div>
+                  <ArrowUpRight className="absolute bottom-6 right-6 h-4 w-4 text-black/35 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-[#8057ff] sm:bottom-8 sm:right-8" weight="bold" />
                 </Link>
               </MotionReveal>
             );

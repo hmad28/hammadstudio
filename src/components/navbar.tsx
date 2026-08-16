@@ -4,10 +4,21 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { homeContent } from "@/lib/home-content";
-import { ArrowUpRightIcon, CloseIcon, HammadStudioLogo, MenuIcon } from "./icons";
+import { CaretDown } from "@phosphor-icons/react/CaretDown";
+import { List } from "@phosphor-icons/react/List";
+import { X } from "@phosphor-icons/react/X";
+import { HammadStudioLogo } from "./icons";
 import { LanguageSwitcher } from "./language-switcher";
 import { useLocale } from "./locale-provider";
+
+const serviceLinks = [
+  { href: "/harga-website#plan-landing-page", id: "Landing Page", en: "Landing Page" },
+  { href: "/jasa-website-company-profile", id: "Company Profile", en: "Company Profile" },
+  { href: "/services/e-commerce", id: "Toko Online", en: "Online Store" },
+  { href: "/industri/travel", id: "Tour & Travel", en: "Tour & Travel" },
+  { href: "/services/business-system", id: "Sistem Bisnis", en: "Business System" },
+  { href: "/website-custom", id: "Custom Software", en: "Custom Software" },
+] as const;
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -15,13 +26,13 @@ export function Navbar() {
   const pathname = usePathname();
   const reduceMotion = useReducedMotion();
   const { locale } = useLocale();
-  const copy = homeContent.nav;
+
   const navItems = [
-    { href: "/services", label: copy.services[locale] },
-    { href: "/work", label: copy.work[locale] },
-    { href: "/harga-website", label: copy.pricing[locale] },
-    { href: "/studio", label: copy.studio[locale] },
-  ];
+    { href: "/", label: locale === "id" ? "Beranda" : "Home" },
+    { href: "/studio", label: locale === "id" ? "Tentang Kami" : "About" },
+    { href: "/work", label: locale === "id" ? "Karya" : "Work" },
+    { href: "/#faq", label: "FAQ" },
+  ] as const;
 
   useEffect(() => {
     const update = () => setScrolled(window.scrollY > 28);
@@ -36,49 +47,57 @@ export function Navbar() {
         initial={reduceMotion ? false : { opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-        className={`pointer-events-auto mx-auto flex h-16 max-w-[1240px] items-center justify-between rounded-full border border-white/10 border-r-[#8057ff]/35 px-4 transition-all duration-500 sm:h-[68px] sm:px-5 ${
-          scrolled
-            ? "max-w-[900px] border-white/15 bg-[#090a12]/82 shadow-[0_18px_60px_rgba(0,0,0,.45)] backdrop-blur-2xl"
-            : "bg-[#090a12]/68 backdrop-blur-xl"
-        }`}
+        className={`pointer-events-auto mx-auto flex h-16 max-w-[1240px] items-center justify-between rounded-full border px-4 transition-all duration-500 sm:h-[68px] sm:px-5 ${scrolled ? "max-w-[1020px] border-white/15 bg-[#090a12]/88 shadow-[0_18px_60px_rgba(0,0,0,.45)] backdrop-blur-2xl" : "border-white/10 border-r-[#8057ff]/35 bg-[#090a12]/68 backdrop-blur-xl"}`}
       >
         <Link href="/" aria-label="HAMMAD.STUDIO home">
-          <HammadStudioLogo
-            priority
-            className="h-auto w-[150px] sm:w-[190px]"
-          />
+          <HammadStudioLogo priority className="h-auto w-[150px] sm:w-[178px]" />
         </Link>
-        <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-7 text-xs font-medium text-white/70 lg:flex" aria-label="Primary navigation">
-          {navItems.map((item) => {
-            const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
-            return <Link key={item.href} href={item.href} aria-current={active ? "page" : undefined} className={`nav-link transition-colors hover:text-white ${active ? "text-white font-semibold" : ""}`}>{item.label}</Link>;
+
+        <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-6 text-xs font-medium text-white/65 lg:flex" aria-label="Primary navigation">
+          <Link href="/" aria-current={pathname === "/" ? "page" : undefined} className={`nav-link transition-colors hover:text-white ${pathname === "/" ? "font-semibold text-white" : ""}`}>{locale === "id" ? "Beranda" : "Home"}</Link>
+
+          <div className="group/services relative py-5">
+            <Link href="/services" className={`nav-link flex items-center gap-1.5 transition-colors hover:text-white ${pathname.startsWith("/services") || pathname.startsWith("/jasa-") ? "font-semibold text-white" : ""}`}>
+              {locale === "id" ? "Layanan" : "Services"}<CaretDown className="h-3 w-3 transition-transform duration-200 group-hover/services:rotate-180 group-focus-within/services:rotate-180" weight="bold" />
+            </Link>
+            <div className="invisible absolute left-1/2 top-[54px] w-[470px] -translate-x-1/2 translate-y-2 opacity-0 transition duration-200 group-hover/services:visible group-hover/services:translate-y-0 group-hover/services:opacity-100 group-focus-within/services:visible group-focus-within/services:translate-y-0 group-focus-within/services:opacity-100">
+              <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/12 bg-white/10 p-px shadow-[0_28px_80px_rgba(0,0,0,.55)] backdrop-blur-2xl">
+                {serviceLinks.map((item, index) => (
+                  <Link key={item.href} href={item.href} className="group/item flex items-center justify-between bg-[#0b0d16]/95 px-4 py-4 text-sm text-white/65 transition hover:bg-[#151827] hover:text-white">
+                    <span>{item[locale]}</span><span className="font-mono text-[.58rem] text-[#d2f34c]/55">0{index + 1}</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {navItems.slice(1).map((item) => {
+            const active = item.href !== "/#faq" && (pathname === item.href || pathname.startsWith(`${item.href}/`));
+            return <Link key={item.href} href={item.href} aria-current={active ? "page" : undefined} className={`nav-link transition-colors hover:text-white ${active ? "font-semibold text-white" : ""}`}>{item.label}</Link>;
           })}
         </nav>
+
         <div className="flex items-center gap-2">
           <LanguageSwitcher compact />
-          <Link
-            href="/contact"
-            className="group hidden items-center gap-2 rounded-full bg-gradient-to-r from-[#ddf86d] to-[#bee52d] px-4 py-2.5 text-[0.7rem] font-semibold text-[#070a12] shadow-[0_4px_20px_rgba(210,243,76,0.22)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_32px_rgba(210,243,76,0.32)] lg:inline-flex"
-          >
-            {copy.talk[locale]} <ArrowUpRightIcon className="button-arrow h-3.5 w-3.5" />
-          </Link>
-          <button type="button" onClick={() => setOpen((value) => !value)} className="flex h-9 w-9 items-center justify-center rounded-full border border-white/12 text-white lg:hidden" aria-expanded={open} aria-controls="mobile-navigation" aria-label={open ? copy.close[locale] : copy.open[locale]}>
-            {open ? <CloseIcon className="h-4 w-4" /> : <MenuIcon className="h-4 w-4" />}
+          <button type="button" onClick={() => setOpen((value) => !value)} className="flex h-9 w-9 items-center justify-center rounded-full border border-white/12 text-white lg:hidden" aria-expanded={open} aria-controls="mobile-navigation" aria-label={open ? "Tutup navigasi" : "Buka navigasi"}>
+            {open ? <X className="h-4 w-4" weight="bold" /> : <List className="h-4 w-4" weight="bold" />}
           </button>
         </div>
       </motion.div>
 
       <AnimatePresence>
         {open && (
-          <motion.div id="mobile-navigation" initial={reduceMotion ? false : { opacity: 0, y: -12, scale: 0.98 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: -8, scale: 0.98 }} transition={{ duration: 0.25 }} className="pointer-events-auto mx-auto mt-2 max-w-[1240px] overflow-hidden rounded-[24px] border border-white/10 bg-[#0a0a09]/96 p-5 shadow-2xl backdrop-blur-2xl lg:hidden">
+          <motion.div id="mobile-navigation" initial={reduceMotion ? false : { opacity: 0, y: -12, scale: 0.98 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: -8, scale: 0.98 }} transition={{ duration: 0.25 }} className="pointer-events-auto mx-auto mt-2 max-w-[1240px] overflow-hidden rounded-[24px] border border-white/10 bg-[#0a0b13]/97 p-5 shadow-2xl backdrop-blur-2xl lg:hidden">
             <nav className="flex flex-col" aria-label="Mobile navigation">
-              {navItems.map((item, index) => (
-                <motion.div key={item.href} initial={reduceMotion ? false : { opacity: 0, x: -12 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: index * 0.04 }}>
-                  <Link href={item.href} onClick={() => setOpen(false)} className="flex items-center justify-between border-b border-white/10 py-4 text-lg text-white/82"><span>{item.label}</span><span className="text-white/30">0{index + 1}</span></Link>
-                </motion.div>
-              ))}
+              <Link href="/" onClick={() => setOpen(false)} className="border-b border-white/10 py-4 text-lg text-white/82">{locale === "id" ? "Beranda" : "Home"}</Link>
+              <details className="group border-b border-white/10">
+                <summary className="flex cursor-pointer list-none items-center justify-between py-4 text-lg text-white/82 marker:hidden [&::-webkit-details-marker]:hidden"><span>{locale === "id" ? "Layanan" : "Services"}</span><CaretDown className="h-4 w-4 transition group-open:rotate-180" weight="bold" /></summary>
+                <div className="grid grid-cols-2 gap-2 pb-4">
+                  {serviceLinks.map((item) => <Link key={item.href} href={item.href} onClick={() => setOpen(false)} className="border border-white/10 bg-white/[.035] px-3 py-3 text-xs text-white/62">{item[locale]}</Link>)}
+                </div>
+              </details>
+              {navItems.slice(1).map((item) => <Link key={item.href} href={item.href} onClick={() => setOpen(false)} className="border-b border-white/10 py-4 text-lg text-white/82 last:border-b-0">{item.label}</Link>)}
             </nav>
-            <Link href="/contact" onClick={() => setOpen(false)} className="acid-button group mt-5 flex w-full items-center justify-center gap-2 rounded-full px-4 py-3 text-sm font-semibold">{homeContent.hero.primary[locale]} <ArrowUpRightIcon className="button-arrow h-4 w-4" /></Link>
           </motion.div>
         )}
       </AnimatePresence>
