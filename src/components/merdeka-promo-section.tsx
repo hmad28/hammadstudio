@@ -35,8 +35,8 @@ export function MerdekaPromoSection() {
 
           <div className="lg:col-span-4 lg:pb-2">
             <p className="font-[family-name:var(--font-instrument-serif)] text-3xl italic leading-none sm:text-4xl">Merdeka punya website sendiri.</p>
-            <Link href="/contact?package=Promo%20Merdeka" className="group mt-7 inline-flex items-center gap-3 rounded-full bg-[#070a12] px-6 py-3.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#111522]">
-              Ambil promo <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" weight="bold" />
+            <Link href="/harga-website" className="group mt-7 inline-flex items-center gap-3 rounded-full bg-[#070a12] px-6 py-3.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#111522]">
+              Lihat Harga Merdeka <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" weight="bold" />
             </Link>
           </div>
         </div>

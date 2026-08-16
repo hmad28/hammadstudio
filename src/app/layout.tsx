@@ -6,6 +6,7 @@ import { CTAFooter } from "@/components/cta-footer";
 import { LocaleProvider } from "@/components/locale-provider";
 import { GoogleAnalytics } from "@/components/google-analytics";
 import { WebVitals } from "@/components/web-vitals";
+import { MerdekaPromoBar } from "@/components/merdeka-promo-bar";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-geist" });
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
@@ -75,6 +76,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="id" className={`${geist.variable} ${geistMono.variable} ${instrumentSerif.variable}`}>
       <body className="min-h-screen bg-[#050505] font-[family-name:var(--font-geist)] text-[#FAFAF8] antialiased">
         <LocaleProvider>
+          <MerdekaPromoBar />
           <Navbar />
           <main>{children}</main>
           <CTAFooter />

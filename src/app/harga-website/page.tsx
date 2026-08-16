@@ -1,23 +1,12 @@
 import { PricingPageContent } from "@/components/pricing-page-content";
-import { getPricingPlanId, pricingPlans } from "@/lib/pricing-catalog";
+import { getMerdekaPlanId, merdekaPlans } from "@/lib/merdeka-pricing";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
-  title: "Harga Pembuatan Website 2026 Mulai Rp499 Ribu",
-  description: "Price list Hammad Studio 2026 untuk landing page, company profile, travel, e-commerce, event, business system, pemerintah, dan software custom.",
+  title: "Merdeka Digital Sale 2026 — Website Mulai Rp499 Ribu",
+  description: "Promo Merdeka Hammad Studio hingga 31 Agustus 2026. Landing page mulai Rp499 ribu, company profile Rp1,099 juta, e-commerce, dan sistem bisnis.",
   path: "/harga-website",
 });
-
-function getNumericPrice(price: string) {
-  const numericText = price.replace(/[^\d,]/g, "");
-  if (!numericText) return undefined;
-
-  const amount = Number(numericText.replace(",", "."));
-  if (!Number.isFinite(amount) || amount <= 0) return undefined;
-  if (price.toUpperCase().includes("JT")) return Math.round(amount * 1_000_000);
-  if (price.toUpperCase().includes("K")) return Math.round(amount * 1_000);
-  return amount;
-}
 
 export default function WebsitePricingPage() {
   const pricingJsonLd = {
@@ -30,15 +19,14 @@ export default function WebsitePricingPage() {
     areaServed: { "@type": "Country", name: "Indonesia" },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Price List Hammad Studio 2026",
-      itemListElement: pricingPlans.map((plan) => {
-        const numericPrice = getNumericPrice(plan.price);
+      name: "Merdeka Digital Sale Hammad Studio 2026",
+      itemListElement: merdekaPlans.map((plan) => {
         return {
           "@type": "Offer",
           name: plan.name,
-          ...(numericPrice ? { price: numericPrice, priceCurrency: "IDR" } : {}),
+          ...(plan.numericPrice ? { price: plan.numericPrice, priceCurrency: "IDR", priceValidUntil: "2026-08-31" } : {}),
           description: `${plan.summary} Harga: ${plan.price}.`,
-          url: `https://hammad.studio/harga-website#${getPricingPlanId(plan.name)}`,
+          url: `https://hammad.studio/harga-website#${getMerdekaPlanId(plan.name)}`,
         };
       }),
     },
