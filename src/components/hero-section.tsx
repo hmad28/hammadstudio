@@ -188,7 +188,7 @@ export function HeroSection() {
               <div className="absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-[#06050b] via-[#06050b]/60 to-transparent p-5 pt-16 sm:p-7 sm:pt-24">
                 <div>
                   <span className="purple-glow-badge inline-block rounded-full px-2.5 py-0.5 text-[0.65rem] font-semibold">
-                    {copy.featured[locale]} · 2026
+                    {copy.featured[locale]}
                   </span>
                   <p className="mt-2 text-base font-semibold text-white sm:text-xl">
                     Solivate Studio

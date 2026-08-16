@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { ArrowUpRightIcon } from "./icons";
+import { workSlugs } from "@/lib/work-content";
 
 const proofPoints = [
-  { value: "11", label: "case study project nyata", href: "/work" },
+  { value: String(workSlugs.length), label: "case study project nyata", href: "/work" },
   { value: "2 jalur", label: "solusi khusus UMKM dan perusahaan", href: "/services" },
   { value: "2026", label: "price list dengan scope transparan", href: "/harga-website" },
 ] as const;

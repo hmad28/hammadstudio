@@ -4,13 +4,13 @@ import Link from "next/link";
 import { homeContent } from "@/lib/home-content";
 import {
   ArrowUpRightIcon,
-  GlobeIcon,
-  ShoppingBagIcon,
-  AppWindowIcon,
-  LayersIcon,
-  ZapIcon,
-  CodeIcon,
 } from "./icons";
+import { Browser } from "@phosphor-icons/react/Browser";
+import { ShoppingCart } from "@phosphor-icons/react/ShoppingCart";
+import { AppWindow } from "@phosphor-icons/react/AppWindow";
+import { ChartLineUp } from "@phosphor-icons/react/ChartLineUp";
+import { Robot } from "@phosphor-icons/react/Robot";
+import { Code } from "@phosphor-icons/react/Code";
 import { useLocale } from "./locale-provider";
 import { MotionReveal } from "./motion-reveal";
 
@@ -23,14 +23,7 @@ const slugs = [
   "custom-development",
 ] as const;
 
-const iconMap = {
-  GlobeIcon,
-  ShoppingBagIcon,
-  AppWindowIcon,
-  LayersIcon,
-  ZapIcon,
-  CodeIcon,
-};
+const serviceIcons = [Browser, ShoppingCart, AppWindow, ChartLineUp, Robot, Code] as const;
 
 const categoryCardClasses = [
   "service-website-card",
@@ -80,7 +73,7 @@ export function ServicesSection() {
         {/* 2x3 Grid of Stylish Service Cards with Category Accents */}
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {copy.items.map((item, index) => {
-            const IconComponent = iconMap[item.icon as keyof typeof iconMap] || GlobeIcon;
+            const IconComponent = serviceIcons[index] ?? Browser;
             const hoverClass = categoryCardClasses[index % categoryCardClasses.length];
             const badgeStyle = categoryBadgeStyles[index % categoryBadgeStyles.length];
 
@@ -92,7 +85,7 @@ export function ServicesSection() {
                 >
                   <div className="flex items-center justify-between">
                     <div className={`flex h-12 w-12 items-center justify-center rounded-xl border ${badgeStyle} transition-transform duration-300 group-hover:scale-110`}>
-                      <IconComponent className="h-6 w-6" />
+                      <IconComponent className="h-6 w-6" weight="duotone" />
                     </div>
                     <span className="label-mono font-mono text-xs font-bold text-black/40">{item.number}</span>
                   </div>

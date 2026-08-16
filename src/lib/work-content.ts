@@ -1,13 +1,15 @@
 import type { Localized } from "./types";
 
 export const featuredWorkSlugs = [
+  "jamwisata",
+  "drivemate",
   "masjid-raya-puri-telukjambe",
   "cpx-jersey",
-  "studyshare",
-  "sahabat-qolbu",
 ] as const;
 
 export const selectedWorkSlugs = [
+  "studyshare",
+  "sahabat-qolbu",
   "spectrasec",
   "naiklevel-ai",
   "shofi-frozen",
@@ -18,6 +20,8 @@ export const selectedWorkSlugs = [
 ] as const;
 
 export const priorityCaseStudySlugs = [
+  "jamwisata",
+  "drivemate",
   "shofi-frozen",
   "add-logistik",
   "sahabat-qolbu",
@@ -50,6 +54,34 @@ const project = (value: Omit<WorkProject, "year">): WorkProject => ({
 });
 
 export const workProjects: Record<WorkSlug, WorkProject> = {
+  jamwisata: project({
+    slug: "jamwisata",
+    title: "JamWisata",
+    category: { id: "Business Website · Tour & Travel", en: "Business Website · Tour & Travel" },
+    image: "/images/work/jamwisata.png",
+    website: "https://jamwisata.hammad.studio/",
+    overview: { id: "Website Umrah dan wisata halal yang menyatukan brand, pencarian paket, jadwal keberangkatan, fasilitas, galeri, testimoni, serta konsultasi WhatsApp.", en: "An Umrah and halal travel website combining brand, package discovery, departure schedules, facilities, galleries, testimonials, and WhatsApp consultation." },
+    challenge: { id: "Menyajikan banyak informasi perjalanan tanpa menghilangkan rasa tenang, kredibilitas, dan kemudahan calon jamaah menemukan paket.", en: "Presenting extensive travel information without losing calm, credibility, or making package discovery difficult for prospective pilgrims." },
+    built: { id: "Experience travel dengan package finder, katalog Umrah dan wisata halal, trust signals, dokumentasi jamaah, FAQ, serta jalur konsultasi.", en: "A travel experience with package finder, Umrah and halal tour catalogues, trust signals, pilgrim documentation, FAQs, and consultation paths." },
+    experience: { id: "Calon jamaah dapat memahami layanan, menyaring preferensi perjalanan, melihat paket, lalu melanjutkan ke portal atau WhatsApp.", en: "Prospective pilgrims can understand the service, filter travel preferences, explore packages, then continue to the portal or WhatsApp." },
+    features: ["Travel package finder", "Umrah package catalogue", "Halal tour catalogue", "Departure information", "Gallery & testimonials", "WhatsApp consultation"],
+    outcome: { id: "Website travel yang berfungsi sebagai pusat informasi, discovery paket, dan pembuka konsultasi—bukan sekadar company profile.", en: "A travel website serving as an information hub, package discovery tool, and consultation entry point—not merely a company profile." },
+    next: "drivemate",
+  }),
+  drivemate: project({
+    slug: "drivemate",
+    title: "DriveMate",
+    category: { id: "Rental Platform · Automotive", en: "Rental Platform · Automotive" },
+    image: "/images/work/drivemate.png",
+    website: "https://drivemate.hammad.studio/",
+    overview: { id: "Website rental mobil dan motor Bandung dengan katalog armada, harga, pilihan layanan, pencarian kebutuhan perjalanan, dan booking melalui WhatsApp.", en: "A Bandung car and motorcycle rental website with fleet catalogue, pricing, service options, trip search, and WhatsApp booking." },
+    challenge: { id: "Membuat pilihan kendaraan, jenis layanan, harga, lokasi, dan booking terasa cepat meski katalog armada cukup luas.", en: "Making vehicle selection, service type, pricing, location, and booking feel fast despite a broad fleet catalogue." },
+    built: { id: "Storefront rental dengan pencarian jadwal dan lokasi, katalog mobil dan motor, detail harga, service highlights, serta CTA booking kontekstual.", en: "A rental storefront with schedule and location search, car and motorcycle catalogues, pricing details, service highlights, and contextual booking calls to action." },
+    experience: { id: "Customer dapat memilih jenis perjalanan, membandingkan armada, memahami tarif, dan mengirim permintaan unit langsung melalui WhatsApp.", en: "Customers can choose a trip type, compare fleets, understand rates, and send a vehicle request directly through WhatsApp." },
+    features: ["Car & motorcycle catalogue", "Schedule and location search", "Rental pricing", "Service options", "Vehicle detail", "WhatsApp booking"],
+    outcome: { id: "Katalog rental yang mengubah pencarian kendaraan menjadi alur booking yang jelas dan mudah digunakan dari ponsel.", en: "A rental catalogue turning vehicle discovery into a clear, mobile-friendly booking journey." },
+    next: "masjid-raya-puri-telukjambe",
+  }),
   "masjid-raya-puri-telukjambe": project({
     slug: "masjid-raya-puri-telukjambe",
     title: "Masjid Raya Puri Telukjambe",
@@ -471,6 +503,6 @@ export const workProjects: Record<WorkSlug, WorkProject> = {
       id: "Website utama agency yang menyatukan positioning, bukti kerja, dan lead generation dalam satu experience.",
       en: "The agency's main website unifying positioning, proof of work, and lead generation in one experience.",
     },
-    next: "masjid-raya-puri-telukjambe",
+    next: "jamwisata",
   }),
 };

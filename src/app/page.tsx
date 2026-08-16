@@ -1,16 +1,12 @@
 import React from "react";
 import type { Metadata } from "next";
 import { HeroSection } from "@/components/hero-section";
-import { AboutSection } from "@/components/about-section";
 import { ServicesSection } from "@/components/services-section";
-import { WhyItMattersSection } from "@/components/why-it-matters-section";
 import { PortfolioSection } from "@/components/portfolio-section";
 import { PricingSection } from "@/components/pricing-section";
-import { ProcessPreviewSection } from "@/components/process-preview-section";
 import { FAQSection } from "@/components/faq-section";
 import { AudiencePathsSection } from "@/components/audience-paths-section";
 import { HomepageProofSection } from "@/components/homepage-proof-section";
-import { StudioDifferenceSection } from "@/components/studio-difference-section";
 
 export const metadata: Metadata = {
   title: "Jasa Pembuatan Website Profesional untuk Bisnis | Hammad Studio",
@@ -100,29 +96,18 @@ export default function HomePage() {
 
       <HomepageProofSection />
 
-      {/* 02 INTRO / POSITIONING (Off-white) */}
-      <AboutSection />
-
-      {/* 03 SERVICES (Off-white, 2x3 Grid with Icons) */}
+      {/* 02 SERVICES */}
       <ServicesSection />
 
       <AudiencePathsSection />
 
-      {/* 04 WHY IT MATTERS (Soft Gray, Split Value & Benefit Cards) */}
-      <WhyItMattersSection />
-
-      <StudioDifferenceSection />
-
-      {/* 05 SELECTED WORK (Dark Section, 1 Hero + 2 Grid Cards) */}
+      {/* 03 SELECTED WORK */}
       <PortfolioSection />
 
       {/* 06 PRICING PREVIEW (Off-white, Starting Price Cards) */}
       <PricingSection />
 
-      {/* 07 PROCESS (Soft Gray, 4 Visual Step Cards) */}
-      <ProcessPreviewSection />
-
-      {/* 08 FAQ (Off-white, Q&A Cards) */}
+      {/* 05 FAQ */}
       <FAQSection />
     </div>
   );

@@ -95,7 +95,6 @@ export function WorkPageContent() {
                   image={project.image}
                   category={project.category[locale]}
                   year={project.year}
-                  description={project.overview[locale]}
                   imageClassName={layout.image}
                   titleClassName={layout.title}
                   priority={index === 0}
@@ -116,7 +115,6 @@ function ProjectCard({
   image,
   category,
   year,
-  description,
   imageClassName,
   titleClassName,
   priority,
@@ -127,7 +125,6 @@ function ProjectCard({
   image: string | null;
   category: string;
   year: string;
-  description: string;
   imageClassName: string;
   titleClassName: string;
   priority: boolean;
@@ -169,9 +166,6 @@ function ProjectCard({
             >
               {title}
             </h2>
-            <p className="mt-4 max-w-[680px] text-sm leading-7 text-white/56 sm:text-base">
-              {description}
-            </p>
           </div>
 
           <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-white/18 text-white transition-[background-color,border-color,color,transform] duration-300 group-hover:rotate-45 group-hover:border-[#d2f34c] group-hover:bg-[#d2f34c] group-hover:text-[#070a12] sm:mt-1">

@@ -21,6 +21,8 @@ const labels = {
 } as const;
 
 const relatedServiceBySlug: Partial<Record<WorkSlug, { href: string; label: string }>> = {
+  jamwisata: { href: "/industri/travel", label: "Website untuk tour dan travel" },
+  drivemate: { href: "/harga-website#plan-booking-rental-system", label: "Booking dan rental system" },
   "shofi-frozen": { href: "/jasa-website-umkm", label: "Jasa website untuk UMKM" },
   "cpx-jersey": { href: "/jasa-website-umkm", label: "Jasa website untuk UMKM" },
   "add-logistik": { href: "/industri/logistik", label: "Website untuk perusahaan logistik" },
