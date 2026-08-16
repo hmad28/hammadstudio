@@ -1,15 +1,74 @@
 "use client";
 
 import Link from "next/link";
+import { ArrowUpRight } from "@phosphor-icons/react/ArrowUpRight";
+import { EnvelopeSimple } from "@phosphor-icons/react/EnvelopeSimple";
+import { FacebookLogo } from "@phosphor-icons/react/FacebookLogo";
+import { InstagramLogo } from "@phosphor-icons/react/InstagramLogo";
+import { MapPin } from "@phosphor-icons/react/MapPin";
+import { TiktokLogo } from "@phosphor-icons/react/TiktokLogo";
+import { WhatsappLogo } from "@phosphor-icons/react/WhatsappLogo";
 import { homeContent } from "@/lib/home-content";
-import { ArrowUpRightIcon, HammadStudioLogo, InstagramIcon } from "./icons";
+import { ArrowUpRightIcon, HammadStudioLogo } from "./icons";
 import { useLocale } from "./locale-provider";
 import { MotionReveal } from "./motion-reveal";
+
+const navigationLinks = [
+  { href: "/", label: "Beranda" },
+  { href: "/services", label: "Layanan" },
+  { href: "/studio", label: "Tentang Kami" },
+  { href: "/work", label: "Karya" },
+  { href: "/harga-website", label: "Harga" },
+  { href: "/insight", label: "Insight" },
+  { href: "/#faq", label: "FAQ" },
+  { href: "/contact", label: "Kontak" },
+] as const;
+
+const serviceLinks = [
+  { href: "/harga-website#landing-page", label: "Landing Page" },
+  { href: "/jasa-website-company-profile", label: "Company Profile" },
+  { href: "/jasa-website-umkm", label: "Website UMKM" },
+  { href: "/industri/travel", label: "Tour & Travel" },
+  { href: "/solusi/umkm/toko-online", label: "Product Catalog" },
+  { href: "/services/e-commerce", label: "E-Commerce" },
+  { href: "/website-custom", label: "Business System" },
+  { href: "/website-custom", label: "Custom Software" },
+] as const;
+
+const industryLinks = [
+  { href: "/industri/travel", label: "Travel & Umrah" },
+  { href: "/industri/logistik", label: "Logistik" },
+  { href: "/industri/umkm-kuliner", label: "Kuliner" },
+  { href: "/industri/pendidikan", label: "Pendidikan" },
+  { href: "/industri/fashion", label: "Fashion" },
+  { href: "/industri/distributor", label: "Distributor" },
+  { href: "/industri/event", label: "Event" },
+] as const;
+
+const insightLinks = [
+  { href: "/insight/berapa-harga-pembuatan-website", label: "Harga pembuatan website" },
+  { href: "/insight/harga-website-company-profile", label: "Harga company profile" },
+  { href: "/insight/website-atau-instagram-untuk-bisnis", label: "Website vs Instagram" },
+  { href: "/insight/contoh-website-company-profile-yang-bagus", label: "Contoh company profile" },
+  { href: "/insight/cara-memilih-jasa-pembuatan-website-terpercaya", label: "Memilih jasa website" },
+] as const;
+
+function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <Link
+      href={href}
+      prefetch={false}
+      className="group flex w-fit items-center gap-2 py-0.5 text-[0.82rem] leading-5 text-white/56 transition-colors duration-200 hover:text-white focus-visible:text-white"
+    >
+      <span className="h-px w-0 bg-[#d2f34c] transition-[width] duration-200 group-hover:w-3" aria-hidden="true" />
+      {children}
+    </Link>
+  );
+}
 
 export function CTAFooter() {
   const { locale } = useLocale();
   const copy = homeContent.footer;
-  const nav = homeContent.nav;
 
   return (
     <footer className="bg-[#070a12] text-white">
@@ -54,8 +113,12 @@ export function CTAFooter() {
         </MotionReveal>
       </section>
 
-      {/* Midnight Gradient Footer */}
+      {/* Editorial internal-link footer */}
       <section className="footer-surface-v2 relative overflow-hidden py-16 sm:py-20">
+        <div className="pointer-events-none absolute inset-0 opacity-[.16] [background-image:linear-gradient(rgba(255,255,255,.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.08)_1px,transparent_1px)] [background-size:72px_72px] [mask-image:linear-gradient(to_bottom,black,transparent_88%)]" aria-hidden="true" />
+        <div className="pointer-events-none absolute -right-24 top-28 h-72 w-72 rounded-full border-[52px] border-[#8057ff]/10" aria-hidden="true" />
+        <div className="pointer-events-none absolute -left-10 bottom-40 text-[14rem] font-semibold leading-none text-white/[.025]" aria-hidden="true">*</div>
+
         <div className="site-container relative z-10">
           <div className="grid gap-12 border-b border-white/12 pb-12 sm:pb-14 lg:grid-cols-12 lg:items-end lg:gap-8">
             <div className="lg:col-span-7">
@@ -63,7 +126,9 @@ export function CTAFooter() {
                 <HammadStudioLogo className="h-auto w-[260px] sm:w-[300px]" />
               </Link>
               <p className="mt-6 max-w-[520px] text-sm leading-7 text-white/58 sm:text-base">
-                {copy.description[locale]}
+                {locale === "id"
+                  ? "Jasa pembuatan website, e-commerce, dan sistem bisnis untuk UMKM serta perusahaan dari Jakarta."
+                  : "Websites, e-commerce, and business systems for growing businesses and companies from Jakarta."}
               </p>
               <div className="mt-5 flex items-center gap-2.5 text-xs text-white/78">
                 <span className="availability-dot" /> {copy.available[locale]}
@@ -78,66 +143,113 @@ export function CTAFooter() {
               >
                 hello@hammad.studio
               </a>
-              <div className="mt-6 flex flex-col gap-3 text-sm text-white/62 sm:flex-row sm:flex-wrap sm:items-center lg:justify-end">
+              <div className="mt-6 flex flex-wrap gap-2 lg:justify-end">
                 <a
                   href="https://www.instagram.com/hammad.biz/"
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center gap-2 transition-colors hover:text-[#d2f34c]"
+                  aria-label="Instagram Hammad Studio"
+                  className="grid size-10 place-items-center border border-white/12 bg-white/[.035] text-white/65 transition hover:border-[#d2f34c]/60 hover:bg-[#d2f34c] hover:text-[#070a12]"
                 >
-                  <InstagramIcon className="h-4 w-4" />
-                  @hammad.biz
+                  <InstagramLogo size={18} weight="regular" />
                 </a>
-                <span className="hidden h-4 w-px bg-white/18 sm:block" aria-hidden="true" />
                 <a
                   href="https://www.facebook.com/itshammadstudio"
                   target="_blank"
                   rel="noreferrer"
-                  className="transition-colors hover:text-[#d2f34c]"
+                  aria-label="Facebook Hammad Studio"
+                  className="grid size-10 place-items-center border border-white/12 bg-white/[.035] text-white/65 transition hover:border-[#d2f34c]/60 hover:bg-[#d2f34c] hover:text-[#070a12]"
                 >
-                  Facebook
+                  <FacebookLogo size={18} weight="regular" />
                 </a>
-                <span className="hidden h-4 w-px bg-white/18 sm:block" aria-hidden="true" />
                 <a
                   href="https://www.tiktok.com/@its_hammadstudio"
                   target="_blank"
                   rel="noreferrer"
-                  className="transition-colors hover:text-[#d2f34c]"
+                  aria-label="TikTok Hammad Studio"
+                  className="grid size-10 place-items-center border border-white/12 bg-white/[.035] text-white/65 transition hover:border-[#d2f34c]/60 hover:bg-[#d2f34c] hover:text-[#070a12]"
                 >
-                  TikTok
+                  <TiktokLogo size={18} weight="regular" />
                 </a>
-                <span className="hidden h-4 w-px bg-white/18 sm:block" aria-hidden="true" />
-                <span>Jakarta, Indonesia</span>
-                <span className="hidden h-4 w-px bg-white/18 sm:block" aria-hidden="true" />
-                <a href="https://wa.me/6285199391215" target="_blank" rel="noreferrer" className="transition-colors hover:text-[#d2f34c]">+62 851-9939-1215</a>
+                <a
+                  href="https://wa.me/6285199391215"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="WhatsApp Hammad Studio"
+                  className="grid size-10 place-items-center border border-white/12 bg-white/[.035] text-white/65 transition hover:border-[#d2f34c]/60 hover:bg-[#d2f34c] hover:text-[#070a12]"
+                >
+                  <WhatsappLogo size={18} weight="regular" />
+                </a>
               </div>
             </div>
           </div>
 
-          <div className="grid gap-10 py-12 lg:grid-cols-12 lg:items-end lg:py-14">
-            <div className="lg:col-span-4">
-              <p className="label-mono text-[#8057ff]">NAVIGASI</p>
-              <nav className="mt-5 grid gap-3 text-sm text-white/72" aria-label="Footer navigation">
-                <Link href="/" className="transition hover:text-[#f2efff]">{locale === "id" ? "Beranda" : "Home"}</Link>
-                <Link href="/services" className="transition hover:text-[#f2efff]">{nav.services[locale]}</Link>
-                <Link href="/studio" className="transition hover:text-[#f2efff]">{locale === "id" ? "Tentang Kami" : "About"}</Link>
-                <Link href="/work" className="transition hover:text-[#f2efff]">{nav.work[locale]}</Link>
-                <Link href="/#faq" className="transition hover:text-[#f2efff]">FAQ</Link>
+          <div className="grid border-b border-white/12 sm:grid-cols-2 lg:grid-cols-12">
+            <div className="relative border-b border-white/10 py-10 sm:border-r lg:col-span-2 lg:border-b-0 lg:py-12 lg:pr-7">
+              <span className="absolute right-4 top-4 font-mono text-[0.62rem] text-white/18">01</span>
+              <p className="label-mono text-[#d2f34c]">NAVIGASI</p>
+              <nav className="mt-5 grid gap-2" aria-label="Navigasi footer">
+                {navigationLinks.map((link) => (
+                  <FooterLink key={link.href} href={link.href}>{link.label}</FooterLink>
+                ))}
               </nav>
             </div>
 
-            <div className="relative overflow-hidden border border-white/10 bg-white/[.025] p-7 lg:col-span-8 lg:min-h-52">
-              <div className="absolute -right-10 -top-14 h-48 w-48 rounded-full border-[28px] border-[#8057ff]/15" aria-hidden="true" />
-              <p className="label-mono text-[#d2f34c]">JAKARTA · REMOTE</p>
-              <p className="mt-5 max-w-[650px] text-[clamp(2rem,4.5vw,4.6rem)] font-[520] leading-[.9] tracking-[-.06em] text-white">
-                Web. System. <span className="font-[family-name:var(--font-instrument-serif)] font-normal italic text-white/45">Built properly.</span>
-              </p>
+            <div className="relative border-b border-white/10 py-10 sm:pl-7 lg:col-span-3 lg:border-b-0 lg:border-r lg:px-7 lg:py-12">
+              <span className="absolute right-4 top-4 font-mono text-[0.62rem] text-white/18">02</span>
+              <p className="label-mono text-[#8057ff]">LAYANAN POPULER</p>
+              <nav className="mt-5 grid gap-2" aria-label="Layanan populer">
+                {serviceLinks.map((link) => (
+                  <FooterLink key={`${link.href}-${link.label}`} href={link.href}>{link.label}</FooterLink>
+                ))}
+              </nav>
             </div>
+
+            <div className="relative border-b border-white/10 py-10 sm:border-r lg:col-span-3 lg:border-b-0 lg:px-7 lg:py-12">
+              <span className="absolute right-4 top-4 font-mono text-[0.62rem] text-white/18">03</span>
+              <p className="label-mono text-[#8057ff]">INDUSTRI</p>
+              <nav className="mt-5 grid gap-2" aria-label="Solusi berdasarkan industri">
+                {industryLinks.map((link) => (
+                  <FooterLink key={link.href} href={link.href}>{link.label}</FooterLink>
+                ))}
+              </nav>
+            </div>
+
+            <div className="relative py-10 sm:pl-7 lg:col-span-4 lg:pl-7 lg:py-12">
+              <span className="absolute right-4 top-4 font-mono text-[0.62rem] text-white/18">04</span>
+              <p className="label-mono text-[#8057ff]">PANDUAN BISNIS</p>
+              <nav className="mt-5 grid gap-2" aria-label="Insight Hammad Studio">
+                {insightLinks.map((link) => (
+                  <FooterLink key={link.href} href={link.href}>{link.label}</FooterLink>
+                ))}
+              </nav>
+              <Link href="/insight" className="group mt-6 inline-flex items-center gap-2 text-xs font-semibold text-[#d2f34c] transition hover:text-white">
+                Lihat semua insight
+                <ArrowUpRight size={14} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </Link>
+            </div>
+          </div>
+
+          <div className="grid gap-8 py-8 lg:grid-cols-12 lg:items-end">
+            <div className="flex flex-col gap-3 text-sm text-white/56 sm:flex-row sm:flex-wrap sm:items-center lg:col-span-8">
+              <a href="mailto:hello@hammad.studio" className="inline-flex items-center gap-2 transition hover:text-white">
+                <EnvelopeSimple size={16} /> hello@hammad.studio
+              </a>
+              <span className="hidden h-3 w-px bg-white/18 sm:block" aria-hidden="true" />
+              <a href="https://wa.me/6285199391215" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 transition hover:text-white">
+                <WhatsappLogo size={16} /> +62 851-9939-1215
+              </a>
+              <span className="hidden h-3 w-px bg-white/18 sm:block" aria-hidden="true" />
+              <span className="inline-flex items-center gap-2"><MapPin size={16} /> Jakarta, Indonesia</span>
+            </div>
+            <p className="text-sm leading-6 text-white/42 lg:col-span-4 lg:text-right">
+              Design · Development · SEO foundation · Security-conscious engineering
+            </p>
           </div>
 
           <div className="flex flex-col gap-3 border-t border-white/12 pt-6 text-[0.7rem] text-white/42 sm:flex-row sm:items-center sm:justify-between">
             <p>© {new Date().getFullYear()} HAMMAD.STUDIO · All rights reserved.</p>
-            <div className="flex gap-4"><Link href="/privacy" className="hover:text-white">Privacy</Link><Link href="/terms" className="hover:text-white">Terms</Link><span>Global remote services</span></div>
+            <div className="flex flex-wrap gap-4"><Link href="/privacy" className="hover:text-white">Privacy</Link><Link href="/terms" className="hover:text-white">Terms</Link><span>Jakarta · Available worldwide</span></div>
           </div>
         </div>
 
