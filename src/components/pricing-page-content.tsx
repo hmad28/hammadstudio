@@ -20,7 +20,11 @@ import {
 import { MotionReveal } from "./motion-reveal";
 import { PricingIcon } from "./pricing-icon";
 
-const whatsappHref = "https://wa.me/6285199391215?text=Halo%20Hammad%20Studio%2C%20saya%20ingin%20konsultasi%20Promo%20Merdeka%202026.";
+const promoMessage = "Halo Hammad Studio, saya melihat Promo Merdeka di website dan ingin klaim sekaligus konsultasi pembuatan website.";
+const whatsappHref = `https://wa.me/6285199391215?text=${encodeURIComponent(promoMessage)}`;
+
+const getPlanWhatsappHref = (planName: string) =>
+  `https://wa.me/6285199391215?text=${encodeURIComponent(`Halo Hammad Studio, saya melihat Promo Merdeka untuk ${planName} dan ingin klaim sekaligus konsultasi.`)}`;
 
 const includedBenefits = [
   { title: "Fast & Responsive", copy: "Optimal di desktop dan mobile", icon: DeviceMobile },
@@ -80,9 +84,9 @@ function PlanCard({ plan }: { plan: MerdekaPlan }) {
             </li>
           ))}
         </ul>
-        <Link href={`/contact?package=${encodeURIComponent(`${plan.name} - Promo Merdeka`)}`} className="mt-auto flex min-h-12 items-center justify-between rounded-xl bg-[#e1262f] px-4 text-sm font-semibold transition hover:bg-[#f02b34]">
+        <a href={getPlanWhatsappHref(plan.name)} target="_blank" rel="noreferrer" className="mt-auto flex min-h-12 items-center justify-between rounded-xl bg-[#e1262f] px-4 text-sm font-semibold transition hover:bg-[#f02b34]">
           {plan.cta}<ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" weight="bold" />
-        </Link>
+        </a>
       </div>
     </article>
   );
@@ -90,14 +94,14 @@ function PlanCard({ plan }: { plan: MerdekaPlan }) {
 
 function CompactPlan({ plan }: { plan: MerdekaPlan }) {
   return (
-    <Link id={getMerdekaPlanId(plan.name)} href={`/contact?package=${encodeURIComponent(`${plan.name} - Promo Merdeka`)}`} className="group flex scroll-mt-36 items-center gap-4 border-b border-black/12 px-1 py-6 transition hover:border-[#e1262f] sm:px-4">
+    <a id={getMerdekaPlanId(plan.name)} href={getPlanWhatsappHref(plan.name)} target="_blank" rel="noreferrer" className="group flex scroll-mt-36 items-center gap-4 border-b border-black/12 px-1 py-6 transition hover:border-[#e1262f] sm:px-4">
       <PricingIcon name={plan.icon} className="h-8 w-8 shrink-0 text-[#0b1a33] transition group-hover:text-[#e1262f]" />
       <span className="min-w-0 flex-1">
         <span className="block text-base font-[620] tracking-[-.025em]">{plan.name}</span>
         <span className="mt-1 block text-sm text-black/48">Mulai <strong className="font-[620] text-[#d21c25]">{plan.price}</strong></span>
       </span>
       <ArrowRight className="h-5 w-5 shrink-0 text-[#e1262f] transition-transform group-hover:translate-x-1" weight="bold" />
-    </Link>
+    </a>
   );
 }
 
@@ -118,7 +122,7 @@ export function PricingPageContent() {
             <h1 className="mt-8 max-w-[730px] text-[clamp(3.5rem,6vw,5.7rem)] font-[620] leading-[.88] tracking-[-.07em]">Waktunya bisnis ikut merdeka secara digital<span className="text-[#e1262f]">.</span></h1>
             <p className="mt-7 max-w-[610px] text-base leading-7 text-white/60 sm:text-lg">Website modern, toko online, sampai sistem bisnis—sekarang dengan Harga Merdeka.</p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Link href="#paket-populer" className="group inline-flex min-h-13 items-center justify-center gap-3 rounded-xl bg-[#e1262f] px-6 text-sm font-semibold transition hover:bg-[#f02b34]">Klaim Harga Merdeka <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" weight="bold" /></Link>
+              <a href={whatsappHref} target="_blank" rel="noreferrer" className="group inline-flex min-h-13 items-center justify-center gap-3 rounded-xl bg-[#e1262f] px-6 text-sm font-semibold transition hover:bg-[#f02b34]">Klaim Harga Merdeka <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" weight="bold" /></a>
               <a href={whatsappHref} target="_blank" rel="noreferrer" className="inline-flex min-h-13 items-center justify-center gap-3 rounded-xl border border-white/28 px-6 text-sm font-semibold transition hover:bg-white hover:text-[#07111f]">Konsultasikan Kebutuhan <WhatsappLogo className="h-4 w-4" weight="fill" /></a>
             </div>
             <p className="mt-8 flex items-center gap-2 text-xs text-white/55"><span className="h-2 w-2 rounded-full bg-[#d2f34c] shadow-[0_0_0_5px_rgba(210,243,76,.1)]" />Berlaku hingga 31 Agustus 2026</p>
@@ -213,7 +217,7 @@ export function PricingPageContent() {
         <div className="site-container relative grid gap-12 lg:grid-cols-[1.1fr_.9fr] lg:items-center">
           <div><p className="label-mono text-[#ff4a52]">MERDEKA DIGITAL SALE</p><h2 className="mt-5 max-w-[760px] text-[clamp(3.2rem,6vw,6rem)] font-[620] leading-[.9] tracking-[-.07em]">Bisnis sudah jalan. Sekarang digitalnya ikut naik level<span className="text-[#e1262f]">.</span></h2><p className="mt-6 max-w-[620px] text-sm leading-6 text-white/55">Tidak yakin paket mana yang cocok? Ceritakan kebutuhan bisnis kamu, kami bantu menentukan solusi dan scope yang tepat.</p></div>
           <div className="border-l border-white/16 lg:pl-12">
-            <Link href="/contact?package=Promo%20Merdeka%202026" className="flex min-h-14 items-center justify-between rounded-xl bg-[#e1262f] px-5 text-sm font-semibold transition hover:bg-[#f02b34]">Klaim Harga Merdeka <ArrowRight className="h-4 w-4" weight="bold" /></Link>
+            <a href={whatsappHref} target="_blank" rel="noreferrer" className="flex min-h-14 items-center justify-between rounded-xl bg-[#e1262f] px-5 text-sm font-semibold transition hover:bg-[#f02b34]">Klaim Harga Merdeka <ArrowRight className="h-4 w-4" weight="bold" /></a>
             <a href={whatsappHref} target="_blank" rel="noreferrer" className="mt-3 flex min-h-14 items-center justify-between rounded-xl border border-white/30 px-5 text-sm font-semibold transition hover:bg-white hover:text-[#07111f]">Konsultasi Gratis via WhatsApp <WhatsappLogo className="h-5 w-5" weight="fill" /></a>
             <p className="mt-5 flex items-start gap-2 text-xs leading-5 text-white/45"><span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#d2f34c]" />Tidak harus langsung order. Konsultasikan kebutuhan terlebih dahulu.</p>
           </div>

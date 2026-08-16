@@ -47,7 +47,7 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 128px; background: var(--midnight); }
+html { scroll-behavior: smooth; scroll-padding-top: 132px; background: var(--midnight); }
 body { margin: 0; background: var(--midnight); color: var(--text-light); overflow-x: hidden; }
 ::selection { background: var(--acid); color: var(--midnight); }
 a, button { -webkit-tap-highlight-color: transparent; outline-offset: 4px; }
