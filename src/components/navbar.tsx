@@ -24,7 +24,7 @@ export function Navbar() {
     { href: "/", label: locale === "id" ? "Beranda" : "Home" },
     { href: "/studio", label: locale === "id" ? "Tentang Kami" : "About" },
     { href: "/work", label: locale === "id" ? "Karya" : "Work" },
-    { href: "/#faq", label: "FAQ" },
+    { href: "/faq", label: "FAQ" },
   ] as const;
 
   useEffect(() => {
@@ -73,7 +73,7 @@ export function Navbar() {
           </div>
 
           {navItems.slice(1).map((item) => {
-            const active = item.href !== "/#faq" && (pathname === item.href || pathname.startsWith(`${item.href}/`));
+            const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
             return <Link key={item.href} href={item.href} aria-current={active ? "page" : undefined} className={`nav-link transition-colors hover:text-white ${active ? "font-semibold text-white" : ""}`}>{item.label}</Link>;
           })}
         </nav>

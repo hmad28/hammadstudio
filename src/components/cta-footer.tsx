@@ -20,7 +20,7 @@ const navigationLinks = [
   { href: "/work", label: "Karya" },
   { href: "/harga-website", label: "Harga" },
   { href: "/insight", label: "Insight" },
-  { href: "/#faq", label: "FAQ" },
+  { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Kontak" },
 ] as const;
 

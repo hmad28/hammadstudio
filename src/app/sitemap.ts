@@ -24,6 +24,7 @@ const staticRoutes = [
   { path: "/harga-website", priority: 0.9, changeFrequency: "monthly" },
   { path: "/studio", priority: 0.7, changeFrequency: "monthly" },
   { path: "/contact", priority: 0.7, changeFrequency: "yearly" },
+  { path: "/faq", priority: 0.8, changeFrequency: "monthly" },
   { path: "/insight", priority: 0.8, changeFrequency: "weekly" },
   { path: "/privacy", priority: 0.3, changeFrequency: "yearly" },
   { path: "/terms", priority: 0.3, changeFrequency: "yearly" },
