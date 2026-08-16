@@ -8,6 +8,7 @@ export const featuredWorkSlugs = [
 ] as const;
 
 export const selectedWorkSlugs = [
+  "newsraya",
   "studyshare",
   "sahabat-qolbu",
   "spectrasec",
@@ -502,6 +503,45 @@ export const workProjects: Record<WorkSlug, WorkProject> = {
     outcome: {
       id: "Website utama agency yang menyatukan positioning, bukti kerja, dan lead generation dalam satu experience.",
       en: "The agency's main website unifying positioning, proof of work, and lead generation in one experience.",
+    },
+    next: "newsraya",
+  }),
+  newsraya: project({
+    slug: "newsraya",
+    title: "NewsRaya",
+    category: {
+      id: "News Platform · Media",
+      en: "News Platform · Media",
+    },
+    image: "/images/work/newsraya.png",
+    website: "https://newsraya.hammad.studio/",
+    overview: {
+      id: "Portal berita digital dengan editorial hierarchy yang jelas, breaking news, topik populer, berita nasional, bisnis, teknologi, AI, dan video dalam satu experience.",
+      en: "A digital news portal with clear editorial hierarchy, breaking news, popular topics, national, business, technology, AI, and video coverage in one experience.",
+    },
+    challenge: {
+      id: "Menyusun banyak kategori dan arus berita cepat agar tetap mudah dipindai tanpa kehilangan identitas editorial.",
+      en: "Organising many categories and fast-moving stories so they remain easy to scan without losing editorial identity.",
+    },
+    built: {
+      id: "Portal media responsif dengan daily brief, breaking-news ticker, headline hierarchy, popular stories, category feeds, pencarian, dan format video.",
+      en: "A responsive media portal with a daily brief, breaking-news ticker, headline hierarchy, popular stories, category feeds, search, and video formats.",
+    },
+    experience: {
+      id: "Pembaca dapat menangkap headline utama, mengikuti topik terkini, lalu menjelajahi berita berdasarkan minat dengan cepat.",
+      en: "Readers can grasp the main headlines, follow current topics, and quickly explore news based on their interests.",
+    },
+    features: [
+      "Breaking-news ticker",
+      "Daily brief",
+      "Editorial hierarchy",
+      "Category feeds",
+      "Popular stories",
+      "Search & video",
+    ],
+    outcome: {
+      id: "Experience media yang terasa aktual, terstruktur, dan nyaman dipindai dari desktop maupun perangkat mobile.",
+      en: "A media experience that feels current, structured, and easy to scan across desktop and mobile devices.",
     },
     next: "jamwisata",
   }),
