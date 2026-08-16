@@ -6,7 +6,6 @@ import { useLocale } from "./locale-provider";
 import { MotionReveal } from "./motion-reveal";
 import type { ServiceDetailSlug } from "@/lib/service-detail-content";
 import { serviceDetails } from "@/lib/service-detail-content";
-import { StickyWhatsAppCTA } from "./sticky-whatsapp-cta";
 
 const categoryHeroGlows: Record<ServiceDetailSlug, string> = {
   website: "bg-[radial-gradient(circle_at_75%_35%,rgba(40,100,255,0.45)_0%,rgba(128,87,255,0.35)_45%,transparent_75%)]",
@@ -44,7 +43,6 @@ export function ServiceDetailPage({ slug }: { slug: ServiceDetailSlug }) {
       {service.packages ? <section className="py-24 sm:py-32"><div className="site-container"><div className="flex items-end justify-between gap-6"><div><span className="label-mono text-black/38">Packages</span><h2 className="mt-5 text-[clamp(2.8rem,5vw,5rem)] font-[510] tracking-[-0.055em]">{locale === "id" ? "Titik awal harga" : "Pricing starting points"}</h2></div><Link href="/harga-website" className="group hidden items-center gap-2 text-sm font-semibold sm:inline-flex">{locale === "id" ? "Lihat detail paket" : "View package details"} <ArrowUpRightIcon className="button-arrow h-4 w-4" /></Link></div><div className="mt-10 grid border-l border-t border-black/15 sm:grid-cols-2 lg:grid-cols-4">{service.packages.map((item) => <Link href="/harga-website" key={item.name} className="group min-h-48 border-b border-r border-black/15 p-6 transition-colors hover:bg-[#0a0a09] hover:text-white"><span className="label-mono opacity-40">{item.name}</span><p className="mt-16 text-2xl font-[520] tracking-[-0.05em]">{item.price}</p></Link>)}</div></div></section> : null}
 
       <section className="bg-[#0a0a09] py-20 text-white"><div className="site-container grid gap-8 lg:grid-cols-12 lg:gap-6"><div className="lg:col-span-8"><p className="max-w-[760px] text-xl leading-[1.55] text-white/70 sm:text-2xl">{service.note?.[locale] ?? service.pricing[locale]}</p>{service.note ? <p className="mt-5 max-w-[700px] text-sm leading-[1.65] text-white/38">{service.pricing[locale]}</p> : null}</div><div className="lg:col-span-4 lg:text-right"><Link href="/contact" className="acid-button group inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold">{service.cta[locale]} <ArrowUpRightIcon className="button-arrow h-4 w-4" /></Link></div></div></section>
-      <StickyWhatsAppCTA />
     </div>
   );
 }

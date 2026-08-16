@@ -335,6 +335,10 @@ a, button { -webkit-tap-highlight-color: transparent; outline-offset: 4px; }
     radial-gradient(circle at 88% 18%, rgb(255 255 255 / 55%) 0 1px, transparent 1.5px) 0 0 / 9px 9px,
     linear-gradient(145deg, #fff8d9 0%, #ffe5b9 58%, #ff7d69 115%);
 }
+.whatsapp-float {
+  animation: whatsapp-call 4.6s var(--ease-out) infinite;
+  transform-origin: 80% 100%;
+}
 .reveal {
   animation: section-in 700ms var(--ease-out) both;
   animation-timeline: view();
@@ -353,6 +357,13 @@ a, button { -webkit-tap-highlight-color: transparent; outline-offset: 4px; }
 @keyframes merdeka-shine {
   0%, 58% { transform: translateX(-120%); }
   76%, 100% { transform: translateX(120%); }
+}
+@keyframes whatsapp-call {
+  0%, 70%, 100% { transform: translateY(0) rotate(0); }
+  74% { transform: translateY(-7px) rotate(-2deg); }
+  78% { transform: translateY(0) rotate(2deg); }
+  82% { transform: translateY(-4px) rotate(-1deg); }
+  86% { transform: translateY(0) rotate(0); }
 }
 
 ::-webkit-scrollbar { width: 7px; }

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { ArrowUpRightIcon, CheckIcon } from "./icons";
-import { StickyWhatsAppCTA } from "./sticky-whatsapp-cta";
 import { TrackedDownloadLink } from "./tracked-download-link";
 import { TrackedWhatsAppLink } from "./tracked-whatsapp-link";
 
@@ -160,7 +159,6 @@ export function SEOServicePage({
           </div>
         </div>
       </section>
-      <StickyWhatsAppCTA />
     </main>
   );
 }
