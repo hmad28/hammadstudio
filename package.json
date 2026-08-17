@@ -1,27 +1,26 @@
 {
-  "name": "ai-website-clone-template",
-  "version": "0.3.1",
+  "name": "hammad-studio",
+  "version": "1.0.0",
   "private": true,
-  "description": "Clone any website into a clean, modern Next.js codebase using AI coding agents",
-  "author": "JCodesMore",
-  "license": "MIT",
+  "description": "Production website and SEO content platform for Hammad Studio",
+  "author": "Hammad Studio",
+  "license": "UNLICENSED",
   "repository": {
     "type": "git",
-    "url": "https://github.com/JCodesMore/ai-website-cloner-template.git"
+    "url": "https://github.com/hmad28/hammadstudio.git"
   },
-  "homepage": "https://github.com/JCodesMore/ai-website-cloner-template",
+  "homepage": "https://hammad.studio",
   "bugs": {
-    "url": "https://github.com/JCodesMore/ai-website-cloner-template/issues"
+    "url": "https://github.com/hmad28/hammadstudio/issues"
   },
   "keywords": [
-    "claude-code",
-    "website-clone",
-    "reverse-engineering",
+    "hammad-studio",
+    "website-development",
+    "digital-studio",
     "nextjs",
-    "ai",
-    "template",
+    "typescript",
     "tailwindcss",
-    "shadcn-ui"
+    "seo"
   ],
   "engines": {
     "node": ">=24"
