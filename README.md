@@ -41,7 +41,7 @@ The application is built with the Next.js App Router and statically generates it
 | UI | React 19, Tailwind CSS 4 |
 | Language | TypeScript in strict mode |
 | Motion | Motion for React |
-| Icons | Phosphor Icons and Lucide React |
+| Icons | Phosphor Icons |
 | Deployment | Vercel or standalone Docker image |
 | Quality | ESLint, TypeScript, production build checks |
 
