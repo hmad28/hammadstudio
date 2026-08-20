@@ -33,7 +33,7 @@ export default async function InsightDetailPage({ params }: { params: Promise<{ 
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
-      { "@type": "Article", "@id": `${url}#article`, headline: article.title, description: article.description, datePublished: article.publishedAt, dateModified: article.updatedAt, mainEntityOfPage: url, author: { "@id": "https://hammad.studio/#hammad-matt" }, publisher: { "@id": "https://hammad.studio/#organization" } },
+      { "@type": "Article", "@id": `${url}#article`, headline: article.title, description: article.description, inLanguage: "id-ID", datePublished: article.publishedAt, dateModified: article.updatedAt, mainEntityOfPage: url, isPartOf: { "@id": "https://hammad.studio/insight#collection" }, author: { "@id": "https://hammad.studio/#hammad-matt" }, publisher: { "@id": "https://hammad.studio/#organization" } },
       { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Beranda", item: "https://hammad.studio" }, { "@type": "ListItem", position: 2, name: "Insight", item: "https://hammad.studio/insight" }, { "@type": "ListItem", position: 3, name: article.title, item: url }] },
     ],
   };

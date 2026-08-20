@@ -15,7 +15,7 @@ export type InsightArticle = {
   sections: readonly InsightSection[];
   relatedHref: string;
   relatedLabel: string;
-  cluster: "umkm" | "company" | "buyer" | "technical" | "pricing";
+  cluster: "umkm" | "company" | "buyer" | "technical" | "pricing" | "ai-search";
   pillar?: boolean;
   comparison?: {
     leftTitle: string;
@@ -263,7 +263,7 @@ export const insightArticles = [
     title: "Kenapa Iklan UMKM Lebih Terukur dengan Landing Page?",
     description: "Peran landing page pada iklan Meta, TikTok, dan Google untuk menjaga pesan, menjawab objection, serta mengukur conversion.",
     answer: "Landing page membuat traffic iklan masuk ke halaman dengan satu penawaran dan tindakan utama. Bisnis dapat menjaga konsistensi pesan, memberi konteks sebelum WhatsApp, dan mengukur conversion dengan lebih jelas dibanding mengarahkan semua iklan ke profil umum.",
-    publishedAt: "2026-08-11", updatedAt: "2026-08-11", readTime: "6 menit", relatedHref: "/solusi/umkm/landing-page-produk", relatedLabel: "Lihat jasa landing page produk", cluster: "umkm",
+    publishedAt: "2026-08-11", updatedAt: "2026-08-20", readTime: "6 menit", relatedHref: "/jasa-landing-page", relatedLabel: "Lihat jasa landing page", cluster: "umkm",
     sections: [
       { heading: "Message match", paragraphs: ["Headline, visual, penawaran, dan CTA pada landing page perlu melanjutkan janji iklan. Perubahan konteks yang terlalu besar membuat pengunjung ragu."] },
       { heading: "Elemen yang membantu conversion", paragraphs: ["Gunakan benefit yang konkret, detail penawaran, bukti yang valid, FAQ, risiko atau ketentuan, dan CTA yang terlihat."], points: ["Value proposition", "Benefit", "Proof", "FAQ", "CTA", "Tracking"] },
@@ -364,7 +364,7 @@ export const insightArticles = [
     title: "Checklist Keamanan dan Audit Website Perusahaan",
     description: "Checklist keamanan website perusahaan untuk ownership, dependency, authentication, input, file, API, headers, backup, logging, dan response process.",
     answer: "Audit keamanan website perusahaan harus memeriksa ownership, dependency, authentication, authorization, input, upload file, API, secret, security headers, backup, logging, dan proses respons insiden. Checklist harus disesuaikan dengan risiko dan data yang diproses.",
-    publishedAt: "2026-08-11", updatedAt: "2026-08-11", readTime: "10 menit", relatedHref: "/solusi/perusahaan/maintenance-support", relatedLabel: "Diskusikan maintenance dan security review", cluster: "technical",
+    publishedAt: "2026-08-11", updatedAt: "2026-08-20", readTime: "10 menit", relatedHref: "/maintenance-website", relatedLabel: "Diskusikan maintenance dan security review", cluster: "technical",
     sections: [
       { heading: "Asset dan ownership", paragraphs: ["Inventaris domain, DNS, hosting, repository, CMS, database, email, analytics, vendor, serta admin. Hapus akses yang tidak diperlukan dan aktifkan MFA bila tersedia."], points: ["Account owner", "MFA", "Role", "Offboarding", "Recovery contact"] },
       { heading: "Application security", paragraphs: ["Periksa validation, output encoding, authentication, authorization, session, CSRF sesuai arsitektur, rate limiting, upload file, dan dependency. Uji berdasarkan threat model, bukan checklist generik saja."], points: ["Input validation", "RBAC", "Session", "API authorization", "Rate limit", "File validation"] },
@@ -401,6 +401,51 @@ export const insightArticles = [
       { heading: "Sahabat Qolbu: trust sebelum konsultasi", paragraphs: ["Untuk travel Umrah, website perlu memberi ruang pada paket, proses, edukasi, dokumentasi, dan jalur konsultasi. Fokusnya bukan membuat klaim kepercayaan, melainkan menyajikan informasi yang membantu calon jamaah menilai layanan dengan tenang."], points: ["Paket dan layanan tersusun", "Konten edukasi menjawab kekhawatiran", "CTA konsultasi hadir pada konteks yang tepat"] },
       { heading: "Solivate: menjelaskan capability teknologi", paragraphs: ["Perusahaan teknologi sering terjebak daftar jargon. Website yang lebih efektif menerjemahkan capability menjadi masalah yang dapat diselesaikan, bentuk layanan, bukti kerja, serta cara memulai diskusi."], points: ["Outcome sebelum tech stack", "Capability dikaitkan dengan kebutuhan user", "Project digunakan sebagai bukti, bukan dekorasi"] },
       { heading: "Checklist yang dapat diterapkan", paragraphs: ["Gunakan contoh sebagai bahan berpikir, bukan template untuk disalin. Struktur akhir harus mengikuti buyer, proses sales, materi yang tersedia, dan tujuan website perusahaan Anda."], points: ["H1 menjelaskan value utama", "Layanan memiliki hierarchy", "Profil dan informasi legal hanya memuat data valid", "Project atau capability memberi bukti", "Kontak dan RFQ meminta informasi secukupnya", "Halaman ringan, mobile-friendly, dan dapat dirayapi"] },
+    ],
+  },
+  {
+    slug: "seo-aeo-geo-untuk-website-bisnis",
+    title: "Apa Bedanya SEO, AEO, dan GEO untuk Website Bisnis?",
+    description: "Perbedaan SEO, AEO, dan GEO serta cara menerapkannya tanpa keyword stuffing, halaman tipis, atau klaim optimasi AI yang menyesatkan.",
+    answer: "SEO membantu halaman ditemukan dan dipahami mesin pencari, AEO menyusun jawaban agar mudah digunakan answer engine, sedangkan GEO memperjelas entity, bukti, dan informasi agar sumber lebih layak dirujuk sistem generatif. Ketiganya memakai fondasi yang sama: crawlability, konten jelas, bukti nyata, structured data yang sesuai, dan reputasi sumber.",
+    publishedAt: "2026-08-20",
+    updatedAt: "2026-08-20",
+    readTime: "9 menit",
+    relatedHref: "/jasa-pembuatan-website",
+    relatedLabel: "Bangun website dengan fondasi SEO, AEO, dan GEO",
+    cluster: "ai-search",
+    comparison: {
+      leftTitle: "Fokus utama",
+      rightTitle: "Implementasi praktis",
+      rows: [
+        { label: "SEO", left: "Crawling, indexing, relevansi, kualitas, dan pengalaman pencarian.", right: "Canonical, sitemap, internal link, metadata, konten, performa, dan authority." },
+        { label: "AEO", left: "Jawaban yang tegas dan mudah diekstrak untuk pertanyaan pengguna.", right: "Answer-first paragraph, heading pertanyaan, tabel, langkah, dan FAQ yang terlihat di halaman." },
+        { label: "GEO", left: "Entity dan informasi yang konsisten, faktual, serta layak dijadikan rujukan.", right: "Identitas konsisten, project nyata, author, sumber, first-party data, dan profil eksternal." },
+      ],
+    },
+    sections: [
+      { heading: "Fondasinya tetap SEO yang sehat", paragraphs: ["Tidak ada satu schema khusus yang otomatis membuat website direkomendasikan AI. Halaman tetap perlu dapat dirayapi, diindeks, terhubung melalui internal link, cepat digunakan, dan berisi informasi yang membantu manusia mengambil keputusan."], points: ["HTML yang dapat dibaca crawler", "Canonical dan sitemap yang benar", "Navigasi dan internal link", "Structured data sesuai konten terlihat", "Mobile performance", "Konten original"] },
+      { heading: "AEO dimulai dari jawaban langsung", paragraphs: ["Untuk pertanyaan seperti berapa harga website atau apa bedanya landing page dan company profile, berikan jawaban singkat lebih dulu. Setelah itu jelaskan faktor, batasan, contoh, dan langkah berikutnya. Jangan menyembunyikan jawaban di balik paragraf pembuka yang panjang."] },
+      { heading: "GEO membutuhkan entity dan bukti", paragraphs: ["Nama brand, lokasi layanan, nomor kontak, layanan, penulis, dan project harus konsisten. Case study dengan problem, solusi, deliverable, screenshot, serta hasil faktual lebih kuat daripada ratusan halaman yang hanya mengganti keyword."], points: ["Hammad Studio sebagai nama entity yang konsisten", "Jakarta sebagai basis dan Indonesia sebagai area layanan", "Portfolio yang dapat diverifikasi", "Harga serta scope yang transparan", "Author dan tanggal pembaruan", "SameAs ke profil resmi"] },
+      { heading: "Apa yang harus dihindari?", paragraphs: ["Jangan memasukkan semua variasi keyword ke satu halaman, membuat halaman kota tanpa operasi nyata, memasang Review schema tanpa review yang terlihat, atau menerbitkan puluhan artikel tipis. Satu halaman kuat dapat mencakup banyak variasi bahasa yang memiliki intent sama."], points: ["Keyword stuffing", "Doorway city pages", "Scaled thin content", "Schema yang tidak sesuai isi", "Angka hasil atau testimoni palsu", "Duplikasi intent"] },
+    ],
+  },
+  {
+    slug: "cara-website-direkomendasikan-ai",
+    title: "Bagaimana Website Bisa Direkomendasikan AI?",
+    description: "Cara meningkatkan peluang website bisnis dipahami dan dirujuk AI melalui entity clarity, answer-first content, bukti, structured data, dan konsistensi informasi.",
+    answer: "Website lebih mudah dipahami AI ketika identitas bisnis, layanan, lokasi, harga, bukti kerja, penulis, dan kontak disajikan secara konsisten dalam HTML yang dapat dirayapi. Tidak ada jaminan akan direkomendasikan; peluang dibangun melalui informasi original, struktur jawaban yang jelas, reputasi, dan penyebutan entity dari sumber lain yang relevan.",
+    publishedAt: "2026-08-20",
+    updatedAt: "2026-08-20",
+    readTime: "8 menit",
+    relatedHref: "/work",
+    relatedLabel: "Lihat bukti project Hammad Studio",
+    cluster: "ai-search",
+    sections: [
+      { heading: "Jelaskan entity tanpa membuat mesin menebak", paragraphs: ["Gunakan satu nama brand, deskripsi layanan yang stabil, kontak resmi, basis operasi, area layanan, dan tautan profil resmi. Informasi ini sebaiknya konsisten pada website, Google Business Profile, social profile, directory yang relevan, dan publikasi eksternal."], points: ["Nama: Hammad Studio", "Basis: Jakarta", "Area layanan: Indonesia / remote", "Layanan: website, commerce, web app, business system, custom software", "Kontak resmi", "Profil sosial resmi"] },
+      { heading: "Jawab pertanyaan dengan format yang dapat dipahami", paragraphs: ["Gunakan heading pertanyaan, jawaban langsung, tabel perbandingan, daftar langkah, dan FAQ ketika format tersebut memang membantu. Structured data hanya melengkapi konten yang benar-benar terlihat, bukan menggantikannya."] },
+      { heading: "Publikasikan bukti yang sulit ditiru", paragraphs: ["Case study project nyata membantu mesin dan calon client memahami jenis masalah yang pernah ditangani. Jangan mengarang metrik. Jika data conversion belum tersedia, gunakan fakta yang dapat diverifikasi seperti deliverable, struktur baru, flow yang dibangun, atau teknologi yang benar-benar digunakan."], points: ["Problem", "Solution", "Deliverables", "Screenshots", "Outcome faktual", "Link project bila tersedia"] },
+      { heading: "Bangun citation secara wajar", paragraphs: ["Profil dan publikasi eksternal membantu menghubungkan brand dengan layanan serta expertise. Prioritaskan platform yang benar-benar dapat dirawat—misalnya GitHub, LinkedIn, Behance, Medium, directory bisnis yang legitimate, atau liputan kolaborasi—daripada backlink massal dan profil kosong."] },
     ],
   },
 ] as const satisfies readonly InsightArticle[];

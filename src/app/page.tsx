@@ -8,7 +8,7 @@ import { MerdekaPromoSection } from "@/components/merdeka-promo-section";
 import { HomepagePromoPopup } from "@/components/homepage-promo-popup";
 
 export const metadata: Metadata = {
-  title: "Jasa Pembuatan Website Profesional untuk Bisnis | Hammad Studio",
+  title: "Jasa Pembuatan Website Profesional | Hammad Studio",
   description: "Jasa pembuatan website untuk UMKM dan perusahaan. Website modern, cepat, mobile-friendly, SEO-ready, dan sesuai kebutuhan bisnis. Konsultasikan project Anda.",
   alternates: { canonical: "/" },
 };
@@ -31,10 +31,15 @@ const organizationJsonLd = {
       email: "hello@hammad.studio",
       telephone: "+62-851-9939-1215",
       description:
-        "Studio pengembangan digital untuk website, e-commerce, aplikasi web, automation, dan sistem bisnis custom.",
-      areaServed: {
-        "@type": "Country",
-        name: "Indonesia",
+        "Studio pengembangan website berbasis di Jakarta yang melayani bisnis Indonesia secara online untuk website, e-commerce, web app, business system, automation, dan custom software.",
+      areaServed: [
+        { "@type": "City", name: "Jakarta" },
+        { "@type": "Country", name: "Indonesia" },
+      ],
+      location: {
+        "@type": "VirtualLocation",
+        url: "https://hammad.studio/contact",
+        name: "Hammad Studio — Online & Remote",
       },
       knowsAbout: [
         "Website development",
@@ -43,6 +48,14 @@ const organizationJsonLd = {
         "Business systems",
         "AI automation",
         "Custom software development",
+        "Landing page development",
+        "Company profile website development",
+        "Search engine optimization",
+        "Answer engine optimization",
+        "Generative engine optimization",
+        "Next.js",
+        "React",
+        "TypeScript",
       ],
       sameAs: [
         "https://www.instagram.com/hammad.biz/",
@@ -53,6 +66,7 @@ const organizationJsonLd = {
         "@type": "ContactPoint",
         telephone: "+62-851-9939-1215",
         contactType: "sales",
+        url: "https://hammad.studio/contact",
         availableLanguage: ["Indonesian", "English"],
       },
       founder: {

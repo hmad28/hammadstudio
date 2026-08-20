@@ -15,7 +15,7 @@ import { MotionReveal } from "./motion-reveal";
 const services = [
   { href: "/jasa-pembuatan-website", icon: Browser, id: "Website", en: "Website", shortId: "Landing page · Company profile · CMS", shortEn: "Landing page · Company profile · CMS" },
   { href: "/services/e-commerce", icon: ShoppingCart, id: "E-Commerce", en: "E-Commerce", shortId: "Katalog · Checkout · Payment", shortEn: "Catalog · Checkout · Payment" },
-  { href: "/services/web-application", icon: AppWindow, id: "Web Application", en: "Web Application", shortId: "Portal · Booking · Member area", shortEn: "Portal · Booking · Member area" },
+  { href: "/jasa-web-app", icon: AppWindow, id: "Web Application", en: "Web Application", shortId: "Portal · Booking · Member area", shortEn: "Portal · Booking · Member area" },
   { href: "/services/business-system", icon: ChartLineUp, id: "Business System", en: "Business System", shortId: "CRM · Dashboard · Operasional", shortEn: "CRM · Dashboard · Operations" },
   { href: "/services/automation-ai", icon: Robot, id: "Automation & AI", en: "Automation & AI", shortId: "Workflow · Follow-up · AI tools", shortEn: "Workflow · Follow-up · AI tools" },
   { href: "/website-custom", icon: Code, id: "Custom Software", en: "Custom Software", shortId: "SaaS · Platform · Integrasi", shortEn: "SaaS · Platform · Integrations" },

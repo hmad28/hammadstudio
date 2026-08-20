@@ -7,17 +7,17 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://hammad.studio";
 
 const staticRoutes = [
   { path: "", priority: 1, changeFrequency: "weekly" },
-  { path: "/services", priority: 0.9, changeFrequency: "monthly" },
   { path: "/jasa-pembuatan-website", priority: 0.95, changeFrequency: "monthly" },
+  { path: "/jasa-landing-page", priority: 0.9, changeFrequency: "monthly" },
   { path: "/jasa-website-umkm", priority: 0.9, changeFrequency: "monthly" },
   { path: "/jasa-website-company-profile", priority: 0.9, changeFrequency: "monthly" },
   { path: "/redesign-website", priority: 0.85, changeFrequency: "monthly" },
+  { path: "/maintenance-website", priority: 0.85, changeFrequency: "monthly" },
+  { path: "/jasa-web-app", priority: 0.9, changeFrequency: "monthly" },
   { path: "/website-custom", priority: 0.85, changeFrequency: "monthly" },
   { path: "/industri/logistik", priority: 0.85, changeFrequency: "monthly" },
   { path: "/jasa-pembuatan-website-jakarta", priority: 0.85, changeFrequency: "monthly" },
-  { path: "/services/website", priority: 0.8, changeFrequency: "monthly" },
   { path: "/services/e-commerce", priority: 0.8, changeFrequency: "monthly" },
-  { path: "/services/web-application", priority: 0.8, changeFrequency: "monthly" },
   { path: "/services/business-system", priority: 0.8, changeFrequency: "monthly" },
   { path: "/services/automation-ai", priority: 0.8, changeFrequency: "monthly" },
   { path: "/work", priority: 0.9, changeFrequency: "weekly" },
@@ -56,7 +56,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }));
 
-  const solutions: MetadataRoute.Sitemap = Object.values(solutionLandings).map((landing) => ({
+  const solutions: MetadataRoute.Sitemap = Object.values(solutionLandings).filter((landing) => landing.slug !== "perusahaan/maintenance-support").map((landing) => ({
     url: `${siteUrl}/solusi/${landing.slug}`,
     changeFrequency: "monthly",
     priority: 0.8,

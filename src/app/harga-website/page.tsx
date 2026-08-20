@@ -3,8 +3,8 @@ import { getMerdekaPlanId, merdekaPlans } from "@/lib/merdeka-pricing";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
-  title: "Merdeka Digital Sale 2026 — Website Mulai Rp499 Ribu",
-  description: "Pricing Hammad Studio 2026 berbasis produk: Website Starter Rp499 ribu, Website + CMS Rp899 ribu, e-commerce, business apps, dan custom software.",
+  title: "Harga Pembuatan Website 2026 — Mulai Rp499 Ribu",
+  description: "Harga website Hammad Studio 2026: Website Starter Rp499 ribu, CMS Rp899 ribu, e-commerce, booking, POS, CRM, LMS, dan custom software.",
   path: "/harga-website",
 });
 

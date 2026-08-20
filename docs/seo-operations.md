@@ -7,7 +7,7 @@ Dokumen ini memisahkan pekerjaan yang sudah otomatis di website dari pekerjaan e
 Status ownership: sudah diverifikasi oleh pemilik.
 
 1. Submit `https://hammad.studio/sitemap.xml` pada menu Sitemaps.
-2. Inspect homepage, `/jasa-website-umkm`, `/jasa-website-company-profile`, `/harga-website`, dan `/work` setelah deployment besar.
+2. Inspect homepage, `/jasa-pembuatan-website`, `/jasa-landing-page`, `/jasa-website-umkm`, `/jasa-website-company-profile`, `/jasa-web-app`, `/harga-website`, dan `/work` setelah deployment besar.
 3. Jangan request indexing untuk seluruh URL sekaligus. Sitemap dan internal link akan membantu discovery.
 4. Periksa Pages untuk `Crawled - currently not indexed`, duplicate canonical, soft 404, dan redirect error.
 5. Periksa Core Web Vitals per template, bukan hanya satu URL.
@@ -19,9 +19,13 @@ Status ownership: sudah diverifikasi oleh pemilik.
 - Transaction: `jasa|buat|bikin|pembuatan|developer`
 - Pricing: `harga|biaya|budget|berapa`
 - Redesign: `redesign|revamp|renovasi|website lama`
-- Local: `depok|jakarta`
+- Web app: `web app|dashboard|booking|crm|pos|inventory|ticketing|membership|lms|rental`
+- AI visibility: `aeo|geo|ai overview|chatgpt|direkomendasikan ai`
+- Local: `jakarta`
 
 Pantau impressions, clicks, CTR, average position, non-brand clicks, klik WhatsApp, form, qualified lead, proposal, deal, dan organic revenue. Jangan membuat estimasi keyword volume tanpa dataset Keyword Planner atau tool berbayar yang aktif.
+
+Mapping sumber keyword ke canonical URL, metadata, H1, schema, internal link, serta status implementasi tersedia di `docs/Hammad-Studio-SEO-AEO-GEO-Implementation-Map-2026.xlsx`. Workbook tersebut adalah sumber keputusan; bukan daftar kata yang harus ditempel ke copy website.
 
 ## Google Analytics
 
