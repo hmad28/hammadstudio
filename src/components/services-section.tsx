@@ -45,7 +45,7 @@ export function ServicesSection() {
               {copy.headline[locale]} <span className="font-[family-name:var(--font-instrument-serif)] font-normal italic text-[#8057ff]">{copy.accent[locale]}</span>
             </h2>
           </div>
-          <Link href="/services" aria-label={copy.viewAll[locale]} className="group hidden h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#17181d] text-white transition hover:-rotate-6 hover:bg-[#8057ff] sm:flex"><ArrowUpRight className="h-5 w-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" weight="bold" /></Link>
+          <Link href="/harga-website" aria-label={copy.viewAll[locale]} className="group hidden h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#17181d] text-white transition hover:-rotate-6 hover:bg-[#8057ff] sm:flex"><ArrowUpRight className="h-5 w-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" weight="bold" /></Link>
         </MotionReveal>
 
         <div className="mt-8 grid gap-3 lg:grid-cols-12 lg:grid-rows-2">

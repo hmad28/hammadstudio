@@ -15,7 +15,7 @@ import { MotionReveal } from "./motion-reveal";
 
 const navigationLinks = [
   { href: "/", label: "Beranda" },
-  { href: "/services", label: "Layanan" },
+  { href: "/harga-website", label: "Layanan" },
   { href: "/studio", label: "Tentang Kami" },
   { href: "/work", label: "Karya" },
   { href: "/harga-website", label: "Harga" },

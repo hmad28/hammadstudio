@@ -52,7 +52,7 @@ export function SEOServicePage({
       <section className="relative overflow-hidden bg-[#070a12] pb-24 pt-36 text-white sm:pb-32 sm:pt-44">
         <div className="pointer-events-none absolute right-[-10%] top-[-20%] h-[700px] w-[800px] rounded-full bg-[radial-gradient(circle,rgba(128,87,255,.42),rgba(40,100,255,.18)_45%,transparent_72%)] blur-3xl" aria-hidden="true" />
         <div className="site-container relative z-10">
-          <nav aria-label="Breadcrumb" className="label-mono mb-8 text-white/42"><Link href="/">Beranda</Link> <span className="mx-2">/</span> <Link href="/services">Layanan</Link></nav>
+          <nav aria-label="Breadcrumb" className="label-mono mb-8 text-white/42"><Link href="/">Beranda</Link> <span className="mx-2">/</span> <Link href="/harga-website">Layanan</Link></nav>
           <p className="label-mono text-[#d2f34c]">{eyebrow}</p>
           <h1 className="mt-7 max-w-[1100px] text-[clamp(3.4rem,8vw,8rem)] font-[520] leading-[0.86] tracking-[-0.07em]">{title}</h1>
           <div className="mt-10 grid gap-8 border-t border-white/15 pt-7 lg:grid-cols-12">

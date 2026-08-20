@@ -14,6 +14,13 @@ import { LanguageSwitcher } from "./language-switcher";
 import { useLocale } from "./locale-provider";
 import { PricingIcon } from "./pricing-icon";
 
+const desktopGroupLayout: Record<string, string> = {
+  website: "col-span-3",
+  commerce: "col-span-3",
+  "business-apps": "col-span-4",
+  custom: "col-span-2",
+};
+
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -51,24 +58,42 @@ export function Navbar() {
           <Link href="/" aria-current={pathname === "/" ? "page" : undefined} className={`nav-link transition-colors hover:text-white ${pathname === "/" ? "font-semibold text-white" : ""}`}>{locale === "id" ? "Beranda" : "Home"}</Link>
 
           <div className="group/services relative py-5">
-            <Link href="/services" className={`nav-link flex items-center gap-1.5 transition-colors hover:text-white ${pathname.startsWith("/services") || pathname.startsWith("/jasa-") ? "font-semibold text-white" : ""}`}>
+            <button type="button" aria-haspopup="true" className={`nav-link flex items-center gap-1.5 transition-colors hover:text-white ${pathname.startsWith("/services") || pathname.startsWith("/jasa-") || pathname === "/harga-website" ? "font-semibold text-white" : ""}`}>
               {locale === "id" ? "Layanan" : "Services"}<CaretDown className="h-3 w-3 transition-transform duration-200 group-hover/services:rotate-180 group-focus-within/services:rotate-180" weight="bold" />
-            </Link>
-            <div className="invisible absolute left-1/2 top-[58px] w-[1120px] max-w-[calc(100vw-40px)] -translate-x-1/2 translate-y-2 opacity-0 transition duration-200 group-hover/services:visible group-hover/services:translate-y-0 group-hover/services:opacity-100 group-focus-within/services:visible group-focus-within/services:translate-y-0 group-focus-within/services:opacity-100">
-              <div className="grid grid-cols-5 gap-px overflow-hidden rounded-2xl border border-white/12 bg-white/10 p-px shadow-[0_28px_80px_rgba(0,0,0,.6)] backdrop-blur-2xl">
+            </button>
+            <div className="invisible fixed left-1/2 top-[120px] w-[1180px] max-w-[calc(100vw-40px)] -translate-x-1/2 translate-y-3 opacity-0 transition duration-200 group-hover/services:visible group-hover/services:translate-y-0 group-hover/services:opacity-100 group-focus-within/services:visible group-focus-within/services:translate-y-0 group-focus-within/services:opacity-100">
+              <div className="overflow-hidden rounded-[22px] border border-white/12 bg-[#090b13]/95 shadow-[0_32px_90px_rgba(0,0,0,.68)] backdrop-blur-2xl">
+                <div className="flex items-center justify-between border-b border-white/10 px-6 py-4">
+                  <div>
+                    <p className="font-mono text-[.62rem] font-semibold uppercase tracking-[.14em] text-[#d2f34c]">Produk Hammad Studio</p>
+                    <p className="mt-1 text-xs text-white/42">Pilih berdasarkan fitur yang dibutuhkan.</p>
+                  </div>
+                  <Link href="/harga-website" className="group/all flex items-center gap-2 rounded-full border border-white/12 px-4 py-2 text-xs font-semibold text-white/72 transition hover:border-[#d2f34c]/45 hover:bg-[#d2f34c] hover:text-[#090b13]">
+                    {locale === "id" ? "Lihat semua harga" : "View all pricing"}
+                    <ArrowUpRight className="h-3.5 w-3.5 transition group-hover/all:-translate-y-0.5 group-hover/all:translate-x-0.5" weight="bold" />
+                  </Link>
+                </div>
+
+                <div className="grid grid-cols-12 divide-x divide-white/10">
                 {pricingGroups.map((group) => (
-                  <div key={group.id} className={`bg-[#0b0d16]/97 p-4 ${group.id === "website" ? "col-span-2" : ""}`}>
-                    <p className="px-2 pb-3 pt-1 font-mono text-[.75rem] font-semibold tracking-[.09em] text-[#d2f34c]">{group.number} · {group.title}</p>
-                    <div className={group.id === "website" ? "grid grid-cols-2 gap-1" : "grid gap-1"}>
+                  <section key={group.id} className={`${desktopGroupLayout[group.id]} min-w-0 p-5 ${group.id === "custom" ? "bg-[#8057ff]/[.06]" : ""}`}>
+                    <div className="mb-3 flex items-center justify-between px-2">
+                      <p className="font-mono text-[.68rem] font-semibold tracking-[.09em] text-[#d2f34c]">{group.number} · {group.title}</p>
+                      <span className="font-mono text-[.58rem] text-white/25">{String(group.plans.length).padStart(2, "0")}</span>
+                    </div>
+                    <div className={group.id === "business-apps" ? "grid grid-cols-2 gap-1" : "grid gap-1"}>
                       {group.plans.map((plan) => (
-                        <Link key={plan.name} href={`/harga-website#${getPricingPlanId(plan.name)}`} className="group/item flex min-h-12 items-center gap-3 rounded-lg px-2.5 py-2.5 text-white/68 transition hover:bg-white/[.07] hover:text-white">
-                          <PricingIcon name={plan.icon} className="h-[18px] w-[18px] shrink-0 text-[#8d72ef] transition group-hover/item:text-[#d2f34c]" />
-                          <span className="min-w-0 flex-1"><span className="block text-[.88rem] font-medium leading-[1.15rem]">{plan.name}</span><span className="mt-1 block font-mono text-[.68rem] text-white/38">{plan.price}</span></span>
+                        <Link key={plan.name} href={`/harga-website#${getPricingPlanId(plan.name)}`} className="group/item flex min-h-[54px] items-center gap-3 rounded-xl px-2.5 py-2 text-white/68 transition hover:bg-white/[.075] hover:text-white">
+                          <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg border border-white/[.08] bg-white/[.035] transition group-hover/item:border-[#d2f34c]/25 group-hover/item:bg-[#d2f34c]/10">
+                            <PricingIcon name={plan.icon} className="h-4 w-4 text-[#9b83f2] transition group-hover/item:text-[#d2f34c]" />
+                          </span>
+                          <span className="min-w-0 flex-1"><span className="block text-[.82rem] font-medium leading-[1.05rem]">{plan.name}</span><span className="mt-1 block font-mono text-[.62rem] text-white/34">{plan.price}</span></span>
                         </Link>
                       ))}
                     </div>
-                  </div>
+                  </section>
                 ))}
+                </div>
               </div>
             </div>
           </div>

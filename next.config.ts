@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
     return [
       { source: "/pricing", destination: "/harga-website", permanent: true },
       { source: "/harga", destination: "/harga-website", permanent: true },
+      { source: "/services", destination: "/harga-website", permanent: true },
       { source: "/blog", destination: "/insight", permanent: true },
       { source: "/tentang-kami", destination: "/studio", permanent: true },
       { source: "/tentang", destination: "/studio", permanent: true },
@@ -31,7 +32,7 @@ const nextConfig: NextConfig = {
       { source: "/about", destination: "/studio", permanent: true },
       { source: "/portofolio", destination: "/work", permanent: true },
       { source: "/security", destination: "/studio#security", permanent: true },
-      { source: "/product", destination: "/services", permanent: true },
+      { source: "/product", destination: "/harga-website", permanent: true },
       { source: "/services/custom-development", destination: "/website-custom", permanent: true },
     ];
   },
