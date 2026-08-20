@@ -40,22 +40,22 @@ const levels = [
   {
     level: "Level 1",
     title: "Partner",
-    rate: "15%",
-    bonus: "20% untuk project ≥ Rp2 juta",
+    rate: "20%",
+    bonus: "25% untuk project ≥ Rp2 juta",
     note: "Mulai dari closing pertama",
   },
   {
     level: "Level 2",
     title: "Growth Partner",
-    rate: "20%",
-    bonus: "25% untuk project ≥ Rp2 juta",
+    rate: "25%",
+    bonus: "30% untuk project ≥ Rp2 juta",
     note: "Setelah 5 successful closing",
   },
   {
     level: "Level 3",
     title: "Pro Partner",
-    rate: "25%",
-    bonus: "30% untuk project ≥ Rp2 juta",
+    rate: "30%",
+    bonus: "35% untuk project ≥ Rp2 juta",
     note: "Setelah 10 successful closing",
   },
 ] as const;
@@ -72,7 +72,7 @@ const faqs = [
   ["Harus closing sendiri?", "Tidak. Tim Hammad Studio yang menangani konsultasi sampai closing."],
   ["Kapan komisi dibayar?", "Setelah project resmi deal dan pembayaran yang memenuhi syarat diterima."],
   ["Ada target bulanan?", "Tidak ada. Kamu bebas membawa referral sesuai peluang yang dimiliki."],
-  ["Bisa bawa project bersama tim?", "Bisa melalui Konsorsium Partner dengan skema yang dibahas bersama."],
+  ["Bisa bawa project bersama tim?", "Bisa. Konsorsium Partner mendapat komisi 35%, atau 40% untuk project mulai Rp2 juta."],
 ] as const;
 
 const faqJsonLd = {
@@ -128,7 +128,7 @@ export function PartnerPageContent() {
             <div className="relative mx-auto max-w-[430px] overflow-hidden rounded-[32px] border border-white/14 bg-white/[.07] p-7 shadow-[0_32px_100px_rgba(0,0,0,.4)] backdrop-blur-xl sm:p-9">
               <div className="absolute -right-14 -top-14 h-44 w-44 rounded-full bg-[#d2f34c]/20 blur-3xl" aria-hidden="true" />
               <p className="font-mono text-xs font-semibold uppercase tracking-[.12em] text-white/45">Komisi partner</p>
-              <p className="mt-4 text-5xl font-[600] tracking-[-.07em] text-[#d2f34c] sm:text-7xl">hingga 30%</p>
+              <p className="mt-4 text-5xl font-[600] tracking-[-.07em] text-[#d2f34c] sm:text-7xl">hingga 40%</p>
               <div className="mt-8 grid gap-3 border-t border-white/12 pt-6 text-sm text-white/68">
                 {["Gratis bergabung", "Tanpa target bulanan", "Tidak wajib punya followers"].map((item) => (
                   <p key={item} className="flex items-center gap-3">
@@ -190,6 +190,17 @@ export function PartnerPageContent() {
                 <p className={`mt-2 text-sm ${index === 2 ? "text-white/45" : "text-black/42"}`}>{item.note}</p>
               </article>
             ))}
+          </div>
+
+          <div className="mt-4 flex flex-col gap-4 border border-[#8057ff]/25 bg-[#8057ff]/[.07] p-6 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+            <div>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[.1em] text-[#6345cc]">Konsorsium Partner</p>
+              <p className="mt-2 text-sm text-black/52">Untuk project yang dibawa bersama tim atau beberapa partner.</p>
+            </div>
+            <div className="flex items-baseline gap-3 sm:text-right">
+              <strong className="text-3xl font-[600] tracking-[-.05em]">35%</strong>
+              <span className="text-sm font-semibold text-[#6345cc]">40% untuk project ≥ Rp2 juta</span>
+            </div>
           </div>
         </div>
       </section>
