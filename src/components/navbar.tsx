@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { ArrowUpRight } from "@phosphor-icons/react/ArrowUpRight";
 import { CaretDown } from "@phosphor-icons/react/CaretDown";
 import { List } from "@phosphor-icons/react/List";
 import { X } from "@phosphor-icons/react/X";
@@ -76,6 +77,7 @@ export function Navbar() {
             const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
             return <Link key={item.href} href={item.href} aria-current={active ? "page" : undefined} className={`nav-link transition-colors hover:text-white ${active ? "font-semibold text-white" : ""}`}>{item.label}</Link>;
           })}
+          <Link href="/partner" aria-current={pathname === "/partner" ? "page" : undefined} className={`rounded-full border px-4 py-2 text-xs font-semibold transition ${pathname === "/partner" ? "border-[#d2f34c] bg-[#d2f34c] text-[#090a12]" : "border-[#d2f34c]/35 bg-[#d2f34c]/10 text-[#d2f34c] hover:bg-[#d2f34c] hover:text-[#090a12]"}`}>Partner</Link>
         </nav>
 
         <div className="flex items-center gap-2">
@@ -105,6 +107,7 @@ export function Navbar() {
                 </div>
               </details>
               {navItems.slice(1).map((item) => <Link key={item.href} href={item.href} onClick={() => setOpen(false)} className="border-b border-white/10 py-4 text-lg text-white/82 last:border-b-0">{item.label}</Link>)}
+              <Link href="/partner" onClick={() => setOpen(false)} className="mt-4 flex items-center justify-between rounded-xl bg-[#d2f34c] px-4 py-4 text-lg font-semibold text-[#090a12]">Partner <ArrowUpRight className="h-5 w-5" weight="bold" /></Link>
             </nav>
           </motion.div>
         )}
