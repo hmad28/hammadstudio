@@ -4,7 +4,7 @@ import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
   title: "Merdeka Digital Sale 2026 — Website Mulai Rp499 Ribu",
-  description: "Promo Merdeka Hammad Studio hingga 31 Agustus 2026. Landing page mulai Rp499 ribu, company profile Rp1,099 juta, e-commerce, dan sistem bisnis.",
+  description: "Pricing Hammad Studio 2026 berbasis produk: Website Starter Rp499 ribu, Website + CMS Rp899 ribu, e-commerce, business apps, dan custom software.",
   path: "/harga-website",
 });
 

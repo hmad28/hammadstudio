@@ -8,7 +8,7 @@ export type FAQItem = {
 export const faqItems: readonly FAQItem[] = [
   {
     question: { id: "Berapa harga pembuatan website?", en: "How much does a website cost?" },
-    answer: { id: "Website landing page mulai dari Rp499.000. Harga akhir menyesuaikan jumlah halaman, fitur, dan kebutuhan project.", en: "Landing page websites start from Rp499,000. The final price depends on the number of pages, features, and project requirements." },
+    answer: { id: "Website Starter mulai dari Rp499.000. Harga akhir menyesuaikan jumlah halaman, fitur, dan kebutuhan project.", en: "Website Starter begins at Rp499,000. The final price depends on the number of pages, features, and project requirements." },
   },
   {
     question: { id: "Kenapa harga website Hammad Studio bisa lebih terjangkau?", en: "Why can Hammad Studio offer more accessible pricing?" },
@@ -16,11 +16,11 @@ export const faqItems: readonly FAQItem[] = [
   },
   {
     question: { id: "Paket Rp499.000 sudah termasuk apa?", en: "What is included in the Rp499,000 package?" },
-    answer: { id: "Sudah termasuk landing page, domain .com 1 tahun, hosting, SSL, responsive mobile, basic SEO, dan setup sampai online.", en: "It includes a landing page, one year of a .com domain, hosting, SSL, mobile responsiveness, basic SEO, and setup until the website is live." },
+    answer: { id: "Sudah termasuk maksimal 5 halaman utama, domain .com 1 tahun, hosting, SSL, responsive mobile, basic SEO, dan setup sampai online.", en: "It includes up to five main pages, one year of a .com domain, hosting, SSL, mobile responsiveness, basic SEO, and setup until the website is live." },
   },
   {
     question: { id: "Apakah tersedia website dengan dashboard?", en: "Are websites with dashboards available?" },
-    answer: { id: "Bisa. Website dengan CMS/dashboard mulai Rp1.099.000, sehingga konten seperti produk, paket, artikel, galeri, atau testimoni dapat dikelola sendiri.", en: "Yes. Websites with a CMS or dashboard start from Rp1,099,000, allowing you to manage products, packages, articles, galleries, testimonials, and other content." },
+    answer: { id: "Bisa. Website + CMS mulai Rp899.000, sehingga konten seperti produk, paket, artikel, galeri, atau testimoni dapat dikelola sendiri.", en: "Yes. Website + CMS begins at Rp899,000, allowing you to manage products, packages, articles, galleries, testimonials, and other content." },
   },
   {
     question: { id: "Apakah website bisa dikembangkan lagi nantinya?", en: "Can the website be expanded later?" },

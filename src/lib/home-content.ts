@@ -303,29 +303,29 @@ export const homeContent = {
     },
     items: [
       {
-        title: { id: "Personal & Non-Profit", en: "Personal & Non-Profit" },
-        price: "Rp 199 ribu",
-        desc: "Personal website, portfolio, undangan, institusi.",
-      },
-      {
-        title: { id: "Website UMKM", en: "Small Business Website" },
+        title: { id: "Website Starter", en: "Website Starter" },
         price: "Rp 499 ribu",
-        desc: "Landing page bisnis, WhatsApp, Maps, basic SEO.",
+        desc: "Website profesional siap online, domain, hosting, dan SSL.",
       },
       {
-        title: { id: "E-Commerce", en: "E-Commerce" },
-        price: "Rp 1,099 juta+",
-        desc: "Storefront, katalog, cart, checkout, dashboard.",
+        title: { id: "Website + CMS", en: "Website + CMS" },
+        price: "Rp 899 ribu",
+        desc: "Website dengan dashboard dan pengelolaan konten.",
       },
       {
-        title: { id: "Event", en: "Event" },
-        price: "Rp 749 ribu+",
-        desc: "Event website, registration, ticketing.",
+        title: { id: "E-Commerce QRIS", en: "E-Commerce QRIS" },
+        price: "Rp 2,299 juta",
+        desc: "Toko online dengan pembayaran QRIS otomatis.",
       },
       {
-        title: { id: "Business System", en: "Business System" },
-        price: "Rp 2,5 juta+",
-        desc: "CRM, booking, POS, operational tools.",
+        title: { id: "Booking System", en: "Booking System" },
+        price: "Rp 2,499 juta",
+        desc: "Booking, reservasi, jadwal, dan dashboard.",
+      },
+      {
+        title: { id: "Operational System", en: "Operational System" },
+        price: "Rp 5,999 juta+",
+        desc: "Sistem operasional bisnis multi-module.",
       },
       {
         title: { id: "Custom Software", en: "Custom Software" },

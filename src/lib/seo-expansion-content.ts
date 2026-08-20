@@ -31,7 +31,7 @@ export const solutionLandings = {
     deliverables: ["Struktur kategori dan katalog produk", "Halaman produk responsif", "Cart atau order via WhatsApp", "Promo dan featured products", "CMS pengelolaan produk", "Analytics dan event order", "SEO foundation untuk kategori utama", "Deployment dan handover"],
     proofs: [{ name: "Shofi Frozen", detail: "Katalog frozen food dengan pencarian, wishlist, promo, cart, dan checkout WhatsApp.", href: "/work/shofi-frozen" }, { name: "CPX Jersey", detail: "Commerce sportswear dengan katalog, cart, custom order, dan integrasi marketplace.", href: "/work/cpx-jersey" }, { name: "Website UMKM", detail: "Lihat fondasi website untuk bisnis kecil dan brand berkembang.", href: "/jasa-website-umkm" }],
     faqs: umkmFaqs,
-    startingPrice: "E-Commerce Starter mulai Rp 1,099 juta+ untuk pembayaran manual. Payment gateway dan pelacakan otomatis tersedia mulai E-Commerce Business Rp 2,499 juta+.",
+    startingPrice: "E-Commerce QRIS mulai Rp 2,299 juta. Full payment gateway tersedia melalui E-Commerce Full Payment mulai Rp 3,799 juta.",
   },
   "umkm/landing-page-produk": {
     slug: "umkm/landing-page-produk",
@@ -45,7 +45,7 @@ export const solutionLandings = {
     deliverables: ["Campaign discovery", "Copy hierarchy dan objection handling", "Responsive landing page", "WhatsApp atau lead form", "Analytics dan conversion event", "Performance optimization", "Metadata dan indexability sesuai campaign", "Deployment"],
     proofs: [{ name: "NaikLevel AI", detail: "Landing dan commerce flow untuk produk edukasi AI dengan pembayaran serta konfirmasi.", href: "/work/naiklevel-ai" }, { name: "Shofi Frozen", detail: "Product discovery dan order flow untuk bisnis frozen food.", href: "/work/shofi-frozen" }, { name: "Harga Website", detail: "Bandingkan titik awal paket yang tersedia.", href: "/harga-website" }],
     faqs: umkmFaqs,
-    startingPrice: "Landing page UMKM mulai Rp 499 ribu. Copywriting, foto produk, dan kebutuhan campaign dihitung berdasarkan kesiapan materi.",
+    startingPrice: "Website Starter mulai Rp 499 ribu untuk maksimal 5 halaman utama. Copywriting, foto produk, dan kebutuhan campaign mengikuti scope.",
   },
   "perusahaan/sistem-custom-dashboard": {
     slug: "perusahaan/sistem-custom-dashboard",
@@ -59,7 +59,7 @@ export const solutionLandings = {
     deliverables: ["Discovery dan workflow mapping", "Requirement serta acceptance criteria", "Architecture dan data model", "Authentication, role, dan permission", "Dashboard serta operational flow", "API dan integrasi", "Security review dan QA", "Deployment, dokumentasi, dan handover"],
     proofs: [{ name: "StudyShare", detail: "Platform dengan akun, kontribusi materi, kategori, dan discovery content.", href: "/work/studyshare" }, { name: "Masjid Raya Puri Telukjambe", detail: "Platform layanan, jadwal, donasi, livestream, dan booking fasilitas.", href: "/work/masjid-raya-puri-telukjambe" }, { name: "Web Application", detail: "Lihat cakupan umum aplikasi web Hammad Studio.", href: "/services/web-application" }],
     faqs: companyFaqs,
-    startingPrice: "Business System mulai Rp 2,5 juta+; Operational System mulai Rp 5 juta+. Estimasi mengikuti role, data, workflow, dan integrasi.",
+    startingPrice: "Business Apps dimulai dari Booking System Rp 2,499 juta. Operational System mulai Rp 5,999 juta+. Estimasi mengikuti modul dan integrasi.",
   },
   "perusahaan/maintenance-support": {
     slug: "perusahaan/maintenance-support",
@@ -104,7 +104,7 @@ export const industryLandings = {
     deliverables: ["Katalog menu atau produk", "Kategori dan pencarian", "Promo dan featured items", "WhatsApp order flow", "Maps dan informasi outlet", "CMS sederhana", "SEO foundation", "Analytics dan tracking order"],
     proofs: [{ name: "Shofi Frozen", detail: "Storefront frozen food dengan katalog, pencarian, wishlist, promo, cart, dan checkout WhatsApp.", href: "/work/shofi-frozen" }, { name: "Toko Online UMKM", detail: "Lihat cakupan storefront milik brand.", href: "/solusi/umkm/toko-online" }, { name: "Website UMKM", detail: "Fondasi website untuk bisnis lokal dan brand berkembang.", href: "/jasa-website-umkm" }],
     faqs: umkmFaqs,
-    startingPrice: "Website UMKM kuliner mulai Rp 499 ribu; E-Commerce Starter mulai Rp 1,099 juta+ sesuai jumlah produk dan kebutuhan pengelolaan.",
+    startingPrice: "Website Starter mulai Rp 499 ribu; Website + CMS Rp 899 ribu; E-Commerce QRIS mulai Rp 2,299 juta.",
   },
   pendidikan: {
     slug: "pendidikan",
@@ -118,7 +118,7 @@ export const industryLandings = {
     deliverables: ["Profil institusi dan program", "CMS berita atau materi", "Registrasi dan form", "Akun serta role bila diperlukan", "Search dan content discovery", "Pembayaran untuk produk edukasi", "Analytics dan SEO foundation", "Security review dan handover"],
     proofs: [{ name: "StudyShare", detail: "Platform kolaboratif dengan akun, catatan, kategori mata pelajaran, dan discovery.", href: "/work/studyshare" }, { name: "NaikLevel AI", detail: "Website produk edukasi AI dengan commerce dan pembayaran manual.", href: "/work/naiklevel-ai" }, { name: "Web Application", detail: "Cakupan aplikasi web untuk role, data, dan workflow.", href: "/services/web-application" }],
     faqs: companyFaqs,
-    startingPrice: "Institution Profile mulai Rp 499 ribu+ dan Institution Pro dengan CMS mulai Rp 799 ribu+. Sistem dengan akun, data, dan workflow mengikuti paket Business System.",
+    startingPrice: "Website Starter mulai Rp 499 ribu dan Website + CMS mulai Rp 899 ribu. Sistem dengan akun serta workflow mengikuti produk Business Apps.",
   },
   fashion: {
     slug: "fashion",
@@ -194,7 +194,7 @@ export const industryLandings = {
     deliverables: ["Company dan capability profile", "Product atau brand catalog", "Coverage dan distribution network", "Document center sesuai kebutuhan", "RFQ atau inquiry routing", "CMS katalog", "Analytics dan conversion tracking", "SEO-ready foundation"],
     proofs: [{ name: "ADD Logistik", detail: "Website B2B yang menyusun layanan, coverage, kapabilitas, dan jalur inquiry.", href: "/work/add-logistik" }, { name: "Buraq Logistik", detail: "Presentasi trucking, distribusi regional, cakupan, dan kemampuan operasional.", href: "/work/buraq-logistik" }, { name: "Website Company Profile", detail: "Fondasi trust, layanan, project, dokumen, dan inquiry untuk perusahaan.", href: "/jasa-website-company-profile" }],
     faqs: companyFaqs,
-    startingPrice: "Website distributor dimulai dari Corporate Website Rp 2,5 juta+. Katalog, multilingual, RFQ, dokumen, dan integrasi dihitung sesuai scope.",
+    startingPrice: "Website distributor dimulai dari Website Starter Rp 499 ribu atau Website + CMS Rp 899 ribu. Katalog dan integrasi dihitung sesuai scope.",
   },
   event: {
     slug: "event",
@@ -206,8 +206,8 @@ export const industryLandings = {
     audience: "Untuk seminar, workshop, kajian, conference, expo, festival, campaign, dan acara komunitas yang membutuhkan informasi serta pengelolaan peserta lebih rapi.",
     outcomes: ["Informasi acara dan CTA registrasi berada dalam satu journey.", "Data peserta tersimpan dan dapat dikelola sesuai scope.", "Ticketing serta check-in dapat ditambahkan ketika benar-benar dibutuhkan.", "Tim memiliki data registrasi, kehadiran, dan penjualan yang lebih terstruktur."],
     deliverables: ["Event information dan agenda", "Speaker, venue, sponsor, dan FAQ", "Registration form dan database peserta", "Admin dashboard dan export", "Payment serta ticket type sesuai paket", "Digital ticket dan QR check-in opsional", "Analytics dan social sharing", "SEO-ready foundation"],
-    proofs: [{ name: "Masjid Raya Puri Telukjambe", detail: "Platform komunitas dengan informasi kegiatan, jadwal, livestream, donasi, dan pengelolaan fasilitas.", href: "/work/masjid-raya-puri-telukjambe" }, { name: "NaikLevel AI", detail: "Produk edukasi digital dengan landing, pembelian, pembayaran, dan konfirmasi.", href: "/work/naiklevel-ai" }, { name: "Harga Website", detail: "Event Website mulai Rp 749 ribu+, registrasi mulai Rp 1,499 juta+, dan ticketing mulai Rp 3,499 juta+.", href: "/harga-website" }],
+    proofs: [{ name: "Masjid Raya Puri Telukjambe", detail: "Platform komunitas dengan informasi kegiatan, jadwal, livestream, donasi, dan pengelolaan fasilitas.", href: "/work/masjid-raya-puri-telukjambe" }, { name: "NaikLevel AI", detail: "Produk edukasi digital dengan landing, pembelian, pembayaran, dan konfirmasi.", href: "/work/naiklevel-ai" }, { name: "Harga Website", detail: "Ticketing System mulai Rp 3,499 juta dengan payment, tiket digital, QR, scanner, dan attendance.", href: "/harga-website" }],
     faqs: companyFaqs,
-    startingPrice: "Event Website mulai Rp 749 ribu+. Event Registration mulai Rp 1,499 juta+ dan Event Ticketing mulai Rp 3,499 juta+ sesuai skala serta workflow.",
+    startingPrice: "Website Starter mulai Rp 499 ribu untuk informasi event. Ticketing System mulai Rp 3,499 juta untuk payment, QR, scanner, dan attendance.",
   },
 } as const satisfies Record<string, ExpansionLanding>;

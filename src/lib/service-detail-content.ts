@@ -90,10 +90,9 @@ export const serviceDetails: Record<ServiceDetailSlug, ServiceDetail> = {
       },
     ],
     packages: [
-      { name: "Personal Starter", price: "Rp 299 ribu" },
-      { name: "UMKM Starter", price: "Rp 499 ribu" },
-      { name: "UMKM Professional", price: "Rp 1,099 juta+" },
-      { name: "Corporate Website", price: "Rp 2,5 juta+" },
+      { name: "Wedding Invitation", price: "Rp 199 ribu+" },
+      { name: "Website Starter", price: "Rp 499 ribu" },
+      { name: "Website + CMS", price: "Rp 899 ribu" },
     ],
     pricing: {
       id: "Pilih titik awal yang paling mendekati kebutuhan. Scope final disepakati bersama secara transparan.",
@@ -134,9 +133,8 @@ export const serviceDetails: Record<ServiceDetailSlug, ServiceDetail> = {
     ],
     flow: ["Discover", "Product", "Cart", "Checkout", "Payment", "Order", "Fulfillment"],
     packages: [
-      { name: "E-Commerce Starter", price: "Rp 1,099 juta+" },
-      { name: "E-Commerce Business", price: "Rp 2,499 juta+" },
-      { name: "E-Commerce Pro", price: "Rp 5,499 juta+" },
+      { name: "E-Commerce QRIS", price: "Rp 2,299 juta" },
+      { name: "E-Commerce Full Payment", price: "Rp 3,799 juta" },
     ],
     pricing: {
       id: "Marketplace membantu discovery. Website e-commerce memberi Anda kendali penuh atas data dan pengalaman pembeli.",
@@ -182,8 +180,8 @@ export const serviceDetails: Record<ServiceDetailSlug, ServiceDetail> = {
       en: "Web application complexity is shaped by user roles, data architecture, workflows, integrations, and business logic.",
     },
     pricing: {
-      id: "Web application terfokus dapat dimulai dari Business System Rp 2,5 juta+. Scope final mengikuti role, workflow, data, dan integrasi.",
-      en: "Focused web applications can start from the Rp 2.5 million+ Business System package. Final scope follows roles, workflows, data, and integrations.",
+      id: "Web application terfokus dimulai dari Booking System Rp 2,499 juta, POS Rp 2,999 juta, atau produk business apps lain sesuai workflow.",
+      en: "Focused web applications begin with products such as Booking System at Rp2.499 million or POS at Rp2.999 million, depending on the workflow.",
     },
   },
   "business-system": {
@@ -222,8 +220,8 @@ export const serviceDetails: Record<ServiceDetailSlug, ServiceDetail> = {
       en: "Enterprise ERP replacements or legacy integrations are evaluated thoroughly prior to project commitment.",
     },
     pricing: {
-      id: "Business System mulai Rp 2,5 juta+ dan Operational System mulai Rp 5 juta+. Kebutuhan enterprise menggunakan custom quotation.",
-      en: "Business Systems start at Rp 2.5 million+, while Operational Systems start at Rp 5 million+. Enterprise requirements use a custom quotation.",
+      id: "Business Apps dimulai dari Booking System Rp 2,499 juta. Operational System mulai Rp 5,999 juta+ dan kebutuhan kompleks menggunakan custom quotation.",
+      en: "Business Apps begin with Booking System at Rp2.499 million. Operational Systems start at Rp5.999 million+, while complex requirements use a custom quotation.",
     },
   },
   "automation-ai": {

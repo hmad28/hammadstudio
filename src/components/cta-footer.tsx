@@ -25,14 +25,14 @@ const navigationLinks = [
 ] as const;
 
 const serviceLinks = [
-  { href: "/harga-website#landing-page", label: "Landing Page" },
-  { href: "/jasa-website-company-profile", label: "Company Profile" },
-  { href: "/jasa-website-umkm", label: "Website UMKM" },
-  { href: "/industri/travel", label: "Tour & Travel" },
-  { href: "/solusi/umkm/toko-online", label: "Product Catalog" },
-  { href: "/services/e-commerce", label: "E-Commerce" },
-  { href: "/website-custom", label: "Business System" },
-  { href: "/website-custom", label: "Custom Software" },
+  { href: "/harga-website#plan-website-starter", label: "Website Starter" },
+  { href: "/harga-website#plan-website-cms", label: "Website + CMS" },
+  { href: "/harga-website#plan-e-commerce-qris", label: "E-Commerce QRIS" },
+  { href: "/harga-website#plan-booking-system", label: "Booking System" },
+  { href: "/harga-website#plan-pos-system", label: "POS System" },
+  { href: "/harga-website#plan-ticketing-system", label: "Ticketing System" },
+  { href: "/harga-website#plan-operational-system", label: "Operational System" },
+  { href: "/harga-website#plan-custom-software", label: "Custom Software" },
 ] as const;
 
 const industryLinks = [
@@ -197,7 +197,7 @@ export function CTAFooter() {
 
             <div className="relative border-b border-white/10 py-10 sm:pl-7 lg:col-span-3 lg:border-b-0 lg:border-r lg:px-7 lg:py-12">
               <span className="absolute right-4 top-4 font-mono text-[0.62rem] text-white/18">02</span>
-              <p className="label-mono !text-[.8rem] text-[#9b7dff]">LAYANAN POPULER</p>
+              <p className="label-mono !text-[.8rem] text-[#9b7dff]">PRODUK POPULER</p>
               <nav className="mt-5 grid gap-2" aria-label="Layanan populer">
                 {serviceLinks.map((link) => (
                   <FooterLink key={`${link.href}-${link.label}`} href={link.href}>{link.label}</FooterLink>

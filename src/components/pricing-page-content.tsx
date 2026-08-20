@@ -36,10 +36,10 @@ const includedBenefits = [
 ] as const;
 
 const outcomes = [
-  ["01", "Company Profile", "meningkatkan trust", "company"],
-  ["02", "Landing Page", "menghasilkan leads", "landing"],
-  ["03", "E-Commerce", "menerima transaksi", "commerce"],
-  ["04", "Business System", "menjalankan operasional", "business"],
+  ["01", "Website", "membangun presence", "landing"],
+  ["02", "Commerce", "menerima transaksi", "commerce"],
+  ["03", "Business Apps", "merapikan workflow", "business"],
+  ["04", "Custom Software", "menjawab kebutuhan unik", "custom"],
 ] as const;
 
 const proof = [
@@ -67,9 +67,7 @@ function PlanCard({ plan }: { plan: MerdekaPlan }) {
           {plan.badge ? <span className="max-w-[112px] text-right font-mono text-[.57rem] font-bold leading-4 tracking-[.08em] text-[#b2131c]">{plan.badge}</span> : null}
         </div>
         <div className="relative mt-8">
-          <p className="text-[.66rem] font-semibold uppercase tracking-[.12em] text-black/45">Regular value</p>
-          <p className="mt-1 text-sm font-medium text-black/38 line-through decoration-[#c91620]/65">{plan.regularValue}</p>
-          <p className="mt-3 text-[.66rem] font-bold uppercase tracking-[.12em] text-[#b2131c]">Merdeka price</p>
+          <p className="text-[.66rem] font-bold uppercase tracking-[.12em] text-[#b2131c]">Harga mulai</p>
           <p className="mt-1 whitespace-nowrap text-[clamp(1.85rem,3vw,2.45rem)] font-[720] leading-none tracking-[-.065em] text-[#9f111a]">{plan.price}</p>
         </div>
       </div>
@@ -226,7 +224,7 @@ export function PricingPageContent() {
 
       <section className="bg-[#f7f4ed] py-14">
         <div className="site-container grid gap-8 text-xs leading-5 text-black/45 md:grid-cols-2">
-          <p><strong className="text-black/65">Tentang harga.</strong> Angka coret ditampilkan sebagai regular value selama campaign. Harga Merdeka berlaku hingga 31 Agustus 2026 untuk scope standar dan dapat berubah mengikuti kebutuhan project.</p>
+          <p><strong className="text-black/65">Tentang harga.</strong> Harga yang ditampilkan merupakan harga mulai untuk scope standar. Harga final menyesuaikan fitur, halaman atau modul, integrasi, timeline, dan kebutuhan project.</p>
           <p><strong className="text-black/65">Domain dan layanan pihak ketiga.</strong> Domain umum dapat termasuk pada paket tertentu sesuai promo dan ketersediaan. Domain premium, integrasi, serta layanan pihak ketiga dapat dikenakan biaya tambahan.</p>
         </div>
       </section>

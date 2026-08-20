@@ -1,11 +1,24 @@
-export type PricingIcon = "landing" | "company" | "sales" | "travel" | "education" | "organization" | "religious" | "culinary" | "property" | "hotel" | "media" | "healthcare" | "catalog" | "commerce" | "event" | "registration" | "ticketing" | "booking" | "business" | "operations" | "government" | "custom";
+export type PricingIcon =
+  | "landing"
+  | "company"
+  | "education"
+  | "sales"
+  | "travel"
+  | "catalog"
+  | "commerce"
+  | "ticketing"
+  | "booking"
+  | "business"
+  | "registration"
+  | "operations"
+  | "custom";
 
 export type PricingPlan = {
   name: string;
   price: string;
+  numericPrice?: number;
   summary: string;
   icon: PricingIcon;
-  audience?: string[];
   includes: string[];
   addons?: string;
   note?: string;
@@ -26,54 +39,88 @@ export const pricingGroups: PricingGroup[] = [
     id: "website",
     number: "01",
     title: "Website",
-    description: "Masuk berdasarkan jenis bisnis dan tujuan utama website.",
+    description: "Website siap online, dengan atau tanpa dashboard pengelolaan.",
     plans: [
-      { name: "Landing Page", price: "Rp499K", icon: "landing", summary: "Untuk ads, campaign, promo, launching, dan jasa.", audience: ["Ads", "Campaign", "Promo produk", "Launching", "Jasa"], includes: ["1 page", "5–8 section", "CTA WhatsApp", "Form", "Responsive", "Basic SEO", "Hosting + SSL"], addons: "Analytics, custom animation, CMS, dan lead management.", featured: true },
-      { name: "Company Profile", price: "Rp1,099JT", icon: "company", summary: "Kehadiran bisnis yang kredibel untuk UMKM, CV, dan PT.", audience: ["UMKM", "CV", "PT", "Agency", "Kontraktor", "Professional service"], includes: ["Home", "About", "Services", "Portfolio", "Testimonial", "Contact", "SEO foundation", "Analytics", "Domain + hosting sesuai paket"], note: "Corporate-level mulai Rp2.500.000+.", featured: true },
-      { name: "Sales / Marketing", price: "Rp799K", icon: "sales", summary: "Alur campaign yang mengarahkan traffic menjadi lead.", audience: ["Property sales", "Dealer", "Internet provider", "Agency", "Financial consultant", "Sales team"], includes: ["Landing pages", "Lead forms", "Tracking", "Analytics", "Campaign pages", "CTA WhatsApp"], addons: "CRM integration dan lead management sesuai kebutuhan.", featured: true },
-      { name: "Tour & Travel", price: "Rp499K", icon: "travel", summary: "Paket, jadwal, konsultasi, dan operasional travel.", audience: ["Travel Umrah", "Tour operator", "Wisata halal"], includes: ["Landing page", "Profil travel", "Paket", "Fasilitas", "Testimonial", "Gallery", "WhatsApp"], addons: "Professional Rp1,099JT+ dengan multipage, jadwal, CMS, blog, dan SEO. Travel System Rp2,5JT+.", featured: true },
-      { name: "Organization / Institution", price: "Rp499K", icon: "organization", summary: "Profil, program, aktivitas, dan informasi lembaga.", audience: ["Yayasan", "Komunitas", "NGO", "Organisasi", "Lembaga sosial"], includes: ["Profil", "Struktur", "Program", "Aktivitas", "Berita", "Galeri", "Contact"], addons: "Versi dengan CMS mulai Rp799K+." },
-      { name: "Masjid / Pesantren", price: "Rp499K", icon: "religious", summary: "Informasi jamaah, program, kajian, dan donasi.", audience: ["Masjid", "Musholla", "Pesantren", "Panti asuhan", "Yayasan Islam"], includes: ["Profil", "Jadwal kajian", "Ustadz", "Program", "Artikel", "Gallery", "Donasi", "Rekening", "Contact"], addons: "CMS mulai Rp799K+. Sistem donasi, program, atau member mulai Rp2,5JT+." },
-      { name: "Education", price: "Rp799K", icon: "education", summary: "Website sekolah, pesantren, kursus, dan lembaga pendidikan.", audience: ["Sekolah", "Pesantren", "Kursus", "Bimbel"], includes: ["Profil", "Program", "Guru / staff", "Berita", "Gallery", "Agenda", "Contact"], addons: "School System mulai Rp2,5JT+ untuk siswa, staff, absensi, pembayaran, dokumen, dan dashboard." },
-      { name: "Restaurant / Culinary", price: "Rp499K", icon: "culinary", summary: "Menu, promo, lokasi, reservasi, dan pemesanan.", audience: ["Cafe", "Restaurant", "Bakery", "Catering", "Food brand"], includes: ["Profile", "Menu", "Gallery", "Promo", "Maps", "Reservation / WhatsApp"], addons: "Online Ordering Rp1,099JT+. Full Ordering System Rp2,499JT+." },
-      { name: "Property", price: "Rp1,099JT", icon: "property", summary: "Listing properti dengan detail, lokasi, dan CTA agent.", audience: ["Developer", "Property agent", "Kost", "Apartment", "Real estate"], includes: ["Listing", "Search / filter", "Detail", "Gallery", "Location", "CTA agent", "CMS"], addons: "Dashboard agent, booking, dan CRM mulai Rp2,5JT+." },
-      { name: "Hotel / Villa", price: "Rp1,099JT", icon: "hotel", summary: "Profil penginapan, kamar, fasilitas, dan jalur booking.", audience: ["Hotel", "Villa", "Guest house", "Penginapan"], includes: ["Property profile", "Rooms", "Facilities", "Gallery", "Location", "Pricing", "CTA booking"], addons: "Booking System mulai Rp2,5JT+ dengan availability, reservation, guest data, payment, dan dashboard." },
-      { name: "Portal / Media", price: "Rp1,499JT", icon: "media", summary: "Publikasi berita dengan CMS dan workflow editorial.", includes: ["CMS", "Category", "Article", "Author", "Search", "Trending / recent", "SEO", "Social sharing", "Admin dashboard"], note: "Harga menyesuaikan jumlah penulis, traffic, iklan, dan workflow editorial." },
-      { name: "Healthcare", price: "Rp1,499JT", icon: "healthcare", summary: "Profil klinik, dokter, layanan, jadwal, dan booking inquiry.", includes: ["Dokter", "Layanan", "Jadwal", "Artikel", "Contact", "Booking inquiry"], note: "Data pasien, rekam medis, prescription, dan clinical workflow masuk Custom Healthcare System dengan quotation khusus." },
+      {
+        name: "Website Starter",
+        price: "Rp499K",
+        numericPrice: 499_000,
+        icon: "landing",
+        summary: "Website profesional siap online untuk berbagai jenis bisnis.",
+        includes: ["Maks. 5 halaman utama", "Responsive desktop & mobile", "WhatsApp dan social media", "Maps bila dibutuhkan", "Basic SEO", "Hosting + SSL", "Domain .com 1 tahun", "Deployment & setup"],
+        featured: true,
+      },
+      {
+        name: "Website + CMS",
+        price: "Rp899K",
+        numericPrice: 899_000,
+        icon: "company",
+        summary: "Website yang dapat dikelola sendiri melalui admin dashboard.",
+        includes: ["Semua Website Starter", "Login admin", "Admin dashboard", "Kelola konten", "Tambah, edit, dan hapus data", "Upload gambar", "Blog / berita / artikel", "Basic database"],
+        featured: true,
+      },
+      {
+        name: "Wedding Invitation",
+        price: "Rp199K+",
+        numericPrice: 199_000,
+        icon: "registration",
+        summary: "Undangan digital personal dengan detail acara dan RSVP.",
+        includes: ["Profil pasangan", "Detail acara", "Countdown", "Google Maps", "Gallery", "Background music", "Nama tamu personal", "RSVP sederhana"],
+        addons: "Video, custom animation, advanced RSVP, dan guest management.",
+      },
     ],
   },
   {
-    id: "commerce-event",
+    id: "commerce",
     number: "02",
-    title: "Commerce & Event",
-    description: "Produk, transaksi, registrasi, dan pengalaman customer.",
+    title: "Commerce",
+    description: "Toko online dengan pembayaran yang langsung dipahami customer.",
     plans: [
-      { name: "Product Catalog", price: "Rp1,099JT", icon: "catalog", summary: "Katalog milik brand dengan order melalui WhatsApp.", audience: ["Brand", "Toko", "Reseller", "UMKM"], includes: ["Produk", "Kategori", "Detail produk", "CTA WhatsApp", "CMS"] },
-      { name: "E-Commerce", price: "Rp2,499JT", icon: "commerce", summary: "Online store dengan checkout, pembayaran, dan dashboard.", includes: ["Cart", "Checkout", "Order", "Payment gateway", "Dashboard"], addons: "E-Commerce Pro Rp5,499JT+ dengan inventory, promo, voucher, shipping, report, dan customer management.", featured: true },
-      { name: "Event Website", price: "Rp749K", icon: "event", summary: "Informasi dan promosi event dalam satu halaman.", includes: ["Event overview", "Agenda", "Speaker", "Venue", "Sponsor", "FAQ", "CTA registrasi"] },
-      { name: "Event Registration", price: "Rp1,499JT", icon: "registration", summary: "Registrasi, database peserta, dan dashboard admin.", includes: ["Event website", "Registration form", "Database peserta", "Dashboard", "Search / filter", "Export"] },
-      { name: "Event Ticketing", price: "Rp3,499JT", icon: "ticketing", summary: "Pembayaran, tiket digital, QR, scanner, dan attendance.", includes: ["Checkout", "Payment", "Digital ticket", "QR unik", "Scanner", "Attendance", "Sales dashboard"] },
+      {
+        name: "E-Commerce QRIS",
+        price: "Rp2.299K",
+        numericPrice: 2_299_000,
+        icon: "commerce",
+        summary: "Toko online dengan QRIS otomatis dan pengelolaan order.",
+        includes: ["Product catalog", "Category & product detail", "Cart & checkout", "Customer dan order management", "Admin dashboard", "Inventory basic", "QRIS otomatis", "Payment status & webhook", "Invoice / receipt", "Basic sales dashboard"],
+        note: "Biaya provider payment dan MDR tidak termasuk biaya development.",
+        featured: true,
+      },
+      {
+        name: "E-Commerce Full Payment",
+        price: "Rp3.799K",
+        numericPrice: 3_799_000,
+        icon: "commerce",
+        summary: "Toko online dengan payment gateway lengkap.",
+        includes: ["Semua E-Commerce QRIS", "Virtual Account", "Bank transfer & e-wallet", "Kartu jika provider mendukung", "Payment callback & expiry", "Voucher / promo", "Advanced inventory", "Customer management", "Sales report", "Shipping integration basic"],
+        featured: true,
+      },
     ],
   },
   {
-    id: "business-software",
+    id: "business-apps",
     number: "03",
-    title: "Business Software",
-    description: "Digitalisasi booking dan proses operasional yang masih manual.",
+    title: "Business Apps",
+    description: "Aplikasi siap scope untuk proses bisnis yang spesifik.",
     plans: [
-      { name: "Booking / Rental", price: "Rp1,099JT", icon: "booking", summary: "Website dan sistem booking untuk rental atau layanan terjadwal.", audience: ["Rental mobil", "Rental motor", "Lapangan", "Barber", "Salon", "Venue", "Equipment rental"], includes: ["Profil layanan", "Unit / fasilitas", "Harga", "CTA WhatsApp", "Form booking"], addons: "Booking System Rp2,5JT+ dengan availability, schedule, customer, booking, status, dan payment." },
-      { name: "Business System", price: "Rp2,5JT", icon: "business", summary: "Ganti Excel, WhatsApp, dan pencatatan manual dengan satu dashboard.", includes: ["Database", "Admin dashboard", "Customer management", "Transaction / request", "Status", "Search / filter", "Basic report", "Export"], examples: ["CRM", "Booking", "POS", "Laundry", "Rental", "Inventory", "Membership"], featured: true },
-      { name: "Operational System", price: "Rp5JT", icon: "operations", summary: "Sistem multi-user dengan workflow, dokumen, dan audit trail.", includes: ["Multi user", "Staff", "Customer", "Roles", "Transaction", "Workflow", "Documents", "Notification", "Reporting", "Audit trail"], examples: ["Travel operations", "Distributor", "Procurement", "Administrasi pendidikan"] },
+      { name: "Booking System", price: "Rp2.499K", numericPrice: 2_499_000, icon: "booking", summary: "Booking, reservasi, jadwal, dan dashboard.", includes: ["Service management", "Schedule & availability", "Customer", "Booking & status", "Admin dashboard", "Calendar", "Confirmation", "Basic notification", "Basic report"], addons: "Payment gateway tersedia sebagai add-on.", featured: true },
+      { name: "POS System", price: "Rp2.999K", numericPrice: 2_999_000, icon: "business", summary: "Kasir, transaksi, produk, stock, dan laporan.", includes: ["Login cashier / admin", "Product & category", "Stock basic", "Cart kasir", "Transaction & discount", "Receipt", "Transaction history", "Daily sales", "Dashboard & report", "Export data"], addons: "Multi cashier, barcode, printer, multi outlet, loyalty, dan advanced inventory." },
+      { name: "Ticketing System", price: "Rp3.499K", numericPrice: 3_499_000, icon: "ticketing", summary: "Tiket digital, pembayaran, QR scanner, dan attendance.", includes: ["Event landing page", "Ticket type, price, dan quota", "Registration & checkout", "Payment gateway", "Digital ticket", "Unique QR", "QR scanner & check-in", "Participant database", "Attendance & sales dashboard"], featured: true },
+      { name: "Membership System", price: "Rp3.499K", numericPrice: 3_499_000, icon: "registration", summary: "Member, status, masa aktif, dan dashboard.", includes: ["Member registration & login", "Member database & profile", "Membership type", "Active / inactive status", "Expiration", "Member dashboard", "Admin dashboard", "QR / member ID", "Basic report"] },
+      { name: "LMS / Course Platform", price: "Rp3.999K", numericPrice: 3_999_000, icon: "education", summary: "Course, student, materi, progress, dan dashboard.", includes: ["Admin, instructor, student", "Course & module", "Lesson & video", "Downloadable resources", "Student enrollment", "Course progress", "Basic quiz", "Student dashboard", "Admin dashboard"], addons: "Certificate, assignment, live class, payment, subscription, discussion, exam, dan AI tutor." },
+      { name: "CRM System", price: "Rp3.999K", numericPrice: 3_999_000, icon: "sales", summary: "Lead, follow-up, customer, dan sales pipeline.", includes: ["Lead database", "Customer", "Pipeline & lead status", "Follow-up", "Notes & activities", "Sales person", "Dashboard", "Search / filter", "Basic report", "Export"] },
+      { name: "Inventory System", price: "Rp3.999K", numericPrice: 3_999_000, icon: "catalog", summary: "Stock, supplier, movement, dan laporan inventory.", includes: ["Product / SKU", "Category", "Stock in & out", "Supplier", "Inventory movement", "Minimum stock", "Basic purchase", "Dashboard", "Report", "Export"], addons: "Warehouse, barcode, purchase order, stock transfer, dan advanced costing." },
+      { name: "Rental System", price: "Rp3.999K", numericPrice: 3_999_000, icon: "travel", summary: "Unit, availability, booking, payment, pickup, dan return.", includes: ["Unit / asset & category", "Availability", "Price", "Booking", "Customer", "Payment status", "Rental status", "Pickup / return", "Admin dashboard", "Calendar & report"] },
+      { name: "Operational System", price: "Rp5.999K+", numericPrice: 5_999_000, icon: "operations", summary: "Sistem operasional multi-module untuk workflow harian.", includes: ["Multi-user & roles", "Admin dashboard", "Customer", "Transaction", "Workflow", "Documents", "Notification", "Reporting", "Audit activity", "CMS bila diperlukan"], examples: ["Travel management", "Distributor", "Procurement", "Administrasi pendidikan"], featured: true },
     ],
   },
   {
-    id: "enterprise",
+    id: "custom",
     number: "04",
-    title: "Enterprise",
-    description: "Corporate solution, institusi publik, dan software khusus.",
+    title: "Custom",
+    description: "Software untuk kebutuhan unik, kompleks, atau berisiko tinggi.",
     plans: [
-      { name: "Government", price: "Rp5,499JT", icon: "government", summary: "Website instansi, publikasi, dokumen, dan aksesibilitas dasar.", includes: ["Profile", "Organization", "News", "Agenda", "Documents", "Announcement", "CMS", "Basic accessibility"], addons: "Digital Public Service mulai Rp10JT+ untuk pengajuan, tracking, verification, approval, dan staff dashboard." },
-      { name: "Custom Software", price: "Custom", icon: "custom", summary: "Produk digital kompleks dengan discovery dan quotation khusus.", audience: ["SaaS", "ERP", "Marketplace", "Client portal", "Mobile app", "Multi-vendor", "Multi-branch", "AI application"], includes: ["Discovery", "Module breakdown", "Workflow", "Architecture", "Integration", "Security & infrastructure", "Timeline", "Quotation"], featured: true },
+      { name: "Custom Software", price: "Custom", icon: "custom", summary: "Sistem sesuai kebutuhan dengan discovery dan quotation khusus.", includes: ["Discovery", "Module breakdown", "Workflow", "Architecture", "Integration", "Security & infrastructure", "Timeline", "Quotation"], examples: ["SaaS", "Marketplace", "ERP", "Multi-branch", "Mobile app", "AI application", "Government", "Healthcare"], featured: true },
     ],
   },
 ];

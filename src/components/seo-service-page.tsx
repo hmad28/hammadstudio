@@ -40,7 +40,7 @@ export function SEOServicePage({
   deliverables,
   proofs,
   faqs,
-  startingPrice = "Website mulai Rp 199 ribu. Scope, timeline, dan biaya berulang dijelaskan sebelum project dimulai.",
+  startingPrice = "Website Starter mulai Rp 499 ribu. Wedding Invitation tetap tersedia sebagai produk khusus mulai Rp 199 ribu+.",
   relatedLinks = [],
   primaryCta = { href: "/contact", label: "Konsultasikan kebutuhan" },
   leadMagnet,
