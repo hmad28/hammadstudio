@@ -345,6 +345,40 @@ a, button { -webkit-tap-highlight-color: transparent; outline-offset: 4px; }
   animation-range: entry 5% cover 25%;
 }
 
+body:has(.partner-page) > .global-promo-bar,
+body:has(.partner-page) .global-site-nav,
+body:has(.partner-page) .global-site-footer,
+body:has(.partner-page) .global-whatsapp-float {
+  display: none;
+}
+
+.partner-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(to bottom, black, transparent 94%);
+}
+
+.partner-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
+}
+
+.partner-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(210, 243, 76, 0.58);
+  text-shadow: 0 0 42px rgba(128, 87, 255, 0.4);
+}
+
+.partner-card-cut {
+  clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 0 100%);
+}
+
+.partner-track-line {
+  background: linear-gradient(90deg, #d2f34c 0 32%, #8057ff 32% 66%, #fff 66% 100%);
+}
+
 @keyframes ticker { to { transform: translateX(calc(-50% - 14px)); } }
 @keyframes pulse-dot {
   0%, 100% { box-shadow: 0 0 0 4px rgb(207 239 87 / 15%); }

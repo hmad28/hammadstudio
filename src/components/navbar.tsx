@@ -35,7 +35,7 @@ export function Navbar() {
   }, []);
 
   return (
-    <header className="pointer-events-none fixed inset-x-0 top-10 z-50 px-4 pt-3 sm:px-5 sm:pt-4">
+    <header className="global-site-nav pointer-events-none fixed inset-x-0 top-10 z-50 px-4 pt-3 sm:px-5 sm:pt-4">
       <motion.div
         initial={reduceMotion ? false : { opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}

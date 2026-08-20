@@ -5,7 +5,7 @@ const whatsappHref = `https://wa.me/6285199391215?text=${encodeURIComponent("Hal
 
 export function MerdekaPromoBar() {
   return (
-    <div className="fixed inset-x-0 top-0 z-[60] h-10 overflow-hidden border-b border-white/15 bg-[linear-gradient(90deg,#710912_0%,#d91c26_28%,#ef2932_50%,#d91c26_72%,#710912_100%)] text-white shadow-[0_8px_24px_rgba(113,9,18,.22)]">
+    <div className="global-promo-bar fixed inset-x-0 top-0 z-[60] h-10 overflow-hidden border-b border-white/15 bg-[linear-gradient(90deg,#710912_0%,#d91c26_28%,#ef2932_50%,#d91c26_72%,#710912_100%)] text-white shadow-[0_8px_24px_rgba(113,9,18,.22)]">
       <div className="pointer-events-none absolute inset-y-0 left-[8%] w-16 -skew-x-[28deg] bg-white/[.08] sm:left-[18%] sm:w-24" aria-hidden="true" />
       <div className="pointer-events-none absolute inset-y-0 right-[7%] w-24 -skew-x-[28deg] bg-[#07111f]/18 sm:right-[16%]" aria-hidden="true" />
       <a href={whatsappHref} target="_blank" rel="noreferrer" className="merdeka-promo-shine site-container relative flex h-full items-center justify-center gap-2.5 text-center text-[.68rem] font-semibold tracking-[.035em] sm:justify-between sm:text-xs">

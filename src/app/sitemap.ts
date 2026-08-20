@@ -21,6 +21,7 @@ const staticRoutes = [
   { path: "/services/business-system", priority: 0.8, changeFrequency: "monthly" },
   { path: "/services/automation-ai", priority: 0.8, changeFrequency: "monthly" },
   { path: "/work", priority: 0.9, changeFrequency: "weekly" },
+  { path: "/partner", priority: 0.85, changeFrequency: "monthly" },
   { path: "/harga-website", priority: 0.9, changeFrequency: "monthly" },
   { path: "/studio", priority: 0.7, changeFrequency: "monthly" },
   { path: "/contact", priority: 0.7, changeFrequency: "yearly" },

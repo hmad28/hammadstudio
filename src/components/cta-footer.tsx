@@ -71,7 +71,7 @@ export function CTAFooter() {
   const copy = homeContent.footer;
 
   return (
-    <footer className="bg-[#070a12] text-white">
+    <footer className="global-site-footer bg-[#070a12] text-white">
       {/* Signature Multi-spectral Luxury CTA Section */}
       <section className="cta-surface-signature relative overflow-hidden px-5 py-24 text-[#070a12] shadow-2xl sm:px-8 sm:py-32 lg:py-36">
         {/* Ambient Radial Glow Overlays */}
