@@ -44,7 +44,7 @@ export const faqItems: readonly FAQItem[] = [
   },
   {
     question: { id: "Apakah domain sudah termasuk?", en: "Is a domain included?" },
-    answer: { id: "Untuk paket tertentu, domain .com sudah termasuk selama 1 tahun, selama domain yang dipilih masih tersedia.", en: "Selected packages include a .com domain for one year, provided the chosen domain is still available." },
+    answer: { id: "Ya. Seluruh paket sudah termasuk domain .com selama 1 tahun dan hosting, selama nama domain yang dipilih masih tersedia.", en: "Yes. Every package includes a .com domain for one year and hosting, provided the chosen domain is still available." },
   },
   {
     question: { id: "Bisa pakai .id, .co.id, atau domain lainnya?", en: "Can I use a .id, .co.id, or another domain?" },

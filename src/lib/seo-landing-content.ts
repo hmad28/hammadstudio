@@ -31,7 +31,7 @@ export const sharedFaqs = [
 export const umkmFaqs = [
   { question: "Berapa harga website untuk UMKM?", answer: "Biaya mengikuti jenis website dan scope. Landing page memiliki kebutuhan berbeda dari katalog, toko online, atau website dengan CMS. Estimasi awal tersedia di halaman harga dan scope final dijelaskan sebelum project dimulai." },
   { question: "Apakah website bisa langsung terhubung ke WhatsApp?", answer: "Bisa. Tombol, form, katalog, atau pilihan produk dapat diarahkan ke percakapan WhatsApp dengan pesan awal yang lebih terstruktur." },
-  { question: "Apakah domain dan hosting termasuk?", answer: "Domain dan hosting dapat disiapkan bersama project. Kepemilikan akun, biaya awal, dan biaya perpanjangan dijelaskan terpisah agar tetap transparan." },
+  { question: "Apakah domain dan hosting termasuk?", answer: "Ya. Seluruh paket mencakup domain .com selama 1 tahun dan hosting sesuai kebutuhan dasar project. Biaya perpanjangan, domain premium, atau infrastruktur khusus dijelaskan secara transparan." },
   { question: "Apakah produk bisa diperbarui sendiri?", answer: "Bisa jika project menggunakan CMS atau dashboard pengelolaan. Kebutuhan update konten dibahas sejak awal agar solusi tidak lebih rumit dari yang dibutuhkan." },
   { question: "Apakah website pasti muncul di Google?", answer: "Website disiapkan agar crawlable dan SEO-ready, lalu dapat didaftarkan melalui Search Console. Ranking tidak dapat dijamin karena dipengaruhi kompetisi, konten, authority, dan waktu." },
 ] as const;

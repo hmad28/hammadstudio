@@ -30,7 +30,7 @@ const includedBenefits = [
   { title: "Fast & Responsive", copy: "Optimal di desktop dan mobile", icon: DeviceMobile },
   { title: "SEO Foundation", copy: "Struktur dasar siap ditemukan", icon: MagnifyingGlass },
   { title: "SSL Security", copy: "HTTPS aktif", icon: LockKey },
-  { title: "Hosting", copy: "Sesuai kebutuhan project", icon: CloudCheck },
+  { title: "Domain & Hosting", copy: ".com 1 tahun + hosting", icon: CloudCheck },
   { title: "WhatsApp Integration", copy: "Jalur kontak langsung", icon: WhatsappLogo },
   { title: "Post-Launch Support", copy: "Bantuan setelah website live", icon: Wrench },
 ] as const;
@@ -133,7 +133,7 @@ export function PricingPageContent() {
                 <p className="mt-16 text-lg text-white/72">Harga spesial mulai dari</p>
                 <p className="mt-2 text-[clamp(3.7rem,7vw,6.7rem)] font-[680] leading-none tracking-[-.08em]">Rp499<span className="text-[.45em] tracking-[-.04em]">.000</span></p>
                 <div className="mt-8 h-1 w-24 bg-[#e1262f]" />
-                <p className="mt-9 text-sm leading-6 text-white/50">Konsultasi gratis · Responsive<br />SEO Foundation · Hosting & SSL</p>
+                <p className="mt-9 text-sm leading-6 text-white/50">Konsultasi gratis · Responsive<br />Domain .com · Hosting & SSL</p>
               </div>
             </div>
           </div>
@@ -227,7 +227,7 @@ export function PricingPageContent() {
       <section className="bg-[#f7f4ed] py-14">
         <div className="site-container grid gap-8 text-xs leading-5 text-black/45 md:grid-cols-2">
           <p><strong className="text-black/65">Tentang harga.</strong> Harga yang ditampilkan merupakan harga mulai untuk scope standar. Harga final menyesuaikan fitur, halaman atau modul, integrasi, timeline, dan kebutuhan project.</p>
-          <p><strong className="text-black/65">Domain dan layanan pihak ketiga.</strong> Domain umum dapat termasuk pada paket tertentu sesuai promo dan ketersediaan. Domain premium, integrasi, serta layanan pihak ketiga dapat dikenakan biaya tambahan.</p>
+          <p><strong className="text-black/65">Domain dan hosting sudah termasuk.</strong> Seluruh paket mencakup domain .com selama 1 tahun dan hosting sesuai kebutuhan dasar project. Domain premium, ekstensi khusus, integrasi, serta layanan pihak ketiga dapat dikenakan biaya tambahan.</p>
         </div>
       </section>
     </div>

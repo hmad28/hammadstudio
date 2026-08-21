@@ -431,8 +431,8 @@ export const homeContent = {
           en: "Are domain and hosting included?",
         },
         answer: {
-          id: "Setup, deployment, dan konfigurasi dasar sudah termasuk. Untuk domain dan server/cloud, biayanya dijelaskan terpisah secara transparan sejak awal.",
-          en: "Setup, deployment, and baseline configuration are included. Domain and server/cloud costs are detailed separately and transparently from day one.",
+          id: "Ya. Seluruh paket sudah termasuk domain .com selama 1 tahun, hosting, SSL, setup, dan deployment. Domain premium atau infrastruktur khusus dapat dikenakan biaya tambahan.",
+          en: "Yes. Every package includes a .com domain for one year, hosting, SSL, setup, and deployment. Premium domains or specialized infrastructure may cost extra.",
         },
       },
       {
