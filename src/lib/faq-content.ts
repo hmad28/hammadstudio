@@ -8,7 +8,7 @@ export type FAQItem = {
 export const faqItems: readonly FAQItem[] = [
   {
     question: { id: "Berapa harga pembuatan website?", en: "How much does a website cost?" },
-    answer: { id: "Website Starter mulai dari Rp499.000. Harga akhir menyesuaikan jumlah halaman, fitur, dan kebutuhan project.", en: "Website Starter begins at Rp499,000. The final price depends on the number of pages, features, and project requirements." },
+    answer: { id: "Paket Website mulai dari Rp499.000. Harga akhir menyesuaikan jumlah halaman, fitur, dan kebutuhan project.", en: "The Website package begins at Rp499,000. The final price depends on the number of pages, features, and project requirements." },
   },
   {
     question: { id: "Kenapa harga website Hammad Studio bisa lebih terjangkau?", en: "Why can Hammad Studio offer more accessible pricing?" },
@@ -20,7 +20,7 @@ export const faqItems: readonly FAQItem[] = [
   },
   {
     question: { id: "Apakah tersedia website dengan dashboard?", en: "Are websites with dashboards available?" },
-    answer: { id: "Bisa. Website + CMS mulai Rp899.000, sehingga konten seperti produk, paket, artikel, galeri, atau testimoni dapat dikelola sendiri.", en: "Yes. Website + CMS begins at Rp899,000, allowing you to manage products, packages, articles, galleries, testimonials, and other content." },
+    answer: { id: "Bisa. Paket CMS mulai Rp899.000, sehingga konten seperti produk, paket, artikel, galeri, atau testimoni dapat dikelola sendiri.", en: "Yes. The CMS package begins at Rp899,000, allowing you to manage products, packages, articles, galleries, testimonials, and other content." },
   },
   {
     question: { id: "Apakah website bisa dikembangkan lagi nantinya?", en: "Can the website be expanded later?" },

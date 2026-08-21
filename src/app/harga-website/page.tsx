@@ -4,7 +4,7 @@ import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
   title: "Harga Pembuatan Website 2026 — Mulai Rp499 Ribu",
-  description: "Harga website Hammad Studio 2026: Website Starter Rp499 ribu, CMS Rp899 ribu, e-commerce, booking, POS, CRM, LMS, dan custom software.",
+  description: "Harga produk digital Hammad Studio 2026: website Rp499 ribu, CMS Rp899 ribu, commerce, booking, LMS, ticketing, business system, dan custom software.",
   path: "/harga-website",
 });
 

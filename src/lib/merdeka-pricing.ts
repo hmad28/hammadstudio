@@ -13,19 +13,19 @@ export type MerdekaPlan = {
 };
 
 const featuredNames = new Set([
-  "Website Starter",
-  "Website + CMS",
-  "E-Commerce QRIS",
-  "E-Commerce Full Payment",
-  "Booking System",
-  "Operational System",
+  "Website",
+  "CMS",
+  "Commerce",
+  "Booking",
+  "Business",
+  "Operational",
 ]);
 
 const badges: Record<string, string> = {
-  "Website Starter": "PALING MUDAH DIMULAI",
-  "Website + CMS": "SWEET SPOT",
-  "E-Commerce QRIS": "QRIS OTOMATIS",
-  "Operational System": "MULTI-MODULE",
+  Website: "PALING MUDAH DIMULAI",
+  CMS: "DASHBOARD ADMIN",
+  Commerce: "QRIS OTOMATIS",
+  Operational: "MULTI-MODULE",
 };
 
 const toPublicPlan = (plan: (typeof pricingPlans)[number]): MerdekaPlan => ({
@@ -36,8 +36,8 @@ const toPublicPlan = (plan: (typeof pricingPlans)[number]): MerdekaPlan => ({
   icon: plan.icon,
   features: plan.includes.slice(0, 6),
   badge: badges[plan.name],
-  cta: plan.price === "Custom" ? "Diskusikan scope" : "Konsultasikan produk",
-  featured: plan.name === "Website + CMS",
+  cta: plan.price === "Custom Quote" ? "Diskusikan scope" : "Konsultasikan produk",
+  featured: plan.name === "CMS",
 });
 
 export const merdekaFeaturedPlans = pricingPlans

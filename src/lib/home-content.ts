@@ -303,33 +303,33 @@ export const homeContent = {
     },
     items: [
       {
-        title: { id: "Website Starter", en: "Website Starter" },
+        title: { id: "Website", en: "Website" },
         price: "Rp 499 ribu",
         desc: "Website profesional siap online, domain, hosting, dan SSL.",
       },
       {
-        title: { id: "Website + CMS", en: "Website + CMS" },
+        title: { id: "CMS", en: "CMS" },
         price: "Rp 899 ribu",
         desc: "Website dengan dashboard dan pengelolaan konten.",
       },
       {
-        title: { id: "E-Commerce QRIS", en: "E-Commerce QRIS" },
+        title: { id: "Commerce", en: "Commerce" },
         price: "Rp 2,299 juta",
         desc: "Toko online dengan pembayaran QRIS otomatis.",
       },
       {
-        title: { id: "Booking System", en: "Booking System" },
+        title: { id: "Booking", en: "Booking" },
         price: "Rp 2,499 juta",
         desc: "Booking, reservasi, jadwal, dan dashboard.",
       },
       {
-        title: { id: "Operational System", en: "Operational System" },
+        title: { id: "Operational", en: "Operational" },
         price: "Rp 5,999 juta+",
         desc: "Sistem operasional bisnis multi-module.",
       },
       {
-        title: { id: "Custom Software", en: "Custom Software" },
-        price: "Custom",
+        title: { id: "Custom", en: "Custom" },
+        price: "Custom Quote",
         desc: "SaaS, marketplace, ERP, dan sistem enterprise.",
       },
     ],

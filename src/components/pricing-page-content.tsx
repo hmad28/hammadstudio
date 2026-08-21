@@ -39,7 +39,7 @@ const outcomes = [
   ["01", "Website", "membangun presence", "landing"],
   ["02", "Commerce", "menerima transaksi", "commerce"],
   ["03", "Business Apps", "merapikan workflow", "business"],
-  ["04", "Custom Software", "menjawab kebutuhan unik", "custom"],
+  ["04", "Custom", "menjawab kebutuhan unik", "custom"],
 ] as const;
 
 const proof = [
@@ -163,10 +163,12 @@ export function PricingPageContent() {
           <div className="mt-12 grid border-t border-black/12 md:grid-cols-2 lg:grid-cols-4">
             {firstOtherPlans.map((plan) => <CompactPlan key={plan.name} plan={plan} />)}
           </div>
-          <details className="group mt-4 border-t border-black/12">
-            <summary className="flex cursor-pointer list-none items-center justify-between py-5 text-sm font-semibold marker:hidden [&::-webkit-details-marker]:hidden">Lihat seluruh solusi dan harga <Plus className="h-5 w-5 transition group-open:rotate-45" weight="bold" /></summary>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4">{remainingPlans.map((plan) => <CompactPlan key={plan.name} plan={plan} />)}</div>
-          </details>
+          {remainingPlans.length ? (
+            <details className="group mt-4 border-t border-black/12">
+              <summary className="flex cursor-pointer list-none items-center justify-between py-5 text-sm font-semibold marker:hidden [&::-webkit-details-marker]:hidden">Lihat seluruh solusi dan harga <Plus className="h-5 w-5 transition group-open:rotate-45" weight="bold" /></summary>
+              <div className="grid md:grid-cols-2 lg:grid-cols-4">{remainingPlans.map((plan) => <CompactPlan key={plan.name} plan={plan} />)}</div>
+            </details>
+          ) : null}
         </div>
       </section>
 

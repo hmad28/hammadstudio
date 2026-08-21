@@ -25,14 +25,16 @@ const navigationLinks = [
 ] as const;
 
 const serviceLinks = [
-  { href: "/harga-website#plan-website-starter", label: "Website Starter" },
-  { href: "/harga-website#plan-website-cms", label: "Website + CMS" },
-  { href: "/harga-website#plan-e-commerce-qris", label: "E-Commerce QRIS" },
-  { href: "/harga-website#plan-booking-system", label: "Booking System" },
-  { href: "/harga-website#plan-pos-system", label: "POS System" },
-  { href: "/harga-website#plan-ticketing-system", label: "Ticketing System" },
-  { href: "/harga-website#plan-operational-system", label: "Operational System" },
-  { href: "/harga-website#plan-custom-software", label: "Custom Software" },
+  { href: "/harga-website#plan-website", label: "Website" },
+  { href: "/harga-website#plan-cms", label: "CMS" },
+  { href: "/harga-website#plan-commerce", label: "Commerce" },
+  { href: "/harga-website#plan-commerce-pro", label: "Commerce Pro" },
+  { href: "/harga-website#plan-booking", label: "Booking" },
+  { href: "/harga-website#plan-lms", label: "LMS" },
+  { href: "/harga-website#plan-ticketing", label: "Ticketing" },
+  { href: "/harga-website#plan-business", label: "Business" },
+  { href: "/harga-website#plan-operational", label: "Operational" },
+  { href: "/harga-website#plan-custom", label: "Custom" },
 ] as const;
 
 const industryLinks = [
