@@ -76,6 +76,7 @@ export function ProjectDetailPage({ slug }: { slug: WorkSlug }) {
                   alt={`${project.title} — ${project.category[locale]}`}
                   fill
                   priority
+                  quality={70}
                   sizes="(max-width: 1240px) 100vw, 1240px"
                   className="object-cover object-top"
                 />

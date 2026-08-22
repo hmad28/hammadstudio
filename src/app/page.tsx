@@ -5,7 +5,7 @@ import { ServicesSection } from "@/components/services-section";
 import { PortfolioSection } from "@/components/portfolio-section";
 import { HomepageProofSection } from "@/components/homepage-proof-section";
 import { MerdekaPromoSection } from "@/components/merdeka-promo-section";
-import { HomepagePromoPopup } from "@/components/homepage-promo-popup";
+import { DeferredHomepagePromo } from "@/components/deferred-homepage-promo";
 
 export const metadata: Metadata = {
   title: "Jasa Pembuatan Website Profesional | Hammad Studio",
@@ -24,9 +24,9 @@ const organizationJsonLd = {
       url: "https://hammad.studio",
       logo: {
         "@type": "ImageObject",
-        url: "https://hammad.studio/images/brand/hammad-studio-logo.png",
-        width: 6363,
-        height: 1666,
+        url: "https://hammad.studio/images/brand/hammad-studio-logo.webp",
+        width: 1600,
+        height: 419,
       },
       email: "hello@hammad.studio",
       telephone: "+62-851-9939-1215",
@@ -117,7 +117,7 @@ export default function HomePage() {
 
       <MerdekaPromoSection />
 
-      <HomepagePromoPopup />
+      <DeferredHomepagePromo />
 
     </div>
   );

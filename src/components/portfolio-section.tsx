@@ -27,6 +27,8 @@ function ProjectCard({
                 src={project.image}
                 alt={`${project.title} homepage hero`}
                 fill
+                quality={60}
+                loading="lazy"
                 sizes="(max-width: 1023px) 100vw, 580px"
                 className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.025]"
               />

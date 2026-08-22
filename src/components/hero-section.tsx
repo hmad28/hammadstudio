@@ -146,12 +146,14 @@ export function HeroSection() {
           {/* Left Tilted Card */}
           <motion.div
             style={{ y: sideCardY, rotate: "-5deg" }}
-            className="absolute -left-[13%] top-[15%] h-[64%] w-[38%] overflow-hidden rounded-xl border border-white/20 bg-[#111] opacity-75 shadow-[0_20px_50px_rgba(0,0,0,0.8)] backdrop-blur-md will-change-transform sm:-left-[8%] sm:opacity-95"
+            className="absolute -left-[13%] top-[15%] h-[64%] w-[38%] overflow-hidden rounded-xl border border-white/20 bg-[#111] opacity-75 shadow-[0_16px_38px_rgba(0,0,0,0.65)] will-change-transform sm:-left-[8%] sm:opacity-95"
           >
             <Image
-              src="/images/work/cpx-jersey.png"
+              src="/images/work/cpx-jersey.webp"
               alt="CPX Jersey homepage hero"
               fill
+              quality={55}
+              loading="lazy"
               sizes="(max-width: 640px) 45vw, 430px"
               className="object-cover object-top"
             />
@@ -160,12 +162,14 @@ export function HeroSection() {
           {/* Right Tilted Card */}
           <motion.div
             style={{ y: sideCardY, rotate: "5deg" }}
-            className="absolute -right-[13%] top-[15%] h-[64%] w-[38%] overflow-hidden rounded-xl border border-white/20 bg-[#111] opacity-75 shadow-[0_20px_50px_rgba(0,0,0,0.8)] backdrop-blur-md will-change-transform sm:-right-[8%] sm:opacity-95"
+            className="absolute -right-[13%] top-[15%] h-[64%] w-[38%] overflow-hidden rounded-xl border border-white/20 bg-[#111] opacity-75 shadow-[0_16px_38px_rgba(0,0,0,0.65)] will-change-transform sm:-right-[8%] sm:opacity-95"
           >
             <Image
-              src="/images/work/sahabat-qolbu.png"
+              src="/images/work/sahabat-qolbu.webp"
               alt="Sahabat Qolbu homepage hero"
               fill
+              quality={55}
+              loading="lazy"
               sizes="(max-width: 640px) 45vw, 430px"
               className="object-cover object-top"
             />
@@ -178,10 +182,11 @@ export function HeroSection() {
           >
             <div className="relative h-full w-full overflow-hidden rounded-[14px]">
               <Image
-                src="/images/work/solivate.png"
+                src="/images/work/solivate.webp"
                 alt="Solivate Studio homepage hero"
                 fill
                 priority
+                quality={70}
                 sizes="(max-width: 640px) 86vw, 820px"
                 className="object-cover object-top transition-transform duration-1000 ease-out group-hover:scale-[1.018]"
               />

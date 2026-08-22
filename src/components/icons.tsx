@@ -10,12 +10,12 @@ export function HammadStudioLogo({
 }) {
   return (
     <Image
-      src="/images/brand/hammad-studio-logo.png"
+      src="/images/brand/hammad-studio-logo.webp"
       alt="HAMMAD.STUDIO"
-      width={6363}
-      height={1666}
+      width={1600}
+      height={419}
       priority={priority}
-      unoptimized
+      sizes="(max-width: 640px) 194px, 300px"
       className={`select-none object-contain ${className}`}
     />
   );

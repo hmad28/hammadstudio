@@ -151,7 +151,7 @@ function ProjectCard({
       aria-label={`${viewLabel}: ${title}`}
       className="group block h-full rounded-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d2f34c] active:translate-y-px"
     >
-      <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-white/12 bg-white/[0.045] transition-[border-color,background-color,transform,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-1 group-hover:border-[#d2f34c]/45 group-hover:bg-white/[0.065] group-hover:shadow-[0_26px_70px_rgba(3,5,12,0.38)]">
+      <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-white/12 bg-white/[0.045] [content-visibility:auto] [contain-intrinsic-size:auto_560px] transition-[border-color,background-color,transform,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-1 group-hover:border-[#d2f34c]/45 group-hover:bg-white/[0.065] group-hover:shadow-[0_26px_70px_rgba(3,5,12,0.38)]">
         <div
           className={`${imageClassName} relative overflow-hidden bg-[#111217]`}
         >
@@ -161,6 +161,7 @@ function ProjectCard({
               alt={`${title} — ${category}`}
               fill
               loading="lazy"
+              quality={60}
               sizes="(max-width: 767px) 100vw, (max-width: 1279px) 58vw, 720px"
               className="object-cover object-top transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.025]"
             />
@@ -225,6 +226,7 @@ function LeadProjectCard({
             alt={`${title} — ${category}`}
             fill
             preload
+            quality={70}
             sizes="(max-width: 1279px) 100vw, 1240px"
             className="object-cover object-top transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.018]"
           />

@@ -131,7 +131,7 @@ export const homeContent = {
           id: "Landing page, company profile, corporate website, portfolio, blog, dan CMS.",
           en: "Landing pages, company profiles, corporate websites, portfolios, blogs, and CMS.",
         },
-        image: "/images/work/solivate.png",
+        image: "/images/work/solivate.webp",
         icon: "GlobeIcon",
       },
       {
@@ -143,7 +143,7 @@ export const homeContent = {
           id: "Toko online dengan katalog, checkout, pembayaran, pengelolaan pesanan, dan laporan.",
           en: "Online store with catalog, checkout, payments, order management, and reports.",
         },
-        image: "/images/work/cpx-jersey.png",
+        image: "/images/work/cpx-jersey.webp",
         icon: "ShoppingBagIcon",
       },
       {
@@ -155,7 +155,7 @@ export const homeContent = {
           id: "Dashboard, portal, booking, registrasi, ticketing, dan member area.",
           en: "Dashboards, portals, booking systems, registration, ticketing, and member areas.",
         },
-        image: "/images/work/studyshare.png",
+        image: "/images/work/studyshare.webp",
         icon: "AppWindowIcon",
       },
       {
@@ -167,7 +167,7 @@ export const homeContent = {
           id: "CRM, sistem operasional, manajemen data, reporting, dan tools internal bisnis.",
           en: "CRM, operations systems, data management, reporting, and internal business tools.",
         },
-        image: "/images/work/masjid-raya-puri-telukjambe.png",
+        image: "/images/work/masjid-raya-puri-telukjambe.webp",
         icon: "LayersIcon",
       },
       {
@@ -179,7 +179,7 @@ export const homeContent = {
           id: "Customer service, follow-up, lead management, notifikasi, dan workflow automation.",
           en: "Customer service, follow-up, lead management, notifications, and workflow automation.",
         },
-        image: "/images/work/naiklevel-ai.png",
+        image: "/images/work/naiklevel-ai.webp",
         icon: "ZapIcon",
       },
       {
@@ -191,7 +191,7 @@ export const homeContent = {
           id: "SaaS, marketplace, integrasi API, platform khusus, dan kebutuhan digital lainnya.",
           en: "SaaS, marketplaces, API integrations, custom platforms, and specialized digital needs.",
         },
-        image: "/images/generated/custom-development.png",
+        image: "/images/generated/custom-development.webp",
         icon: "CodeIcon",
       },
     ],

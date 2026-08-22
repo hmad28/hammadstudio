@@ -2,6 +2,26 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: "standalone",
+  experimental: {
+    optimizePackageImports: ["@phosphor-icons/react", "motion"],
+  },
+  images: {
+    formats: ["image/avif", "image/webp"],
+    qualities: [50, 55, 60, 65, 70, 75, 80],
+  },
+  async headers() {
+    return [
+      {
+        source: "/images/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=86400, stale-while-revalidate=604800",
+          },
+        ],
+      },
+    ];
+  },
   async redirects() {
     return [
       { source: "/pricing", destination: "/harga-website", permanent: true },

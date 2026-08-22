@@ -163,10 +163,11 @@ export function StudioPageContent() {
           >
             <div className="relative h-full w-full overflow-hidden rounded-xl">
               <Image
-                src="/images/work/solivate.png"
+                src="/images/work/solivate.webp"
                 alt="Solivate Studio digital agency homepage"
                 fill
                 priority
+                quality={70}
                 sizes="(max-width: 1024px) 100vw, 600px"
                 className="object-cover object-top"
               />
@@ -223,9 +224,11 @@ export function StudioPageContent() {
         <div className="site-container surface-card grid overflow-hidden rounded-2xl border border-[#dde0e7] bg-white lg:grid-cols-12 shadow-xl">
           <div className="relative min-h-[360px] bg-[#070a12] sm:min-h-[480px] lg:col-span-6">
             <Image
-              src="/images/generated/custom-development.png"
+              src="/images/generated/custom-development.webp"
               alt="Custom software architecture illustration"
               fill
+              quality={65}
+              loading="lazy"
               sizes="(max-width: 1024px) 100vw, 620px"
               className="object-cover object-top"
             />

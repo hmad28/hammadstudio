@@ -81,10 +81,11 @@ export function HomepagePromoPopup() {
               aria-label="Klaim Promo Merdeka melalui WhatsApp"
             >
               <Image
-                src="/images/campaign/merdeka-bisnis-popup.png"
+                src="/images/campaign/merdeka-bisnis-popup.webp"
                 alt="Promo Merdekakan Bisnis Anda — website mulai Rp499 ribu termasuk domain .com"
-                width={1122}
-                height={1418}
+                width={900}
+                height={1125}
+                quality={65}
                 sizes="(max-width: 640px) calc(100vw - 24px), 500px"
                 className="max-h-[88dvh] w-full object-contain transition duration-500 group-hover:scale-[1.012]"
               />
